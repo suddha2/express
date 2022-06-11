@@ -1,0 +1,282 @@
+
+<div ui-view class="ng-admin-section">
+    <div class="page-preloader"></div>
+</div>
+
+<script id="admin-header" type="text/html">
+    <?php
+    if(!$this->minimal) {
+        ?>
+        <div class="navbar-header full-width">
+            <ul class="nav navbar-top-links navbar-right pull-right">
+                <li uib-dropdown>
+                    <?php
+                    $langs = array(
+                        \Application\Util\Language::EN_LOCALE => array(
+                            'url' => '/admin-panel/index/lang?lang=en&dest='. urlencode($_SERVER['REQUEST_URI']),
+                            'name'=> 'English'
+                        ),
+                        \Application\Util\Language::SI_LOCALE => array(
+                            'url' => '/admin-panel/index/lang?lang=si&dest='. urlencode($_SERVER['REQUEST_URI']),
+                            'name'=> 'සිංහල'
+                        ),
+                        \Application\Util\Language::TA_LOCALE => array(
+                            'url' => '/admin-panel/index/lang?lang=ta&dest='. urlencode($_SERVER['REQUEST_URI']),
+                            'name'=> 'தமிழ்'
+                        ),
+                    );
+                    $currentLanguage = $langs[\Application\Util\Language::getCurrentLocale()]['name'];
+                    ?>
+                    <a uib-dropdown-toggle href="#" aria-expanded="true" class="pink-text">
+                        <i class="fa fa-language fa-lg"></i>&nbsp;<?php echo $currentLanguage ?>&nbsp;<i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user" role="menu">
+                        <?php
+
+                        //remove current language
+                        unset($langs[\Application\Util\Language::getCurrentLocale()]);
+
+                        //print langs
+                        foreach ($langs as $l) {
+                            echo '<li>
+                                    <a href="'. $l['url'] .'" target="_self">'. $l['name'] .'</a>
+                                </li>';
+                        }
+                        ?>
+                    </ul>
+                </li>
+                <li uib-dropdown>
+                    <a uib-dropdown-toggle href="#" aria-expanded="true">
+                        <i class="fa fa-user fa-lg"></i>&nbsp;<?php echo $this->identity()->username ?>&nbsp;<i
+                            class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user" role="menu">
+                        <li><a ui-sref="me-index"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="/app/auth/logout?r=/app/auth/stafflogin">
+                                <i class="fa fa-sign-out fa-fw"></i>
+                                Logout</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+            <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" ng-click="appController.displayHome()">Express Administration</a>
+        </div>
+    <?php
+    }
+    ?>
+</script>
+
+<?php
+//print ticketbox templates inside. So it loads faster
+echo $this->partial('admin/ticketbox/index.phtml');
+?>
+
+<script id="admin-menu" type="text/html">
+    <div class="navbar-default" role="navigation">
+        <div class="sidebar-nav navbar-collapse collapse" uib-collapse="$parent.isCollapsed">
+            <ul class="nav" id="side-menu">
+                <li class="entities-repeat" ng-repeat="(key, menu) in ::menu.children()" data-menu-id="{{ ::menu.uuid }}" compile="menu.template()">
+                    <a ng-if="::menu.hasChild()" ng-click="toggleMenu(menu)" ng-class="::{'active': menu.isActive(path)}">
+                        <span compile="::menu.icon()"><span class="glyphicon glyphicon-list"></span></span>
+                        {{ menu.title() | translate }}
+                        <span class="glyphicon arrow" ng-class="::{'glyphicon-menu-down': isOpen(menu), 'glyphicon-menu-right': !isOpen(menu) }"></span>
+                    </a>
+                    <a ng-if="::!menu.hasChild()" href="#{{ menu.link() }}" ng-click="activateLink(menu)" ng-class="::{'active': menu.isActive(path)}">
+                        <span compile="::menu.icon()"><span class="glyphicon glyphicon-list"></span></span>
+                        {{ menu.title() | translate }}
+                    </a>
+                    <ul ng-if="::menu.hasChild()" class="nav nav-second-level collapsible" ng-class="::{'collapsed': !isOpen(menu) }">
+                        <li ng-repeat="menu in ::menu.children()" data-menu-id="{{ ::menu.uuid }}" compile="menu.template()">
+                            <a href="#{{menu.link()}}" ng-click="activateLink(menu)" ng-class="::{'active': menu.isActive(path)}">
+                                <span compile="::menu.icon()"><span class="glyphicon glyphicon-list"></span></span>
+                                {{ menu.title() | translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script id="admin-dashboard" type="text/html">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-comments fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">26</div>
+                            <div>New Bookings!</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-tasks fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">12</div>
+                            <div>New Buses!</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-shopping-cart fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">124</div>
+                            <div>New Orders!</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-support fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">13</div>
+                            <div>Support Tickets!</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    //preload translations
+    angular.module('expressAdmin')
+        .constant('TRANSLATIONS',
+            {
+                <?php //ng admin translations ?>
+                'BACK': '<?php echo $this->translate('Back') ?>',
+                'DELETE': '<?php echo $this->translate('Delete') ?>',
+                'CREATE': '<?php echo $this->translate('Create') ?>',
+                'EDIT': '<?php echo $this->translate('Edit') ?>',
+                'EXPORT': '<?php echo $this->translate('Export') ?>',
+                'ADD_FILTER': '<?php echo $this->translate('Add filter') ?>',
+                'SEE_RELATED': '<?php echo $this->translate('See all related {{ entityName }}') ?>',
+                'LIST': '<?php echo $this->translate('List') ?>',
+                'SHOW': '<?php echo $this->translate('Show') ?>',
+                'SAVE': '<?php echo $this->translate('Save') ?>',
+                'N_SELECTED': '<?php echo $this->translate('{{ length }} Selected') ?>',
+                'ARE_YOU_SURE': '<?php echo $this->translate('Are you sure?') ?>',
+                'YES': '<?php echo $this->translate('Yes') ?>',
+                'NO': '<?php echo $this->translate('No') ?>',
+                'FILTER_VALUES': '<?php echo $this->translate('Filter values') ?>',
+                'CLOSE': '<?php echo $this->translate('Close') ?>',
+                'CLEAR': '<?php echo $this->translate('Clear') ?>',
+                'CURRENT': '<?php echo $this->translate('Current') ?>',
+                'REMOVE': '<?php echo $this->translate('Remove') ?>',
+                'ADD_NEW': '<?php echo $this->translate('Add new {{ name }}') ?>',
+                'BROWSE': '<?php echo $this->translate('Browse') ?>',
+                'N_COMPLETE': '<?php echo $this->translate('{{ progress }}% Complete') ?>',
+                'CREATE_NEW': '<?php echo $this->translate('Create new') ?>',
+                'SUBMIT': '<?php echo $this->translate('Submit') ?>',
+                'SAVE_CHANGES': '<?php echo $this->translate('Save changes') ?>',
+                'BATCH_DELETE_SUCCESS': '<?php echo $this->translate('Elements successfully deleted') ?>',
+                'DELETE_SUCCESS': '<?php echo $this->translate('Element successfully deleted') ?>',
+                'ERROR_MESSAGE': '<?php echo $this->translate('Oops, an error occurred (code: {{ status }})') ?>',
+                'INVALID_FORM': '<?php echo $this->translate('Invalid form') ?>',
+                'CREATION_SUCCESS': '<?php echo $this->translate('Element successfully created') ?>',
+                'EDITION_SUCCESS': '<?php echo $this->translate('Changes successfully saved') ?>',
+                'ACTIONS': '<?php echo $this->translate('Actions') ?>',
+                'PAGINATION': '<?php echo $this->translate('<strong>{{ begin }}</strong> - <strong>{{ end }}</strong> of <strong>{{ total }}</strong>') ?>',
+                'NO_PAGINATION': '<?php echo $this->translate('No record found') ?>',
+                'PREVIOUS': '<?php echo $this->translate('« Prev') ?>',
+                'NEXT': '<?php echo $this->translate('Next »') ?>',
+                'DETAIL': '<?php echo $this->translate('Detail') ?>',
+                'STATE_CHANGE_ERROR': '<?php echo $this->translate('State change error: {{ message }}') ?>',
+                'NOT_FOUND': '<?php echo $this->translate('Not Found') ?>',
+                'NOT_FOUND_DETAILS': '<?php echo $this->translate('The page you are looking for cannot be found. Take a break before trying again.') ?>',
+
+                <?php //custom translations ?>
+                'Dashboard': '<?php echo $this->translate('Dashboard') ?>',
+                'Operations': '<?php echo $this->translate('Operations') ?>',
+                'Ticket Box': '<?php echo $this->translate('Ticket Box') ?>',
+                'Bookings': '<?php echo $this->translate('Bookings') ?>',
+                'Cancellations': '<?php echo $this->translate('Cancellations') ?>',
+                'Busses': '<?php echo $this->translate('Busses') ?>',
+                'People': '<?php echo $this->translate('People') ?>',
+                'Conductors': '<?php echo $this->translate('Conductors') ?>',
+                'Drivers': '<?php echo $this->translate('Drivers') ?>',
+                'Common': '<?php echo $this->translate('Common') ?>',
+                'Booking Agents': '<?php echo $this->translate('Booking Agents') ?>',
+                'Amenities': '<?php echo $this->translate('Amenities') ?>',
+                'Suppliers': '<?php echo $this->translate('Suppliers') ?>',
+                'Accounts': '<?php echo $this->translate('Accounts') ?>',
+                'Contact Personnel': '<?php echo $this->translate('Contact Personnel') ?>',
+                'Schedules': '<?php echo $this->translate('Schedules') ?>',
+                'Bus Schedules': '<?php echo $this->translate('Bus Schedules') ?>',
+                'Create Schedule': '<?php echo $this->translate('Create Schedule') ?>',
+                'User Administration': '<?php echo $this->translate('User Administration') ?>',
+                'Users': '<?php echo $this->translate('Users') ?>',
+                'Permission Groups': '<?php echo $this->translate('Permission Groups') ?>',
+                'Reports': '<?php echo $this->translate('Reports') ?>'
+
+            });
+</script>

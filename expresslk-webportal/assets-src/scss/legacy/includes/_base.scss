@@ -1,0 +1,21 @@
+.btn-loading{
+    background-image: url("/img/loader.gif");
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right:40px;
+}
+.red-text{
+    color: $c-red;
+}
+.blue-text{
+    color: $c-blue;
+}
+.green-text{
+    color: $c-green;
+}
+.yellow-text{
+    color: $c-yellow;
+}
+.black-text{
+    color: $c-black;
+}

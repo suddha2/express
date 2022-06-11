@@ -1,0 +1,220 @@
+<div class="page-header">
+    <h1><?php echo $this->translate('Add a bus schedule') ?>
+    </h1>
+</div>
+<form ng-submit="save()">
+    <fieldset>
+        <div class="panel panel-primary" id="AddSchedule">
+            <div class="panel-heading">
+				<!--
+				<div class="form-group">
+                    <label><?php echo $this->translate('Bus') ?></label>
+                    <select class="form-control" ng-model="bus_id" ng-required="true">
+                        <option value="" selected>-- select --</option>
+                        <?php
+                        
+						// foreach ($this->buses as $bus) {
+                            // $expiry = null;
+                            // if ($bus->permitExpiryDate != null) {
+                                // $dt = new DateTime();
+                                // $dt->setTimestamp($bus->permitExpiryDate / 1000);
+                                // $expiry = $dt;
+                            // }
+                            // if ($bus->driver->drivingLicenceExpiryDate != null) {
+                                // $dt = new DateTime();
+                                // $dt->setTimestamp($bus->driver->drivingLicenceExpiryDate / 1000);
+                                // if ($dt < $expiry) {
+                                    // $expiry = $dt;
+                                // }
+                            // }
+                            // $busName = $bus->plateNumber .' - '. $bus->name .' ( ';
+                            // //append route to dropdown
+                            // foreach ($bus->busRoutes as $busRoute) {
+                                // $busName .= $busRoute->busRoute->name .'/';
+                            // }
+                            // $busName .= ' )';
+                            // if ($expiry && $expiry < new DateTime()) {
+                                // echo '<option disabled title="Permit expired" value="'. $bus->id .'">'. $busName .'</option>';
+                            // } else {
+                                // echo '<option value="'. $bus->id .'">'. $busName .'</option>';
+                            // }
+                        // }
+                        ?>
+                    </select>
+                </div>
+            </div>
+			uib-typeahead="plateNumber for plateNumber in getLocation($viewValue)" 
+			-->
+			
+			<input type="text" ng-model="bus_plate" 
+					placeholder="Enter plate number" 
+					uib-typeahead="bus as busList(bus) for bus in getBusList($viewValue)"
+					typeahead-loading="loadingBuses" 
+					typeahead-no-results="noResults" 
+					typeahead-on-select= "loadBus($item, $model, $label, $event)"
+					typeahead-min-length="1"
+					class="form-control"
+					ng-required="true">
+			<i ng-show="loadingBuses" class="glyphicon glyphicon-refresh"></i>
+			<div ng-show="noResults">
+			  <i class="glyphicon glyphicon-remove"></i> No Results Found
+			</div>
+			
+            <div class="panel-body" ng-show="{{bus.supplier.name}}">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><?php echo $this->translate('Supplier') ?></label>
+                        <div>{{bus.supplier.name}}</div>
+                    </div>
+                    <div class="col-md-6" ng-hide="seatingProfileList.length==0">
+                        <label><?php echo $this->translate('Seating profile') ?></label>
+                        <select class="form-control" ng-model="seatingProfile">
+                            <option value="" selected>-- <?php echo $this->translate('No restrictions') ?> --</option>
+                            <option ng-repeat="option in seatingProfileList" ng-selected="(option.id==seatingProfile)" value="{{option.id}}">{{option.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="recurringIsActive" class="" ng-class="{'well well-sm': recurring}">
+            <div class="row" class="col-md-4">
+                <div class="col-md-12 col-sm-12 overflow-auto">
+                    <div class="checkbox">
+                        <button type="button" class="btn btn-default" ng-model="recurring" uib-btn-checkbox uncheckable>
+                            <i class="fa" ng-class="{'fa-check-square-o': recurring, 'fa-square-o': !recurring}"></i> <?php echo $this->translate('Recurring date range') ?>
+                        </button>
+                    </div>
+                </div>
+                <div ng-show="recurring" class="col-md-3">
+                    <p class="">
+                        <?php echo $this->translate('From') ?><input type="text" class="form-control datepicker"
+                                    placeholder="From" ng-init="xyz=false"
+                                    ng-click="xyz = true" uib-datepicker-popup="yyyy-MM-dd"
+                                    ng-model="recur_from" is-open="xyz"
+                                    max-date="max_date" min-date="min_date"
+                                    close-text="Close" />
+                    </p>
+                </div>
+                <div ng-show="recurring" class="col-md-3">
+                    <p class="">
+                        <?php echo $this->translate('To') ?><input type="text" class="form-control datepicker"
+                                   placeholder="To"
+                                   ng-click="xyza = true" uib-datepicker-popup="yyyy-MM-dd"
+                                   ng-model="recur_to" is-open="xyza"
+                                   ng-init="xyza=false" max-date="max_date"
+                                   min-date="recur_from"
+                                   close-text="Close" />
+                    </p>
+                </div>
+				<div ng-show="recurring" class="col-md-3">
+					<p class="">
+						<div>
+							<label class="btn btn-default" ng-model="alternate_days" uib-btn-checkbox >
+							   <i ng-hide="!alternate_days" class="fa fa-check-square-o"></i>
+							   <i ng-hide="alternate_days" class="fa fa-square-o"></i>
+							   &nbsp;&nbsp;<small><?php echo $this->translate('Alternate Days') ?></small>
+						   </label>
+						</div>
+					</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- iterate for each route -->
+        <h4 class="alert-danger ng-hide" ng-show="form.bus_id && !bus.busRoutes.length">No routes for the bus</h4>
+        <div class="well well-sm" ng-repeat="busBusRoute in bus.busRoutes"
+             ng-init="routeCollapse[busBusRoute.busRoute.id]=true">
+            <div class="panel panel-default"
+                ng-class="{'grey-text': routes[busBusRoute.busRoute.id].disabled}">
+                <div class="panel-heading">
+                    <h2>
+                        <label class="btn btn-default" ng-model="routes[busBusRoute.busRoute.id].disabled" uib-btn-checkbox>
+                            <i ng-hide="!routes[busBusRoute.busRoute.id].disabled" class="fa fa-check-square-o"></i>
+                            <i ng-hide="routes[busBusRoute.busRoute.id].disabled" class="fa fa-square-o"></i>
+                            &nbsp;&nbsp;<small><?php echo $this->translate('Hide this Route') ?></small>
+                        </label>
+                        <b><?php echo $this->translate('Route') ?></b> : {{busBusRoute.busRoute.routeNumber}} | {{busBusRoute.busRoute.name}}</h2>
+
+                </div>
+                <table class="table table-responsive" ng-hide="routes[busBusRoute.busRoute.id].disabled">
+                    <tr>
+                        <td width="20%"><label><?php echo $this->translate('Start date/time') ?>: </label></td>
+                        <td width="30%">
+                            <p class="datetime-picker">
+                                <input type="text" class="form-control datepicker pull-left"
+                                       placeholder="Arrival Date"
+                                       ng-click="fromdateopen = true" uib-datepicker-popup="yyyy-MM-dd"
+                                       ng-model="routes[busBusRoute.busRoute.id].startTime" is-open="fromdateopen" ng-required="true"
+                                       ng-change="reloadStops()" max-date="max_date"
+                                       close-text="Close" min-date="min_date" />
+                                <uib-timepicker class="timepicker" mousewheel="false"
+                                            ng-model="routes[busBusRoute.busRoute.id].startTime" ng-change="reloadStops()"
+                                            show-meridian="false"></uib-timepicker>
+                            </p>
+                        </td>
+                        <td width="20%"><label><?php echo $this->translate('End date/time') ?>: </label></td>
+                        <td>
+                            <div>{{routes[busBusRoute.busRoute.id].endTime | date:'yyyy-MM-dd @ h:mma'}}</div>
+                            <div class="form-inline grey-text mt15" ng-hide="routes[busBusRoute.busRoute.id].disabled">
+                                <div class="form-group">
+                                    <label>Load Factor</label>
+                                    <input class="form-control small-number text-right" type="text" ng-model="routes[busBusRoute.busRoute.id].loadFactor">
+                                    <i class="small pull-left"><?php echo $this->translate('* Do not change load factor if you don\'t know what you are doing.') ?></i>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <h3 class="panel-heading"
+                    ng-click="routeCollapse[busBusRoute.busRoute.id] = !routeCollapse[busBusRoute.busRoute.id]"
+                    ng-hide="routes[busBusRoute.busRoute.id].disabled">
+                    <?php echo $this->translate('Bus stops') ?>
+                    <i class="fa fa-chevron-right red-text" ng-class="{'fa-chevron-down': !routeCollapse[busBusRoute.busRoute.id], 'fa-chevron-right': routeCollapse[busBusRoute.busRoute.id]}"></i>
+                </h3>
+                <div class="" uib-collapse="routeCollapse[busBusRoute.busRoute.id]"
+                     ng-hide="routes[busBusRoute.busRoute.id].disabled">
+                    <table class="table table-condensed">
+                        <tr>
+                            <th><?php echo $this->translate('Bus stop name') ?></th>
+                            <th><?php echo $this->translate('Arrive at the stop') ?></th>
+                            <th><?php echo $this->translate('Depart from the stop') ?></th>
+                        </tr>
+                        <tr ng-repeat="busStop in busBusRoute.busRoute.routeStops"
+                            ng-init="dp={};dp[busStop.itKey]={a: false, b: false};">
+                            <td>{{busStop.index}} : {{busStop.stop.name}}</td>
+                            <td>
+                                <p class="datetime-picker">
+                                    <input type="text" class="form-control datepicker pull-left"
+                                           ng-model="routes[busBusRoute.busRoute.id].busStops[busStop.itKey].startTime"
+                                           ng-click="dp[busStop.itKey].a = true" is-open="dp[busStop.itKey].a"
+                                           ng-change="reloadStops()" uib-datepicker-popup="yyyy-MM-dd"
+                                           placeholder="Arrival Date" ng-required="true"
+                                           max-date="max_date" close-text="Close" min-date="min_date" />
+                                    <uib-timepicker ng-change="reloadStops()"  class="timepicker" mousewheel="false"
+                                                ng-model="routes[busBusRoute.busRoute.id].busStops[busStop.itKey].startTime"
+                                                show-meridian="false"></uib-timepicker>
+                                </p>
+                            </td>
+                            <td>
+                                <p class="datetime-picker">
+                                    <input type="text" class="form-control datepicker pull-left"
+                                           ng-model="routes[busBusRoute.busRoute.id].busStops[busStop.itKey].endTime"
+                                           ng-click="dp[busStop.itKey].b = true" is-open="dp[busStop.itKey].b"
+                                           ng-change="reloadStops()" uib-datepicker-popup="yyyy-MM-dd"
+                                           placeholder="Departure Date" ng-required="true"
+                                           max-date="max_date" min-date="min_date" close-text="Close" />
+                                    <uib-timepicker ng-change="reloadStops()" class="timepicker" mousewheel="false"
+                                                ng-model="routes[busBusRoute.busRoute.id].busStops[busStop.itKey].endTime"
+                                                show-meridian="false"></uib-timepicker>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <button ng-show="bus_plate" type="submit" class="btn btn-primary-custom"><?php echo $this->translate('Save') ?></button>
+    </fieldset>
+</form>

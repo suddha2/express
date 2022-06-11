@@ -1,0 +1,266 @@
+<?php echo $this->doctype(); ?>
+<html lang="en" ng-app="expressFront">
+
+<?php echo $this->partial('partial/head-common') ?>
+
+<body class="<?php echo ($this->isHome? 'homepage' : '') ?>" ng-controller="searchCommon" ng-click="navCollapsed = true" scroll-start="">
+
+<!--[if lt IE 9]>
+<div class="browserupgrade">
+    <p><i class="fa fa-warning"></i> <?php echo $this->translate('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_self">upgrade your browser</a> to improve your experience.'); ?></p>
+</div>
+<![endif]-->
+
+    <base href="/">
+
+    <div class="global-wrap">
+
+        <!-- TOP AREA -->
+        <?php
+        $sticky = '';
+        //show main header if home
+        if($this->isHome){
+            echo $this->partial('application/index/partial/home-top');
+            //set to stickey header if on home
+            $sticky = "sticky use-placeholder
+                deactivate-sticky=\"currentScreen!='search' || !currentScreen\"
+                ng-class=\"{'sticky-active': (currentScreen=='search')}\"
+                class=\"sticky-active\"";
+        }
+        ?>
+        <!-- END TOP AREA  -->
+
+        <header id="main-header" <?php echo $sticky ?>>
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <a class="logo" href="/" target="_self">
+                                <span class="main-logo img"></span>
+<!--                                <img src="/img/BusBooking-logo-40x40.png" alt="BusBooking.lk Logo" title="Bus ticket booking in Sri Lanka" />-->
+                                <h1 class="hidden-xs"><?php echo $this->translate('BusBooking.lk') ?></h1>
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <button type="button" class="btn btn-navbar navbar-toggle" ng-click="navCollapsed = !navCollapsed; $event.stopPropagation();">
+                                <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="top-user-area clearfix">
+                                <ul class="top-user-area-list list list-horizontal list-border">
+                                    <?php
+                                    if ($this->identity()) {
+                                        ?>
+                                        <li class="top-user-area-avatar">
+                                            <a href="javascript:;">
+                                                <span class="fa fa-user"></span> Hi, <?php echo $this->identity()->username ?>
+                                            </a>
+                                        </li>
+                                        <li><a href="/app/auth/logout" target="_self"><?php echo $this->translate('Sign Out') ?></a></li>
+                                    <?php
+                                    }else {
+                                        ?>
+                                        <!--                                        <li><a href="#">--><?php //echo $this->translate('SignUp') ?><!--</a></li>-->
+<!--                                        <li><a href="/login">--><?php //echo $this->translate('Sign In') ?><!--</a></li>-->
+                                    <?php
+                                    }
+
+                                    $langs = array(
+                                        \Application\Util\Language::EN_LOCALE => array(
+                                            'url' => '/app/index/lang?lang=en&dest='. urlencode($_SERVER['REQUEST_URI']),
+                                            'name'=> 'English'
+                                        ),
+                                        \Application\Util\Language::SI_LOCALE => array(
+                                            'url' => '/app/index/lang?lang=si&dest='. urlencode($_SERVER['REQUEST_URI']),
+                                            'name'=> 'සිංහල'
+                                        ),
+                                        \Application\Util\Language::TA_LOCALE => array(
+                                            'url' => '/app/index/lang?lang=ta&dest='. urlencode($_SERVER['REQUEST_URI']),
+                                            'name'=> 'தமிழ்'
+                                        ),
+                                    );
+                                    //remove current language
+                                    unset($langs[\Application\Util\Language::getCurrentLocale()]);
+
+                                    //print langs
+                                    foreach ($langs as $l) {
+                                        echo '<li>
+                                                <a href="'. $l['url'] .'" target="_self">'. $l['name'] .'</a>
+                                            </li>';
+                                    }
+
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="/img/BusBooking.lk_EXPRESS_IMPRESSION.jpg" title="Express Impressions" style="height: 100px; width: inherit; "/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="nav main-navigation" ng-class="{'open-nav': !navCollapsed}" ng-click="$event.stopPropagation();">
+                    <?php
+                    echo $this->navigation('frontMain')
+                        ->menu()
+                        ->setUlClass('slimmenu nav-ul pull-left col-md-8 col-xs-12');
+                    ?>
+                    <ul class="list list-horizontal list-space col-md-4 col-xs-12 head-shares">
+                        <li>
+                            <a class="fa fa-youtube box-icon-gray round animate-icon-bottom-to-top" target="_blank" href="https://www.youtube.com/channel/UCeIdM3GKLoTjYKCDlPdYMIg/"></a>
+                        </li>
+                        <li>
+                            <a class="fa fa-instagram box-icon-gray round animate-icon-bottom-to-top" target="_blank" href="https://instagram.com/busbooking.lk/"></a>
+                        </li>
+                        <li>
+                            <a class="fa fa-google-plus box-icon-gray round animate-icon-bottom-to-top" target="_blank" href="https://plus.google.com/118134980086776423619/posts"></a>
+                        </li>
+                        <li>
+                            <a class="fa fa-twitter box-icon-gray round animate-icon-bottom-to-top" target="_blank" href="https://twitter.com/BusBookinglk"></a>
+                        </li>
+                        <li>
+                            <a class="fa fa-facebook box-icon-gray round animate-icon-bottom-to-top" target="_blank" href="https://www.facebook.com/busbooking.lk"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="gap gap-small"></div>
+        <?php
+
+        if($this->isHome || $this->noContainer) {
+            echo $this->content;
+        }else{
+            //wrap in container div
+            echo '<div class="container">';
+            echo $this->content;
+            echo '</div>';
+        }
+        ?>
+        <div class="gap gap-small hidden-xs"></div>
+
+        <footer id="main-footer" class="hidden-xs">
+            <div class="container">
+                <div class="row row-wrap">
+                    <div class="col-md-3 col-sm-6">
+                        <h4><?php echo $this->translate('Ayubowan!') ?></h4>
+
+                        <strong><?php echo $this->translate('Say Hello to us!') ?></strong>
+                        <p class="mb20">
+                            <span>Hotline: 0115-116-117</span><br/>
+                            <?php echo $this->translate('8.00 A.M - 8.00 P.M. (Sri Lanka Time)') ?>
+                        </p>
+
+                        <p class="mb20">
+                            <?php echo $this->translate('Next generation passenger service <br>with Viber, Whatsapp & Skype') ?>
+                        </p>
+
+                        <strong><?php echo $this->translate('Write to us!') ?></strong><br>
+                        <a href="mailto:info@busbooking.lk">info@busbooking.lk</a>
+                        <p class="mb20"><?php echo $this->translate('(We reply each and every mail)') ?></p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 hidden-xs">
+                        <h4><?php echo $this->translate('Operational Partners') ?></h4>
+                        <ul class="home-partners">
+                            <li><img src="/img/partners/boc.jpg"/></li>
+                            <li><img src="/img/partners/sampath.jpg"/></li>
+                            <li><img src="/img/partners/commercial_bank.jpg"/></li>
+                            <li><img src="/img/partners/peoples.jpg"/></li>
+                            <li class="clearfix"></li>
+                            <li><img src="/img/partners/hnb.jpg"/></li>
+                            <li><img src="/img/partners/ezcash.jpg"/></li>
+                            <li><img src="/img/partners/master.jpg"/></li>
+                            <li><img src="/img/partners/visa.jpg"/></li>
+                            <li class="clearfix"></li>
+                            <li><img src="/img/partners/mcash1.jpg"/></li>
+                            <li><img src="/img/partners/express.jpg"/></li>
+                            <li><img src="/img/partners/tfsl.jpg"/></li>
+                            <li><img src="/img/partners/tourism.jpg"/></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix hidden visible-sm"></div>
+                    <div class="col-md-3 col-sm-6">
+                        <h4><?php echo $this->translate('BBK Navigation') ?></h4>
+                        <?php
+                        echo $this->navigation('Navigation')
+                            ->menu()
+                            ->setUlClass('list list-footer');
+                        ?>
+                    </div>
+                    <div class="col-md-3 col-sm-6 no-overflow hidden-xs">
+                        <h4><?php echo $this->translate('Review us at Facebook') ?></h4>
+                        <div class="fb-page" data-href="https://www.facebook.com/busbooking.lk" data-height="180" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/busbooking.lk"><a href="https://www.facebook.com/busbooking.lk">BusBooking.lk</a></blockquote></div></div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+<div ng-cloak class="alert alert-success common-success ng-hide ng-cloak" ng-show="Global.success.isSuccess">
+    <span class="common-success-text">
+        <i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;{{Global.success.message}}
+    </span>
+</div>
+
+<div ng-cloak class="alert alert-danger common-error ng-hide ng-cloak" ng-show="Global.error.hasError">
+    <span class="common-error-text">
+        <i class="fa fa-warning"></i>&nbsp;&nbsp;{{Global.error.message}}
+    </span>
+</div>
+
+<div ng-cloak class="main-preloader ng-hide ng-cloak" ng-show="_showPreLoader">
+    <div class="preload-image"></div>
+</div>
+
+<?php echo $this->inlineScript() ?>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1472300176419678";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+	<!--Start of Tawk.to Script-->
+	<?php 
+		$env = getenv('APP_ENV') ?: 'production';
+		if ($env == 'development') { ?>
+			<script type="text/javascript">
+				var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+				(function(){
+				var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+				s1.async=true;
+				s1.src='https://embed.tawk.to/5b28bd047f2fd9413d4e740e/default';
+				s1.charset='UTF-8';
+				s1.setAttribute('crossorigin','*');
+				s0.parentNode.insertBefore(s1,s0);
+				})();
+			</script>
+		<?php } else { ?>
+			<script type="text/javascript">
+				var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+				(function(){
+				var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+				s1.async=true;
+				s1.src='https://embed.tawk.to/5ae353ee5f7cdf4f0533ad98/default';
+				s1.charset='UTF-8';
+				s1.setAttribute('crossorigin','*');
+				s0.parentNode.insertBefore(s1,s0);
+				})();
+			</script>
+
+		<?php }?>
+	<!--End of Tawk.to Script-->
+
+</body>
+</html>

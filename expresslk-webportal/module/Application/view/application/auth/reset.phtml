@@ -1,0 +1,34 @@
+<?php
+$form = $this->form;
+?>
+<div class="width-controller">
+    <div class="first-el" id="main-content">
+        <h1>Reset Your password</h1>
+        <div class="form-content bg-1">
+            <a name="mot-de-passe-oublie" class="anchor"></a>
+
+            <div class="group">
+            </div>
+
+            <form class="form" method="post" action="#mot-de-passe-oublie">
+                <div class="form-row">
+                    <?php
+                    if($emailSent!==true){
+
+                    ?>
+                    <?php echo $this->formElementErrors($form->get('email')) ?>
+                    <label for="forgot_username">E-mail&nbsp;<abbr title="" class="required">*</abbr></label>
+                    <?php echo $this->formElement($form->get('email')); ?>
+                    <?php
+                    }else{
+                        echo '<p class="form-message-success">Message sent</p>';
+                    }
+                    ?>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div><!-- End main-content -->
+</div>

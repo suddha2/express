@@ -1,0 +1,77 @@
+<div ng-controller="reportController">
+    <div class="row list-header">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1><span>Express Invoice</span></h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" ng-submit="loadExpInvReport();" ng-init="currentRpt='expInv'">
+            <div class="filter input-string">
+                <div class="col-sm-4" ng-init="fromDt=false">
+                    <input uib-datepicker-popup="yyyy-MM"
+                           ng-click="fromDt=!fromDt" readonly="readonly"
+						   datepicker-options="{minMode: 'month'}" datepicker-mode="'month'"
+                           is-open="fromDt" show-button-bar="false" class="form-control"
+                           placeholder="Select Motnh" ng-model="form.from" name="date"
+                           required="required" type="text">
+                </div>
+                
+                <div class="col-sm-4">
+                    <button class="btn btn-primary"
+                            ng-class="{'btn-block loading-stripe': loading}" ng-disabled="loading" type="submit">
+                        <span ng-hide="loading"><?php echo $this->translate('Generate') ?></span>
+                        <span ng-show="loading"><?php echo $this->translate('Loading...') ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="gap gap-small" ></div>
+    <div id="collection-rpt-data" ng-hide="!collection.length">
+        <div class="row list-view" align="center">
+			<h1><span> 
+				Selected Month : {{ form.from | date:'yyyy-MM '}}
+			</span></h1>
+			
+            <div class="col-lg-12">
+                <table ng-init="invoice.total ={}" id="rpt-data-table" class="grid table table-condensed table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th> Departure Time</th>
+                        <th> Arrival Time</th>
+                        <th> Plate No.</th>
+                        <th> Route</th>
+                        <th> From Stop</th>
+                        <th> To Stop</th>
+                        <th> Depot</th>
+                        <th> Number of Seats</th>
+                        <th> Total Express Fee</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in collection" ng-init="invoice=''">
+                        <td>{{row.departureDateTime | date:'yyyy-MM-dd @ h:mma'}}</td>
+                        <td>{{row.arrivalDatetime | date:'yyyy-MM-dd @ h:mma'}}</td>
+						<td>{{row.busNo}}</td>
+                        <td>{{row.route}}</td>
+                        <td>{{row.fromStop}}</td>
+                        <td>{{row.toStop}}</td>
+                        <td>{{row.depot}}</td>
+                        <td align="right">{{row.numberSeats }}</td>
+                        <td align="right">{{row.totalExpressFee | number:2  }}</td>
+                    </tr>
+					
+					<tr style="font-weight:bold">
+						<td colspan="7" align="right">Total </td>
+						<td align="right" >{{totalSeats }}</td>
+						<td align="right" >{{totalFee | number:2 }}</td>
+					</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <?php if (isset($error)): ?>
+                <div class="alert alert-danger">
+                      <strong>Error!</strong>
+                      <?php echo $this->escapeHtml($error) ?>
+                </div>
+            <?php endif; ?>
+            <div class="page-header">
+                <span class="pull-right">
+                    <span class="view_actions">
+                        <a class="btn btn-default" href="<?php echo $this->url('legacy/default', array('controller'=> $controller)); ?>">
+                            <span class="glyphicon glyphicon-list" aria-hidden="true">
+                            </span>&nbsp;<span class="hidden-xs">List</span>
+                        </a>
+                    </span>
+                </span>
+                <h1><span>Create user</span></h1>
+            </div>
+            <form action="<?php echo $this->url('legacy/default', array('controller'=> $controller, 'action'=> 'create')); ?>" method="post">
+                <div class="row form-horizontal" id="show-view">
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">Username&nbsp;*</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <div class="input-group">
+                                <input type="text" id="username" name="username" class="form-control text-right" required="required"
+                                       autocomplete="off" value="<?php echo $this->escapeHtml($model->username); ?>" />
+                                <div class="input-group-addon black-text"><?php echo $this->usernameSuffix ?></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">Password&nbsp;*</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <input type="password" id="password1" name="password1" class="form-control" required="required" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">Repeat password&nbsp;*</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <input type="password" id="password2" name="password2" class="form-control" required="required" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">First name&nbsp;*</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <input type="text" id="firstName" name="firstName" class="form-control" required="required"
+                                autocomplete="off" value="<?php echo $this->escapeHtml($model->firstName); ?>" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">Last name</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <input type="text" id="lastName" name="lastName" class="form-control"
+                                autocomplete="off" value="<?php echo $this->escapeHtml($model->lastName); ?>" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <input type="text" id="email" name="email" class="form-control"
+                                autocomplete="off" value="<?php echo $this->escapeHtml($model->email); ?>" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">Mobile</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <input type="text" id="mobileTelephone" name="mobileTelephone" class="form-control"
+                                autocomplete="off" value="<?php echo $this->escapeHtml($model->mobileTelephone); ?>" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">Status&nbsp;*</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <select id="status" name="status" class="form-control" required="required">
+                                <option value="1" <?php echo ($model->status->id == 1 ? 'selected="selected"' : ''); ?>>Active</option>
+                                <option value="2" <?php echo ($model->status->id == 2 ? 'selected="selected"' : ''); ?>>Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label class="col-sm-2 control-label">Roles&nbsp;*</label>
+                        <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                            <select id="userGroups" name="userGroups[]" class="form-control" required="required" multiple="multiple">
+                                <?php $userGroupIds = array_map(function($ug) { return $ug->id; }, $model->userGroups); ?>
+                                <?php foreach ($userGroups as $userGroup): ?>
+                                    <option value="<?php echo $userGroup->id ?>" <?php echo (in_array($userGroup->id, $userGroupIds) ? 'selected="selected"' : ''); ?>>
+                                        <?php echo $this->escapeHtml($userGroup->name); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button name="update" value="1" type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-ok"></span> Save Changes
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="page-header">
+            <h1><?php echo $this->translate('Bus Location') ?>
+                <small><?php echo $this->translate('Live location of the bus') ?></small>
+            </h1>
+        </div>
+        <div class="well">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="focusedInput" class="control-label"><?php echo $this->translate('Bus') ?>: </label>
+                        <ui-select ui-select-focus-input class="input-group full-width" ng-model="currentBus.bus" theme="bootstrap">
+                            <ui-select-match placeholder="<?php echo $this->translate('Select a Bus') ?>">
+                                {{$select.selected.plateNumber}}
+                                <small>{{$select.selected.name}}</small>
+                            </ui-select-match>
+                            <ui-select-choices repeat="bus in busList | propsFilter: {name: $select.search, plateNumber: $select.search}">
+                                <div class="" ng-bind-html="bus.plateNumber | highlight: $select.search"></div>
+                                <small>{{bus.name}}</small>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>From Date</label>
+                    <p class="datetime-picker" ng-init="fromDtPick=false">
+                        <input type="text" class="form-control datepicker pull-left"
+                               ng-model="startDate"
+                               ng-click="fromDtPick=!fromDtPick" is-open="fromDtPick"
+                               uib-datepicker-popup="yyyy-MM-dd"
+                               placeholder="Departure Date" ng-required="true" close-text="Close" />
+                        <uib-timepicker class="timepicker" mousewheel="false"
+                                        ng-model="startDate"
+                                        show-meridian="false"></uib-timepicker>
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        <span ng-hide="endDate===false">To Date</span>
+                        <span ng-hide="endDate!==false" class="red-text">Live!</span>
+                        <button class="btn btn-sm btn-default" ng-click="toggleLiveLocation()">
+                            <span ng-hide="endDate===false">Live Location!</span>
+                            <span ng-hide="endDate!==false">Set a Date/time</span>
+                        </button>
+                    </label>
+                    <p ng-hide="endDate==false" class="datetime-picker" ng-init="toDtPick=false">
+                        <input type="text" class="form-control datepicker pull-left"
+                               ng-model="endDate"
+                               ng-click="toDtPick=!toDtPick" is-open="toDtPick"
+                               uib-datepicker-popup="yyyy-MM-dd"
+                               placeholder="Departure Date" ng-required="true" close-text="Close" />
+                        <uib-timepicker class="timepicker" mousewheel="false"
+                                        ng-model="endDate"
+                                        show-meridian="false"></uib-timepicker>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" ng-click="loadBusLocations()">
+                        <span ng-hide="locLoading"><?php echo $this->translate('Load Location') ?></span>
+                            <span ng-show="locLoading">
+                                <?php echo $this->translate('Loading...') ?>
+                            </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="error bg-warning" ng-hide="!error">{{error}}</div>
+
+        <ui-gmap-google-map center='mapDefaults.center' zoom='mapDefaults.zoom'
+                            pan="true" refresh="mapDefaults.refresh">
+            <ui-gmap-polyline path='locations'
+                              stroke="polyline.stroke"
+                              clickable="polyline.clickable"
+                              draggable="polyline.draggable"
+                              editable="polyline.editable"
+                              geodesic="polyline.geodesic"
+                              icons="polyline.icons"
+                              visible="polyline.visible"
+                              fit="false"
+                              static="true"
+            >
+            </ui-gmap-polyline>
+
+<!--            <ui-gmap-markers models="locations" coords="'self'" icon="'icon'">-->
+<!--            </ui-gmap-markers>-->
+
+            <ui-gmap-marker coords="currentLocation" options="marker.options"
+                            events="marker.events" idkey="234234234">
+                <ui-gmap-window options="{visible: true}" closeClick="">
+                    <div>Time {{currentLocation.created_time}}</div>
+                </ui-gmap-window>
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+
+    </div>
+</div>

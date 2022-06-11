@@ -1,0 +1,27 @@
+## Enable robots.txt rules for all crawlers
+User-agent: *
+
+Disallow: /git
+Disallow: /*.git$
+Disallow: /*.idea$
+Disallow: /*.sql$
+Disallow: /*.tgz$
+Disallow: /test
+Disallow: /app/test
+Disallow: /app/auth/stafflogin
+
+## Do not crawl admin page
+Disallow: /admin-panel/
+
+## Do not crawl common files
+Disallow: /api.php
+Disallow: /cron.php
+Disallow: /cron.sh
+Disallow: /error_log
+Disallow: /get.php
+Disallow: /install.php
+Disallow: /LICENSE.html
+Disallow: /LICENSE.txt
+Disallow: /LICENSE_AFL.txt
+Disallow: /README.txt
+Disallow: /RELEASE_NOTES.txt

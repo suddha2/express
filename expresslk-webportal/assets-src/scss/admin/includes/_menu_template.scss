@@ -1,0 +1,65 @@
+/* Header */
+.nav {
+    a {
+        color: #337ab7;
+        &:hover {
+            color: #7F7F7F;
+        }
+    }
+}
+
+.main-nav{
+    margin-bottom: 0;
+
+    .navbar-toggle{
+        //show collapse menu on desktops
+        @media #{$bp-desktop-max} {
+            display: block;
+        }
+    }
+    .navbar-header{
+        @media #{$bp-desktop-max} {
+            float: none;
+        }
+    }
+    .navbar-right{
+        @media #{$bp-desktop-max} {
+            float: none !important;
+        }
+    }
+    .navbar-collapse{
+        @media #{$bp-desktop-max} {
+            overflow: hidden;
+        }
+        &.collapse{
+            @media #{$bp-desktop-max} {
+                display: none !important;
+                height: inherit !important;
+            }
+        }
+        &.in.collapse{
+            @media #{$bp-desktop-max} {
+                display: block !important;
+                height: auto !important;
+            }
+        }
+    }
+
+    .sidebar{
+        @media #{$bp-desktop-max} {
+            position: relative;
+            width: auto;
+            margin-top: 0;
+        }
+    }
+}
+
+/* End Header */
+
+#page-wrapper{
+    @media #{$bp-desktop-max} {
+        margin: inherit;
+        padding: 0 15px;
+        border: none;
+    }
+}

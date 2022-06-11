@@ -1,0 +1,110 @@
+<div ng-controller="reportController">
+    <div class="row list-header">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1><span>Daily Cash Reconciliation </span></h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" ng-submit="loadDailyCashReconReport();" ng-init="currentRpt='dailyCashReconReport'" >
+            <div class="filter input-string">
+                <div class="col-sm-4" ng-init="fromDt=false">
+                    <input uib-datepicker-popup="yyyy-MM"
+                           ng-click="fromDt=!fromDt" readonly="readonly"
+						   datepicker-options="{minMode: 'month'}" datepicker-mode="'month'"
+                           is-open="fromDt" show-button-bar="false" class="form-control"
+                           placeholder="Select Month" ng-model="form.from" name="date"
+                           required="required" type="text">
+                </div>
+                
+                <div class="col-sm-4">
+                    <button class="btn btn-primary"
+                            ng-class="{'btn-block loading-stripe': loading}" ng-disabled="loading" type="submit">
+                        <span ng-hide="loading"><?php echo $this->translate('Generate') ?></span>
+                        <span ng-show="loading"><?php echo $this->translate('Loading...') ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="gap gap-small" ></div>
+    <div id="collection-rpt-data" ng-hide="!collection.length">
+        <div class="row list-view" align="center">
+			<h1><span> 
+				Selected Month : {{ form.from | date:'yyyy-MM '}}
+			</span></h1>
+			
+            <div class="col-lg-12">
+                <table ng-init="invoice.total ={}" id="rpt-data-table" class="grid table table-condensed table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th> Booking Date</th>
+                        <th align="right"> Number of Seats</th>
+                        <th align="right"> Fare</th>
+                        <th align="right"> Sltb BookingFee</th>
+                        <th align="right"> Express BookingFee</th>
+                        <th align="right"> Transaction Total</th>
+						
+                        <th align="right"> Confirmed Seats</th>
+						<th align="right"> Confirmed Seats Fare</th>
+						<th align="right"> Confirmed Sltb BookingFee</th>
+                        <th align="right"> Confirmed Express BookingFee</th>
+						 
+                        <th align="right"> Cancelled Seats</th>
+						<th align="right"> Cancelled Seats Fare</th>
+						<th align="right"> Cancelled Sltb BookingFee</th>
+                        <th align="right"> Cancelled Express BookingFee</th>
+						 
+						
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in collection" ng-init="invoice=''">
+                        <td>{{row.bookingDate | date:'yyyy-MM-dd'}}</td>
+						<td align="right">{{row.numberSeats}}</td>
+                        <td align="right">{{row.fare  | number:2  }}</td>
+                        <td align="right">{{row.sltbBookingFee  | number:2  }}</td>
+                        <td align="right">{{row.expressBookingFee  | number:2  }}</td>
+                        <td align="right">{{row.transactionTotal  | number:2  }}</td>
+						
+						<td align="right">{{row.confirmedBooking }}</td>
+						<td align="right">{{row.confirmedBookingFare | number:2}}</td>
+						<td align="right">{{row.confirmedSltbBookingFee  | number:2  }}</td>
+                        <td align="right">{{row.confirmedExpressBookingFee  | number:2  }}</td>
+                        
+                        
+						<td align="right">{{row.cancelledBooking }}</td>
+						<td align="right">{{row.cancelledBookingFare | number:2}}</td>
+						<td align="right">{{row.cancelledSltbBookingFee  | number:2  }}</td>
+                        <td align="right">{{row.cancelledExpressBookingFee  | number:2  }}</td>
+ 
+                        
+                    </tr>
+					
+					<tr style="font-weight:bold">
+						<td align="right">Total </td>
+						<td align="right" >{{totalSeats }}</td>
+						<td align="right" >{{totalFare | number:2  }}</td>
+						<td align="right" >{{totalSltbFee | number:2  }}</td>
+						<td align="right" >{{totalExpressFee | number:2  }}</td>
+						<td align="right" >{{totalTransaction | number:2  }}</td>
+						
+						<td align="right" >{{totalConfirmedSeats }}</td>
+						<td align="right" >{{totalConfirmedSltbFare| number:2 }}</td>
+						<td align="right" >{{totalConfirmedSltbFee | number:2  }}</td>
+						<td align="right" >{{totalConfirmedExpressFee | number:2  }}</td>
+						 
+						 
+						<td align="right" >{{totalCancelledSeats }}</td>
+						<td align="right" >{{totalCancelledSltbFare| number:2 }}</td>
+						<td align="right" >{{totalCancelledSltbFee | number:2  }}</td>
+						<td align="right" >{{totalCancelledExpressFee | number:2  }}</td>
+						 
+					</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

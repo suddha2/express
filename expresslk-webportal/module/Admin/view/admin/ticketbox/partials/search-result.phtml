@@ -1,0 +1,40 @@
+
+<div ng-show="hasData" loading-container="loading">
+    <table ng-table="tableParams" class="table resulttable table-hover table-condensed">
+        <tbody>
+        <tr class="result-align" ng-repeat="bus in $data" show-seats ng-class="{ 'success': (scheduleIndex===bus.resultIndex) }">
+            <!-- main row -->
+            <td data-title="'<?php echo $this->translate('Service Provider') ?>'">
+                <b>{{bus.sectors[0].bus.name}}</b>
+                <p class="small">{{bus.sectors[0].bus.travelClassName}}</p>
+            </td>
+            <td data-title="'<?php echo $this->translate('Bus Number') ?>'">
+                <div class="">{{bus.sectors[0].bus.plateNumber}}</div>
+                <div class="small">{{bus.sectors[0].bus.busTypeDesc}}</div>
+                <div><i class="fa fa-road blue-text"></i> {{bus.sectors[0].busRoute.routeName}}</div>
+            </td>
+            <td data-title="'<?php echo $this->translate('Departure & Arrival') ?>'">
+                <div>From : {{bus.sectors[0].departureTime | date:'yyyy-MM-dd @ h:mma'}}</div>
+                <span style="color: #888888">
+                    To : {{bus.sectors[0].arrivalTime | date:'yyyy-MM-dd @ h:mma'}} <br/>
+                </span>
+                <div>{{bus.sectors[0].schedule.actualFromCity}} => {{bus.sectors[0].schedule.actualToCity}}</div>
+            </td>
+            <td data-title=" " ng-controller="ticketboxSeatReport">
+                <!-- <button ng-click="viewSeats(bus.sectors[0], bus)" class="btn btn-primary tb-btn">{{bus.price | currency:"LKR "}}</button> -->
+                <button ng-click="viewSeats(bus.sectors[0], bus)" class="btn btn-primary tb-btn">{{bus.price | currency:"LKR "}}</button>
+<!--                <button acl-fragment="CanExecute" has-permission="printSeat" ng-click="printSeats(bus.sectors[0], bus)" class="btn btn-link tb-btn"><?php //echo $this->translate('Print Seat') ?></button> -->
+<!--                <button acl-fragment="CanExecute" has-permission="alertConductor" ng-click="sendCondaSms(bus.sectors[0], bus)" class="btn btn-link tb-btn">--><?php //echo $this->translate('Alert Conductor') ?><!--</button>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="well text-center" ng-hide="!loading">
+    <div class="preloader-balls" style="height: 50px; width: 100%;"></div>
+</div>
+
+<div class="well well-sm" ng-show="!loading && !hasData">
+    <b class=""><?php echo $this->translate('No Results!') ?></b> <span class="text-muted"> - <?php echo $this->translate('Can\'t find a bus on that date. Try again.') ?></span>
+</div>

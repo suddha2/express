@@ -1,0 +1,125 @@
+// Import all front end styles
+//fonts
+@import url(https://fonts.googleapis.com/css?family=Taviraj:400,300,100,500,700);
+@import url(https://fonts.googleapis.com/css?family=Amiko:400italic,400,300,600);
+//variable overwrites
+$c-primary      : #f8c301;
+$c-primary-light: #ffc600;
+$c-secondary    : #0d438d;
+$font-base      : 'Amiko', sans-serif;
+$font-highlight : 'Taviraj', serif;
+//variable definitions
+@import "includes/variables";
+@import "includes/base";
+@import "includes/theme";
+@import "includes/extends";
+@import "includes/layout";
+@import "includes/elements";
+@import "includes/home";
+
+
+// ================= Superline stuff =====================
+//common variables
+$size-footer-height: 85px;
+//common
+html{
+    height:100%;
+}
+body.surrexi-web{
+    position: relative;
+    min-height:100%;
+    padding-bottom: $size-footer-height; //padding to position footer at bottom
+    @media #{$bp-mobile-max} {
+        padding-bottom:0;
+    }
+}
+.col-1in5{
+    width: 20%;
+    padding: 0 10px;
+    float: left;
+}
+
+// header owerwrites
+.surrexi-web{
+    .logo{
+        .main-logo{
+            background: url("/img/domains/surrexi.lk/logo-icon.png") no-repeat center;
+            background-size: contain;
+        }
+        h1{
+            color: $c-black;
+        }
+    }
+    header{
+        &#main-header{
+            border-bottom: none;
+        }
+
+    }
+    .header-top{
+        background-color: #fff;
+    }
+    .top-user-area{
+        .phone-contact{
+            h4{
+                margin:0;
+                line-height:40px;
+                i{
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    //home page
+    .srx-searchbtn{
+        width: 100%;
+    }
+    .srx-main-bg{
+        background: url("/img/domains/surrexi.lk/main-bg.jpg") no-repeat right;
+        background-size: contain;
+        width:100%;
+        height:340px;
+    }
+    .srx-home-content{
+        background: url("/img/domains/surrexi.lk/content-bg.jpg") no-repeat center;
+        background-size: cover;
+        .srx-home-box{
+            width:45%;
+            height:auto;
+            color: $c-black;
+            background: rgba(255,255,255,0.7);
+            padding:40px;
+            margin:80px auto;
+            float: right;
+            h2, h4{
+                color: $c-black;
+            }
+            p{
+                color: $c-grey-dark;
+            }
+            @include box-shadow(0px, 0px, 3px, $c-grey);
+        }
+    }
+    // end home page styles
+}
+
+
+
+
+
+//footer
+.surrexi-web{
+    footer{
+        position: absolute;
+        bottom: 0px;
+        left:0;
+        height: $size-footer-height;
+        width: 100%;
+        &#main-footer{
+            background-color: $c-white;
+            color: $c-grey-dark;
+            padding: 20px;
+        }
+    }
+}

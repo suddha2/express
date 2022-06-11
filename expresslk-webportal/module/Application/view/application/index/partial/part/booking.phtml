@@ -1,0 +1,633 @@
+<div class="booking-container ng-cloak" ng-cloak ng-controller="booking" ng-hide="currentScreen!='booking'">
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <form name="booking_form" class="form-inline booking_form"
+                  role="form" ng-submit="booking_form.$valid && placeBooking($event)" novalidate>
+
+                <div class="alert alert-danger common-error"
+                     ng-show="booking_form.$submitted && !booking_form.$valid">
+                    <i class="fa fa-warning"></i>&nbsp;&nbsp;<?php echo $this->translate('There are errors in the form! Please check if you have filled all the required fields.') ?>
+                </div>
+
+                <h3 class="primary-text bold-text"><?php echo $this->translate('My Details <small>Mandatory</small>') ?> </h3>
+                <p class="bg-danger text-danger" ng-hide="!errors.contactData">
+                    <?php echo $this->translate('* Please enter either a Mobile number or a NIC') ?>
+                </p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{'has-error': booking_form.name.$touched && booking_form.name.$invalid }">
+                            <label class="form-label"><?php echo $this->translate('Name') ?> *</label>
+                            <input placeholder="Your name" name="name" type="text"
+                                   required="true" ng-model-options="{ updateOn: 'blur' }"
+                                   ng-model="bookingData.contact.name" class="form-control"
+                                >
+                            <div ng-show="booking_form.$submitted || booking_form.name.$touched">
+                                <p class="bg-danger text-danger error" ng-show="booking_form.name.$error.required"><?php echo $this->translate('Your name is required') ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{'has-error': booking_form.mobile.$touched && booking_form.mobile.$invalid }">
+                            <label class="form-label"><?php echo $this->translate('Mobile') ?> *</label>
+                            <input placeholder="07XXXXXXXX" ng-pattern="/^07[0-9]{8}$/" name="mobile" type="text"
+                                   required="true" ng-model-options="{ updateOn: 'blur' }"
+                                   ng-model="bookingData.contact.mobileNo" class="form-control"
+                                >
+                            <div ng-show="booking_form.$submitted || booking_form.mobile.$touched">
+                                <p class="bg-danger text-danger error" ng-show="booking_form.mobile.$error.required"><?php echo $this->translate('Your mobile number is required') ?></p>
+                                <p class="bg-danger text-danger error" ng-show="booking_form.mobile.$error.pattern"><?php echo $this->translate('Phone number should match 07XXXXXXXX') ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{'has-error': booking_form.nic.$touched && booking_form.nic.$invalid }">
+                            <label class="form-label"><?php echo $this->translate('NIC / Passport No') ?></label>
+                            <input placeholder="123456789V" name="nic" type="text"
+                                   ng-required="false" ng-model-options="{ updateOn: 'blur' }"
+                                   ng-model="bookingData.contact.nic" class="form-control"
+                                >
+                            <div ng-show="booking_form.$submitted || booking_form.nic.$touched">
+                                <p class="bg-danger text-danger error" ng-show="booking_form.nic.$error.required"><?php echo $this->translate('Your NIC is required') ?></p>
+                                <p class="bg-danger text-danger error" ng-show="booking_form.nic.$error.pattern"><?php echo $this->translate('NIC should be in the format of 123456789V') ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" ng-class="{'has-error': booking_form.email.$touched && booking_form.email.$invalid }">
+                            <label class="form-label"><?php echo $this->translate('Email') ?> *</label>
+                            <input placeholder="email@email.com" type="email" name="email" ng-model="bookingData.contact.email" class="form-control"
+                                   required="true" ng-model-options="{ updateOn: 'blur' }">
+                            <div ng-show="booking_form.$submitted || booking_form.email.$touched">
+                                <p class="bg-danger text-danger error" ng-show="booking_form.email.$error.required"><?php echo $this->translate('Email is required!') ?></p>
+                                <p class="bg-danger text-danger error" ng-show="booking_form.email.$error.email"><?php echo $this->translate('Not a valid email') ?></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gap gap-small"></div>
+
+                <h4 class="cursor-pointer" ng-init="isPasCollapsed=true" ng-click="isPasCollapsed = !isPasCollapsed">
+                    <?php echo $this->translate('Passenger Details <small>optional</small>') ?>
+                    <i class="fa fa-chevron-down" ng-class="{'fa-chevron-up': !isPasCollapsed, 'fa-chevron-down': isPasCollapsed}"></i>
+                </h4>
+                <p class="bg-danger text-danger" ng-hide="!errors.passenger">
+                    <?php echo $this->translate('* Please Select a seat') ?>
+                </p>
+                <div uib-collapse="isPasCollapsed">
+                    <p>
+                        <?php echo $this->translate('<i class="fa fa-info-circle blue-text"></i> <small>Why do we need passenger information? During an emergency we will be able to use these details to find and help you.</small>') ?>
+                    </p>
+                    <ul class="list booking-item-passengers">
+                        <li ng-repeat="seat in selected.seats"
+                            ng-init="bookingData.passenger[$index].seatNo=selected.seatNos[$index]">
+                            <ng-form name="innerForm">
+                                <div class="row">
+
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label>&nbsp;</label>
+                                            <div class="booking-seat-no">{{selected.seatNos[$index]}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 text-center">
+                                        <div class="form-group">
+                                            <label><?php echo $this->translate('My seat') ?></label>
+                                            <div class="check-icon" ng-model="$parent.mySeatCheck" uib-btn-radio="$index" uncheckable>
+                                                <i class="fa fa-check-square-o"></i>
+                                                <i class="fa fa-square-o"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label><?php echo $this->translate('Passenger Name') ?></label>
+                                            <input placeholder="Passenger Name"
+                                                   ng-required="false"
+                                                   type="text" name="passengerName" class="form-control"
+                                                   ng-model="bookingData.passenger[$index].name" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group" ng-class="{'has-error': innerForm.mobileNo.$touched && innerForm.mobileNo.$invalid }">
+                                            <label><?php echo $this->translate('Mobile No') ?></label>
+                                            <input type="text" name="mobileNo" class="form-control"
+                                                   placeholder="07XXXXXXXX" ng-pattern="/^07[0-9]{8}$/"
+                                                   ng-required="false" ng-model-options="{ updateOn: 'blur' }"
+                                                   ng-model="bookingData.passenger[$index].mobileNo"
+                                                   >
+                                            <div ng-show="innerForm.$submitted || innerForm.mobileNo.$touched">
+                                                <p ng-show="innerForm.mobileNo.$error.pattern" class="bg-danger text-danger error"><?php echo $this->translate('Phone number should match 07XXXXXXXX') ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group" ng-class="{'has-error': innerForm.passengerNIC.$touched && innerForm.passengerNIC.$invalid }">
+                                            <label><?php echo $this->translate('NIC Number') ?></label>
+                                            <input placeholder="123456789V"
+                                                   type="text" class="form-control"
+                                                   name="passengerNIC"
+                                                   ng-required="false" ng-model-options="{ updateOn: 'blur' }"
+                                                   ng-model="bookingData.passenger[$index].nic"
+                                                >
+                                            <div ng-show="innerForm.$submitted || innerForm.passengerNIC.$touched">
+                                                <p ng-show="innerForm.passengerNIC.$error.pattern" class="bg-danger text-danger error"><?php echo $this->translate('NIC should be in the format of 123456789V') ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-form>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="gap gap-small"></div>
+                <h4 class="cursor-pointer" ng-init="isBDCollapsed=true" ng-click="isBDCollapsed = !isBDCollapsed">
+                    <?php echo $this->translate('Getting in/out bus halt') ?>
+                    <i class="fa fa-chevron-down" ng-class="{'fa-chevron-up': !isBDCollapsed, 'fa-chevron-down': isBDCollapsed}"></i>
+                </h4>
+                <div class="row" uib-collapse="isBDCollapsed">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="boardingLocation"><?php echo $this->translate('Boarding bus stop:') ?></label>
+                            <select ng-model="bookingData.boardingLocation" ng-required="true"
+                                    ng-options="busStop.name for busStop in boardingLocations"
+                                    class="focused form-control" id="boardingLocation" name="boardingLocation">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="dropoffLocation"><?php echo $this->translate('Dropoff bus stop:') ?></label>
+                            <select ng-model="bookingData.dropoffLocation" ng-required="true"
+                                    ng-options="busStop.name for busStop in dropoffLocations"
+                                    class="focused form-control" id="dropoffLocation" name="dropoffLocation">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gap gap-small"></div>
+                <div class="input-group" ng-class="{'has-error': booking_form.terms.$touched && booking_form.terms.$invalid }">
+                    <span class="input-group-addon">
+                        <input required="true" ng-model="agreeCheck" id="tncCheck" name="terms" type="checkbox">
+                    </span>
+                    <label for="tncCheck" class="form-control"><?php echo $this->translate('I agree to all the <a href="/terms" target="_blank">Terms and Conditions</a>') ?></label>
+                </div>
+                <div ng-show="booking_form.$submitted || booking_form.terms.$touched">
+                    <p class="bg-danger text-danger error" ng-show="!agreeCheck"><?php echo $this->translate('You have to agree to the terms & conditions') ?></p>
+                </div>
+
+                <div class="gap gap-small"></div>
+				
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <h3 class="primary-text bold-text"><?php echo $this->translate('Payment Method')  ?></h3>
+						
+                        <uib-tabset justified="true">
+                            <uib-tab select="onClickTab(tab)" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+								
+                                <div class="tabHeader">
+									
+                                    <h5 class="" ng-if="tab.type=='credit_card'" ><?php echo $this->translate('Amount payable') ?>: <span class="large-text bold-text"> {{selected.total | currency:"<?php echo $this->translate('Rs.') ?> "}}</span></h5>
+									<?php 
+										if (\Application\Domain::getDomain()!=\Application\Domain::NAME_SUPERLINE) {?>
+										<h5 class="" ng-if="tab.type=='ndb_card'" ><?php echo $this->translate('Amount payable') ?>: <span class="large-text bold-text"> {{selected.total * 0.9 | currency:"<?php echo $this->translate('Rs.') ?> "}}</span></h5>
+									<?php } ?>
+                                </div>
+                                <div class="gap-border pt15" ng-include="tab.url"></div>
+                            </uib-tab>
+                        </uib-tabset>
+                        <div class="gap gap-small hidden visible-sm visible-xs"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="booking-item-payment">
+                <header class="clearfix">
+                    <h5 class="mb0">{{journeyData.fromName}} - {{journeyData.toName}}</h5>
+					<br />
+					<h5>{{journeyData.travelClass}} </h5>
+                </header>
+                <ul class="booking-item-payment-details">
+                    <li>
+                        <h5><?php echo $this->translate('Bus Details') ?></h5>
+                        <div class="booking-item-payment-flight">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="booking-item-flight-details">
+                                        <div class="booking-item-departure">
+                                            <i class="fa fa-arrow-up rotate-45-right "></i>
+                                            <h5>{{journeyData.departure | moment:'h:mmA'}}</h5>
+                                            <p class="booking-item-date">{{journeyData.departure | moment:'YYYY-MM-DD'}}</p>
+                                            <p class="booking-item-destination">{{journeyData.fromName}}</p>
+                                        </div>
+                                        <div class="booking-item-arrival">
+                                            <i class="fa fa-arrow-down rotate-45-left"></i>
+                                            <h5>{{journeyData.arrival | moment:'h:mmA'}}</h5>
+                                            <p class="booking-item-date">{{journeyData.arrival | moment:'YYYY-MM-DD'}}</p>
+                                            <p class="booking-item-destination">{{journeyData.toName}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="booking-item-flight-duration text-right">
+                                        <p><?php echo $this->translate('Duration') ?></p>
+                                        <span class="text-nowrap">{{jDuration[0]}}h {{jDuration[1]}}m</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h5><?php echo sprintf($this->translate('Payment (%1$s Passengers)'), '{{selected.seats.length}}') ?></h5>
+                        <!--
+						<ul class="booking-item-payment-price">
+                            <li>
+                                <p class="booking-item-payment-price-title"><?php //echo $this->translate('Onward Fare') ?></p>
+                                <p class="booking-item-payment-price-amount">{{selected.amount | currency:"<?php //echo $this->translate('Rs.') ?> "}}
+                                </p>
+                            </li>
+                            <li>
+                                <p class="booking-item-payment-price-title"><?php //echo $this->translate('Booking Charges') ?></p>
+                                <p class="booking-item-payment-price-amount">{{selected.baseMarkups | currency:"<?php //echo $this->translate('Rs.') ?> "}}</small>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="booking-item-payment-price-title"><?php //echo $this->translate('Discounts') ?></p>
+                                <p class="booking-item-payment-price-amount">{{selected.baseDiscount | currency:"<?php //echo $this->translate('Rs.') ?> "}}</small>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="booking-item-payment-price-title"><?php //echo $this->translate('Taxes') ?></p>
+                                <p class="booking-item-payment-price-amount">{{selected.baseTax | currency:"<?php //echo $this->translate('Rs.') ?> "}}</small>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="booking-item-payment-price-title"><?php //echo $this->translate('Bank & transit regulator charges') ?></p>
+                                <p class="booking-item-payment-price-amount">{{selected.baseCharges | currency:"<?php //echo $this->translate('Rs.') ?> "}}</small>
+                                </p>
+                            </li>
+                        </ul>
+						-->
+                    </li>
+                </ul>
+                <p class="booking-item-payment-total"><?php echo $this->translate('Total Payable') ?>: <span>{{selected.total | currency:"<?php echo $this->translate('Rs.') ?> "}}</span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="gap gap-small"></div>
+
+<script type="text/ng-template" id="tab-ez">
+    <!-- dialog eZ Cash -->
+    <div class="row">
+        <div class="col-md-9">
+            <p class="clearfix"><img src="/img/icons/dialog-ez-cash.gif" class="pull-left mr10" /> <b>DIALOG eZcash</b> ~ Now you can make a reservation with your DIALOG phone.</p>
+
+            <uib-accordion class="hidden-xs" close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't know how to use?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Press "Pay Now" button</li>
+                        <li>Add your "DIALOG mobile number" along with "eZcash pin number" and press OK.</li>
+                        <li>Add the "Security Pin Number" sent to your mobile via SMS and press OK.</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't have DIALOG eZcash?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Dial #111#</li>
+                        <li>Select your preferred language</li>
+                        <li>Get your FREE registration and enter a pin number for your eZcash account</li>
+                        <li>Visit your nearest eZcash merchant and add money to your account</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Need Help?</b>
+                    </uib-accordion-heading>
+                    <p>If you have inquiries or need additional information on this payment method.<br/>
+                        Please call DIALOG eZcash hotline via 7111.</p>
+                </uib-accordion-group>
+            </uib-accordion>
+
+
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="bottom-space"><button type="submit" class="btn btn-primary btn-lg">Pay Now</button></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-mcash">
+    <!-- mCash-->
+    <div class="row">
+        <div class="col-md-9">
+            <p class="clearfix"><img src="/img/icons/mobitel-mcash.gif" class="pull-left mr10" /><b>MOBITEL mCash</b> ~ Now you can make a reservation with your MOBITEL phone. It's simple as 123.</p>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't know how to use?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Press "Pay Now" button. System will directed you to automated mCash IPG.</li>
+                        <li>Add your "MOBITEL mobile number" along with "mCash pin number" and press OK.</li>
+                        <li>Add the "Random PIN Number" (OTP) sent to your mobile via SMS and press OK.</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't have MOBITEL mCash?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Dial #111#</li>
+                        <li>Select your preferred language</li>
+                        <li>Get your FREE registration and enter a pin number for your mCash account</li>
+                        <li>Visit your nearest mCash merchant and add money to your account</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Need Help?</b>
+                    </uib-accordion-heading>
+                    <p>
+                        If you have inquiries or need additional information on this payment method,<br/>
+                        Please call MOBITEL mCash hotline via 1717.<br/>
+                        Or simply visit mCash official website, <a href="http://www.mobitel.lk/mcash" target="_blank">www.mobitel.lk/mcash</a>
+                    </p>
+                </uib-accordion-group>
+            </uib-accordion>
+
+
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="bottom-space"><button type="submit" class="btn btn-primary btn-lg">Pay Now</button></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-etisalat">
+    <!-- Etisalat eZcash -->
+    <div class="row">
+        <div class="col-md-9">
+            <p class="clearfix"><img src="/img/icons/etisalat-ez-cash.gif" class="pull-left mr10" /><b>ETISALAT eZcash</b> ~ Now you can make a reservation with your ETISALAT phone. It's simple as 123.</p>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't know how to use?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Press "Pay Now" button</li>
+                        <li>Add your "ETISALAT mobile number" along with "eZcash pin number" and press OK.</li>
+                        <li>Add the "Security Pin Number" sent to your mobile via SMS and press OK.</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't have ETISALAT eZcash?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Dial #111#</li>
+                        <li>Select your preferred language</li>
+                        <li>Get your FREE registration and enter a pin number for your eZcash account</li>
+                        <li>Visit your nearest eZcash merchant and add money to your account</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Need Help?</b>
+                    </uib-accordion-heading>
+                    <p>
+                        If you have inquiries or need additional information on this payment method.<br/>
+                        Please call ETISALAT eZcash hotline via 7111.</p>
+                </uib-accordion-group>
+            </uib-accordion>
+
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="bottom-space"><button type="submit" class="btn btn-primary btn-lg">Pay Now</button></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-hutch">
+    <!-- Hutch eZcash -->
+    <div class="row">
+        <div class="col-md-9">
+            <p class="clearfix"><img src="/img/icons/hutch-ez-cash.gif" class="pull-left mr10" /><b>HUTCH eZcash</b> ~ Now you can make a reservation with your HUTCH phone. It's simple as 123.</p>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't know how to use?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Press "Pay Now" button</li>
+                        <li>Add your "HUTCH mobile number" along with "eZcash pin number" and press OK.</li>
+                        <li>Add the "Security Pin Number" sent to your mobile via SMS and press OK.</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't have HUTCH eZcash?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Dial #111#</li>
+                        <li>Select your preferred language</li>
+                        <li>Get your FREE registration and enter a pin number for your eZcash account</li>
+                        <li>Visit your nearest eZcash merchant and add money to your account</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Need Help?</b>
+                    </uib-accordion-heading>
+                    <p>
+                        If you have inquiries or need additional information on this payment method.<br/>
+                        Please call HUTCH eZcash hotline via 7111.</p>
+                </uib-accordion-group>
+            </uib-accordion>
+
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="bottom-space"><button type="submit" class="btn btn-primary btn-lg">Pay Now</button></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-paypal">
+    <!-- PayPal -->
+    <div class="row">
+        <div class="col-md-9">
+            <p class="">
+                PayPal payments are processed in US Dollars.<br/>Please note that the converted US Dollar amount might include PayPal charges depending on your territory. Hence, the charged amount may be slightly different to what is indicated here.
+            </p>
+            <p class="clearfix"><img src="/img/icons/paypal.png" class="pull-left mr10" /><b>PayPal</b> ~ Pay with your Credit Card or PayPal account.</p>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't know how to use?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Press "Pay Now" button.</li>
+                        <li>Login to PayPal with your PayPal credentials.</li>
+                        <li>Review the amount and press the "Pay Now" button.</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Need Help?</b>
+                    </uib-accordion-heading>
+                    <p>If you have inquiries or need additional information on this payment method.<br/>
+                       Please have a look at the <a target="_blank" href="https://www.paypal.com/selfhelp/topic/PAYPAL_BASICS_CA">PayPal FAQ.</a></p>
+                </uib-accordion-group>
+            </uib-accordion>
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="bottom-space">
+                <button type="submit" class="btn btn-primary btn-lg">Pay Now</button>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-credit">
+    <!-- Credit Card -->
+    <div class="row">
+        <div class="col-md-9">
+            <p class="clearfix"><img src="/img/icons/credit-cards.gif" class="pull-left mr10" /><b>VISA & MASTER Cards</b> ~ Pay with your credit, debit or shopping card.</p>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't know how to use the credit card?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Press "Pay Now" Button</li>
+                        <li>Enter your credit card number and other related details on the secured internet payment gateway screen.</li>
+                        <li>Press "Pay" button at the end of the screen.</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't have a credit card for online payments?</b>
+                    </uib-accordion-heading>
+                    <p>That's all right. Don't worry. Now you can pay with following options.</p>
+                    <ol>
+                        <li>Visa & Master Debit Cards (Your bank should allow this)</li>
+                        <li>Visa & Master Shopping Cards (Your bank should allow this)</li>
+                        <li>Sampath web card (A dedicated card for online transactions)</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Need Help?</b>
+                    </uib-accordion-heading>
+                    <p>
+                        If you have inquiries or need additional information on this payment method, please contact your card center.
+                        <br/>
+                        Sampath Bank - 0722244111 or 0112300604
+                        <br/>
+                        Bank of Ceylon - 0112204444
+                        <br/>
+                        National Savings Bank - 0112379379
+                        <br/>
+                        Peoples Bank - 0112490490
+                        <br/>
+                        Commercial Bank - 0112353353
+                        <br/>
+                        Hatton National Bank - 0114523523
+                        <br/>
+                        Seylan Bank - 0112008888
+                        <br/>
+                        Nations Trust Bank - 0114711411
+                        <br/>
+                        HSBC Bank - 0114472200</p>
+                </uib-accordion-group>
+            </uib-accordion>
+
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="bottom-space"><button type="submit" class="btn btn-primary btn-lg">Pay Now</button></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="tab-payhere">
+ 
+    <div class="row">
+        <div class="col-md-9">
+            <p class="clearfix"><img src="/img/icons/credit-cards.gif" class="pull-left mr10" /><b>VISA & MASTER Cards</b> ~ Pay with your NDB credit card.</p>
+
+            <uib-accordion class="hidden-xs"close-others="true">
+                <uib-accordion-group>
+                    <uib-accordion-heading>
+                        <b>Don't know how to use the credit card?</b>
+                    </uib-accordion-heading>
+                    <ol>
+                        <li>Press "Pay Now" Button</li>
+                        <li>Enter your credit card number and other related details on the secured internet payment gateway screen.</li>
+                        <li>Press "Pay" button at the end of the screen.</li>
+                    </ol>
+                </uib-accordion-group>
+            </uib-accordion>
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="bottom-space"><button type="submit" class="btn btn-primary btn-lg">Pay Now</button></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="tab-other">
+    <!-- Other payment methods -->
+    <h4>Cash Payments</h4>
+    Now you are able to pay cash for a bus seat booking via the island-wide agent network.
+    Call our hotline to get the contact details of your nearest agent.
+    <br/><br/>
+    <h4>Online Bank Transfers/Bank Direct Debits</h4>
+    You can also debit the amount directly our bank account as a payment for a reservation.
+    Feel free to contact our customer services executives to get guided on the process.
+    <br/><br/>
+    <h2>Say hello to us, 07x Bus Bus 7!</h2>
+</script>
+

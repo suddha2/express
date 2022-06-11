@@ -1,0 +1,13 @@
+<project name="buildJAXB" basedir="." default="compile">
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+	  <classpath>
+	    <fileset dir="${basedir}/JAXB" includes="*.jar"/>
+	  </classpath>
+	</taskdef>
+
+	<target name="compile">
+		<xjc destdir="src/main/java">
+			<schema dir="schema" includes="**/taskBundle.xsd"/>
+		</xjc>
+	</target>
+</project>

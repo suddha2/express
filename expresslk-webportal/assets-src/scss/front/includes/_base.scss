@@ -1,0 +1,122 @@
+body {
+    color: $c-body;
+    font-family: $font-base;
+    font-size: 14px;
+    /* line-height: 1.6em; */
+    font-weight: 400;
+}
+
+a {
+    color: $c-grey-dark;
+    text-decoration: none;
+}
+a:hover {
+    color: $c-primary-light;
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.text-hero {
+    font-family: $font-highlight;
+    margin-top: 0;
+    font-weight: 300;
+    color: #565656;
+    line-height: 1.3em;
+}
+h1.bolded,
+h2.bolded,
+h3.bolded,
+h4.bolded,
+h5.bolded,
+.text-hero.bolded {
+    font-weight: 400;
+}
+h1 b,
+h2 b,
+h3 b,
+h4 b,
+h5 b,
+.text-hero b {
+    font-weight: 300;
+    line-height: 1em;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+.text-hero small {
+    font-size: 50%;
+    font-weight: inherit;
+}
+h1 {
+    font-size: 51.98102000000001px;
+}
+h2 {
+    font-size: 39.985400000000006px;
+}
+h3 {
+    font-size: 30.758000000000003px;
+}
+h4 {
+    font-size: 23.66px;
+}
+h5 {
+    font-size: 18.2px;
+    font-weight: 300;
+}
+* > small,
+small {
+    color: #818181;
+    font-size: 10px;
+    line-height: 1.4000000000000001em;
+}
+
+.clear-both{
+    clear: both;
+}
+
+.primary-text{
+    color: $c-primary;
+}
+.red-text{
+    color: $c-red;
+}
+.blue-text{
+    color: $c-blue;
+}
+.green-text{
+    color: $c-green;
+}
+.yellow-text{
+    color: $c-yellow;
+}
+
+.green-bg{
+    background-color: $c-green;
+}
+
+.red-bg{
+    background-color: $c-purple;
+}
+
+.btn-primary-red{
+    background: $c-primary;
+    color: $c-white;
+    border: 1px solid $c-primary-light;
+}
+
+.btn-primary-custom{
+    border-color: $c-grey;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.full-width{
+    width: 100%;
+}

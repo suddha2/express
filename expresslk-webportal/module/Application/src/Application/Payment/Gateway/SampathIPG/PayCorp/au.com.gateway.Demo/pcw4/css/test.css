@@ -1,0 +1,54 @@
+.cardimage {
+    background-repeat: no-repeat;
+    background-position: 85% 50%;
+    vertical-align: middle;
+    background-size: 40px;
+    background-color: #161D1D;
+}
+.container {
+    max-width: 400px;
+}
+.form-control-feedback {
+    right: -5px;
+}
+.scheme-logo {
+    height: 50px;
+}
+.well-lg {
+    padding-left: 80px;
+}
+button[type=submit] {
+    margin-left: 15px;
+}
+input.form-control,
+p.form-control-static {
+    width: 65%;
+    float: right;
+}
+label~.form-control-feedback {
+    top: 0px !important;
+}
+label {
+    margin-top: 10px;
+}
+.help-block {
+    margin-left: 35%;
+    margin-top: 0px;
+}
+div.form-group {
+    height: 37px;
+}
+label {
+    color: red;
+}
+
+button.btn.btn-primary {
+    width: 200px;
+}
+
+/*form#paymentForm {
+     width: 600px; 
+    height: 350px;
+    background: #161D1D;
+    padding: 20px;
+}*/

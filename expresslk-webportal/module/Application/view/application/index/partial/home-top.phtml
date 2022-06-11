@@ -1,0 +1,51 @@
+<div class="top-area show-onload" ng-controller="searchBox" ng-hide="currentScreen!='search' || !currentScreen">
+
+    <div class="bg-holder full">
+        <div class="bg-front full-height bg-front-mob-rel">
+            <div class="container full-height">
+                <div class="rel full-height">
+                    <div class="tagline" id="tagline"><span><?php echo $this->translate('It\'s time to') ?></span>
+                        <ul>
+                            <li><?php echo $this->translate('live') ?></li>
+                            <li><?php echo $this->translate('have fun') ?></li>
+                            <li><?php echo $this->translate('relax') ?></li>
+                            <li><?php echo $this->translate('meet') ?></li>
+                            <li><?php echo $this->translate('being lost') ?></li>
+                            <li><?php echo $this->translate('run away') ?></li>
+                            <li><?php echo $this->translate('go') ?></li>
+                            <li><?php echo $this->translate('explore') ?></li>
+                            <li><?php echo $this->translate('find new friends') ?></li>
+                            <li class="active"><?php echo $this->translate('discover') ?></li>
+                            <li><?php echo $this->translate('play') ?></li>
+                        </ul>
+                    </div>
+
+                    <div class="search-tabs search-tabs-bg search-tabs-bottom main-search">
+                        <div class="tabbable">
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="tab-1">
+                                    <h2 class="search-tabs-head"><?php echo $this->translate('Reserve bus seats across Sri Lanka') ?></h2>
+
+                                    <?php echo $this->partial('application/index/partial/search-form'); ?>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-main-carousel">
+            <uib-carousel class="fading" interval="9000" ng-init="slides=[
+                        {l: 'view_of_central_Colombo-v1.jpg'},
+                        {l: 'dalada-maligawa-v1.jpg'},
+                        {l: 'dancers-v1.jpg'},
+                        {l: 'srilanka-beach-v1.jpg'}
+                        ]">
+                <uib-slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="/img/home-slider/{{slide.l}}" style="margin:auto; height: 100%;">
+                </uib-slide>
+            </uib-carousel>
+        </div>
+    </div>
+</div>

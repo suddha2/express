@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<handler-chain>
+		<handler>
+			<handler-class>lk.express.auth.jaxws.SOAPAuthenticationHandler
+			</handler-class>
+		</handler>
+	</handler-chain>
+</handler-chains>

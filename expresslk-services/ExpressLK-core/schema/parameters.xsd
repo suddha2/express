@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:params="http://express.lk/2015/meta/parameters"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	targetNamespace="http://express.lk/2015/meta/parameters"	
+	elementFormDefault="qualified" 
+	jaxb:version="2.0" >
+	
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+				<jaxb:package name="lk.express.metaxml.params" />
+			</jaxb:schemaBindings>
+		</xs:appinfo>
+	</xs:annotation>
+	
+	<xs:element name="parameters" type="params:parametersType" />
+	
+	<xs:complexType name="parametersType">
+		<xs:sequence>
+			<xs:element name="parameter" type="params:parameterType" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="parameterType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="type" type="xs:string" />
+			<xs:element name="values" type="params:parameterValuesType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="parameterValuesType">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string" maxOccurs="unbounded" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

@@ -1,0 +1,124 @@
+<?php
+//change layout
+$this->layout('layout/layout_basic');
+?>
+<div class="full-page">
+    <div class="bg-holder full">
+        <div class="bg-mask"></div>
+        <div class="bg-blur" style="background-image:url(/img/404.jpg);"></div>
+        <div class="bg-holder-content full text-white">
+            <a class="logo-holder" href="/">
+                <img src="/img/BusBooking-logo-40x40.png" alt="BusBooking Logo" title="BusBooking Logo" />
+            </a>
+            <div class="full-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <?php
+                            $messagearray = array();
+                            if(isset($this->exception) && $this->exception instanceof Exception){
+                                if($this->exception->getCode()==401){
+                                    $messagearray = array(
+                                        'title' => $this->translate('Error'),
+                                        'subTitle' => $this->translate('You don\'t have Permission to visit this page.'),
+                                        'message' => $this->translate('Did you come here accidently? Seems you dont have permission or authority to view this page.'),
+                                        'link' => '/app/auth/logout',
+                                        'linkText' => '<i class="fa fa-sign-out"></i> '. $this->translate('Log out and log back in with permissive user?'),
+                                    );
+                                }
+                            }
+
+                            //default message
+                            if(empty($messagearray)){
+                                $messagearray = array(
+                                    'title' => $this->translate('Error'),
+                                    'subTitle' => $this->translate('An error occurred'),
+                                    'message' => $this->message,
+                                    'link' => '/',
+                                    'linkText' => '<i class="fa fa-long-arrow-left"></i> '. $this->translate('to Homepage'),
+                                );
+                            }
+                            ?>
+
+                            <p class="text-hero"><?php echo $messagearray['title'] ?></p>
+                            <h1><?php echo $messagearray['subTitle'] ?></h1>
+                            <p><?php echo $messagearray['message'] ?></p>
+                            <a class="btn btn-white btn-ghost btn-lg mt5" href="<?php echo $messagearray['link'] ?>">
+                                <?php echo $messagearray['linkText'] ?>
+                            </a>
+
+                            <?php if (isset($this->layout()->display_exceptions) && $this->layout()->display_exceptions): ?>
+
+                                <?php if(isset($this->exception) && $this->exception instanceof Exception): ?>
+                                    <hr/>
+                                    <h2><?php echo $this->translate('Additional information') ?>:</h2>
+                                    <h3><?php echo get_class($this->exception); ?></h3>
+                                    <dl>
+                                        <dt><?php echo $this->translate('File') ?>:</dt>
+                                        <dd>
+                                            <pre class="prettyprint linenums"><?php echo $this->exception->getFile() ?>:<?php echo $this->exception->getLine() ?></pre>
+                                        </dd>
+                                        <dt><?php echo $this->translate('Message') ?>:</dt>
+                                        <dd>
+                                            <pre class="prettyprint linenums"><?php echo $this->escapeHtml($this->exception->getMessage()) ?></pre>
+                                        </dd>
+                                        <dt><?php echo $this->translate('Stack trace') ?>:</dt>
+                                        <dd>
+                                            <pre class="prettyprint linenums"><?php echo $this->escapeHtml($this->exception->getTraceAsString()) ?></pre>
+                                        </dd>
+                                    </dl>
+                                    <?php
+                                    $e = $this->exception->getPrevious();
+                                    if ($e) :
+                                        ?>
+                                        <hr/>
+                                        <h2><?php echo $this->translate('Previous exceptions') ?>:</h2>
+                                        <ul class="unstyled">
+                                            <?php while($e) : ?>
+                                                <li>
+                                                    <h3><?php echo get_class($e); ?></h3>
+                                                    <dl>
+                                                        <dt><?php echo $this->translate('File') ?>:</dt>
+                                                        <dd>
+                                                            <pre class="prettyprint linenums"><?php echo $e->getFile() ?>:<?php echo $e->getLine() ?></pre>
+                                                        </dd>
+                                                        <dt><?php echo $this->translate('Message') ?>:</dt>
+                                                        <dd>
+                                                            <pre class="prettyprint linenums"><?php echo $this->escapeHtml($e->getMessage()) ?></pre>
+                                                        </dd>
+                                                        <dt><?php echo $this->translate('Stack trace') ?>:</dt>
+                                                        <dd>
+                                                            <pre class="prettyprint linenums"><?php echo $this->escapeHtml($e->getTraceAsString()) ?></pre>
+                                                        </dd>
+                                                    </dl>
+                                                </li>
+                                                <?php
+                                                $e = $e->getPrevious();
+                                            endwhile;
+                                            ?>
+                                        </ul>
+                                    <?php endif; ?>
+
+                                <?php else: ?>
+
+                                    <h3><?php echo $this->translate('No Exception available') ?></h3>
+
+                                <?php endif ?>
+
+                            <?php endif ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+            echo $this->navigation('Navigation')
+                ->menu()
+                ->setUlClass('footer-links');
+            ?>
+        </div>
+    </div>
+</div>
+
+<h1></h1>
+<h2></h2>
+

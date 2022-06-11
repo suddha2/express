@@ -1,0 +1,13 @@
+<script>
+    <?php
+    $allowed = array(
+        \Application\Acl\Acl::MODULE_ENTITY => $this->identity()->getModuleResources(\Application\Acl\Acl::MODULE_ENTITY),
+        \Application\Acl\Acl::MODULE_FRAGMENT => $this->identity()->getModuleResources(\Application\Acl\Acl::MODULE_FRAGMENT),
+        \Application\Acl\Acl::MODULE_PERMGROUP => $this->identity()->getModuleResources(\Application\Acl\Acl::MODULE_PERMGROUP),
+    );
+
+
+    ?>
+
+    window.ACL_DATA = <?php echo json_encode($allowed); ?>;
+</script>

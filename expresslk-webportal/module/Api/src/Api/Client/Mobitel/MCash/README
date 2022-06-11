@@ -1,0 +1,1 @@
+php vendor/wsdl2phpgenerator/wsdl2phpgenerator/wsdl2php -i https://apphubdev.mobitel.lk/services/MWT/ExternalChargingService?wsdl -o module/Api/src/Api/Client/Mobitel/MCash -n Api\Client\Mobitel\MCash

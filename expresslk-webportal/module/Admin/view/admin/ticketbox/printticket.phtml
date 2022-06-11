@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Express Ticket</title>
+
+    <style type="text/css">
+        /*////// RESET STYLES //////*/
+        body, #bodyTable, #bodyCell {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0;
+            width: 100% !important;
+        }
+
+        table {
+            border-collapse: collapse;
+			
+        }
+		.aTable {	
+			border-collapse: collapse; border: 1px solid black;
+		}
+		.aTable tr {
+			border-collapse: collapse; border: 1px solid black;
+		}
+		.aTable td {
+			border-collapse: collapse; border: 1px solid black;
+		}
+        img, a img {
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+		
+        h4 {
+            margin: 0;
+            padding: 0;
+			font-weight: normal;
+        }
+		label{
+			/*color: #A9A9A9;*/
+		}
+
+        p {
+            margin: 1em 0;
+        }
+
+        .container{
+            width: 100%;
+            float: left;
+            clear: left;
+            position: relative;
+        }
+        .bg{
+            position: absolute; top: 0; left: 0; width: 100%;
+        }
+        .data{
+            /* position:absolute;
+            top: 72px;
+            left: 137px;
+            z-index: 10; */
+            font-size: 12px;
+        }
+        .data td{
+            /*padding: 6px 0;*/
+        }
+		.main-image{
+			display: block;
+			height: 40px;
+		}
+        .pagebreak{
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+		.bold{
+			font-weight: bold;
+		}
+		p{
+			font-size: 9px;
+		}
+		hr{
+			border: none;
+			border-top: dotted 1px;
+			margin-bottom: 10px;
+		}
+		@page {
+			size: 80mm 297mm; /* width height */
+			 /* margin: 3% 3% 3% 3% ; */
+
+		}
+		@media print {
+			a[href]:after {
+				content: none !important;
+			}
+		}
+    </style>
+    <style type="text/css" media="print">
+        .pagebreak{
+            page-break-after: always;
+            page-break-inside: avoid;
+            display: block;
+            width: 100%;
+            height: 1px;
+            float: left;
+            clear: left;
+        }
+    </style>
+</head>
+<body style="">
+
+<?php
+
+foreach($this->pages as $page) {
+    ?>
+    <div class="container">
+		<table align="center" width="100%"  >
+			<tr>
+				<!-- <td  ><img style="float: left;" class="main-image" src="/img/logos/sltb-logo.jpg"/></td>
+                  <td  ><img style="float: right;" class="main-image" src="/img/logos/busbooking.lk-long.jpg"/></td> -->
+                <td  ><img style="float: center;" class="main-image" src="/img/logos/SLTB-express.png"/></td>
+			</tr>
+		</table>
+			
+        <table class="data aTable" align="center" id="ticketinfo"   width="100%" >
+			
+             <tr>
+				<td style="font-weight:bold" width="60%">
+					<label>ඊ-ටිකට්පත් අංකය</label>
+					<label style="font-size:6px;">இ-டிக்கெட் எண்</label>
+					<label>eTicket No.
+					</label>
+				</td>
+				<td width="40%">
+					<h4 class="bold" style="font-size:18px;"><?php echo $page->bookingNo ?></h4>
+				</td>
+            </tr>
+             <tr>
+				<td style="font-weight:bold" width="60%">
+					<label>කේතය</label>
+					<label style="font-size:6px;">சரிபார்க்கும் இல.</label>
+					<label>V-Code
+					</label>
+				</td>
+				<td >
+					<h4 class="bold" style="font-size:18px;"><?php echo $page->vCode; ?></h4>
+				</td>
+            </tr>
+			
+			<tr>
+                <td style="font-weight:bold" width="60%">
+					<label>වාහන අංකය</label>
+					<label style="font-size:6px;">வாகன எண்</label>
+					<label>Vehicle No.
+				</label>
+				</td>
+                <td><h4 class="bold"><?php echo (strlen($page->busNumber)>12) ? '' : $page->busNumber ?></h4></td>
+				
+			</tr>
+			<?php if (isset($page->adultPassengers)) { ?>
+			<tr>
+				<td style="font-weight:bold" width="60%">
+					<label> ආසන අංකය</label>
+					<label style="font-size:6px;">இருக்கை எண்</label>
+					<label>Seat No.</label>
+				</td>
+                <td><h4 class="bold" style="font-size:18px;"><?php echo implode(', ', $page->adultPassengers) ?></h4></td>
+            </tr>
+			<?php } if (isset($page->childPassengers)) { ?>
+			<tr>
+				<td style="font-weight:bold" width="60%">
+					<label> ළමා ආසන අංකය</label>
+					<label style="font-size:6px;">சிறுவர் இருக்கை எண்</label>
+					<label>Child Seat No.</label>
+				</td>
+                <td><h4 class="bold" style="font-size:18px;"><?php echo implode(', ', $page->childPassengers)?></h4></td>
+            </tr>
+			<?php } ?>
+            <tr>
+                <td  style="font-weight:bold" width="60%">
+				<label>පිටත්වන  වේලාව</label>
+				<label style="font-size:6px;">புறப்படும் நேரம்</label>
+				<label>Time of Departure</label>
+				</td>
+                <td  ><h4 class="bold" style="font-size:18px;"><?php   $date = DateTime::createFromFormat('dS F Y',$page->date); echo $date->format('Y-m-d '); ?> : <?php echo $page->departureTime ?></h4></td>
+            </tr>
+            <tr>
+                 <td colspan="4" style="font-weight:bold" >
+				<label>ගමනාරම්භය</label>
+				<label style="font-size:6px;">ஆரம்ப இடம்</label>
+				<label>Start Location
+				</label>
+				</td>
+			</tr>
+			<tr>
+                <td colspan="4"><h4 class="bold"><?php echo $page->departCity ?></h4></td>
+			</tr>
+			<tr>
+               <td colspan="4"style="font-weight:bold" >
+					<label>ගමනාන්තය</label>
+					<label style="font-size:6px;">இலக்கு</label>
+					<label>Destination</label>
+				</td>
+			</tr>
+			<tr>
+                <td colspan="4"><h4 class="bold"><?php echo $page->arrivalCity ?></h4></td>
+            </tr>
+			<?php 
+				if(isset($page->warrant)) {
+			?>
+				<tr>
+					<td  style="font-weight:bold" width="60%">
+						<label> බලපත්‍රය </label>
+						<label style="font-size:6px;"> அதிகாரப் பத்திரம்</label>
+						<label>Warrant</label>
+					</td>
+					<td  ><h4 class="bold"><?php echo $page->warrant->reference ?></h4></td>
+				</tr>
+			<?php
+				}else if(isset($page->pass)) {
+			?>
+				<tr>
+					<td  style="font-weight:bold" width="60%">
+						<label>අවසර පත්‍රය</label>
+						<label style="font-size:6px;">அனுமதிச் சீட்டு</label>
+						<label>Pass</label>
+					</td>
+					<td  ><h4 class="bold"><?php echo $page->pass->reference ?></h4></td>
+				</tr>
+			<?php
+				}else if(isset($page->payatbus)) {
+			?>
+				<tr>
+					<td  style="font-weight:bold" width="60%">
+						<label>බසයේදී කරන ගෙවීම්</label>
+						<label style="font-size:6px;">பேருந்தில் செலுத்த வேண்டிய கட்டணம்</label>
+						<label>Pay at Bus Amount </label>
+					</td>
+					<td  ><h4 class="bold">Rs. <?php echo number_format($page->payatbus, 2) ?></h4></td>
+				</tr>
+			<?php
+				} else  {
+			?>
+			<tr>
+                <td  style="font-weight:bold" width="60%">
+					<label>ප්‍රවේශ පත්‍ර ගාස්තුව</label>
+					<label style="font-size:6px;">பயணச்சீட்டு கட்டணம்</label>
+					<label>Ticket Fee</label>
+				</td>
+                <td  ><h4 class="bold">Rs. <?php echo number_format($page->cost, 2) ?></h4></td>
+            </tr>
+			<?php
+				} 
+			?>
+			<tr>
+                <td  style="font-weight:bold" width="60%">
+					<label>වෙන් කිරීමේ ගාස්තුව</label>
+					<label style="font-size:6px;">முன்பதிவு கட்டணம்</label>
+					<label>Reservation Fee</label>
+				</td>
+                <td  ><h4 class="bold">Rs. <?php echo number_format($page->reservationCharges, 2) ?></h4></td>
+            </tr>
+			
+			 <tr>
+                <td colspan="4" style="font-weight:bold" >
+				<label>Date of Issue
+                <?php echo $page->bookedTime ?></label></td>
+            </tr>
+        </table>
+		
+		<p style="font-weight:bold">
+			&#9758;ටිකට්පත් හුවමාරු කරගැනීම හෝ නැවත විකිණීම තහනම්.
+			&#9758;සියලුම ගාස්තු ආපසු ගෙවනු නොලැබේ.
+			&#9758;වෙන් කරන ලද ආසන සඳහා සම්පූර්ණ බස් ගාස්තුව අය කෙරේ.
+			&#9758;පිටත්වීමට විනාඩි 15 කට පෙර පැමිණිය යුතුය.
+			&#9758;සේවා සැපයුම්කරු කිසිදු හානියක් සඳහා වගකියනු නොලැබේ.
+			&#9758;මෙය ඉහත ගමන්වාරයට පමණක් වලංගුවේ.
+			&#9758;මත්පැන් සහ දුම් පානය තහනම්ය.
+			&#9758;අනෙකුත් මගීන්ට බාධා නොවන පරිදි ගමන්කල යුතුය.
+		</p>
+		<p style="font-size:6px;font-weight:bold" >
+			&#9758;பரிமாற்றம் மற்றும் மீள்விற்பனை தடைசெய்யப்பட்டுள்ளது.
+			&#9758;செலுத்தப்படும் கட்டணம் மீள வழங்கப்படமாட்டாது.
+			&#9758;ஒதுக்கப்பட்ட இடங்களுக்கு முழு பஸ் கட்டணம் விதிக்கப்படும்.
+			&#9758;புறப்படுவதற்கு 15 நிமிடங்களுக்கு முன்னர் வருகை தர வேண்டும்
+			&#9758;ஏற்படும் இழப்பு அல்லது சேதத்திற்கு சேவை வழங்குநர் பொறுப்பு இல்லை.
+			&#9758;இந்த ரசீது மேற்குறிப்பிட்ட பயணத்திற்கு மட்டுமே செல்லுபடியாகும்
+			&#9758;மதுபானம், புகைத்தல் ஆகியன தடைசெய்யப்பட்டுள்ளது
+			&#9758;மற்ற பயணிகளுக்கு இடையூறு இல்லாத வகையில் பயனிக்க வேண்டும்
+			
+		</p>
+		<p style="font-weight:bold">
+			&#9758;Transferring & re-selling is prohibited.
+			&#9758;Charges paid will not be refunded.
+			&#9758;Full bus fare will be charged for reserved seats.
+			&#9758;Must arrive 15 minutes prior to departure time.
+			&#9758;Service provider will not be responsible for any losses or damages caused.
+			&#9758;This receipt is valid for the issued schedule only.
+			&#9758;Alcohol and smoking are prohibited.
+			&#9758;Disturbances to other passengers should be avoided.
+		</p>
+		<p style="text-align:right">
+			<h4 class="bold" style="font-size:18px;">
+				For inquiries 
+			</h4>
+			<h4 class="bold" style="font-size:18px;">
+				 0772872877 
+			</h4>
+		</p>
+    </div>
+    <div class="pagebreak" style=""></div>
+<?php
+}
+?>
+<script>
+    window.onload = function(){
+        window.print();
+        window.close();
+    };
+</script>
+</body>
+</html>
+

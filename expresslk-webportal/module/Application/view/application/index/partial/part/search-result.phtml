@@ -1,0 +1,578 @@
+
+<div class="row" ng-cloak ng-hide="currentScreen!='result'">
+
+    <div class="col-md-3">
+        <form name="subSearchForm" method="post" class="booking-item-dates-change home-form result-search"
+              search-form search-from-city="subSearchFormData.start" search-to-city="subSearchFormData.end"
+              search-date="subSearchFormData.date" offer-code="subSearchFormData.offercode" >
+            <div class="form-group form-group-icon-left"
+                 ng-class="{'form-correct': (subSearchFormData.start!='')}"
+                 ng-init="loadingFrom=false;">
+                <i class="fa fa-map-marker input-icon" ng-class="{'search-icon-loading': loadingFrom}"></i>
+                <label><?php echo $this->translate('From') ?></label>
+                <input type="text" placeholder="<?php echo $this->translate('Select a City') ?>"
+                       class="form-control"
+                       bind-model="subSearchFormData.start" suggest-city-box suggest-loading="loadingFrom"/>
+            </div>
+            <div class="form-group form-group-icon-left"
+                 ng-class="{'form-correct': (subSearchFormData.end!='')}"
+                 ng-init="loadingTo=false;">
+                <i class="fa fa-map-marker input-icon" ng-class="{'search-icon-loading': loadingTo}"></i>
+                <label><?php echo $this->translate('To') ?></label>
+                <input type="text" placeholder="<?php echo $this->translate('Select a Destination') ?>"
+                       class="form-control"
+                       bind-model="subSearchFormData.end" suggest-city-box suggest-loading="loadingTo" dependant="subSearchFormData.start">
+            </div>
+            <div class="form-group form-group-icon-left"
+                 ng-class="{'form-correct': (subSearchFormData.date!='' && subSearchForm.date.$dirty)}"
+                 ng-init="isOpened=false;">
+                <i ng-click="isOpened=!isOpened" class="fa fa-calendar input-icon input-icon-highlight"></i>
+                <label><?php echo $this->translate('Departing') ?></label>
+                <input type="text" class="form-control" placeholder="<?php echo $this->translate('Choose a date') ?>"
+                       ng-model="subSearchFormData.date" search-datepicker
+                       ng-required="true" name="date"/>
+            </div>
+            <div class="form-group ">
+                <div class="offer-holder" ng-init="clpsOffer=(!subSearchFormData.offercode)" ng-class="{'off-collapsed': clpsOffer}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="subSearchFormData.offercode"
+                               placeholder="<?php echo $this->translate('Paste the Offer code here') ?>" ng-focus="!clpsOffer">
+                        <span >
+                        <button class="btn btn-default pull-right" ng-click="clpsOffer=!clpsOffer" type="button">
+                            <u><i class="fa fa-gift"></i> <?php echo $this->translate('Offer code') ?></u>
+                        </button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" id="subFrmBtn" value="<?php echo $this->translate('Update Search') ?>" class="btn btn-primary-red booking-view-seats">
+        </form>
+
+        <div class="gap gap-small"></div>
+        <?php
+        if(\Application\Domain::getDomain()==\Application\Domain::NAME_BUSBOOKING){
+            echo '
+            <h2 class="small hidden-xs text-gray">
+            '. sprintf(
+                $this->translate('Search results for your journey from %1$s to %2$s. Enjoy the convenience of getting your bus
+                tickets online. Reserve your seats through Sri Lanka\'s first and largest online bus booking and
+            reservation platform to proceed with the booking . <br />Happy journeys!'),
+                '{{subSearchFormData.start.name}}', '{{subSearchFormData.end.name}}') .'
+                <br/>
+                <img class="mt10 pull-right" alt="BusBooking Team" src="/img/icons/bbk-signature.png" />
+            </h2>';
+        }
+        ?>
+        <!--        <aside class="booking-filters text-white" style="">-->
+        <!--            <h3>Filter By:</h3>-->
+        <!--            <ul class="list booking-filters-list">-->
+        <!--                <li>-->
+        <!--                    <h5 class="booking-filters-title">Stops <small>Price from</small></h5>-->
+        <!--                    <div class="checkbox">-->
+        <!--                        <label>-->
+        <!--                            Non-stop<span class="pull-right">$215</span>-->
+        <!--                        </label>-->
+        <!--                    </div>-->
+        <!--                    <div class="checkbox">-->
+        <!--                        <label>-->
+        <!--                            1 Stop<span class="pull-right">$154</span>-->
+        <!--                        </label>-->
+        <!--                    </div>-->
+        <!--                    <div class="checkbox">-->
+        <!--                        <label>-->
+        <!--                            2+ Stops<span class="pull-right">$197</span>-->
+        <!--                        </label>-->
+        <!--                    </div>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--        </aside>-->
+        <div class="gap gap-small hidden-xs"></div>
+    </div>
+    <div class="col-md-9">
+        <!--        <div class="nav-drop booking-sort">-->
+        <!--            <h5 class="booking-sort-title"><a href="#">Sort: Sort: Price (low to high)<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></a></h5>-->
+        <!--            <ul class="nav-drop-menu">-->
+        <!--                <li><a href="#">Price (high to low)</a>-->
+        <!--                </li>-->
+        <!--                <li><a href="#">Duration</a>-->
+        <!--                </li>-->
+        <!--                <li><a href="#">Stops</a>-->
+        <!--                </li>-->
+        <!--                <li><a href="#">Arrival</a>-->
+        <!--                </li>-->
+        <!--                <li><a href="#">Departure</a>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--        </div>-->
+        <div ng-hide="!loading" class="full-width">
+            <div class="timeline-wrapper">
+                <div class="timeline-item">
+                    <div class="animated-background">
+                        <div class="background-masker bheader-top"></div>
+                        <div class="background-masker header-left"></div>
+                        <div class="background-masker header-right"></div>
+                        <div class="background-masker header-bottom"></div>
+                        <div class="background-masker subheader-left"></div>
+                        <div class="background-masker subheader-right"></div>
+                        <div class="background-masker subheader-bottom"></div>
+                        <div class="background-masker content-top"></div>
+                        <div class="background-masker content-first-end"></div>
+                        <div class="background-masker content-second-line"></div>
+                        <div class="background-masker content-second-end"></div>
+                        <div class="background-masker content-third-line"></div>
+                        <div class="background-masker content-third-end"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="!loading && !schedules.length" class="col-md-12">
+            <?php echo $this->partial('application/index/partial/part/search-result-noresult'); ?>
+        </div>
+
+        <div class="search-suggested" ng-show="suggested!==false">
+            <p class="ss-suggested">Showing results for
+                <a ng-href="/bus/search/{{suggested.fromName}}/{{suggested.toName}}/{{suggested.fromId}}/{{suggested.toId}}/{{searchTerms.getDate()}}">
+                    <span ng-class="{'suggest-change': suggested.fromChanged}">{{suggested.fromName}}</span> to
+                    <span ng-class="{'suggest-change': suggested.toChanged}">{{suggested.toName}}</span>
+                </a>
+            </p>
+            <p class="ss-source">You searched for {{searchTerms.getFromName()}} to {{searchTerms.getToName()}}</p>
+        </div>
+        <ul class="booking-list">
+            <!-- Bus result -->
+			<li ng-repeat="bus in schedules" show-seats=""
+                class="booking-schedule-container">	
+
+                <div class="booking-item-container">
+                    <div class="booking-item booking-item-small">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="booking-item-airline-logo text-center">
+                                    <div>
+                                        <img ng-if="bus.sectors[0].bus.image" ng-src="/img/bus/{{bus.sectors[0].bus.image}}">
+                                        <img ng-if="!bus.sectors[0].bus.image" ng-src="/img/bus-types/{{bus.sectors[0].bus.busType}}.gif">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="booking-item-flight-details">
+									<!-- When there are only 2 stops -->
+									<div ng-if="bus.timeLineCircles=='AA'" class="node-container">
+										<div class="node-circles">
+											<ul>
+												<li class="active"><a href="#" class="node-dot"></a></li>
+												<li class="active"><a href="#" class="node-dot"></a></li> 
+											</ul>
+										</div>
+										<div class="node-bar">
+											<ul>
+												 <li class="active" ><a class="n-progress" href="#"></a></li>
+											</ul>
+										</div>
+										<div class="node-names">
+											<ul>
+												<li> <i class="fa fa-arrow-up rotate-45-right "></i>	
+														{{bus.sectors[0].schedule.actualFromCity}} <br />  
+														{{bus.sectors[0].schedule.actualDepartureTime | moment:'YYYY-MM-DD'}}    <br/>
+														{{bus.sectors[0].schedule.actualDepartureTime | moment:'HH:mm'}}
+												</li>
+												<li> <i class="fa fa-arrow-down rotate-45-left "></i>
+														{{bus.sectors[0].schedule.actualToCity}} <br />  
+														{{bus.sectors[0].schedule.actualArrivalTime | moment:'YYYY-MM-DD'}} <br/>
+														{{bus.sectors[0].schedule.actualArrivalTime | moment:'HH:mm'}}
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- When there are 3 stops, travel is between stop 1 and stop 2 -->
+									<div ng-if="bus.timeLineCircles=='AAD'" class="node-container">
+										<div class="node-circles">
+											<ul>
+												<li class="active"><a href="#" class="node-dot"></a></li>
+												<li class="active"><a href="#" class="node-dot"></a></li> 
+												<li ><a href="#" class="node-dot"></a></li> 
+												
+											</ul>
+										</div>
+										<div class="node-bar">
+											<ul>
+												 <li class="active" ><a class="n-progress" href="#"></a></li>
+												 <li ><a class="n-progress" href="#"></a></li>
+												 
+											</ul>
+										</div>
+										<div class="node-names">
+											<ul>
+												<li> <i class="fa fa-arrow-up rotate-45-right "></i>
+														{{bus.sectors[0].schedule.actualFromCity}} <br />  
+														{{bus.sectors[0].schedule.actualDepartureTime | moment:'YYYY-MM-DD'}}    <br/>
+														{{bus.sectors[0].schedule.actualDepartureTime | moment:'HH:mm'}}
+												</li>
+												<li> 	<i class="fa fa-arrow-down rotate-45-left "></i>
+														{{bus.sectors[0].toCityName}} <br />  
+														{{bus.sectors[0].arrivalTime | moment:'YYYY-MM-DD'}} <br/>
+														{{bus.sectors[0].arrivalTime | moment:'HH:mm'}}
+												</li>
+												<li> 	{{bus.sectors[0].schedule.actualToCity}} <br />  
+														{{bus.sectors[0].schedule.actualArrivalTime | moment:'YYYY-MM-DD'}} <br/>
+														{{bus.sectors[0].schedule.actualArrivalTime | moment:'HH:mm'}}
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- When there are 3 stops, travel is between stop 2 and stop 3 -->
+									<div ng-if="bus.timeLineCircles=='DAA'" class="node-container">
+										<div class="node-circles">
+											<ul>
+												<li ><a href="#" class="node-dot"></a></li> 
+												<li class="active"><a href="#" class="node-dot"></a></li>
+												<li class="active"><a href="#" class="node-dot"></a></li> 
+											</ul>
+										</div>
+										<div class="node-bar">
+											<ul>
+												 <li ><a class="n-progress" href="#"></a></li>
+												 <li class="active" ><a class="n-progress" href="#"></a></li>
+											</ul>
+										</div>
+										<div class="node-names">
+											<ul>
+												<li> 	{{bus.sectors[0].schedule.actualFromCity}} <br />  
+														{{bus.sectors[0].schedule.actualDepartureTime | moment:'YYYY-MM-DD'}}    <br/>
+														{{bus.sectors[0].schedule.actualDepartureTime | moment:'HH:mm'}}
+												</li>
+												<li> <i class="fa fa-arrow-up rotate-45-right "></i>
+														{{bus.sectors[0].fromCityName}} <br />  
+														{{bus.sectors[0].departureTime | moment:'YYYY-MM-DD'}} <br/>
+														{{bus.sectors[0].departureTime | moment:'HH:mm'}}
+												</li>
+												<li> <i class="fa fa-arrow-down rotate-45-left "></i>
+														{{bus.sectors[0].schedule.actualToCity}} <br />  
+														{{bus.sectors[0].schedule.actualArrivalTime | moment:'YYYY-MM-DD'}} <br/>
+														{{bus.sectors[0].schedule.actualArrivalTime | moment:'HH:mm'}}
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- When there are 4 stops, travel is between stop 2 and stop 3 -->
+									<div ng-if="bus.timeLineCircles=='DAAD'" class="node-container">
+										<div class="node-circles">
+											<ul>
+												<li ><a href="#" class="node-dot"></a></li> 
+												<li class="active"><a href="#" class="node-dot"></a></li>
+												<li class="active"><a href="#" class="node-dot"></a></li> 
+												<li ><a href="#" class="node-dot"></a></li> 
+											</ul>
+										</div>
+										<div class="node-bar">
+											<ul>
+												 <li ><a class="n-progress" href="#"></a></li>
+												 <li class="active" ><a class="n-progress" href="#"></a></li>
+												 <li ><a class="n-progress" href="#"></a></li>
+											</ul>
+										</div>
+										<div class="node-names">
+											<ul>
+												<li > 	{{bus.sectors[0].schedule.actualFromCity}} <br />  
+														{{bus.sectors[0].schedule.actualDepartureTime | moment:'YYYY-MM-DD'}}    <br/>
+														{{bus.sectors[0].schedule.actualDepartureTime | moment:'HH:mm'}}
+												</li>
+												<li> <i class="fa fa-arrow-up rotate-45-right "></i>	{{bus.sectors[0].fromCityName}} <br />  
+														{{bus.sectors[0].departureTime | moment:'YYYY-MM-DD'}} <br/>
+														{{bus.sectors[0].departureTime | moment:'HH:mm'}}
+												</li>
+												<li> <i class="fa fa-arrow-down rotate-45-left "></i>	{{bus.sectors[0].toCityName}} <br />  
+														{{bus.sectors[0].arrivalTime | moment:'YYYY-MM-DD'}} <br/>
+														{{bus.sectors[0].arrivalTime | moment:'HH:mm'}}
+												</li>
+												<li> 	{{bus.sectors[0].schedule.actualToCity}} <br />  
+														{{bus.sectors[0].schedule.actualArrivalTime | moment:'YYYY-MM-DD'}} <br/>
+														{{bus.sectors[0].schedule.actualArrivalTime | moment:'HH:mm'}}
+												</li>
+											</ul>
+										</div>
+									</div>
+                                </div>
+								<!-- 
+                                    <div class="booking-item-departure">
+                                        <i class="fa fa-arrow-up rotate-45-right "></i>
+                                        <h5>{{bus.sectors[0].schedule.actualDepartureTime | moment:'h:mmA'}}</h5>
+                                        <p class="booking-item-date">{{bus.sectors[0].schedule.actualDepartureTime | moment:'YYYY-MM-DD'}}</p>
+                                        <p class="booking-item-date booking-item-city">{{bus.sectors[0].schedule.actualFromCity}}</p>
+                                    </div>
+                                    <div class="booking-item-arrival">
+                                        <i class="fa fa-arrow-down rotate-45-left"></i>
+                                        <h5>{{bus.sectors[0].schedule.actualArrivalTime | moment:'h:mmA'}}</h5>
+                                        <p class="booking-item-date">{{bus.sectors[0].schedule.actualArrivalTime | moment:'YYYY-MM-DD'}}</p>
+                                        <p class="booking-item-date booking-item-city">{{bus.sectors[0].schedule.actualToCity}}</p>
+                                    </div>
+								-->
+								
+                            </div>
+                            <div class="col-md-3" 
+									 ng-init="amenIcons={
+										'AC': 'fa-asterisk',
+										'OL': 'fa-male',
+										'BF': 'fa-bus',
+										'AS': 'fa-sliders',
+										'BS': 'fa-barcode',
+										'HR': 'fa-h-square',
+										'AR': 'fa-hand-lizard-o',
+										'FR': 'fa-eraser',
+										'MF': 'fa-futbol-o',
+										'TV': 'fa-television',
+										'WI': 'fa-wifi',
+										'SH': 'fa-map-o',
+										'FW': 'fa-glass',
+										'BR': 'fa-spinner',
+										'PL': 'fa-plug',
+										'WC': 'fa-wheelchair',
+										'LR': 'fa-volume-up',
+										'OM': 'fa-headphones',
+										'PM': 'fa-music',
+										'FN': 'fa-newspaper-o',
+										'FM': 'fa-book',
+										'OV': 'fa-play-circle',
+										'OF': 'fa-cutlery',
+										'RL': 'fa-location-arrow',
+										'FA': 'fa-plus',
+										'FP': 'fa-female',
+										'FE': 'fa-fire-extinguisher',
+										'MO': 'fa-film',
+										'MC': 'fa-microphone',
+										'SC': 'fa-video-camera',
+										'GD': 'fa-users',
+										'SL': 'fa-suitcase',
+										'TB': 'fa-trash-o',
+										'ET': 'fa-ticket',
+										'RT': 'fa-star-half-o',
+										'PT': 'fa-print',
+										'SO': 'fa-refresh',
+										'NJ': 'fa-moon-o',
+										'AB': 'fa-bed',
+										'TI': 'fa-info-circle',
+										'CT': 'fa-taxi',
+										'LS': 'fa-language',
+										'LG': 'fa-binoculars',
+										'UM': 'fa-child',
+										'RB': 'fa-lightbulb-o',
+										'HB': 'fa-coffee',
+										'CB': 'fa-map-pin'
+									}">
+									<h5><?php echo  $this->translate('Facilities') ?></h5>
+									<i ng-repeat="amn in bus.sectors[0].bus.amenities"
+									   class="pull-left fa cursor-pointer"
+									   ng-class="amenIcons[amn.code]"
+									   uib-tooltip="{{amn.description}}"
+									   tooltip-append-to-body="true">
+									</i>&nbsp;
+								
+                            </div>
+							<!--
+                            <div class="col-md-3 booking-item-pricecolumn">
+                                <h5><span class="booking-item-price">{{bus.prices.total | currency:"Rs. "}}</span><span><?php echo  $this->translate('/person') ?></span></h5>
+
+                                <p class="booking-item-flight-class">{{bus.sectors[0].fromCityName}} <?php echo $this->translate('(Approx)') ?> : {{bus.sectors[0].departureTime | moment:'YYYY-MM-DD hh:mmA'}}</p>
+                                <p class="booking-item-flight-class">{{bus.sectors[0].toCityName}} <?php echo $this->translate('(Approx)') ?> : {{bus.sectors[0].arrivalTime | moment:'YYYY-MM-DD hh:mmA'}}</p>
+                                
+								<p class="booking-item-flight-class"><?php echo  $this->translate('Duration : ') ?>{{bus.sectors[0].duration.h}} h {{bus.sectors[0].duration.i}} min</p>
+                            </div>
+							-->
+                        </div>
+						<div class="gap gap-small hidden-xs"></div>
+                        <div class="row">
+                            <div class="col-md-2 col-sm-4 hidden-xs">
+                                <p class="booking-item-flight-class">{{bus.sectors[0].bus.name}}</p>
+                                <p class="booking-item-flight-class">{{bus.sectors[0].bus.busTypeDesc}}</p>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="booking-item-flight-details">
+                                    <div class="booking-item-departure">
+                                        <p class="booking-item-flight-class"><?php echo $this->translate('Route Number:') ?> {{bus.sectors[0].busRoute.routeNumber}}</p>
+                                        <p class="booking-item-flight-class">{{bus.sectors[0].busRoute.routeName}}</p>
+                                    </div>
+                                    <div class="booking-item-arrival">
+                                        <p class="booking-item-flight-class"><?php echo $this->translate('Travel Class:') ?> {{bus.sectors[0].bus.travelClassCode}}</p>
+                                        <p class="booking-item-flight-class">{{bus.sectors[0].bus.travelClassName}}</p>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="col-md-2 ">
+                                <p class="booking-item-flight-class"><?php echo $this->translate('Duration') ?></p>
+                                <p class="booking-item-flight-class">{{bus.sectors[0].duration.h}} hours {{bus.sectors[0].duration.i}} mins</p>
+                            </div>
+							<!--
+                            <div class="col-md-2 hidden-sm hidden-xs">
+                                <a class="small" ng-href="{{bus.sectors[0].routemaster.link}}" target="_blank" ng-show="bus.sectors[0].routemaster"><?php echo $this->translate('Route Info') ?></a>
+                            </div>
+							-->
+							
+                            <div class="hidden visible-sm hidden-xs clearfix"></div>
+                            <div class="col-md-3 col-xs-12 booking-item-buttoncolumn">
+								<h5><span class="booking-item-price">{{bus.prices.total | currency:"Rs. "}}</span><span><?php echo  $this->translate('/person') ?></span></h5>
+                                <button ng-hide="$parent.seatsLoading || bus.sectors[0].expired"
+                                        ng-click="toggleSeatLayout(bus.sectors[0], bus, $event)"
+                                        class="btn btn-primary-red booking-view-seats"><?php echo $this->translate('View Seats') ?></button>
+                                <button ng-hide="$parent.seatsLoading" ng-click="closeLayout()"
+                                        class="btn btn-primary-red booking-hide-seat"><i class="fa fa-close"></i>&nbsp;<?php echo $this->translate('Hide Seats') ?></button>
+                                <div ng-show="bus.sectors[0].expired" class="btn-group-vertical">
+                                    <button class="btn btn-default" disabled="disabled"
+                                            uib-popover="<?php echo sprintf($this->translate('Please call our hotline number %s for urgent bookings.'), $this->layout()->SYSCONFIG['system']['hotlinePhone']) ?>"
+                                            popover-title="<?php echo $this->translate('Online Bookings Expired!') ?>"
+                                            popover-trigger="mouseenter">
+                                        <?php echo $this->translate('Booking Expired') ?>
+                                    </button>
+                                    <button ng-if="bus.sectors[0].expired" class="btn btn-default btn-primary-red btn-sm"
+                                            waiting-list schedule-id="bus.sectors[0].scheduleId" schedule-name="bus.sectors[0].busRoute.routeName">
+                                        <?php echo $this->translate('Waiting list') ?>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- detail view -->
+<script type="text/ng-template" id="showSeatsTmpl">
+    <div ng-click="$event.stopPropagation();" class="booking-item-details seat-info-row seats-displayed seat-info-row-loaded"
+         ng-controller="seatInfoSubCtrl"
+         >
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default pull-left"
+                     ng-class="{'mobile': (Util.isMobile())}">
+                    <div class="panel-body">
+                        <div ng-show="!loaded" class="preloader-balls"></div>
+
+                        <div class="row">
+                            <div class="col-md-1 col-sm-2 hidden-xs">
+                                <img ng-show="loaded" class="" src="/img/icons/bus/seat_driver.png">
+                            </div>
+                            <div class="col-md-8 col-sm-10 col-xs-12">
+                                <!-- style="width: 670px; height: 230px;" -->
+                                <div class="panel-info busseat-arrangement"
+                                     ng-style="{ width: totX+'px', height: totY+'px' }"
+                                     ng-class="{ 'vertical-seats': isMobile }">
+
+                                    <div ng-repeat="seat in seatInfo" ng-click="chooseSeat(seat, $event);"
+                                         class="busseat-arrangement-item seat-available"
+                                         ng-class="{
+                                         'seat-booked': (!seat.available || seat.booked),
+                                         'seat-tentative': (seat.booking_status=='tentative')}"
+                                         ng-attr-style="{{seat['style']}}"
+                                         title="Seat No : {{seat['number']}}">
+                                        <span class="busseat-name">{{seat['number']}}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-12 text-center">
+                                <ul class="seat-legend grey-text">
+                                    <li>
+                                        <div class="busseat-arrangement-item seat-available pull-left"></div>
+                                        <span class="legend-name"><?php echo $this->translate('Available <br/>seat') ?></span>
+                                    </li>
+                                    <li>
+                                        <div class="busseat-arrangement-item seat-booked pull-left"></div>
+                                        <span class="legend-name"><?php echo $this->translate('Reserved <br/>seat') ?></span>
+                                    </li>
+                                    <li>
+                                        <div class="busseat-arrangement-item seat-selected pull-left"></div>
+                                        <span class="legend-name"><?php echo $this->translate('My <br/>seat') ?></span>
+                                    </li>
+                                    <li>
+                                        <div class="busseat-arrangement-item seat-tentative pull-left"></div>
+                                        <span class="legend-name"><?php echo $this->translate('Awaiting <br/>payment') ?></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9 col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-7 hidden-xs">
+                                        <p><?php echo $this->translate('Please click on a seat icon to select it and click again to deselect it.') ?>
+                                            <?php echo $this->translate('Once you complete your selection, press "Book Now"') ?> </p>
+                                    </div>
+                                    <div class="col-md-5 col-xs-12">
+                                        <ul class="seat-selected-summary">
+                                            <li>
+                                                <?php echo $this->translate('Seat<span ng-if="selected.seatNos.length>1">s</span>') ?> : [<span class="primary-text" ng-repeat="seatN in selected.seatNos">{{seatN}}{{$last ? '' : ', '}}</span>]
+                                            </li>
+                                            <li>
+                                                <?php echo $this->translate('Amount') ?> : <b class="red-text">{{selected.total | currency:"Rs. "}}</b>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 text-center" ng-show="loaded">
+                                <button class="btn btn-primary btn-seatselected" ng-click="continueBooking()"><?php echo $this->translate('Book Now') ?> >></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</script>
+
+<script type="text/ng-template" id="searchTablePager">
+    <ul class="pagination ng-table-pagination">
+        <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+            <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo;</a>
+            <a ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+            <a ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+            <a ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a>
+            <a ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+            <a ng-switch-when="next" ng-click="params.page(page.number)" href="">&raquo;</a>
+        </li>
+    </ul>
+</script>
+
+<!-- Search result desktop layout -->
+<script type="text/ng-template" id="desktopSearchResult">
+
+</script>
+<!-- Search result mobile layout -->
+<script type="text/ng-template" id="mobileSearchResult">
+    <td ng-click="viewSeats(bus.sectors[0], bus)">
+        <table class="table table-striped">
+            <tr>
+                <td colspan="3">{{bus.sectors[0].bus.name}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>{{bus.sectors[0].departureTime | moment:'YYYY-MM-DD'}}</b><br>
+                    => Depart : {{bus.sectors[0].departureTime | moment:'h:mmA'}}
+                    --- Arrive : {{bus.sectors[0].arrivalTime | moment:'h:mmA'}}
+                </td>
+                <td>
+
+                </td>
+                <td class="text-right red-text" data-title="">
+                    <button type="button" class="btn btn-danger btn-sm">{{bus.prices.fare | currency:"Rs. "}}</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-left">
+                    {{bus.sectors[0].bus.busType}}
+                    <ul class="vanilla">
+                        <li ng-repeat="amn in bus.sectors[0].bus.amenities">
+                            {{amn.name}}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </td>
+</script>

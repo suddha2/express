@@ -1,0 +1,78 @@
+<div class="search-form-noresults">
+                <span class="fa-stack fa-lg yellow-text">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+                </span>
+    <?php
+    $sNoResults = $this->translate('<b class="no-result-head">Oh! No results</b> <span class="text-muted">Unfortunately, we don\'t have any seats available for %1$s to %2$s</span>');
+    echo sprintf($sNoResults, '<b>{{searchTerms.getFromName()}}</b>', '<b>{{searchTerms.getToName()}}</b>');
+    ?>
+</div>
+<hr/>
+<h2><?php echo $this->translate('But') ?>, <small><?php echo $this->translate('here are our highly sought after routes...') ?></small></h2>
+<div class="row row-wrap nr-suggested-routes">
+    <div class="col-md-3 col-sm-6 thumb-wrapper">
+        <a class="" target="_self" ng-href="/bus/search/Colombo/Kataragama/12/14/{{searchTerms.getDate()}}">
+            <div class="thumb">
+                <header class="thumb-header">
+                    <img src="/img/top-destinations/kataragama.jpg" class="curved" alt="Bus seat booking - Colombo - Kataragama" title="" />
+                </header>
+                <div class="thumb-caption">
+                    <h4 class="thumb-title"><?php echo $this->translate('Colombo - Kataragama'); ?></h4>
+                    <div class="thumb-caption">
+                        <p class="thumb-desc"><?php echo $this->translate('From CMB: 06.00 AM (Super Luxury)'); ?></p>
+                        <p class="thumb-desc"><?php echo $this->translate('From KTG: 02.30 AM (Super Luxury)'); ?></p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 thumb-wrapper">
+        <a class="" target="_self" ng-href="/bus/search/Colombo/Badulla/12/122/{{searchTerms.getDate()}}">
+            <div class="thumb">
+                <header class="thumb-header">
+                    <img src="/img/top-destinations/Badulla.jpg" class="curved" alt="Bus seat booking - Colombo - Badulla" title="" />
+                </header>
+                <div class="thumb-caption">
+                    <h4 class="thumb-title"><?php echo $this->translate('Colombo - Badulla'); ?></h4>
+                    <div class="thumb-caption">
+                        <p class="thumb-desc"><?php echo $this->translate('Colombo - Badulla onward'); ?></p>
+                        <p class="thumb-desc"><?php echo $this->translate('Colombo - Badulla return'); ?></p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 thumb-wrapper">
+        <a class="" target="_self" ng-href="/bus/search/Colombo/Tangalle/12/11/{{searchTerms.getDate()}}">
+            <div class="thumb">
+                <header class="thumb-header">
+                    <img src="/img/top-destinations/Galle1.jpg" class="curved" alt="Bus seat booking - Colombo - Tangalle" title="" />
+                </header>
+                <div class="thumb-caption">
+                    <h4 class="thumb-title"><?php echo $this->translate('Colombo - Tangalle'); ?></h4>
+                    <div class="thumb-caption">
+                        <p class="thumb-desc"><?php echo $this->translate('From CMB: 06.30 AM (Super Luxury)'); ?></p>
+                        <p class="thumb-desc"><?php echo $this->translate('From TGL: 05.00 AM (Super Luxury)'); ?></p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 thumb-wrapper">
+        <a class="" target="_self" ng-href="/bus/search/Colombo/Jaffna/12/120/{{searchTerms.getDate()}}">
+            <div class="thumb">
+                <header class="thumb-header">
+                    <img src="/img/top-destinations/Jaffna2.jpg" class="curved" alt="Bus seat booking - Colombo - Jaffna" title="" />
+                </header>
+                <div class="thumb-caption">
+                    <h4 class="thumb-title"><?php echo $this->translate('Colombo - Jaffna'); ?></h4>
+                    <div class="thumb-caption">
+                        <p class="thumb-desc"><?php echo $this->translate('Colombo - Jaffna onward'); ?></p>
+                        <p class="thumb-desc"><?php echo $this->translate('Colombo - Jaffna return'); ?></p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+
+/* cloak loading for angular */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+//change carausal transition
+.carousel.fading {
+    height: 100%;
+    .carousel-inner {
+        height: 100%;
+        background-color: $c-grey-dark;
+
+        .item {
+            display: block;
+            position: absolute;
+            left: 0 !important;
+            opacity: 0;
+            width: 100%;
+            height:100%;
+            transition-property: opacity;
+            @include transition(1.8s ease-in-out);
+            &.active, &.next.left {
+                opacity: 1;
+                left: 0 !important;
+            }
+            &.next, &.active.left {
+                opacity: 0;
+                left: 0 !important;
+            }
+        }
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+.rotate-45-left:before {
+    display: block;
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.rotate-45-right:before {
+    display: block;
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

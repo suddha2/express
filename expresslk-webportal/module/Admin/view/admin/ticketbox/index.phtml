@@ -1,0 +1,190 @@
+<script id="ticketbox_template" type="text/ng-template">
+    <div class="row" id="page-top">
+        <div class="col-md-12" ng-controller="ticketboxSchedule">
+            <?php echo $this->partial('admin/ticketbox/partials/search-form.phtml'); ?>
+            <?php echo $this->partial('admin/ticketbox/partials/search-result.phtml'); ?>
+        </div>
+        <div class="col-md-12" id="seat-selection" ng-controller="ticketboxSeatSelection">
+            <?php echo $this->partial('admin/ticketbox/partials/bus-seats.phtml'); ?>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="schedule">
+
+</script>
+
+<script type="text/ng-template" id="seats">
+
+</script>
+
+<script type="text/ng-template" id="booking_popover">
+    <ul class="booking-popover-body" ng-controller="subBookingPopOver">
+        <li><label><?php echo $this->translate('Name') ?>:</label> {{seat['name']}}</li>
+        <li><label><?php echo $this->translate('Mobile') ?>:</label> {{seat['mobile']}}</li>
+        <li><label><?php echo $this->translate('NIC') ?>:</label> {{seat['nic']}}</li>
+        <li><label><?php echo $this->translate('Gender') ?>:</label> {{seat['gender']}}</li>
+        <li><label><?php echo $this->translate('Remarks') ?>:</label> {{seat['remarks']}}</li>
+        <li><label><?php echo $this->translate('Entered Date') ?>:</label> {{seat['booking_time'] | date:'yyyy-MM-dd HH:mm'}}</li>
+        <li><label><?php echo $this->translate('Booking Status') ?>:</label> {{seat['booking_status']}}</li>
+        <li><label><?php echo $this->translate('Payment Method') ?>:</label> {{seat['paymentModes']}}</li>
+        <li ng-hide="seat['tobe_collected']==0"><label><?php echo $this->translate('Booking Price') ?>:</label> {{seat['chargeable'] | currency:"Rs. "}}</li>
+        <li ng-hide="seat['tobe_collected']==0"><label><?php echo $this->translate('Money To be collected') ?>:</label> {{seat['tobe_collected'] | currency:"Rs. "}}</li>
+        <li>
+            <button type="button" class="btn btn-default" ng-click="showBookingDetails(seat['booking_id']); popovers[$index]=false;"><?php echo $this->translate('More..') ?></button>
+            <button type="button" class="btn btn-default" cancel-booking="seat['booking_ref']" ng-click="popovers[$index]=false;"><?php echo $this->translate('Cancel Booking') ?></button>
+        </li>
+    </ul>
+</script>
+
+<script type="text/ng-template" id="cancellation_model">
+    <?php echo $this->partial('admin/ticketbox/partials/cancel-widget.phtml'); ?>
+    <button class="btn btn-danger btn-circle close-icon" type="button" ng-click="ok()">X</button>
+</script>
+
+<script type="text/ng-template" id="bookking_model">
+    <div class="modal-body">
+        <iframe ng-src="{{popupUrl}}" style="height: 100%; width: 100%;" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+    <button class="btn btn-danger btn-circle close-icon" type="button" ng-click="ok()">X</button>
+</script>
+
+<script type="text/ng-template" id="tab-cash">
+    <!-- Cash -->
+    <div class="row">
+        <div class="col-md-6">
+            <p><?php echo $this->translate('Customer pay with Cash') ?></p>
+        </div>
+        <div class="col-md-6">
+            <label class="btn btn-default" ng-model="bookingData.payment.alertCashCustomer" uib-btn-checkbox ng-checked="">
+                <i ng-hide="!bookingData.payment.alertCashCustomer" class="fa fa-check-square-o"></i>
+                <i ng-hide="bookingData.payment.alertCashCustomer" class="fa fa-square-o"></i> 
+                &nbsp;&nbsp;<small><?php echo $this->translate('Send SMS to customer') ?></small>
+            </label>
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (Cash)') ?></button>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/ng-template" id="tab-atBus">
+    <!-- Pay at bus -->
+    <div class="row">
+        <div class="col-md-4">
+            <p><?php echo $this->translate('Payment to be collected at bus') ?></p>
+        </div>
+        <div class="col-md-8">
+            <label class="btn btn-default" ng-model="bookingData.payment.alertPbCustomer" uib-btn-checkbox>
+                <i ng-hide="!bookingData.payment.alertPbCustomer" class="fa fa-check-square-o"></i>
+                <i ng-hide="bookingData.payment.alertPbCustomer" class="fa fa-square-o"></i>
+                &nbsp;&nbsp;<small><?php echo $this->translate('Send SMS to customer') ?></small>
+            </label>
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (Pay At Bus)') ?></button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-diifpay">
+    <!-- Pay later -->
+    <div class="row">
+        <div class="col-md-4">
+            <p><?php echo $this->translate('Book and pay later') ?></p>
+            <p class="small red-text"><?php echo $this->translate('Payment needs to be added 1 hour before the bus leaves') ?></p>
+        </div>
+        <div class="col-md-8">
+            <label class="btn btn-default" ng-model="bookingData.payment.alertPLCustomer" uib-btn-checkbox>
+                <i ng-hide="!bookingData.payment.alertPLCustomer" class="fa fa-check-square-o"></i>
+                <i ng-hide="bookingData.payment.alertPLCustomer" class="fa fa-square-o"></i>
+                &nbsp;&nbsp;<small><?php echo $this->translate('Send SMS to customer') ?></small>
+            </label>
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (Pay Later)') ?></button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-ezCash-ref">
+    <!-- eZ cash by reference -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <label><?php echo $this->translate('eZCash Reference No.') ?></label>
+                <input type="text" ng-model="bookingData.payment.ezcashRef" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <label class="btn btn-default" ng-model="bookingData.payment.alertEzCustomer" uib-btn-checkbox>
+                <i ng-hide="!bookingData.payment.alertEzCustomer" class="fa fa-check-square-o"></i>
+                <i ng-hide="bookingData.payment.alertEzCustomer" class="fa fa-square-o"></i>
+                &nbsp;&nbsp;<small><?php echo $this->translate('Send SMS to customer') ?></small>
+            </label>
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (eZ Cash Ref)') ?></button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-ezCash">
+    <!-- eZ cash IPG -->
+    <div class="row">
+        <div class="col-md-8">
+            <p><?php echo $this->translate('Pay through eZcash') ?></p>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (eZ Cash)') ?></button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-mCash">
+    <!-- Mcash IPG -->
+    <div class="row">
+        <div class="col-md-8">
+            <p><?php echo $this->translate('Pay through mCash') ?></p>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (mCash)') ?></button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-credit">
+    <!-- Credit Card -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group">
+                <label><?php echo $this->translate('Card Reference No.') ?></label>
+                <input type="text" ng-model="bookingData.payment.cardRef" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (Card)') ?></button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-agents">
+    <!-- Agent -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group">
+                <label class="control-label"><?php echo $this->translate('Agent Name') ?></label>
+                <ui-select ui-select-focus-input append-to-body="true" class="input-medium input-group" ng-model="bookingData.payment.agent" theme="selectize" ng-disabled="disabled">
+                    <ui-select-match placeholder="{{(agentData.length===0 ? '<?php echo $this->translate('No available agents') ?>' : '<?php echo $this->translate('Select an Agent') ?>')}}">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="agent in agentData | propsFilter: {name: $select.search, id: $select.search}">
+                        <div class="" ng-bind-html="agent.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (Agent)') ?></button>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tab-banktransfer">
+    <!-- Credit Card -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group">
+                <label><?php echo $this->translate('Transfer Reference') ?></label>
+                <input type="text" ng-model="bookingData.payment.bankRef" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now (Card)') ?></button>
+        </div>
+    </div>
+</script>

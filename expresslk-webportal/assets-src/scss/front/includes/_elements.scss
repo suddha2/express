@@ -1,0 +1,35 @@
+.error{
+//    background: $c-red-light;
+//    color: $c-white;
+    padding: 5px;
+}
+
+.has-error{
+    .form-control{
+        border-color: $c-red-light;
+    }
+}
+
+.browserupgrade{
+    p{
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 12px;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        z-index: 5000000;
+        background: $c-red-light;
+        color: $c-grey-light;
+        font-family: $font-highlight;
+        a{
+            font-family: $font-highlight;
+            color: $c-black;
+            font-weight: bold;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

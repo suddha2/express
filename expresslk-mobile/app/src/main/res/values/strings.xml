@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BusBooking</string>
+    <string name="app_loading">Loading Buses..</string>
+    <string name="no_network">Check your internet connection. Connect to WIFI or enable mobile data</string>
+</resources>

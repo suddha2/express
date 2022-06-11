@@ -1,0 +1,38 @@
+<!--<h2>--><?php //echo $this->translate('Login/Register on BusBooking.lk') ?><!--</h2>-->
+<div class="row" data-gutter="60">
+    <div class="col-md-8">
+<!--        <h4>--><?php //echo $this->translate('Welcome to BusBooking.lk personalized services') ?><!--</h4>-->
+<!--        <p>--><?php //echo $this->translate('Login page text') ?><!--</p>-->
+    </div>
+    <div class="col-md-4">
+        <h3><?php echo $this->translate('Login') ?></h3>
+        <?php
+        $form = $this->loginForm;
+        $form->setAttribute('action', $_SERVER['REQUEST_URI']);
+        $form->prepare();
+
+        echo $this->form()->openTag($form);
+
+        if(!empty($this->message)){
+            echo '<p class="form-message-error">'. $this->message .'</p>';
+        }
+        ?>
+            <div class="form-group form-group-icon-left">
+                <i class="fa fa-user input-icon input-icon-show"></i>
+                <label><?php echo $this->translate('Username or email') ?></label>
+                <?php  echo $this->formText($form->get('username')); ?>
+                <?php  echo $this->formElementerrors($form->get('username')); ?>
+            </div>
+            <div class="form-group form-group-icon-left">
+                <i class="fa fa-lock input-icon input-icon-show"></i>
+                <label><?php echo $this->translate('Password') ?></label>
+                <?php  echo $this->formpassword($form->get('password')); ?>
+                <?php echo $this->formElementerrors($form->get('password')); ?>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Sign in" />
+<!--            <span>--><?php //echo $this->translate('in case of a failure ') ?><!--<a href="/app/auth/reset">--><?php //echo $this->translate('reset password') ?><!--</a></span>-->
+        <?php echo $this->form()->closeTag(); ?>
+
+    </div>
+
+</div>

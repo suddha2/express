@@ -1,0 +1,88 @@
+<div ng-controller="meCollection">
+    <div class="row list-header">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1><span>My Collection</span></h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" ng-submit="updateTime();loadCollection();">
+            <div class="filter input-string">
+                <div class="col-sm-4" ng-init="fromDt=false">
+                    <input uib-datepicker-popup="yyyy-MM-dd"
+                           ng-click="fromDt=!fromDt" readonly="readonly"
+                           is-open="fromDt" show-button-bar="false" class="form-control"
+                           placeholder="From date" ng-model="form.from" name="date"
+                           required="required" type="text">
+                </div>
+                <div class="col-sm-4" ng-init="toDt=false">
+                    <input uib-datepicker-popup="yyyy-MM-dd"
+                           ng-click="toDt=!toDt" readonly="readonly"
+                           is-open="toDt" show-button-bar="false" class="form-control"
+                           placeholder="From date" ng-model="form.to" name="date"
+                           required="required" type="text">
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-primary"
+                            ng-class="{'btn-block loading-stripe': loading}" ng-disabled="loading" type="submit">
+                        <span ng-hide="loading"><?php echo $this->translate('Generate') ?></span>
+                        <span ng-show="loading"><?php echo $this->translate('Loading...') ?></span>
+                    </button>
+					<button class="btn btn-primary"
+                            ng-hide="!collection.length" ng-click="printRpt()">Print
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="gap gap-small" ></div>
+    <div id="collection-rpt-data" ng-hide="!collection.length">
+        <div class="row list-view">
+            <div class="col-lg-12">
+                <table id="rpt-data-table" class="grid table table-condensed table-hover table-striped">
+                    <thead>
+					<tr>
+						<th colspan="7" > From : {{form.from | date :  "yyyy-MM-dd " }} 00:00</th>
+					</tr>
+					<tr>
+						<th colspan="7" > To : {{form.to | date :  "yyyy-MM-dd " }} 00:00</th>
+					</tr>
+					<tr>
+						<th colspan="6" class="text-right"><?php echo $this->translate('Total Bus fare') ?></th>
+						<th class="text-right">{{total_bus_fare | currency:"Rs. "}}</th>
+					</tr>
+					<tr>
+						<th colspan="6" class="text-right"><?php echo $this->translate('Total Reservation fee') ?></th>
+						<th class="text-right">{{total_res_fee | currency:"Rs. "}}</th>
+					</tr>
+					<tr>
+                        <th colspan="6" class="text-right"><?php echo $this->translate('Total amount') ?></th>
+                        <th class="text-right">{{total | currency:"Rs. "}}</th>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->translate('User') ?></th>
+                        <th><?php echo $this->translate('Bus Departure') ?></th>
+                        <th><?php echo $this->translate('Booking ref') ?></th>
+                        <th class="text-right"><?php echo $this->translate('Ticket price') ?></th>
+						<th class="text-right"><?php echo $this->translate('Reservation fee') ?></th>
+                        <th class="text-right"><?php echo $this->translate('Paid amount') ?></th>
+                        <th class="text-center"><?php echo $this->translate('Pay method') ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in collection">
+                        <td>{{row.username}}</td>
+                        <td>{{row.departureTime | date:'yyyy-MM-dd @ h:mma'}}</td>
+                        <td>{{row.reference}}</td>
+                        <td class="text-right">{{row.fare | currency:"Rs. "}}</td>
+						<td class="text-right">{{row.totalPaid - row.fare | currency:"Rs. "}}</td>
+                        <td class="text-right">{{row.totalPaid | currency:"Rs. "}}</td>
+                        <td class="text-center">{{row.paymentMethods}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

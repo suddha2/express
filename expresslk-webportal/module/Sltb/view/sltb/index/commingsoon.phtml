@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('Superline.lk')->setSeparator(' | ')->setAutoEscape(false) ?>
+
+    <?php
+    echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <!-- Le styles -->
+    <?php
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/domains/superline.lk/favicon.ico'))
+        ->prependStylesheet($this->basePath() . '/min/core.min.css?'. filemtime('public/min/core.min.css'))
+        ->prependStylesheet($this->basePath() . '/min/libs.min.css?'. filemtime('public/min/libs.min.css'));
+    ?>
+
+    <!-- Scripts -->
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/min/front.min.js?'. filemtime('public/min/front.min.js'))
+        ->prependFile($this->basePath() . '/min/core.min.js?'. filemtime('public/min/core.min.js'))
+        ->prependFile($this->basePath() . '/min/libs.min.js?'. filemtime('public/min/libs.min.js'))
+        ->prependFile($this->basePath() . '/min/ltie9.min.js?'. filemtime('public/min/ltie9.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',));
+    ?>
+
+<script>
+(function(h,o,t,j,a,r){
+h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+h._hjSettings={hjid:985327,hjsv:6};
+a=o.getElementsByTagName('head')[0];
+r=o.createElement('script');r.async=1;
+r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-58142174-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+    <style>
+        @import url('http://fonts.googleapis.com/css?family=Lato:400,300,700,900');
+
+        body {
+            background: #394864;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6em;
+            -webkit-font-smoothing: antialiased;
+            -webkit-overflow-scrolling: touch;
+            background: url(/img/domains/superline.lk/bg2.jpg) no-repeat center top;
+            background-attachment: relative;
+            background-position: center center;
+            background-size: cover;
+            text-shadow: 6px 6px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            color: #444;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        h3 {
+            font-weight: 400;
+        }
+
+        h4 {
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+
+        a {
+            color: #ACBAC1;
+            word-wrap: break-word;
+            -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+            -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+            -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+            -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+            transition: color 0.1s ease-in, background 0.1s ease-in;
+        }
+
+        a:hover,
+        a:focus {
+            color: #4F92AF;
+            text-decoration: none;
+            outline: 0;
+        }
+
+        a:before,
+        a:after {
+            -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+            -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+            -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+            -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+            transition: color 0.1s ease-in, background 0.1s ease-in;
+        }
+
+        .alignleft {
+            text-align: left;
+        }
+        .alignright {
+            text-align: right;
+        }
+
+        .aligncenter {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.428571429;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 0;
+        }
+
+        .btn-theme  {
+            color: #fff;
+            background-color: #4F92AF;
+            border-color: #4F92AF;
+        }
+        .btn-theme:hover  {
+            color: #fff;
+            background-color: #444;
+            border-color: #444;
+        }
+        form.signup input  {
+            height: 42px;
+            width: 200px;
+            border-radius: 0;
+            border: none;
+        }
+        form.signup button.btn {
+            font-weight: 700;
+        }
+        form.signup input.form-control:focus {
+            border-color: #fd680e;
+        }
+
+
+        /* wrapper */
+
+        #wrapper {
+            text-align: center;
+
+            min-height: 650px;
+            width: 100%;
+            -webkit-background-size: 100%;
+            -moz-background-size: 100%;
+            -o-background-size: 100%;
+            background-size: 100%;
+
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+
+
+        #wrapper h1 {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            color: #fff;
+            font-size: 45px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        h2.subtitle {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        /* countdown */
+        #countdown {
+            font-size: 48px;
+            color: #fff;
+            line-height: 1.1em;
+            margin: 40px 0 60px;
+        }
+
+
+        /* footer */
+        p.copyright {
+            margin-top: 50px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1>Superline.lk</h1>
+                <h2 class="subtitle">We're working hard to give you a better travel experience.</h2>
+                <div id="countdown">Please call us on <b>0115-116-117</b> for seat reservations.</div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <p class="copyright">Copyright &copy; 2016. Al rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countdown/2.0.2/jquery.plugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countdown/2.0.2/jquery.countdown.js"></script>
+<script type="text/javascript">
+    $(function(){
+//        $('#countdown').countdown("03/03/2016", function(event) {
+//            $(this).html(event.strftime('%w weeks %d days <br /> %H:%M:%S'));
+//        });
+//        $('#countdown').countdown({
+//            until: new Date(2016, 3-1, 1),
+//            format: 'yodhmS',
+//            layout: '{dn} days <br /> {hn} hours {mn} mins and {sn} seconds'
+//        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<?php
+$seatSize = 120;
+$seatHeight = 80;
+$x = 0;
+$y = 0;
+$seats = $this->seats;
+usort($seats, function($a, $b) {
+    return $a['number'] - $b['number'];
+});
+
+/** @var \Api\Client\Soap\Core\BusSchedule $oSchedule */
+$oSchedule = $this->schedule;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Express Ticket</title>
+
+    <link href="<?php echo $this->serverUrl(); ?>/min/libs.min.css?1454826389" media="all" rel="stylesheet" type="text/css">
+<!--    <link href="/min/ngadmin.min.css?1454826389" media="screen" rel="stylesheet" type="text/css">-->
+<!--    <link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">-->
+    <link href="<?php echo $this->serverUrl(); ?>/min/admin.min.css?1454826387" media="all" rel="stylesheet" type="text/css">
+
+    <style type="text/css" media="all">
+        @page {
+            /*size: 21cm 29.7cm;*/
+            margin: 10mm 10mm 10mm 10mm;
+            size: A4 landscape;
+        }
+        body{
+            background: #FFFFff;
+        }
+        .busseat-arrangement-item{
+            border: 1px solid #CCCCCC;
+            width: <?php echo $seatSize ?>px;
+            height: <?php echo $seatHeight ?>px;
+            background: none !important;
+            color: #000000;
+        }
+        .busseat-name{
+            padding: 5px;
+        }
+        .seatlabel{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 16px;
+            height: 25px;
+        }
+        .booking-popover-body{
+            padding: 0;
+        }
+        .booking-popover-body li{
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            line-height: 12px;
+            color: #000000;
+            text-align: right;
+        }
+        .pagebreak{
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+        .title{
+            /*position: absolute;*/
+            /*top: 10px;*/
+            /*left: 0;*/
+            /*right: 0;*/
+            text-align: left;
+            width: 100%;
+            z-index: 300;
+        }
+    </style>
+</head>
+<body style="">
+
+<?php
+$seats1 = array();
+$seats2 = array();
+$y1 = 0;
+$y2 = 0;
+//loop through and create widths
+foreach($seats as $k=>$seat){
+
+    $xSize = $seat['x']*$seatHeight;
+    $ySize = $seat['y']*$seatSize;
+
+    $seats[$k]['style'] = 'right: '. $ySize .'px; top: '. $xSize .'px;';
+
+    //get the maximum x and y to calculate total size
+    $x = $seat['x']>$x ? $seat['x'] : $x;
+    $y = $seat['y']>$y ? $seat['y'] : $y;
+
+    if (isset($seat['dummy']) && $seat['dummy']) { // ignore dummy bookings in ticket box
+        $seats[$k]['booked'] = false;
+        unset($seats[$k]['dummy']);
+    }
+    //add if upper rows
+    if($seat['x']<15){
+        $seats1[$k] = $seats[$k];
+        $y1 = $seat['y']>$y1 ? $seat['y'] : $y1;
+    }else{
+        $seats2[$k] = $seats[$k];
+        $y2 = $seat['y']>$y2 ? $seat['y'] : $y2;
+    }
+}
+$totX = ($y + 1) * $seatSize;
+$totY = ($x + 1) * $seatHeight;
+$totY1 = ($y1 + 1) * $seatHeight;
+$totY2 = ($y2 + 1) * $seatHeight;
+    ?>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h2 class="title"><?php echo $this->bus ?> - <?php echo $oSchedule->busRoute->name ?> on <?php echo \Application\Helper\ExprDateTime::getDateFromServices($oSchedule->departureTime)->format('Y-m-d') ?></h2>
+                <?php
+                function display($seats, $totX, $totY, $agents, $self){
+                    if(count($seats)==0){
+                        return;
+                    }
+                    ?>
+                    <div class="panel-info busseat-arrangement vertical-seats"
+                         style="width: <?php echo $totX ?>px; height: <?php echo $totY ?>px; border: none; background: #FFFFff">
+                        <?php
+                        $lineBreak = false;
+                        foreach($seats as $seat) {
+                            //seat class
+                            $seatClass = '';
+                            if(!$seat['available']){
+                                $seatClass = 'seat-na';
+                            }
+                            if($seat['booked']){
+                                $seatClass = 'seat-booked';
+
+                                if($seat['booking_status']=='pay_at_bus'){
+                                    $seatClass = 'seat-payatbus';
+                                }
+                                if($seat['booking_status']=='tentative'){
+                                    $seatClass = 'seat-tentative';
+                                }
+                                /** @var \Api\Client\Soap\Core\Booking $oBooking */
+                                $oBooking = $seat['booking'];
+                            }
+
+                            ?>
+                            <div class="busseat-arrangement-item seat-available <?php echo $seatClass ?>"
+                                 style="<?php echo $seat['style'] ?>">
+                                    <span class="busseat-name">
+                                        <span class="seatlabel"><?php echo $seat['number'] ?></span>
+                                        <?php
+                                        if($seat['booked']) {
+                                            ?>
+                                            <ul class="booking-popover-body">
+                                                <li><?php echo $seat['booking_ref'] ?></li>
+                                                <li><?php echo $seat['name'] ?></li>
+                                                <li><?php echo $seat['mobile'] ?></li>
+                                                <li><?php echo $seat['nic'] ?></li>
+                                                <li><?php echo $oBooking->user->firstName ?></li>
+                                                <li><?php echo $self->translate($oBooking->bookingItems[0]->fromBusStop->city->name) ?></li>
+                                                <?php
+                                                if(isset($agents[$seat['agent']])){
+                                                    $agentInfo = explode(' ', $agents[$seat['agent']]->name);
+                                                    echo '<li><b>'. $agentInfo[0] .'</b></li>';
+                                                }
+
+                                                if($seat['booking_status']=='pay_at_bus') {
+                                                    ?>
+                                                    <li>Pay @ Bus</li>
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
+                                        <?php
+                                        }
+                                        ?>
+                                    </span>
+                            </div>
+                        <?php
+
+                        }
+                        ?>
+                    </div>
+                    <div class="pagebreak" style=""></div>
+                <?php
+                }
+
+                //call display
+                display($seats1, $totX, $totY1, $this->agents, $this);
+                display($seats2, $totX, $totY2, $this->agents, $this);
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagebreak" style=""></div>
+
+<script>
+    window.onload = function(){
+//        window.print();
+//        window.close();
+    };
+</script>
+</body>
+</html>
+

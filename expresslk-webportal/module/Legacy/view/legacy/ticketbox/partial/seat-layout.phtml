@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="red-text bold-text"><?php echo $this->translate('Reservation Summary') ?></h4>
+        <address>
+            <strong style="word-wrap: break-word; width: 100px">{{fromCityName}} to {{toCityName}}</strong><br>
+            {{departureTime}}<br>
+            Seats : [<span class="tmplReplace-seatCount"></span>]<br>
+        </address>
+    </div>
+    <div class="col-md-8">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 overflow-auto">
+        <form id="bookingForm" name="booking_form" class="pull-left" role="form">
+
+            <!-- Seat layout -->
+            <div class="panel panel-default pull-left" style="">
+                <div class="panel-body row">
+
+                    <div class="panel-info col-md-12">
+                        <div class="panel-info busseat-arrangement vertical-seats"
+                             style="width: {{seatTotX}}px; height: {{seatTotY}}px;">
+                            <div class="_seatlayout_target"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Customer details -->
+            <div class="container-fluid pull-left tb-customer-details">
+                <h4 class="red-text bold-text"><?php echo $this->translate('Customer Details') ?></h4>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 plr5 pl15">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('NIC') ?></label>
+                            <input placeholder="123456789V" name="contact[nic]" type="text" class="form-control">
+                            <input type="hidden" name="resultIndex" value="{{resultIndex}}">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 plr5">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Name') ?></label>
+                            <input placeholder="<?php echo $this->translate('Customer Name') ?>"
+                                   name="contact[name]" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 plr5">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Email') ?></label>
+                            <input placeholder="email@domain.com" name="contact[email]" type="email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 plr5 pr15">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Mobile No') ?></label>
+                            <input readonly="readonly" value="<?php echo ($this->provider? $this->provider->getPhoneNumber():'') ?>" name="contact[mobileNo]" type="text" size="10" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Remarks') ?></label>
+                            <textarea class="form-control focused select-common"
+                                      id="remarks" name="remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Passenger details -->
+            <div class="clearfix hidden visible-sm visible-xs"></div>
+            <div class="container-fluid pull-left col-sm-12 tb-pass-details">
+                <h4 class="bold-text cursor-pointer">
+                    <?php echo $this->translate('Passenger Details') ?>
+                </h4>
+                <table class="genaral-table" width="100%">
+                    <thead>
+                    <tr>
+                        <td><?php echo $this->translate('Seat') ?></td><td><?php echo $this->translate('NIC Number') ?></td><td><?php echo $this->translate('Passenger Name') ?></td><td><?php echo $this->translate('Mobile No') ?></td><td><?php echo $this->translate('Gender') ?></td>
+                    </tr>
+                    </thead>
+                    <tbody id="seatinfoPassengers"></tbody>
+                </table>
+                <!-- Boarding and dropoff point details -->
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <label for="boardingLocation"><?php echo $this->translate('Boarding bus stop') ?>:</label>
+                        <select class="form-control" name="boardingLocation[id]">
+                            {{boardList}}
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <label for="dropoffLocation"><?php echo $this->translate('Dropoff bus stop') ?>:</label>
+                        <select class="form-control" name="dropoffLocation[id]">
+                            {{dropList}}
+                        </select>
+                    </div>
+                </div>
+                <!-- Tabs and Pay -->
+                <div class="well well-sm pull-left full-width">
+                    <label class="btn btn-default pull-left grey-text">
+                        <input type="radio" name="type" value="MobitelInternal" checked>
+                        Mobitel mobile charging
+                    </label>
+                    <button type="submit" class="btn-primary-custom pull-right"><?php echo $this->translate('Book Now') ?></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12">
+        <h4 class="red-text bold-text"><?php echo $this->translate('Charges Summary') ?></h4>
+        <table class="table-responsive col-md-12">
+            <tbody>
+            <tr>
+                <td class="text-left"><?php echo $this->translate('Fare') ?></td>
+                <td class="text-right"><span class="tmplReplace-amount"></span> Rs.</td>
+            </tr>
+<!--            <tr>-->
+<!--                <td class="text-left">--><?php //echo $this->translate('Charges') ?><!--</td>-->
+<!--                <td class="text-right"><span class="tmplReplace-baseMarkups"></span> Rs.</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="text-left">--><?php //echo $this->translate('Discounts') ?><!--</td>-->
+<!--                <td class="text-right"><span class="tmplReplace-baseDiscount"></span> Rs.</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="text-left">--><?php //echo $this->translate('Taxes') ?><!--</td>-->
+<!--                <td class="text-right"><span class="tmplReplace-baseTax"></span> Rs.</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="text-left dottodline">--><?php //echo $this->translate('Other') ?><!--</td>-->
+<!--                <td class="text-right dottodline"><span class="tmplReplace-baseCharges"></span> Rs.</td>-->
+<!--            </tr>-->
+            <tr>
+                <td class="text-left bold-text red-text dottodline"><?php echo $this->translate('Total') ?></td>
+                <td class="text-right bold-text red-text dottodline"><span class="tmplReplace-total"></span> Rs.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

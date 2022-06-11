@@ -1,0 +1,95 @@
+<?php
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('Express.lk ')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php
+    echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <!-- Le styles -->
+    <?php
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon-express.ico'))
+        ->prependStylesheet($this->basePath() . '/min/libs.min.css?'. filemtime('public/min/libs.min.css'))
+        ->appendStylesheet($this->basePath() . '/min/jquery-ui-legacy/jquery-ui.min.css?'. filemtime('public/min/jquery-ui-legacy/jquery-ui.min.css'))
+        ->appendStylesheet($this->basePath() . '/min/admin.min.css?'. filemtime('public/min/admin.min.css'))
+        ->appendStylesheet($this->basePath() . '/min/legacy.min.css?'. filemtime('public/min/legacy.min.css'));
+    ?>
+
+    <!-- Scripts -->
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/min/legacy-full.min.js?'. filemtime('public/min/legacy-full.min.js'))
+        ->prependFile($this->basePath() . '/min/ltie9.min.js?'. filemtime('public/min/ltie9.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',));
+    ?>
+
+</head>
+<body>
+<div class="container">
+
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top main-nav" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/admin-panel">Express Management</a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+
+                <li class="dropdown">
+                    <span class="dropdown-toggle">
+                        <i class="fa fa-user fa-fw"></i> <?php echo $this->identity()->username ?>
+                    </span>
+                <li class="divider"></li>
+                <li>
+                    <a href="/app/auth/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/legacy/ticketbox"><span class="glyphicon glyphicon-bookmark"></span> Ticketbox</a></li>
+                        <li><a href="/legacy/bookings"><span class="glyphicon glyphicon-equalizer"></span> Bookings</a></li>
+                        <li><a href="/legacy/user"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+        <!-- end nav -->
+
+        <?php echo $this->content; ?>
+        </div>
+
+    <footer class="row main-footer">
+        <div class="col-md-12">
+            <hr/>
+
+            Copyright &copy; 2014 - <?php echo date('Y') ?> Express Amphibious
+        </div>
+    </footer>
+
+</div>
+
+
+<?php echo $this->inlineScript() ?>
+
+</body>
+</html>

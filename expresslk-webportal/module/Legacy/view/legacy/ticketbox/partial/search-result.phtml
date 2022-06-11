@@ -1,0 +1,81 @@
+<div class="legacy-tb-results">
+    <?php
+    foreach ($this->results as $result){
+        $sectorOne = $result['sectors'][0];
+        ?>
+    <div class="row">
+        <div class="col-md-4">
+            <img height="40" class="pull-left" src="/img/bus-types/<?php echo $sectorOne['bus']['busType'] ?>.gif">
+            <b><?php echo $sectorOne['bus']['name'] ?></b>
+            <p class="small"><?php echo $sectorOne['bus']['travelClassName'] ?></p>
+        </div>
+        <div class="col-md-3">
+            <div class=""><?php echo $sectorOne['bus']['plateNumber'] ?></div>
+            <div class="small"><?php echo $sectorOne['bus']['busTypeDesc'] ?></div>
+            <div><i class="fa fa-road blue-text"></i> <?php echo $sectorOne['busRoute']['routeName'] ?></div>
+        </div>
+        <div class="col-md-3">
+            <div>From : <?php echo \Application\Helper\ExprDateTime::getDateFromServices($sectorOne['departureTime'])->format('Y-m-d @ H:m') ?></div>
+            <span style="color: #888888">
+                    To : <?php echo \Application\Helper\ExprDateTime::getDateFromServices($sectorOne['arrivalTime'])->format('Y-m-d @ H:m') ?> <br/>
+                </span>
+            <div><?php echo $sectorOne['schedule']['actualFromCity'] ?> => <?php echo $sectorOne['schedule']['actualToCity'] ?></div>
+        </div>
+        <div class="col-md-2 text-center">
+            <?php
+            //if web booking has expired, expire this too
+            if($sectorOne['expired']===true) {
+                ?>
+                <button class="btn btn-ghost">
+                    (Expired) <?php echo number_format($sectorOne['prices']['total'], 2) ?> LKR
+                </button>
+                <?php
+            }else {
+                ?>
+                <button class="btn btn-primary tb-btn show-seatlayout"
+                        data-boarding="<?php echo $sectorOne['busRoute']['boardingStops'][0]['id'] ?>"
+                        data-drop="<?php echo $sectorOne['busRoute']['dropStops'][0]['id'] ?>"
+                        data-bustype="<?php echo $sectorOne['bus']['busTypeId'] ?>"
+                        data-scid="<?php echo $sectorOne['scheduleId'] ?>"
+                >
+                    <?php echo number_format($sectorOne['prices']['total'], 2) ?> LKR
+                </button>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+    <?php
+    }
+    ?>
+</div>
+
+<?php
+if (count($this->results)==0){
+    ?>
+    <div class="well well-sm">
+        <b class=""><?php echo $this->translate('No Results!') ?></b> <span class="text-muted"> - <?php echo $this->translate('Can\'t find a bus on that date. Try again.') ?></span>
+    </div>
+<?php
+}
+?>
+
+<script type="text/javascript">
+    window.SearchResult = {};
+    <?php
+    foreach ($this->results as $result){
+        $sectorOne = $result['sectors'][0];
+    ?>
+    window.SearchResult[<?php echo $sectorOne['scheduleId'] ?>] = {
+        resultIndex: '<?php echo $result['resultIndex'] ?>',
+        fromCityName: <?php echo json_encode($sectorOne['fromCityName']) ?>,
+        toCityName: <?php echo json_encode($sectorOne['toCityName']) ?>,
+        departureTime: '<?php echo \Application\Helper\ExprDateTime::getDateFromServices($sectorOne['departureTime'])->format('Y-m-d @ H:m') ?>',
+        price: <?php echo json_encode($sectorOne['prices']) ?>,
+        boardingLocations: <?php echo json_encode($sectorOne['busRoute']['boardingStops']) ?>,
+        dropoffLocations: <?php echo json_encode($sectorOne['busRoute']['dropStops']) ?>
+    };
+    <?php
+    }
+    ?>
+</script>

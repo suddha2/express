@@ -1,0 +1,224 @@
+<?php
+echo $this->doctype();
+
+//get ng app name
+$ngApp = $this->ngApp ? $this->ngApp : 'expressAdmin';
+?>
+<html lang="en" ng-app="<?php echo $ngApp ?>">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('Express.lk ')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php
+    echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <!-- Le styles -->
+    <?php
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon-express.ico'))
+       // ->prependStylesheet($this->basePath() . '/min/core.min.css?'. filemtime('public/min/core.min.css'))
+        ->prependStylesheet($this->basePath() . '/min/libs.min.css?'. filemtime('public/min/libs.min.css'))
+        ->appendStylesheet($this->basePath() . '/min/admin.min.css?'. filemtime('public/min/admin.min.css'));
+    ?>
+
+    <!-- Scripts -->
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/min/core.min.js?'. filemtime('public/min/core.min.js'))
+        ->prependFile($this->basePath() . '/min/admin.min.js?'. filemtime('public/min/admin.min.js'))
+        ->prependFile($this->basePath() . '/min/libs.min.js?'. filemtime('public/min/libs.min.js'))
+        ->prependFile($this->basePath() . '/min/ltie9.min.js?'. filemtime('public/min/ltie9.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',));
+    ?>
+
+</head>
+<body ng-controller="adminCommon">
+<div class="container">
+
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top main-nav" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/admin-panel">Express Management</a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <!--
+                <li class="dropdown" uib-dropdown>
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages" uib-dropdown-menu>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" uib-dropdown>
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="#">
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks" uib-dropdown-menu>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" uib-dropdown>
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts" uib-dropdown-menu>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                -->
+                <!-- /.dropdown -->
+                <li class="dropdown" uib-dropdown>
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user" uib-dropdown-menu>
+                        <?php
+                        if ($this->identity()) {
+                            ?>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $this->identity()->username ?></a>
+                            </li>
+                            <!--
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            </li>
+                            -->
+                            <li class="divider"></li>
+                            <li><a href="/app/auth/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        <?php
+                        }
+                        ?>
+
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse collapse"  uib-collapse="navCollapsed">
+                    <?php
+                    echo $this->navigation('Navigation')
+                        ->menu()
+                        ->setUlClass('nav');
+
+                    ?>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+        <!-- end nav -->
+
+        <?php echo $this->content; ?>
+        </div>
+
+    <footer class="row main-footer">
+        <div class="col-md-12">
+            <hr/>
+
+            Copyright &copy; 2014 - <?php echo date('Y') ?> Express Amphibious
+        </div>
+    </footer>
+
+</div>
+
+<div ng-cloak class="alert alert-success common-success ng-hide ng-cloak" ng-show="Global.success.isSuccess">
+    <span class="common-success-text">{{Global.success.message}}</span>
+</div>
+
+<div ng-cloak class="alert alert-danger common-error ng-hide ng-cloak" ng-show="Global.error.hasError">
+    <span class="common-error-text">{{Global.error.message}}</span>
+</div>
+
+<div ng-cloak class="main-preloader ng-hide ng-cloak" ng-show="_showPreLoader">
+    <div class="preload-image"></div>
+</div>
+
+<?php echo $this->inlineScript() ?>
+
+    <?php echo $this->partial('partial/allowed_resources') ?>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<?php
+/** @var $bookingResponse \Api\Client\Soap\Core\Booking */
+$bookingResponse = $this->bookingResponse;
+if(!empty($bookingResponse)){
+    /* @var $bookingItems \Api\Client\Soap\Core\BookingItem */
+    $bookingItems = is_array($bookingResponse->bookingItems)? $bookingResponse->bookingItems[0] : $bookingResponse->bookingItems;
+    $secDepartureTime = is_string($bookingItems->schedule->departureTime)? strtotime($bookingItems->schedule->departureTime) : floor($bookingItems->schedule->departureTime/1000);
+    $secArrivalTime = is_string($bookingItems->schedule->arrivalTime)? strtotime($bookingItems->schedule->arrivalTime) : floor($bookingItems->schedule->arrivalTime/1000);
+
+    $fromStopArrivalTime = $secDepartureTime;
+    //get getin point time
+    foreach ($bookingItems->schedule->scheduleStops as $scheduleStop) {
+        //check from stop
+        try {
+            if ($bookingItems->fromBusStop->id == $scheduleStop->stop->id) {
+                $fromStopArrivalTime = \Application\Helper\ExprDateTime::getDateFromServices($scheduleStop->departureTime)->getTimestamp();
+            }
+        } catch (Exception $e) {
+        }
+    }
+
+    $clientEmail = $bookingResponse->client->email;
+}
+
+?>
+<div class="row">
+    <div class="col-md-12">
+        <?php
+        if ($this->paymentSuccess) {
+            ?>
+
+            <i class="fa fa-check round box-icon-large box-icon-center box-icon-success mb30"></i>
+            <h2 class="text-center"><?php echo $this->translate('The online payment was successful!') ?></h2>
+            <h5 class="text-center mb30">Booking details has been sent to <?php echo $clientEmail ?> and to your mobile</h5>
+            <?php
+            foreach ($this->successMessage as $success) {
+                echo '<div class="bg-success text-success text-center">' . $success . '</div>';
+            }
+
+            if($bookingResponse) {
+                ?>
+                <h5 class=""><?php echo $this->translate('Your booking reference number : ') ?> <strong><?php echo $bookingResponse->reference ?></strong></h5>
+                <ul class="order-payment-list list mb30">
+                    <li>
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <h5><i class="fa fa-arrow-up rotate-45-right"></i> Bus from <?php echo $bookingItems->fromBusStop->name ?>
+                                    to <?php echo $bookingItems->toBusStop->name ?></h5>
+
+                                <p>
+                                    <small>
+                                        On <?php echo date('h:i A', $secDepartureTime) ?></small>
+                                    <small>Boarding Point is <?php echo $bookingItems->fromBusStop->name ?>.
+                                        Please reach your boarding place
+                                        by: <?php echo date('h:i A', ($fromStopArrivalTime - 1200)) ?></small>
+                                </p>
+                            </div>
+                            <div class="col-xs-3">
+                                <p class="text-right"><span
+                                        class="text-lg">LKR <?php echo number_format($bookingItems->price, 2) ?></span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            <?php
+            }
+            ?>
+            <p class="text-center mb30">Get ready to experience Sri Lanka, along the road!</p>
+        <?php
+        } else {
+            ?>
+            <i class="fa fa-close round box-icon-large box-icon-center box-icon-danger mb30"></i>
+            <h2 class="text-center red-text">The online payment was unsuccessful!</h2>
+            <h5 class="text-center mb30">Your seat is <b>NOT</b> booked. Please try again.</h5>
+
+        <?php
+        }
+        ?>
+
+        <?php
+        if(!empty($this->errorMessage)){
+			
+			if (in_array("contact_client_bank",$this->errorMessage)){
+					?> 
+					<div class="bg-danger text-danger text-center">
+						Your card is not enabled for online transactions.
+					</div>
+					<h5 class="text-center mt30">Please call your bank for further assistance.  </h5>
+					<p>
+					Your card is not enabled for online tranasactions. Please contact your bank for activation. 
+					<br/>
+					Sampath Bank -  (0)112 300 604
+					<br/>
+					Bank of Ceylon - (0)112 204 444
+					<br/>
+					National Savings Bank - (0)112 379 379
+					<br/>
+					Peoples Bank - (0)112 481 481 / 1961
+					<br/>
+					Commercial Bank - (0)112 353 353 
+					<br/>
+					Hatton National Bank - (0)112 462 462
+					<br/>
+					Seylan Bank - (0)112 008 888
+					<br/>
+					Nations Trust Bank - (0)114 711 411
+					<br/>
+					HSBC Bank - (0)114 472 200
+					</p>
+					
+		<?php	}else{
+			
+				foreach ($this->errorMessage as $error) {
+					echo '<div class="bg-danger text-danger text-center">' . $error . '</div>';
+				}
+				echo '<h5 class="text-center mt30">Please call '. $this->layout()->SYSCONFIG['system']['siteName'] .' hotline <strong>'. $this->layout()->SYSCONFIG['system']['hotlinePhone'] .'</strong> if you need further assistance.</h5>';
+			}
+        }
+        ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    <?php
+    if ($this->paymentSuccess) {
+    ?>
+    //log as event
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Booking',
+        eventAction: 'Success',
+        eventLabel: 'Booking Payment',
+        eventValue: 1
+    });
+    //settings for google analytics ecommerce
+    ga('require', 'ec');
+    ga('ec:addProduct', {
+        'id': '<?php echo $bookingItems->schedule->id ?>',
+        'name': '<?php
+            echo (
+                $bookingItems->schedule->busRoute->name .'@'.
+                \Application\Helper\ExprDateTime::getDateFromServices($bookingItems->schedule->arrivalTime)->format('Y-m-d H:i'))
+            ?>',
+        'category': '<?php echo $bookingItems->schedule->busRoute->name ?>',
+        'brand': 'Bus-<?php echo $bookingItems->schedule->bus->plateNumber ?>',
+        'price': '<?php echo $bookingItems->price ?>',
+        'quantity': <?php echo (is_array($bookingItems->passengers)? strval(count($bookingItems->passengers)) : '1') ?>
+    });
+
+    ga('ec:setAction', 'purchase', {
+        id: '<?php echo $bookingResponse->reference ?>',
+        affiliation: 'BusBooking',
+        revenue: '<?php echo $bookingItems->price ?>',
+        tax: '0',
+        shipping: '0'
+    });
+
+    ga('send', 'pageview');
+    <?php
+    }
+    //else booking failed
+    else{
+    ?>
+    //log as event
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Booking',
+        eventAction: 'Failed',
+        eventLabel: 'Booking Payment',
+        eventValue: 0
+    });
+    <?php
+    }
+    ?>
+
+    function inIframe () {
+        try {
+            return window.self !== window.top;
+        } catch (e) {
+            return true;
+        }
+    }
+
+    if(!inIframe()){
+        //    Change back URL if not in an iframe
+        history.pushState(null, null, '<?php echo $_SERVER["REQUEST_URI"]; ?>');
+        window.addEventListener('popstate', function(event) {
+            window.location.assign("<?php echo $this->serverUrl() ?>");
+        });
+    }else{
+        //this is in iframe. No back button
+        // catch the back button click.
+        window.onpopstate = function(event) {
+            // make the parent window go back
+            top.history.back();
+        };
+    }
+
+</script>

@@ -1,0 +1,506 @@
+
+//search form
+.search-icon-loading{
+    -webkit-animation: bounce 2.5s ease infinite;
+    animation: bounce 2.5s ease infinite;
+    color: $c-blue !important;
+}
+
+.city-suggestion-popup{
+    .dropdown-menu{
+        width: 100%;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+        padding:0;
+        margin-top:0;
+
+        .city-suggestion-head{
+            padding:8px 20px;
+            small{
+                color: $c-grey-light;
+                margin-left:8px;
+            }
+        }
+    }
+}
+
+//search result preloader
+.timeline-item {
+    background: #fff;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    padding: 12px;
+
+    margin: 0 auto;
+    width: 100%;
+    min-height: 200px;
+}
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+.background-masker {
+    background: #fff;
+    position: absolute;
+}
+
+/* Every thing below this is just positioning */
+
+.background-masker.bheader-top,
+.background-masker.header-bottom,
+.background-masker.subheader-bottom {
+    top: 0;
+    left: 40px;
+    right: 0;
+    height: 10px;
+}
+
+.background-masker.header-left,
+.background-masker.subheader-left,
+.background-masker.header-right,
+.background-masker.subheader-right {
+    top: 10px;
+    left: 40px;
+    height: 8px;
+    width: 10px;
+}
+
+.background-masker.header-bottom {
+    top: 18px;
+    height: 6px;
+}
+
+.background-masker.subheader-left,
+.background-masker.subheader-right {
+    top: 24px;
+    height: 6px;
+}
+
+
+.background-masker.header-right,
+.background-masker.subheader-right {
+    width: auto;
+    left: 300px;
+    right: 0;
+}
+
+.background-masker.subheader-right {
+    left: 230px;
+}
+
+.background-masker.subheader-bottom {
+    top: 30px;
+    height: 10px;
+}
+
+.background-masker.content-top,
+.background-masker.content-second-line,
+.background-masker.content-third-line,
+.background-masker.content-second-end,
+.background-masker.content-third-end,
+.background-masker.content-first-end {
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 6px;
+}
+
+.background-masker.content-top {
+    height:20px;
+}
+
+.background-masker.content-first-end,
+.background-masker.content-second-end,
+.background-masker.content-third-end{
+    width: auto;
+    left: 380px;
+    right: 0;
+    top: 60px;
+    height: 8px;
+}
+
+.background-masker.content-second-line  {
+    top: 68px;
+}
+
+.background-masker.content-second-end {
+    left: 420px;
+    top: 74px;
+}
+
+.background-masker.content-third-line {
+    top: 82px;
+}
+
+.background-masker.content-third-end {
+    left: 300px;
+    top: 88px;
+}
+
+//no results
+.search-form-noresults{
+    width: 100%;
+    padding: 10px 0;
+    .no-result-head{
+        color: $c-yellow;
+    }
+}
+.nr-suggested-routes{
+    .thumb-wrapper{
+        padding-top:15px;
+        padding-bottom:15px;
+        &:hover{
+            background: $c-grey-dark;
+            .thumb-title, .thumb-desc{
+                color: $c-white;
+            }
+            @include transition(all 300ms ease-in);
+        }
+        a{
+            display: block;
+            overflow: hidden;
+            &:visited,&:active{
+                text-decoration: none;
+            }
+        }
+        .thumb-header{
+            img{
+                width:100%;
+            }
+        }
+        .thumb-title{
+            font-size:17px;
+            color: $c-grey-dark;
+        }
+        .thumb-desc{
+            font-size: 12px;
+        }
+    }
+
+}
+
+//suggested status
+.search-suggested{
+    width:100%;
+    padding:11px;
+    margin-bottom:15px;
+    background-color: $c-grey-mid;
+    a{
+        //text-decoration: underline;
+    }
+    .suggest-change{
+        font-weight:bold;
+        font-style: italic;
+    }
+    p{
+        margin: 0;
+    }
+    .ss-source{
+        font-size:12px;
+    }
+}
+
+// seat layout styles
+.seatlayout-displayed{
+    //change view seats button colors on seat layout display
+    .booking-item-buttoncolumn{
+        .btn-primary-red{
+            transition: background-color 1.5s ease;
+            background: $c-grey-mid;
+            border-color: $c-grey;
+            color: $c-body;
+        }
+    }
+}
+
+.booking-item-buttoncolumn{
+    .btn.disabled, .btn[disabled]{
+        border-color: $c-primary-light;
+    }
+}
+
+.busseat-arrangement{
+    float: left;
+    position: relative;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    .busseat-arrangement-item{
+        position: absolute;
+    }
+}
+.busseat-arrangement-item{
+    width: 33px;
+    height: 33px;
+    padding: 0 5px 0 0;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #c12e2a;
+    }
+    &.seat-available{
+        background: url("/img/icons/bus/seats-horizontal.png") 0 0 no-repeat;
+    }
+    &.seat-booked{
+        background: url("/img/icons/bus/seats-horizontal.png") -67px 0 no-repeat;
+    }
+    &.seat-tentative {
+        background: url("/img/icons/bus/seats-horizontal.png") -136px 0 no-repeat;
+    }
+    &.seat-selected{
+        background: url("/img/icons/bus/seats-horizontal.png") -237px 0 no-repeat;
+    }
+    &.seat-na{
+        background: url("/img/icons/bus/seats-horizontal.png") -102px 0 no-repeat;
+    }
+    &.seat-na{
+        background-color: #cccccc;
+    }
+    &.seat-middle-row{
+        margin-top: 30px;
+    }
+}
+
+.busseat-name{
+    color: #aaa;
+    display: inline-block;
+    height: 100%;
+    line-height: 33px;
+    text-align: center;
+    width: 100%;
+}
+
+.booking-hide-seat{
+    display: none;
+}
+
+.seats-displayed{
+    .booking-hide-seat{
+        display: block;
+    }
+    .booking-view-seats{
+        display: none;
+    }
+}
+
+/** Overwrite seat type **/
+
+.seat-info-row{
+    display: none;
+    opacity: 0;
+    //@include transition(opacity 1s ease-out);
+    &.seat-info-row-loaded{
+        display: block;
+        opacity: 1;
+    }
+    .seat-legend{
+        padding: 0;
+        margin: 0 0 10px;
+        overflow: hidden;
+        display: inline-block;
+        width: 124px;
+        li{
+            list-style: none;
+            margin: 0 0 15px;
+            float: left;
+            font-size: 10px;
+            width: 100%;
+            text-align: left;
+        }
+        @media #{$bp-desktop-max} {
+            width:100%;
+            text-align: center;
+            margin-top:10px;
+            li{
+                width:50px;
+                display: inline-block;
+                float: none;
+                margin:0;
+                font-size: 10px;
+                line-height:12px;
+            }
+        }
+    }
+
+    .legend-name{
+        float: left;
+        margin: 0 0 0 5px;
+        width: 68%;
+    }
+    .busseat-arrangement-item:hover{
+        background-color: #ce8483;
+    }
+
+    .panel{
+        background: $c-grey-light;
+    }
+
+    .btn-seatselected {
+        @media #{$bp-mobile-max} {
+            width: 100%;
+        }
+    }
+    .seat-selected-summary{
+        @media #{$bp-mobile-max} {
+            margin-bottom:10px;
+        }
+    }
+}
+
+.vertical-line{
+    width: 1px;
+    height: 100%;
+    background: #7F7F7F;
+}
+
+.passenger-data{
+    padding: 5px 0;
+}
+
+.bottom-space{
+    margin-bottom: 20px;
+}
+
+/* Vertical align seats */
+.vertical-seats {
+    .busseat-arrangement{
+        float: none;
+        margin: 0 auto;
+    }
+    .busseat-arrangement-item{
+        padding: 0;
+    }
+    .busseat-name{
+        line-height: 30px;
+    }
+    .busseat-arrangement-item.seat-available{
+        background: url("/img/icons/bus/seats-vertical.png") 0 0 no-repeat;
+    }
+    .busseat-arrangement-item.seat-booked{
+        background: url("/img/icons/bus/seats-vertical.png") -67px 0 no-repeat;
+    }
+    .busseat-arrangement-item.seat-selected{
+        background: url("/img/icons/bus/seats-vertical.png") -237px 0 no-repeat;
+    }
+    .busseat-arrangement-item.seat-na{
+        background: url("/img/icons/bus/seats-vertical.png") -102px 0 no-repeat;
+    }
+}
+
+.schedule-diffdate{
+    .booking-item-buttoncolumn{
+        .btn-primary-red{
+            background: $c-grey-mid;
+            color: $c-grey-dark;
+            border-color: $c-grey;
+        }
+    }
+}
+
+//booking tabs
+.booking-container{
+    .tab-content{
+        padding: 15px;
+        background: $c-grey-light;
+        border-bottom: 1px solid #dddddd;
+        border-left: 1px solid #dddddd;
+        border-right: 1px solid #dddddd;
+
+        .panel-group{
+            .panel-title{
+                a{
+                    color: $c-body;
+                }
+            }
+            .panel-open{
+                .panel-title{
+                    a{
+                        color: $c-body;
+                    }
+                }
+            }
+        }
+    }
+    .nav-tabs{
+        li.active{
+            a{
+                background: $c-grey-light;
+            }
+        }
+    }
+}
+
+.booking_form{
+    .form-control{
+        width: 100%;
+        &::-webkit-input-placeholder {
+            color: $c-grey;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+            color: $c-grey;
+        }
+        &::-moz-placeholder {  /* Firefox 19+ */
+            color: $c-grey;
+        }
+        &:-ms-input-placeholder {
+            color: $c-grey;
+        }
+    }
+}
+
+.booking-seat-no{
+    font-size: 35px;
+    line-height: 34px;
+    color: $c-grey;
+}
+
+.payfram-container{
+    height: 350px;
+    width: 100%;
+    position: relative;
+
+    .payfram-preload{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height: 100%;
+        z-index:5;
+        text-align: center;
+        .text{
+
+        }
+    }
+    .pay-iframe{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height: 100%;
+        border:none;
+        z-index:10;
+        //background: transparent;
+    }
+}

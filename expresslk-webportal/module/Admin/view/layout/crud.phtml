@@ -1,0 +1,64 @@
+<?php
+echo $this->doctype();
+
+//get ng app name
+$ngApp = $this->ngApp ? $this->ngApp : 'expressAdmin';
+?>
+<html lang="en" ng-app="<?php echo $ngApp ?>">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('Express.lk ')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php
+    echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+    
+    <?php echo $this->partial('partial/allowed_resources') ?>
+
+    <!-- Le styles -->
+    <?php
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon-express.ico'))
+        ->prependStylesheet($this->basePath() . '/min/libs.min.css?'. filemtime('public/min/libs.min.css'))
+        ->appendStylesheet($this->basePath() . '/min/admin.min.css?'. filemtime('public/min/admin.min.css'));
+    ?>
+
+    <!-- Scripts -->
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/min/core.min.js?'. filemtime('public/min/core.min.js'))
+        ->prependFile($this->basePath() . '/min/admin.min.js?'. filemtime('public/min/admin.min.js'))
+        ->prependFile($this->basePath() . '/min/admin-libs.min.js?'. filemtime('public/min/admin-libs.min.js'))
+        ->prependFile($this->basePath() . '/min/ltie9.min.js?'. filemtime('public/min/ltie9.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',));
+    ?>
+
+</head>
+<body ng-controller="adminCommon">
+<?php echo $this->content; ?>
+    <div class="container">
+        <footer class="row main-footer">
+            <div class="col-md-12">
+                <hr/>
+
+                Copyright &copy; 2014 - <?php echo date('Y') ?> Express Amphibious
+            </div>
+        </footer>
+
+    </div>
+
+    <div ng-cloak class="alert alert-success common-success ng-hide ng-cloak" ng-show="Global.success.isSuccess">
+        <span class="common-success-text">{{Global.success.message}}</span>
+    </div>
+
+    <div ng-cloak class="alert alert-danger common-error ng-hide ng-cloak" ng-show="Global.error.hasError">
+        <span class="common-error-text">{{Global.error.message}}</span>
+    </div>
+
+    <div ng-cloak class="main-preloader ng-hide ng-cloak" ng-show="_showPreLoader">
+        <div class="preload-image"></div>
+    </div>
+
+    <?php echo $this->inlineScript() ?>
+
+</body>
+</html>

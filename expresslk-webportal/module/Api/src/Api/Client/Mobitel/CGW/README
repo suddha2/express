@@ -1,0 +1,1 @@
+php vendor/wsdl2phpgenerator/wsdl2phpgenerator/wsdl2php -i http://mapps.mobitel.lk/M_CGW/MCAccMngr?wsdl -o module/Api/src/Api/Client/Mobitel/CGW -n 'Api\Client\Mobitel\CGW'

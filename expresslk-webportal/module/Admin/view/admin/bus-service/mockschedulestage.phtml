@@ -1,0 +1,44 @@
+<?php
+/** @var \Api\Client\Soap\Core\BusSchedule $busSchedule */
+$busSchedule = $this->schedule;
+?>
+<div class="modal-header">
+    <h3 class="modal-title">
+        <?php
+        if($this->requestedStage==\Api\Manager\Schedule\OperationalSchedule::STAGE_CODE_CFB) {
+        ?>
+            Send SMS to conductor and all passengers
+            <?php
+        }else {
+            ?>
+            Change from <?php echo $busSchedule->stage->name ?> to <?php echo $this->requestedStage ?>
+            <?php
+        }
+        ?>
+    </h3>
+</div>
+<div class="modal-body">
+
+    <?php
+    if($this->requestedStage==\Api\Manager\Schedule\OperationalSchedule::STAGE_CODE_CFB) {
+        ?>
+        <div class="list-group">
+            <div class="list-group-item list-group-item-success">
+                <h4 class="list-group-item-heading">Conductor message send to: <?php foreach ($this->adminContacts as $cont){ echo '<span class="badge">'. $cont .'</span>'; } ?>
+                </h4>
+                <p class="list-group-item-text"></p>
+            </div>
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">Total passengers message send
+                    to: <?php echo $this->bookingCount ?></h4>
+                <p class="list-group-item-text">Conductor phone number in message: <?php echo $this->busContact ?></p>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-link" type="button" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" type="button" ng-click="ok()">Confirm</button>
+</div>

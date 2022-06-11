@@ -1,0 +1,76 @@
+<div ng-hide="currentScreen!='search' || !currentScreen">
+    <div id="sltb-slider" class="sltb-homeslider bg-holder hidden-xs">
+        <div class="bg-content">
+            <uib-carousel class="normal-slider" interval="7000" ng-init="slides=[
+                        {l: '1.jpg'},
+                        {l: '2.jpg'},
+                        {l: '3.jpg'},
+						{l: '4.jpg'},
+						{l: '5.jpg'},
+						{l: '6.jpg'},
+						{l: '7.jpg'},
+						{l: '9.jpg'},
+						{l: '10.jpg'},
+						{l: '11.jpg'},
+						{l: '12.jpg'},
+                        ]">
+                <uib-slide ng-repeat="slide in slides" active="slide.active">
+                    <div class="slider-item"
+                         ng-style="{backgroundImage: 'url(/img/domains/sltb.lk/home-slider/'+ slide.l +')'}"></div>
+                </uib-slide>
+            </uib-carousel>
+        </div>
+    </div>
+    <div class="sltb-search-box-wrapper">
+        <div class="gap gap-small"></div>
+        <div id="searchBox" class="container" ng-controller="searchBox">
+            <?php echo $this->partial('partial/search-form'); ?>
+        </div>
+        <div class="gap gap-small"></div>
+    </div>
+
+    <?php
+    echo $this->partial('partial/home_body');
+    ?>
+</div>
+
+<div class="gap gap-small"></div>
+
+<div ui-view ng-cloak class="ng-cloak container" ng-hide="currentScreen=='search'"></div>
+
+<script>
+    //    Pre load data
+    angular.module('expressFront')
+        .constant('INJECTED_CITY_LIST',
+            <?php echo json_encode($this->allCities) ?>
+        );
+
+    //preload translations
+    angular.module('expressFront')
+        .value('TRANSLATIONS',
+            {
+                'Credit/Debit Cards': '<?php echo $this->translate('Credit/Debit Cards') ?>',
+                'Dialog eZcash': '<?php echo $this->translate('Dialog eZcash') ?>',
+                'Mobitel mCash': '<?php echo $this->translate('Mobitel mCash') ?>',
+                'Etisalat eZcash': '<?php echo $this->translate('Etisalat eZcash') ?>',
+                'Hutch eZcash': '<?php echo $this->translate('Hutch eZcash') ?>',
+                'PayPal': '<?php echo $this->translate('PayPal') ?>',
+                'Unknown error occurred. Please refresh the web page.': '<?php echo $this->translate('Unknown error occurred. Please refresh the web page.') ?>',
+                'Error selecting payment option.': '<?php echo $this->translate('Error selecting payment option.') ?>',
+                'Unknown error occurred. Please try again.': '<?php echo $this->translate('Unknown error occurred. Please try again.') ?>',
+                'FromToMandatory': '<?php echo $this->translate('From/To and Date fields are mandatory. Please select according to where your journey headed.') ?>',
+                'NetworkError': '<?php echo $this->translate('Network error occurred. May be your connection is too slow. Please try again.') ?>',
+                'TooManySeatsSelected': '<?php echo $this->translate('Maximum of 8 seats can be booked in one reservation. You may complete this reservation with 8 seats and start another reservation for additional seats.') ?>',
+                'Please select at least one seat.': '<?php echo $this->translate('Please select at least one seat.') ?>'
+            });
+
+    $(function(){
+        var sliderHeight = $(window).height()-$('#main-header').outerHeight()-$('#searchBox').outerHeight()-70;
+        if(sliderHeight>300 && sliderHeight<600){
+            $('#sltb-slider').find('.slider-item')
+                .css({
+                    height: (sliderHeight)
+                });
+        }
+    })
+</script>

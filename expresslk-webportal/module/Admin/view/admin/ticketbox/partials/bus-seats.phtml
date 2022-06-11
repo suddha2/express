@@ -1,0 +1,347 @@
+<div ng-cloak class="row ng-cloak" ng-hide="!selected.busId"  ng-controller="ticketboxSeatBooking">
+    <div class="col-md-12 col-sm-12 overflow-auto">
+        <form name="booking_form" class="pull-left" role="form"
+              confirm-on-exit coe-is-dirty="booking_form.$dirty" coe-message="<?php echo $this->translate('You have unsaved data. Are you sure?') ?>"
+              ng-submit="booking_form.$valid && placeBooking($event)">
+
+            <!-- Seat layout -->
+            <div class="panel panel-default pull-left" style="">
+                <div class="panel-body row">
+
+                    <div class="panel-info col-md-12" ng-init="popovers=[]">
+                        <div class="panel-info busseat-arrangement vertical-seats"
+                            ng-style="{ 'width': (totX)+'px', 'height': (totY)+'px' }">
+                            <div ng-repeat="seat in seatInfo" ng-click="chooseSeat(seat, $event);"
+                                 class="busseat-arrangement-item seat-available" ng-init="popovers[$index]=false"
+                                 ng-class="{'seat-na': (!seat.available),
+                                    'seat-booked': (seat.booked),
+                                    'seat-payatbus': (seat.paymentModes=='PayAtBus'),
+                                    'seat-warrant': (seat.paymentModes=='Warrant'),
+                                    'seat-pass': (seat.paymentModes=='Pass'),
+									
+                                    'seat-tentative': (seat.booking_status=='tentative'),
+                                    'seat-current-booking': (seat.booking_ref && seat.booking_ref==selectedBookingRef),
+                                     }"
+                                 ng-attr-style="{{seat['style']}}"
+                                 uib-popover-template="'booking_popover'"
+                                 popover-placement="right"
+                                 popover-title="Booking details of {{seat['booking_ref']}}"
+                                 popover-append-to-body="true"
+                                 popover-is-open="popovers[$index]"
+                                 popover-enable="seat.booked">
+                                 <span class="busseat-name">{{seat['number']}}</span>
+                                <span ng-hide="!seat['agentDefault']" ng-attr-style="{{seat['agent_style']}}" class="agent-halo"></span>
+								<div ng-show="seat['passengerType']!='Child' && seat.booked" >
+									<i ng-hide="seat['gender']!='Female'" class="fa fa-female morf morf-f"></i>
+									<i ng-hide="seat['gender']!='Male'" class="fa fa-male morf morf-m"></i>
+								</div>
+								<div ng-show="seat['passengerType']=='Child' && seat.booked" >
+									<i ng-hide="seat['passengerType']!='Child'" class="fa fa-child morf-c"></i>
+								</div>
+								
+								
+                            </div>
+                            <div class="seat-row-numbers">
+                                <div class="seat-row-number"
+                                     ng-repeat="rowNo in gridY"
+                                     ng-style="{top: (rowNo + 'px')}">{{$index+1}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Customer details -->
+            <div class="container-fluid pull-left tb-customer-details">
+                <h4 class="red-text bold-text"><?php echo $this->translate('Customer Details') ?></h4>
+                <p class="bg-danger text-danger" ng-hide="!errors.contactData">
+                    * <?php echo $this->translate('Please enter either a Mobile number or a NIC or Full Name') ?>
+                </p>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 plr5">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Name') ?></label>
+                            <input placeholder="<?php echo $this->translate('Customer Name') ?>" name="name" type="text"
+									ng-pattern="/^[a-zA-Z ]{10,}$/"
+									ng-model="bookingData.contact.name" class="form-control"
+									ng-class="{'input-error': booking_form.name.$error.pattern }"
+									ng-disabled="passengerAsContact"
+                                >
+							<p class="bg-danger text-danger error full-width" ng-show="booking_form.name.$error.pattern"><?php echo $this->translate('Name should be at least 10 characters') ?></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 plr5">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Email') ?></label>
+                            <input placeholder="email@domain.com" name="email" type="email"
+                                   ng-model="bookingData.contact.email" class="form-control"
+                                   ng-class="{'input-error': booking_form.email.$error.email }"
+                                   ng-disabled="passengerAsContact"
+                                >
+                            <p class="bg-danger text-danger error full-width" ng-show="booking_form.email.$error.email"><?php echo $this->translate('Wrong email format') ?></p>
+                        </div>
+                    </div>
+					<div class="col-md-3 col-sm-12 plr5 pl15">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('NIC') ?></label>
+                            <input placeholder="123456789V" ng-pattern="/^[0-9]{9}[vVxX]$/" name="nic" type="text"
+                                   ng-model="bookingData.contact.nic" class="form-control"
+                                   ng-class="{'input-error': booking_form.nic.$error.pattern }"
+                                   ng-disabled="passengerAsContact"
+                                >
+                            <p class="bg-danger text-danger error full-width" ng-show="booking_form.nic.$error.pattern"><?php echo $this->translate('NIC should be in the format of 123456789V') ?></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 plr5 pr15">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Mobile No') ?></label>
+                            <input placeholder="07XXXXXXXX" ng-pattern="/^07[0-9]{8}$/" name="mobile" type="text" size="10"
+                                   ng-model="bookingData.contact.mobileNo" class="form-control"
+                                   ng-class="{'input-error': booking_form.mobile.$error.pattern }"
+                                   ng-disabled="passengerAsContact"
+                                >
+                            <p class="bg-danger text-danger error full-width" ng-show="booking_form.mobile.$error.pattern"><?php echo $this->translate('Phone number should match 07XXXXXXXX') ?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Remarks') ?></label>
+                            <textarea ng-model="bookingData.remarks" class="form-control focused select-common"
+                                      id="remarks" name="remarks">
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+				<div class="btn-group mb15">
+                       <label class="btn btn-default" ng-model="hasWarrant" uib-btn-checkbox >
+                           <i ng-hide="!hasWarrant" class="fa fa-check-square-o"></i>
+                           <i ng-hide="hasWarrant" class="fa fa-square-o"></i>
+                           &nbsp;&nbsp;<small><?php echo $this->translate('Warrants') ?></small>
+                       </label>
+				</div> 
+				<div class="btn-group mb15">
+					   <label class="btn btn-default" ng-model="hasPass" uib-btn-checkbox >
+                           <i ng-hide="!hasPass" class="fa fa-check-square-o"></i>
+                           <i ng-hide="hasPass" class="fa fa-square-o"></i>
+                           &nbsp;&nbsp;<small><?php echo $this->translate('SLTB Pass') ?></small>
+                       </label>
+                </div>
+				<div class="row" ng-show="hasPass || hasWarrant">
+					<div class="col-md-8">
+						<div class="input-group">
+							<label><?php echo $this->translate('Reference No.') ?></label>
+							<input type="text" ng-model="bookingData.warrantPassRef" class="form-control" ng-if="hasPass || hasWarrant" required>
+						</div>
+					</div>
+				</div>
+            </div>
+
+            <!-- Passenger details -->
+            <div class="clearfix hidden visible-sm visible-xs"></div>
+            <div class="container-fluid pull-left col-sm-12 tb-pass-details">
+                <h4 class="bold-text cursor-pointer" ng-init="isPasCollapsed=false" ng-click="isPasCollapsed = !isPasCollapsed">
+                    <?php echo $this->translate('Passenger Details') ?>
+                    <small><i class="fa fa-chevron-right" ng-class="{'fa-chevron-down': !isPasCollapsed, 'fa-chevron-right': isPasCollapsed}"></i></small>
+                </h4>
+                <p class="bg-danger text-danger" ng-hide="!errors.passenger">
+                    * <?php echo $this->translate('Please Select a seat') ?>
+                </p>
+                <div  uib-collapse="isPasCollapsed">
+                    <ul class="list-unstyled">
+                        <li class="" ng-repeat="seat in selected.seats">
+                            <ng-form name="innerForm">
+                                <table class="genaral-table" width="100%" ng-init="bookingData.passenger[$index].seatNo=selected.seatNos[$index]" >
+                                    <tr>
+                                        <td><?php echo $this->translate('Seat') ?></td>
+										<td><?php echo $this->translate('NIC Number') ?></td>
+										<td><?php echo $this->translate('Passenger Name') ?></td>
+										<td><?php echo $this->translate('Mobile No') ?></td>
+										<td colspan ="2" ng-if="genderRequired"><?php echo $this->translate('Gender') ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="btn-group">
+                                                <label class="btn btn-default" ng-model="$parent.mySeatCheck" uib-btn-radio="$index" uncheckable>
+                                                    {{selected.seatNos[$index]}}
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input placeholder="123456789V" type="text" name="passengerNIC" size="10"
+                                                   ng-pattern="/^[0-9]{9}[vVxX]$/" class="form-control"
+                                                   ng-model="bookingData.passenger[$index].nic"
+                                                   ng-class="{'input-error': innerForm.passengerNIC.$error.pattern }"
+                                                   validate-on-blur>
+                                        </td>
+                                        <td>
+                                            <input placeholder="<?php echo $this->translate('FirstName LastName') ?>" type="text" name="passengerName"
+                                                   ng-model="bookingData.passenger[$index].name" class="form-control" >
+                                        </td>
+                                        <td>
+                                            <input placeholder="07XXXXXXXX" type="text" name="mobileNo" size="10"
+                                                   ng-pattern="/^07[0-9]{8}$/" class="form-control"
+                                                   ng-model="bookingData.passenger[$index].mobileNo"
+                                                   ng-class="{'input-error': innerForm.mobileNo.$error.pattern }" >
+                                        </td>
+                                        <td ng-if="genderRequired" ng-init="bookingData.passenger[$index].gender='Male'">
+                                            <div class="btn-group mb10">
+                                                <label class="btn btn-default" ng-model="bookingData.passenger[$index].gender" uib-btn-radio="'Male'">
+                                                    <i class="fa fa-male blue-text"></i> <?php echo $this->translate('M') ?>
+                                                </label>
+                                                <label class="btn btn-default" ng-model="bookingData.passenger[$index].gender" uib-btn-radio="'Female'">
+                                                    <i class="fa fa-female pink-text"></i> <?php echo $this->translate('F') ?>
+                                                </label>
+                                            </div>
+                                        </td>
+										<td ng-init="bookingData.passenger[$index].passengerType='Adult'"> 
+                                            <div class="btn-group mb10">
+                                                <label class="btn btn-default" ng-model="bookingData.passenger[$index].passengerType" uib-btn-radio="'Adult'" ng-change="setPassengerType({{$index}},'Adult')">
+                                                    <i class="fa fa-male "></i>/<i class="fa fa-female"></i> <?php echo $this->translate('Adult') ?>
+                                                </label>
+                                                <label class="btn btn-default" ng-model="bookingData.passenger[$index].passengerType" uib-btn-radio="'Child'" ng-change="setPassengerType({{$index}},'Child')">
+                                                    <i class="fa fa-child "></i> <?php echo $this->translate('Child') ?>
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <p ng-show="innerForm.passengerNIC.$error.pattern" class="bg-danger text-danger error"><?php echo $this->translate('NIC should be in the format of 123456789V') ?></p>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <p ng-show="innerForm.mobileNo.$error.pattern" class="bg-danger text-danger error"><?php echo $this->translate('Phone number should match 07XXXXXXXX') ?></p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </ng-form>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Boarding and dropoff point details -->
+                <h4 class="bold-text cursor-pointer" ng-init="isBoDropCollapsed=true" ng-click="isBoDropCollapsed = !isBoDropCollapsed">
+                    <?php echo $this->translate('Boarding and Dropoff Details') ?>
+                    <small><i class="fa fa-chevron-right" ng-class="{'fa-chevron-down': !isBoDropCollapsed, 'fa-chevron-right': isBoDropCollapsed}"></i></small>
+                </h4>
+                <div class="row" uib-collapse="isBoDropCollapsed">
+                    <div class="col-md-6 col-sm-6">
+                        <label for="boardingLocation"><?php echo $this->translate('Boarding bus stop') ?>:</label>
+                        <select ng-model="bookingData.boardingLocation" ng-required="true"
+                                ng-click="$event.stopPropagation(); $evet.prevetDefault()"
+                                ng-options="busStop.name for busStop in boardingLocations"
+                                class="form-control" id="boardingLocation" name="boardingLocation">
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <label for="dropoffLocation"><?php echo $this->translate('Dropoff bus stop') ?>:</label>
+                        <select ng-model="bookingData.dropoffLocation" ng-required="true"
+                                ng-click="$event.stopPropagation(); $evet.prevetDefault()"
+                                ng-options="busStop.name for busStop in dropoffLocations"
+                                class="form-control" id="dropoffLocation" name="dropoffLocation">
+                        </select>
+                    </div>
+                </div>
+				<div class="btn-group mb15">
+                       <label class="btn btn-default" ng-model="printReceipt" uib-btn-checkbox>
+                           <i ng-hide="!printReceipt" class="fa fa-check-square-o"></i>
+                           <i ng-hide="printReceipt" class="fa fa-square-o"></i>
+                           &nbsp;&nbsp;<small><?php echo $this->translate('Print receipt') ?></small>
+                       </label>
+                   </div>
+                <!-- Tabs and Pay -->
+                <div class="full-width pull-left tb-payment" ng-controller="subBookingPay">
+                    <h4 class="red-text bold-text"><?php echo $this->translate('Payment') ?></h4>
+                   
+                    <uib-tabset justified="false">
+                        <uib-tab select="onClickTab(tab)" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+                            <div class="tabHeader">
+                                <h5 class=""><?php echo $this->translate('Amount payable') ?>: <span class="large-text bold-text"> {{selected.total | currency:"LKR "}}</span></h5>
+                            </div>
+                            <div class="gap-border pt15" ng-include="tab.url"></div>
+                        </uib-tab>
+                    </uib-tabset>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div class="col-md-12 col-sm-12">
+        <h4 class="red-text bold-text"><?php echo $this->translate('Reservation Summary') ?></h4>
+        <address>
+            <strong style="word-wrap: break-word; width: 100px">{{journeyData.fromName}} to {{journeyData.toName}}</strong><br>
+            {{journeyData.busName}} - {{journeyData.departure | date:'yyyy-MM-dd @ h:mma'}}<br>
+            Seat no(s) : [<span ng-repeat="seatN in selected.seatNos">{{seatN}}{{$last ? '' : ', '}}</span>]<br>
+        </address>
+        <table class="table-responsive col-md-12">
+            <tbody>
+            <tr>
+                <td class="text-left"><?php echo $this->translate('Fare') ?></td>
+                <td class="text-right">{{selected.amount | currency:"Rs. "}}</td>
+            </tr>
+            <tr>
+                <td class="text-left"><?php echo $this->translate('Charges') ?></td>
+                <td class="text-right">{{selected.baseMarkups | currency:"Rs. "}}</td>
+            </tr>
+            <tr>
+                <td class="text-left"><?php echo $this->translate('Discounts') ?></td>
+                <td class="text-right">{{selected.baseDiscount | currency:"Rs. "}}</td>
+            </tr>
+            <tr>
+                <td class="text-left"><?php echo $this->translate('Taxes') ?></td>
+                <td class="text-right">{{selected.baseTax | currency:"Rs. "}}</td>
+            </tr>
+            <tr>
+                <td class="text-left dottodline"><?php echo $this->translate('Other') ?></td>
+                <td class="text-right dottodline">{{selected.baseCharges | currency:"Rs. "}}</td>
+            </tr>
+			<!-- New row will be displayed if Warrant/passes has a valid number entered-->
+			
+			<tr ng-show="hasWarrantOrPass">
+                <td class="text-left bold-text  dottodline"><?php echo $this->translate('Warrant/Passes') ?></td>
+                <td class="text-right bold-text  dottodline">{{warrantPassDeductAmount | currency:"Rs. "}}</td>
+            </tr>
+			<!--  End of new row for warrants/passes -->
+            <tr>
+                <td class="text-left bold-text red-text dottodline"><?php echo $this->translate('Total') ?></td>
+                <td class="text-right bold-text red-text dottodline">{{selected.total | currency:"Rs. "}}</td>
+            </tr>
+            
+			</tbody>
+        </table>
+    </div>
+
+    <div class="col-md-12 col-sm-12">
+        <ul class="seat-legend">
+            <li><span class="busseat-arrangement-item seat-available"></span> <span class="lbl"><?php echo $this->translate('Available') ?></span></li>
+            <li><span class="busseat-arrangement-item seat-na"></span> <span class="lbl"><?php echo $this->translate('Not available') ?></span></li>
+            <li><span class="busseat-arrangement-item seat-booked"></span> <span class="lbl"><?php echo $this->translate('Booked') ?></span></li>
+            <li><span class="busseat-arrangement-item seat-payatbus"></span> <span class="lbl"><?php echo $this->translate('Pay at bus') ?></span></li>
+            <li><span class="busseat-arrangement-item seat-tentative"></span> <span class="lbl"><?php echo $this->translate('Tentative') ?></span></li>
+            <li><span class="busseat-arrangement-item seat-warrant"></span> <span class="lbl"><?php echo $this->translate('Warrant') ?></span></li>
+            <li><span class="busseat-arrangement-item seat-pass"></span> <span class="lbl"><?php echo $this->translate('Pass') ?></span></li>
+			
+            <li ng-repeat="agnt in agentData">
+                <span class="busseat-arrangement-item agent-legend">
+                    <span class="agent-halo" ng-style="{'outlineColor': agnt.color}"></span>
+                </span> <span class="lbl">Agent {{agnt.name | split:' ':0}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div ng-cloak stickyholder hide-sticky="!journeyData.fromName" class="hidden sticky-booking-details-strip text-center">
+    <strong style="word-wrap: break-word;">{{journeyData.fromName}} to {{journeyData.toName}}</strong>
+    {{journeyData.busName}} - {{journeyData.departure | date:'yyyy-MM-dd @ h:mma'}}
+    Seat no(s) : [<span ng-repeat="seatN in selected.seatNos">{{seatN}}{{$last ? '' : ', '}}</span>]
+    <div class="error hidden" ng-show="booking_form.$submitted && !booking_form.$valid">
+        <?php echo $this->translate('There are errors in form. Please fix them.') ?>
+    </div>
+</div>

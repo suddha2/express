@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row" style="margin-top: 100px;">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 text-center">
+            <img class="img-responsive center-block" src="/img/login_logo.png">
+            <h3 class="font-color text-center">Express Portal Login</h3>
+            <?php
+            $form = $this->loginForm;
+            $form->setAttribute('action', $_SERVER['REQUEST_URI']);
+            $form->prepare();
+
+            echo $this->form()->openTag($form);
+
+            if(!empty($this->message)){
+                echo '<p class="form-message-error">'. $this->message .'</p>';
+            }
+            ?>
+            <div class="form-row">
+                <label for="login_username">E-mail&nbsp;<span style="color: red;">*</span></label>
+                <?php  echo $this->formText($form->get('username')); ?>
+                <?php  echo $this->formElementerrors($form->get('username')); ?>
+            </div>
+
+            <div class="form-row">
+                <label for="login_password">Password&nbsp;<span style="color: red;">*</span></label>
+                <?php  echo $this->formpassword($form->get('password')); ?>
+                <?php echo $this->formElementerrors($form->get('password')); ?>
+            </div>
+
+            <div class="form-row">
+                <label for="login_password"></label>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Yes! I'm Ready</button>
+            </div>
+
+            <?php echo $this->form()->closeTag(); ?>
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+</div>

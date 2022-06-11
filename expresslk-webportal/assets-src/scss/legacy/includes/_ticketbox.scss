@@ -1,0 +1,43 @@
+.legacy-tb-results{
+    margin:0;
+    padding:0;
+    width:100%;
+
+    .row{
+        padding-top:10px;
+        padding-bottom:10px;
+        border-bottom:5px solid #eee;
+    }
+}
+
+.ui-autocomplete{
+    //height:60%;
+    //overflow: auto;
+}
+
+
+.busseat-arrangement-item {
+    &.seat-na {
+        background: url('/img/icons/bus/seats-vertical.png') -68px 0 no-repeat;
+    }
+}
+
+#booking-success-curtain{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:10000;
+    background-color: $c-white;
+    text-align: center;
+    .curtain-message{
+        width:300px;
+        margin:100px auto;
+        color: $c-red;
+        span{
+            color: $c-red;
+            font-weight:bold;
+        }
+    }
+}

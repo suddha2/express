@@ -1,0 +1,7 @@
+//change bootstrap font path
+$icon-font-path: "/fonts/";
+//import bootstrap
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../../bower_components/font-awesome/scss/font-awesome";
+@import "CSS:../../../bower_components/angular-ui-select/dist/select";
+@import "CSS:../../../bower_components/selectize/dist/css/selectize.default";

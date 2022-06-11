@@ -1,0 +1,194 @@
+<div class="row" ng-controller="ticketCancellation">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1><?php echo $this->translate('Ticket Cancellation') ?>
+                <small><?php echo $this->translate('Cancel and refund') ?></small>
+            </h1>
+        </div>
+        <div class="well">
+            <form ng-show="bookingData==null" class="" name="getbookingform" ng-submit="getbookingform.$valid && getInfo()" novalidate>
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="bookingRef" name="bookingRefEl"
+                           placeholder="<?php echo $this->translate('Booking reference...') ?>" required="true" ng-disabled="loading" autocomplete="off"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" ng-class="{'btn-block loading-stripe': loading}" ng-disabled="loading" type="submit">
+                            <span ng-hide="loading"><?php echo $this->translate('Cancel ticket') ?></span>
+                            <span ng-show="loading">
+                                <?php echo $this->translate('Loading...') ?>
+                            </span>
+                        </button>
+                    </span>
+
+                </div>
+                <div ng-show="getbookingform.$submitted || getbookingform.bookingRefEl.$touched">
+                    <p class="bg-danger text-danger error" ng-show="getbookingform.bookingRefEl.$error.required">
+                        * <?php echo $this->translate('Please add the booking reference') ?></p>
+                </div>
+            </form>
+            <div class="row" ng-show="bookingData!==null">
+                <div class="col-md-6">
+                    <h3><?php echo $this->translate('Booking') ?> <span class="label label-default" ng-click="showBookingDetails(bookingData.id);">{{bookingData.reference}}</span></h3>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-success btn-sm pull-right" type="button" ng-click="resetForms()"><< <?php echo $this->translate('Back') ?></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="well" ng-show="bookingData!==null">
+            <div class="row">
+                <div class="col-md-7 col-xs-12">
+                    <h3><?php echo $this->translate('Booking Details') ?></h3>
+                    <table class="table">
+                        <tr>
+                            <th><?php echo $this->translate('Status') ?></th>
+                            <th><?php echo $this->translate('Booking time') ?></th>
+                            <th><?php echo $this->translate('Booking done by') ?></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="label label-default"
+                                      ng-class="{'label-success': (bookingData.status.code=='CONF'), 'label-danger': (bookingData.status.code=='CANC')}">
+                                    {{bookingData.status.name}}
+                                </span>
+                            </td>
+                            <td>{{bookingData.bookingTime | date:'yyyy-MM-dd @ h:mma'}}</td>
+                            <td>{{bookingData.user.firstName}} {{bookingData.user.lastName}}</td>
+                        </tr>
+                    </table>
+                    <h3><?php echo $this->translate('Client') ?></h3>
+                    <table class="table">
+                        <tr>
+                            <th><?php echo $this->translate('Name') ?></th>
+                            <th><?php echo $this->translate('NIC') ?></th>
+                            <th><?php echo $this->translate('Phone') ?></th>
+                        </tr>
+                        <tr>
+                            <td>{{bookingData.client.name}}</td>
+                            <td>{{bookingData.client.nic}}</td>
+                            <td>{{bookingData.client.mobileTelephone}}</td>
+                        </tr>
+                    </table>
+                    <h3 ng-show="bookingData.agent">Agent</h3>
+                    <p ng-show="bookingData.agent">{{bookingData.agent.name}}</p>
+                    <h3><?php echo $this->translate('Bus Schedule') ?></h3>
+                    <table class="table" ng-repeat="item in bookingData.bookingItems">
+                        <tr>
+                            <th><?php echo $this->translate('Route') ?></th>
+                            <th><?php echo $this->translate('Departure time') ?></th>
+                            <th><?php echo $this->translate('Getin/Getoff') ?></th>
+                            <th><?php echo $this->translate('Booked seats') ?></th>
+                        </tr>
+                        <tr>
+                            <td>{{item.schedule.busRoute.name}}</td>
+                            <td>{{item.schedule.departureTime | date:'yyyy-MM-dd @ h:mma'}}</td>
+                            <td><i class="fa fa-arrow-right"></i> {{item.fromBusStop.name}} <br/><br/>
+                                <i class="fa fa-arrow-down"></i> {{item.toBusStop.name}}
+                            </td>
+                            <td>
+                                <span ng-repeat="seat in item.passengers">{{seat.seatNumber}}, </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <h3><?php echo $this->translate('Remarks') ?></h3>
+                    <p>{{bookingData.remarks}}</p>
+                </div>
+                <div class="col-md-5 col-xs-12">
+                    <h3><?php echo $this->translate('Payments') ?></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item overflow-auto" uib-tooltip="Payment on {{payment.time | date:'yyyy-MM-dd @ h:mma'}}" tooltip-append-to-body="true"
+                            ng-repeat="payment in bookingData.payments">
+                            <label class="pull-left">{{payment.mode}} </label>
+                            <span class="pull-right">{{payment.amount | currency: payment.currency+' '}}</span>
+                        </li>
+                    </ul>
+                    <h3 ng-hide="bookingData.refunds.length==0">Refunds</h3>
+                    <ul ng-hide="bookingData.refunds.length==0" class="list-group">
+                        <li class="list-group-item overflow-auto" uib-tooltip="Refund on {{refund.time | date:'yyyy-MM-dd @ h:mma'}}" tooltip-append-to-body="true"
+                            ng-repeat="refund in bookingData.refunds">
+                            <label class="pull-left">{{refund.mode}} </label>
+                            <span class="pull-right">{{refund.amount | currency: refund.currency+' '}}</span>
+                        </li>
+                    </ul>
+                    <h3><?php echo $this->translate('Cancellation') ?></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item overflow-auto">
+                            <label class="pull-left"><?php echo $this->translate('Cancellation charge') ?></label>
+                            <span class="pull-right">{{cancellationCharge | currency: 'LKR ':0}}</span>
+                        </li>
+                        <li class="list-group-item overflow-auto">
+                            <label class="pull-left red-text"><?php echo $this->translate('Amount to refund') ?></label>
+                            <span class="pull-right red-text">{{refundAmount | currency: 'LKR ':0}}</span>
+                        </li>
+                    </ul>
+
+                    <form class="" name="cancelform" ng-submit="cancelform.$valid && cancelAndRefund(bookingData.reference)" novalidate>
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Cancellation cause') ?></label>
+                            <select ng-model="cancel.cause" name="cause" class="form-control" ng-required="true">
+                                <option value="ClientRequested">Requested by client</option>
+                                <option value="DataEntryError">Data entry error</option>
+                                <option value="Other">Other (Please specify)</option>
+                            </select>
+                            <div ng-show="cancelform.$submitted || cancelform.cause.$touched">
+                                <p class="bg-danger text-danger error" ng-show="cancelform.cause.$error.required">
+                                    * <?php echo $this->translate('Please select a cancellation cause') ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo $this->translate('Cancellation remarks') ?></label>
+                            <textarea ng-model="cancel.remark" name="remark" class="form-control" ng-required="true"></textarea>
+                            <div ng-show="cancelform.$submitted || cancelform.remark.$touched">
+                                <p class="bg-danger text-danger error" ng-show="cancelform.remark.$error.required">
+                                    * <?php echo $this->translate('Please add a remark on why the booking is cancelled') ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="btn btn-default" ng-model="cancel.hasRefund" uib-btn-checkbox>
+                                <i ng-hide="!cancel.hasRefund" class="fa fa-check-square-o"></i>
+                                <i ng-hide="cancel.hasRefund" class="fa fa-square-o"></i>
+                                &nbsp;&nbsp;<small><?php echo $this->translate('Has a Refund?') ?></small>
+                            </label>
+                        </div>
+                        <div class="form-group" ng-show="cancel.hasRefund">
+                            <label><?php echo $this->translate('Refund Amount') ?></label>
+                            <input ng-model="cancel.refundamount" name="refundamount" class="form-control"
+                                   ng-required="cancel.hasRefund" type="text" />
+                            <div ng-show="cancelform.$submitted || cancelform.refundamount.$touched">
+                                <p class="bg-danger text-danger error" ng-show="cancelform.refundamount.$error.required">
+                                    * <?php echo $this->translate('Please add refund amount.') ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="cancel.hasRefund">
+                            <label><?php echo $this->translate('Refund mode') ?></label>
+                            <select ng-model="cancel.refundMode" name="refundMode" class="form-control" ng-required="cancel.hasRefund">
+                                <option value="Card">Card refund (BBK)</option>
+                                <option value="Cash">Cash refund (BBK)</option>
+                                <option value="BankTransfer">Direct bank transfer (BBK)</option>
+                                <option value="Cheque">Cheque given to the above amount (BBK)</option>
+                                <option value="mCash">mCash refund (BBK)</option>
+                                <option value="eZCash">eZCash refund (BBK)</option>
+                                <option value="Vendor">Refunded by the Vendor</option>
+                            </select>
+                            <div ng-show="cancelform.$submitted || cancelform.refundMode.$touched">
+                                <p class="bg-danger text-danger error" ng-show="cancelform.refundMode.$error.required">
+                                    * <?php echo $this->translate('Please select a refund mode') ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="cancel.hasRefund">
+                            <label><?php echo $this->translate('Refund reference') ?></label>
+                            <input ng-model="cancel.refundReference" name="refundReference" class="form-control"
+                                   ng-required="cancel.refundMode!='Cash' && cancel.hasRefund" type="text" />
+                            <div ng-show="cancelform.$submitted || cancelform.refundReference.$touched">
+                                <p class="bg-danger text-danger error" ng-show="cancelform.refundReference.$error.required">
+                                    * <?php echo $this->translate('Please add bank/cheque reference of the refund') ?></p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"><?php echo $this->translate('Cancel and refund') ?></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

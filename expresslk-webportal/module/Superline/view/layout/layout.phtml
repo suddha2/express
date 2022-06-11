@@ -1,0 +1,145 @@
+<?php echo $this->doctype(); ?>
+<html lang="en" ng-app="expressFront">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('Superline.lk')->setSeparator(' | ')->setAutoEscape(false) ?>
+
+    <?php
+    echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <!-- Le styles -->
+    <?php
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/domains/superline.lk/favicon.ico'))
+        ->prependStylesheet($this->basePath() . '/min/superline.min.css?'. filemtime('public/min/superline.min.css'))
+        ->prependStylesheet($this->basePath() . '/min/libs.min.css?'. filemtime('public/min/libs.min.css'));
+    ?>
+
+    <!-- Scripts -->
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath() . '/min/front.min.js?'. filemtime('public/min/front.min.js'))
+        ->prependFile($this->basePath() . '/min/core.min.js?'. filemtime('public/min/core.min.js'))
+        ->prependFile($this->basePath() . '/min/libs.min.js?'. filemtime('public/min/libs.min.js'))
+        ->prependFile($this->basePath() . '/min/ltie9.min.js?'. filemtime('public/min/ltie9.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',));
+    ?>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75899283-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+</head>
+<body class="superline-web <?php echo ($this->isHome? 'homepage' : '') ?>" ng-controller="searchCommon" ng-click="navCollapsed = true">
+
+<!--[if lt IE 9]>
+<div class="browserupgrade">
+    <p><i class="fa fa-warning"></i> <?php echo $this->translate('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_self">upgrade your browser</a> to improve your experience.'); ?></p>
+</div>
+<![endif]-->
+
+    <base href="/">
+
+    <div class="global-wrap">
+
+        <!-- TOP AREA -->
+
+        <!-- END TOP AREA  -->
+
+        <header id="main-header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <a class="logo" href="/" target="_self">
+                                <span class="main-logo img"></span>
+                                <h1 class=""><?php echo $this->translate('Superline.lk') ?></h1>
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <button type="button" class="btn btn-navbar navbar-toggle" ng-click="navCollapsed = !navCollapsed; $event.stopPropagation();">
+                                <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="top-user-area clearfix">
+                                <ul class="top-user-area-list list list-horizontal list-border">
+                                    <?php
+                                    if ($this->identity()) {
+                                        ?>
+                                        <li class="top-user-area-avatar">
+                                            <a href="javascript:;">
+                                                <span class="fa fa-user"></span> Hi, <?php echo $this->identity()->username ?>
+                                            </a>
+                                        </li>
+                                        <li><a href="/app/auth/logout" target="_self"><?php echo $this->translate('Sign Out') ?></a></li>
+                                    <?php
+                                    }else {
+                                        ?>
+                                        <li class="hidden-xs phone-contact">
+                                            <h4 class="no-margin"><i class="fa fa-phone green-text"></i> <b>0115-116-117</b>  </h4>
+
+                                        </li>
+                                    <?php
+                                    }
+
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <?php
+
+        if($this->isHome || $this->noContainer) {
+            echo $this->content;
+        }else{
+            //wrap in container div
+            echo '<div class="container">';
+            echo $this->content;
+            echo '</div>';
+        }
+        ?>
+
+        <footer id="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <p class="text-center">
+                            <?php echo $this->translate('Superline Travels Private Ltd. ') ?>
+                        </p>
+                        <p class="text-center">
+                            0115-116-117 | superlinelk@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+<div ng-cloak class="alert alert-success common-success ng-hide ng-cloak" ng-show="Global.success.isSuccess">
+    <span class="common-success-text">{{Global.success.message}}</span>
+</div>
+
+<div ng-cloak class="alert alert-danger common-error ng-hide ng-cloak" ng-show="Global.error.hasError">
+    <span class="common-error-text">{{Global.error.message}}</span>
+</div>
+
+<div ng-cloak class="main-preloader ng-hide ng-cloak" ng-show="_showPreLoader">
+    <div class="preload-image"></div>
+</div>
+
+<?php echo $this->inlineScript() ?>
+
+</body>
+</html>

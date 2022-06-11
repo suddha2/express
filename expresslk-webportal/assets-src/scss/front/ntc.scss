@@ -1,0 +1,321 @@
+// Import all front end styles
+//fonts
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+//variable overwrites
+$c-primary      : #0D47A1;
+$c-primary-light: #81D4FA;
+$c-secondary    : #E91E63;
+//variable definitions
+@import "includes/variables";
+@import "includes/base";
+@import "includes/theme";
+@import "includes/extends";
+@import "includes/layout";
+@import "includes/elements";
+@import "includes/home";
+@import "includes/search";
+
+// ================= ntc stuff =====================
+//common variables
+$size-footer-height: 85px;
+//common
+html{
+    height:100%;
+}
+body.ntc-web{
+    position: relative;
+    min-height:100%;
+    padding-bottom: $size-footer-height; //padding to position footer at bottom
+}
+.col-1in5{
+    width: 20%;
+    padding: 0 10px;
+    float: left;
+}
+
+// header owerwrites
+.ntc-web{
+    .logo{
+        .main-logo{
+            background: url("/img/domains/ntc.lk/logo.png") no-repeat center;
+            background-size: contain;
+			width : 100px;
+			height : 50px;
+        }
+        h1{
+            color: $c-black;
+        }
+    }
+    header{
+        &#main-header{
+            border-bottom: none;
+            @include box-shadow(0px, 0px, 5px, $c-grey);
+        }
+
+    }
+    .header-top{
+        background-color: #fff;
+    }
+    .top-user-area{
+        .phone-contact{
+            h4{
+                margin:0;
+                line-height:40px;
+                i{
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+
+// home page styles
+.ntc-homeslider{
+    .slider-item{
+        width: 100%;
+        height: 300px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .carousel-inner {
+        .item {
+            opacity: 0;
+            -webkit-transition-property: opacity;
+            transition-property: opacity;
+            @include transition(1.8s ease-in-out);
+            left: 0!important;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .active.left,
+        .active.right {
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+        .item.next,
+        .item.active.right {
+            -webkit-transform: translate3d( 0, 0, 0);
+            transform: translate3d( 0, 0, 0);
+        }
+        .item.prev,
+        .item.active.left {
+            -webkit-transform: translate3d( 0, 0, 0);
+            transform: translate3d( 0, 0, 0);
+        }
+        .item.next.left,
+        .item.prev.right,
+        .item.active {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    //hide carausal indicators and pagination
+    .carousel-indicators, .carousel-control{
+        display: none;
+    }
+    .carousel-inner{
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.ntc-searchbtn{
+    @media #{$bp-desktop} {
+        #margin-top: 28px;
+    }
+}
+.ntc-searchbtn{
+   background-color: red;
+   color: $c-white;
+   border-color: #D80000;
+}
+.ntc-searchbtn{
+   background-color: red;
+   color: $c-white;
+   border-color: #D80000;
+}
+.ntc-searchbtn:hover {
+   background-color: #D80000;
+}
+
+.ntc-search-box-wrapper{
+    @include box-shadow(0px, 0px, 9px, $c-grey);
+    display: table;
+    width: 100%;
+}
+.separator{
+    width: 100%;
+    height: 1px;
+    @include box-shadow(0px, 0px, 5px, $c-grey);
+}
+
+.ntc-web{
+    //routebox colors
+    .blue0{
+        .route-box-circle,.route-cont-separator {
+            background-color: #7E57C2;
+        }
+    }
+    .blue1{
+        .route-box-circle,.route-cont-separator {
+            background-color: #1E88E5;
+        }
+    }
+    .blue2{
+        .route-box-circle,.route-cont-separator {
+            background-color: #26A69A;
+        }
+    }
+    .green1{
+        .route-box-circle,.route-cont-separator {
+            background-color: #66BB6A;
+        }
+    }
+    .yellow1{
+        .route-box-circle,.route-cont-separator {
+            background-color: #D4E157;
+        }
+    }
+    .orange1{
+        .route-box-circle,.route-cont-separator {
+            background-color: #FFA726;
+        }
+    }
+    .orange2{
+        .route-box-circle,.route-cont-separator {
+            background-color: #FF7043;
+        }
+    }
+    .brown1{
+        .route-box-circle,.route-cont-separator {
+            background-color: #8D6E63;
+        }
+    }
+    .red1{
+        .route-box-circle,.route-cont-separator {
+            background-color: #ef5350;
+        }
+    }
+    .purple1{
+        .route-box-circle,.route-cont-separator {
+            background-color: #AB47BC;
+        }
+    }
+    //route box styles
+    .route-box{
+        $route-circle-size: 100px;
+
+        position: relative;
+        width:100%;
+        height:250px;
+        padding-top: ($route-circle-size/2);
+        @include transition(background-color 0.5s ease);
+
+        //background box
+        .route-box-bg{
+            width:100%;
+            height:100%;
+            background-color: $c-grey-mid;
+            border:1px solid $c-grey;
+            @include transition(background-color 0.5s ease);
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        //content area including round
+        .route-box-content{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:15;
+            text-align: center;
+            padding: 0 10px;
+            color: $c-grey;
+            @include transition(background-color 0.5s ease);
+
+            .route-box-circle{
+                width:$route-circle-size;
+                height:$route-circle-size;
+                line-height: $route-circle-size;
+                margin: 0 auto 20px;
+                border-radius: 50%;
+                //background-color: $c-green;
+                color: $c-white;
+                border: 2px solid $c-white;
+                font-size:28px;
+                @include transition(background-color 0.5s ease);
+            }
+            h3{
+                color: $c-grey;
+                margin-bottom:20px;
+            }
+        }
+        .route-cont-separator{
+            width: 50px;
+            height:2px;
+            margin: 0 auto 20px;
+        }
+
+        &:hover{
+            .route-box-bg{
+                background-color: $c-blue;
+                color: $c-white;
+                border-color: $c-secondary;
+            }
+            .route-box-content{
+                .route-box-circle{
+                    background-color: #0B005C;
+                }
+                color: $c-white;
+                h3{
+                    color: $c-white;
+                }
+                .route-cont-separator{
+                    background-color: $c-secondary;
+                }
+            }
+        }
+    }
+}
+// end home page styles
+
+
+//footer
+.ntc-web{
+    footer{
+        position: absolute;
+        bottom: 0px;
+        left:0;
+        height: $size-footer-height;
+        width: 100%;
+        &#main-footer{
+            background-color: #0B005C;
+            color: $c-white;
+            padding: 20px;	
+			p {
+				color: $c-white;
+			}
+			a {
+				color: $c-white;
+			}
+        }
+    }
+}
+
+

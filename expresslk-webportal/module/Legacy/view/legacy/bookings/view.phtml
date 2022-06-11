@@ -1,0 +1,229 @@
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <span class="pull-right">
+                    <span class="view_actions">
+                        <a class="btn btn-default" href="<?php echo $this->url('legacy/default', array('controller'=> $controller)); ?>">
+                            <span class="glyphicon glyphicon-list" aria-hidden="true">
+                            </span>&nbsp;<span class="hidden-xs">List</span>
+                        </a>
+                    </span>
+                    <span class="view_actions">
+                        <a class="btn btn-default"
+                            href="<?php echo $this->url('legacy/default', array('controller'=> $controller, 'action'=> 'edit', 'id' => $model->id)); ?>">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                            </span>&nbsp;<span class="hidden-xs">Edit</span>
+                        </a>
+                    </span>
+                </span>
+                <h1><span>Booking "<?php echo $model->reference ?>"</span></h1>
+            </div>
+            <div class="row form-horizontal" id="show-view">
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">ID</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo $model->id ?></span></div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Reference</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo $model->reference ?></span></div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Booking time</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo \Application\Helper\ExprDateTime::getDateFromServices($model->bookingTime)->format('Y-m-d H:i') ?></span></div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Status</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo $this->escapeHtml($model->status->code) ?></span></div>
+                </div>
+                <?php if ($model->status->code != 'CONF'): ?>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Expiry time</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo \Application\Helper\ExprDateTime::getDateFromServices($model->expiryTime)->format('Y-m-d H:i') ?></span></div>
+                </div>
+                <?php endif; ?>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Items</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-10">
+                        <table class="grid table table-condensed table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th><a>Bus</a></th>
+                                    <th><a>Route</a></th>
+                                    <th><a>Departure</a></th>
+                                    <th><a>From</a></th>
+                                    <th><a>To</a></th>
+                                    <th><a>Seats</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($model->bookingItems as $item): ?>
+                                <tr>
+                                    <td><span><?php echo $this->escapeHtml($item->schedule->bus->plateNumber) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($item->schedule->busRoute->name) ?></span></td>
+                                    <td><span><?php echo \Application\Helper\ExprDateTime::getDateFromServices($item->schedule->departureTime)->format('Y-m-d H:i') ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($item->fromBusStop->name) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($item->toBusStop->name) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml(implode(', ', array_map(function($p) { return $p->seatNumber; }, $item->passengers))) ?></span></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Client</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7">
+                        <div class="btn-group ng-scope">
+                            <div class="btn btn-default text-selectable ng-binding"><i class="fa fa-user"></i> <?php echo $this->escapeHtml($model->client->name) ?></div>
+                            <div class="btn btn-default text-selectable ng-binding"><i class="fa fa-male"></i> <?php echo $this->escapeHtml($model->client->nic) ?></div>
+                            <div class="btn btn-default text-selectable ng-binding"><i class="fa fa-phone blue-text"></i> <?php echo $this->escapeHtml($model->client->mobileTelephone) ?></div>
+                            <div class="btn btn-default text-selectable ng-binding"><i class="fa fa-envelope pink-text"></i> <?php echo $this->escapeHtml($model->client->email) ?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Passengers</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-10">
+                        <table class="grid table table-condensed table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th><a>Name</a></th>
+                                    <th><a>NIC</a></th>
+                                    <th><a>Gender</a></th>
+                                    <th><a>Type</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($model->passengers as $passenger): ?>
+                                <tr>
+                                    <td><span><?php echo $this->escapeHtml($passenger->name) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($passenger->nic) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($passenger->gender) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($passenger->passengerType) ?></span></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Booked by</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo $this->escapeHtml($model->user->username) ?></span></div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Agent</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo $this->escapeHtml($model->agent->name) ?></span></div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Chargeable</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo $this->escapeHtml($model->chargeable) ?></span></div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Payments</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-10">
+                        <table class="grid table table-condensed table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th><a>Time</a></th>
+                                    <th><a>Amount</a></th>
+                                    <th><a>Mode</a></th>
+                                    <th><a>Reference</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($model->payments as $payment): ?>
+                                <tr>
+                                    <td><span><?php echo \Application\Helper\ExprDateTime::getDateFromServices($payment->time)->format('Y-m-d H:i') ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($payment->amount) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($payment->mode) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($payment->reference) ?></span></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <?php if ($model->status->code == 'CANC'): ?>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Cancellation charges</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-10">
+                        <table class="grid table table-condensed table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th><a>Cancellation scheme</a></th>
+                                    <th><a>Amount</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($model->cancellations as $cancellation): ?>
+                                <tr>
+                                    <td><span><?php echo $this->escapeHtml($cancellation->cancellationSchemeId) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($cancellation->amount) ?></span></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Cancellation cause</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo $this->escapeHtml($model->cancellationCause) ?></span></div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Refunds</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-10">
+                        <table class="grid table table-condensed table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th><a>Time</a></th>
+                                    <th><a>Amount</a></th>
+                                    <th><a>Mode</a></th>
+                                    <th><a>Reference</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($model->refunds as $refund): ?>
+                                <tr>
+                                    <td><span><?php echo \Application\Helper\ExprDateTime::getDateFromServices($refund->time)->format('Y-m-d H:i') ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($refund->amount) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($refund->mode) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($refund->reference) ?></span></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <?php endif; ?>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Remarks</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-7"><span><?php echo $this->escapeHtml($model->remarks) ?></span></div>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label class="col-sm-2 control-label">Changes</label>
+                    <div class="show-value col-sm-10 col-md-8 col-lg-10">
+                        <table class="grid table table-condensed table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th><a>Time</a></th>
+                                    <th><a>Type</a></th>
+                                    <th><a>Description</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($model->changes as $change): ?>
+                                <tr>
+                                    <td><span><?php echo \Application\Helper\ExprDateTime::getDateFromServices($change->changeTime)->format('Y-m-d H:i') ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($change->type->code) ?></span></td>
+                                    <td><span><?php echo $this->escapeHtml($change->description) ?></span></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

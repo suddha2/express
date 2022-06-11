@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbundle:taskBundle xmlns:meta="http://express.lk/2015/meta" xmlns:tbundle="http://express.lk/2015/meta/taskBundle"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:params="http://express.lk/2015/meta/parameters"
+	xsi:schemaLocation="../../../../../schema/taskBundle.xsd ">
+	<meta:processor>lk.express.meta.TaskBundleMetadata</meta:processor>
+	<tbundle:tasks>
+		<tbundle:task enabled="true" xsi:type="tbundle:recurringTaskType">
+			<tbundle:name>Resource Releaser</tbundle:name>
+			<tbundle:groupName>Core</tbundle:groupName>
+			<tbundle:description>Release unconfirmed held items and tentative bookings</tbundle:description>
+			<tbundle:jobClass>lk.express.tbundle.ResourceReleaser</tbundle:jobClass>
+			<tbundle:startTime>2015-01-01T00:00:00</tbundle:startTime>
+			<tbundle:repeatInterval>60</tbundle:repeatInterval>
+			<tbundle:durationType>SECOND</tbundle:durationType>
+		</tbundle:task>
+		<!-- 
+		<tbundle:task enabled="true" xsi:type="tbundle:recurringTaskType">
+			<tbundle:name>Schedule Closer</tbundle:name>
+			<tbundle:groupName>Core</tbundle:groupName>
+			<tbundle:description>Closes schedules that have passed closing time</tbundle:description>
+			<tbundle:jobClass>lk.express.tbundle.ScheduleCloser</tbundle:jobClass>
+			<tbundle:startTime>2015-01-01T00:00:00</tbundle:startTime>
+			<tbundle:repeatInterval>60</tbundle:repeatInterval>
+			<tbundle:durationType>SECOND</tbundle:durationType>
+		</tbundle:task>
+		 -->
+		<tbundle:task enabled="true" xsi:type="tbundle:recurringTaskType">
+			<tbundle:name>Token Remover</tbundle:name>
+			<tbundle:groupName>Core</tbundle:groupName>
+			<tbundle:description>Remove expired API tokens</tbundle:description>
+			<tbundle:jobClass>lk.express.tbundle.TokenRemover</tbundle:jobClass>
+			<tbundle:startTime>2015-01-01T00:00:00</tbundle:startTime>
+			<tbundle:repeatInterval>60</tbundle:repeatInterval>
+			<tbundle:durationType>SECOND</tbundle:durationType>
+		</tbundle:task>
+	</tbundle:tasks>
+</tbundle:taskBundle>

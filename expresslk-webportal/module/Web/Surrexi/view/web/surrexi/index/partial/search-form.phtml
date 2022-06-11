@@ -1,0 +1,59 @@
+<form name="mainSearchForm" class="home-form" ng-submit="submitSearch()" method="post" ng-controller="searchDestinations">
+    <div class="row">
+        <div class="col-md-12 ng-cloak">
+            <div class="form-group form-group-lg form-group-icon-left"
+                ng-class="{'form-correct': (searchFormData.start!='')}">
+                <i class="fa fa-map-marker input-icon"></i>
+                <label>Start</label>
+                <ui-select ui-select-focus-input class="form-control" ng-model="searchFormData.start"
+                           theme="selectize" ng-disabled="disabled">
+                    <ui-select-match
+                        placeholder="{{ departuresLoading ? '<?php echo $this->translate('Loading.. Please wait') ?>' : '<?php echo $this->translate('Select a City') ?>' }}">
+                        {{$select.selected.name}}
+                    </ui-select-match>
+                    <ui-select-choices
+                        repeat="city in cityList | propsFilter: {name: $select.search, code: $select.search}">
+                        <div class="bold-text"
+                             ng-bind-html="city.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-md-12 ng-cloak">
+            <div class="form-group form-group-lg form-group-icon-left"
+                 ng-class="{'form-correct': (searchFormData.end!='')}">
+                <i class="fa fa-map-marker input-icon"></i>
+                <label>End</label>
+                <ui-select ui-select-focus-input class="form-control" ng-model="searchFormData.end"
+                           theme="selectize" ng-disabled="disabled">
+                    <ui-select-match
+                        placeholder="{{ destinationPlaceHolder=='loading' ? '<?php echo $this->translate('Loading.. Please wait') ?>' : (destinationPlaceHolder=='empty' ? '<?php echo $this->translate('No available destinations') ?>' : '<?php echo $this->translate('Select a Destination') ?>')
+                                                            }}">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="city in destinations | propsFilter: {name: $select.search, code: $select.search}">
+                        <div class="bold-text" ng-bind-html="city.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group form-group-lg form-group-icon-left"
+                 ng-class="{'form-correct': (searchFormData.date!='' && mainSearchForm.date.$dirty)}">
+                <i class="fa fa-calendar input-icon input-icon-highlight"></i>
+                <label>Date</label>
+                <input type="text" class="form-control" placeholder="<?php echo $this->translate('Choose a date') ?>"
+                       datepicker-options="dateOptions"
+                       ng-click="open($event)"
+                       uib-datepicker-popup="yyyy-MM-dd"
+                       ng-model="searchFormData.date"
+                       is-open="opened"
+                       min-date="minDate"
+                       max-date="maxDate"
+                       ng-required="true"
+                       show-button-bar="false" name="date"/>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary btn-lg srx-searchbtn" type="submit">Search Bus</button>
+        </div>
+    </div>
+</form>

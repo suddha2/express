@@ -1,0 +1,33 @@
+
+@-webkit-keyframes progress{
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 85px 0px;
+    }
+}
+@-moz-keyframes progress{
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 85px 0px;
+    }
+}
+@-ms-keyframes progress{
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 85px 0px;
+    }
+}
+@keyframes progress{
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 85px 0px;
+    }
+}

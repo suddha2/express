@@ -1,0 +1,90 @@
+/*==========================
+COLORS
+==========================*/
+$c-black		        : #000000;
+$c-white		        : #FFFFFF;
+$c-grey-dark	        : #4d4d4d;
+$c-grey			        : #C0C0C0;
+$c-grey-light	        : #666666;
+$c-pink                 : #c7254e;
+$c-blue                 : #0033DD;
+$c-purple               : #FF5722;
+//green
+$c-green                : #5cb85c;
+$c-green-border         : #4cae4c;
+$c-green-dark           : #449d44;
+$c-green-dark-border    : #398439;
+//yellow
+$c-yellow               : #f0ad4e;
+$c-yellow-border        : #eea236;
+$c-yellow-dark          : #ec971f;
+$c-yellow-dark-border   : #d58512;
+//red button
+$c-redbtn               : #d9534f;
+$c-redbtn-border        : #d43f3a;
+$c-redbtn-dark          : #c9302c;
+$c-redbtn-dark-border   : #ac2925;
+//red
+$c-red                  : #FF0000;
+$c-red-light            : #D80000;
+
+$c-primary              : $c-red;
+$c-primary-light        : $c-red-light;
+
+/*==========================
+FONTS
+==========================*/
+$font-base      : 'Open Sans', Tahoma, Arial, helvetica, sans-serif;
+$font-highlight : 'Roboto', arial, helvetica, sans-serif;
+$font-helvetica : "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$f-base-sm	: 16px;
+$f-base-md	: 14px;
+$f-base-lg	: 12px;
+
+/*==========================
+DIMENSIONS
+==========================*/
+$d-max-width    : 55rem;
+$d-line-height  : 1.4em;
+$d-gap          : 1rem;
+
+/*==========================
+MEDIA QUERIES
+==========================*/
+$bp-mobile      : 'only screen and (min-width: 480px)'; //xs
+$bp-mobile-max  : 'only screen and (max-width: 479px)';
+$bp-tablet      : 'only screen and (min-width: 768px)'; //sm
+$bp-tablet-max  : 'only screen and (max-width: 767px)';
+$bp-desktop     : 'only screen and (min-width: 992px)'; //md
+$bp-desktop-max : 'only screen and (max-width: 991px)'; //md
+$bp-large       : 'only screen and (min-width: 1200px)'; //lg
+
+/*==========================
+SIZES
+==========================*/
+$menu-width : 18em;
+
+/*==========================
+UTILITY FUNCTIONS
+==========================*/
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $color;
+        -moz-box-shadow:inset $top $left $blur $color;
+        box-shadow:inset $top $left $blur $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}

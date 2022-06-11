@@ -1,0 +1,1 @@
+a:1:{s:3:"0:0";a:2:{s:5:"price";a:12:{s:4:"cost";d:989;s:11:"baseMargins";d:0;s:4:"fare";d:989;s:11:"baseMarkups";d:120;s:5:"gross";d:1109;s:12:"baseDiscount";d:-10;s:14:"priceBeforeTax";d:1099;s:7:"baseTax";d:0;s:18:"priceBeforeCharges";d:1099;s:11:"baseCharges";d:0;s:5:"total";d:1099;s:9:"childFare";d:-1;}s:10:"scheduleId";i:112390;}}

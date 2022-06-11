@@ -1,0 +1,114 @@
+.ng-admin-section {
+    //reset sidebar styles
+//    .sidebar {
+//        margin: 0;
+//        position: inherit;
+//        width: 100%;
+//
+//        ul > li {
+//            float: left;
+//        }
+//    }
+//
+//    .nav {
+//        .nav-second-level {
+//            position: absolute;
+//            z-index: 100;
+//            background: #FFFFff;
+//            border: 1px solid #e7e7e7;
+//            border-top: none;
+//
+//            li {
+//                min-width: 200px;
+//                a {
+//                    padding: 10px 15px;
+//                }
+//            }
+//        }
+//
+//        .arrow {
+//            margin-left: 15px;
+//        }
+//    }
+}
+
+ma-show-button, ma-list-button, .btn-green{
+    .btn{
+        color: $c-white;
+        background-color: $c-green;
+        border-color: $c-green-border;
+        &:hover{
+            color: $c-white;
+            background-color: $c-green-dark;
+            border-color: $c-green-dark-border;
+        }
+    }
+}
+
+ma-edit-button, ma-create-button, .btn-edit{
+    .btn{
+        background-color: $c-yellow;
+        border-color: $c-yellow-border;
+        color: $c-white;
+        &:hover{
+            background-color: $c-yellow-dark;
+            border-color: $c-yellow-dark-border;
+            color: $c-white;
+        }
+    }
+}
+
+ma-create-button, .btn-create{
+    .btn{
+        background-color: #009688;
+        border-color: #80CBC4;
+        color: $c-white;
+        &:hover{
+            background-color: #004D40;
+            border-color: #00897B;
+            color: $c-white;
+        }
+    }
+}
+
+ma-delete-button, .btn-delete{
+    .btn{
+        background-color: $c-redbtn;
+        border-color: $c-redbtn-border;
+        color: $c-white;
+        &:hover{
+            background-color: $c-redbtn-dark;
+            border-color: $c-redbtn-dark-border;
+            color: $c-white;
+        }
+    }
+}
+
+//table hover color
+.table-hover > tbody > tr:hover,
+.table > tbody > tr.active > td,
+.table > tbody > tr.active > th,
+.table > tbody > tr > td.active,
+.table > tbody > tr > th.active{
+    background-color: $c-grey;
+    color: $c-grey-dark;
+    @include transition(background-color 200ms ease-out);
+}
+
+.grid{
+    .highlight-row{
+        background-color: $c-blue;
+    }
+}
+
+.btn-default-focus{
+    //border-color: $c-pink;
+    .btn {
+        background-color: #ebebeb;
+        border-color: #adadad;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+        color: #333;
+        outline-offset: -2px;
+        text-decoration: none;
+    }
+}

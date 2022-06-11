@@ -1,0 +1,85 @@
+<h2><?php echo $this->translate('Generate Report') ?></h2>
+<form class="form-inline" ng-submit="submitReport()" method="post" ng-controller="reportController">
+    <fieldset>
+        <table class="table table-responsive">
+            <tr>
+                <td><label for="report" class="control-label"><?php echo $this->translate('Report') ?>: </label></td>
+                <td>
+                    <ui-select ui-select-focus-input class="input-medium" ng-model="reportData.report" theme="selectize" ng-disabled="disabled">
+                        <ui-select-match placeholder="{{reportPlaceHolder == 'loading' ? 'Loading...' : 'Select a report'}}">{{$select.selected.reportName}}</ui-select-match>
+                        <ui-select-choices repeat="report in reportList | propsFilter: {reportName: $select.search}">
+                            <div ng-bind-html="report.reportName | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><label class="control-label"><?php echo $this->translate('Parameters') ?>: </label></td>
+            </tr>
+            <tr ng-repeat="param in parameters | filter:{visible:true}">
+                <td><label class="control-label" style="float:right;">{{param.name}}: </label></td>
+                <td ng-switch="param.type">
+                    <p ng-switch-when="String">
+                        <input ng-if="param.name != 'Plate number' && param.name != 'Payment mode'" type="text" ng-model="reportData.parameters[param.name]" />
+                        <select ng-if="param.name == 'Plate number'"  class="form-control" ng-model="reportData.parameters[param.name]" >
+                            <option value="" selected>-- Select the bus --</option>
+                            <?php
+                            foreach ($this->buses as $bus) {
+                                echo '<option value="'. $bus->plateNumber .'">'. $bus->plateNumber . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <select ng-if="param.name == 'Payment mode'"  class="form-control" ng-model="reportData.parameters[param.name]" >
+                            <option value="" selected>-- Select the payment mode --</option>
+                            <option value="BankTransfer" selected>BankTransfer</option>
+                            <option value="Card" selected>Card</option>
+                            <option value="Cash" selected>Cash</option>
+                            <option value="Coupon" selected>Coupon</option>
+                            <option value="eZCash" selected>eZCash/option>
+                            <option value="mCash" selected>mCash</option>
+                        </select>
+                    </p>
+                    <p ng-switch-when="Integer">
+                        <input ng-if="param.name != 'User'" type="number" ng-model="reportData.parameters[param.name]" />
+                        <select ng-if="param.name == 'User'"  class="form-control" ng-model="reportData.parameters[param.name]" >
+                            <option value="0" selected>-- Select the user --</option>
+                            <?php
+                            foreach ($this->users as $user) {
+                                echo '<option value="'. $user->id .'">'. $user->firstName . ' (' . $user->username . ')</option>';
+                            }
+                            ?>
+                        </select>
+                    </p>
+                    <input ng-switch-when="Long" type="number" ng-model="reportData.parameters[param.name]" />
+                    <input ng-switch-when="Float" type="number" ng-model="reportData.parameters[param.name]" />
+                    <input ng-switch-when="Double" type="number" ng-model="reportData.parameters[param.name]" />
+                    <input ng-switch-when="Boolean" type="checkbox" ng-model="reportData.parameters[param.name]" />
+                    <p ng-switch-when="Date" class="datetime-picker">
+                        <input type="text" class="form-control datepicker pull-left"
+                            ng-model="reportData.parameters[param.name]"
+                            ng-click="dp[param.name].a = true" is-open="dp[param.name].a"
+                            datepicker-popup="yyyy-MM-dd" close-text="Close"
+                            style="margin-top:0;" />
+                    </p>
+                    <p ng-switch-when="DateTime" class="datetime-picker">
+                        <input type="text" class="form-control datepicker pull-left"
+                            ng-model="reportData.parameters[param.name]"
+                            ng-click="dp[param.name].a = true" is-open="dp[param.name].a"
+                            datepicker-popup="yyyy-MM-dd" close-text="Close"
+                            style="margin-top:0;" />
+                        <timepicker class="timepicker" mousewheel="false"
+                            ng-model="reportData.parameters[param.name]"
+                            show-meridian="false" />
+                    </p>
+                    <timepicker ng-switch-when="Time" class="timepicker" mousewheel="false"
+                        ng-model="reportData.parameters[param.name]"
+                        show-meridian="false" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn btn-primary" type="submit"><?php echo $this->translate('Generate') ?></button></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>

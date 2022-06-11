@@ -1,0 +1,56 @@
+<form name="mainSearchForm" class="home-form" method="post"
+      search-form search-from-city="searchFormData.start" search-to-city="searchFormData.end"
+      search-date="searchFormData.date" offer-code="searchFormData.offercode">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group form-group-lg form-group-icon-left"
+                 ng-class="{'form-correct': (searchFormData.start!='')}"
+                 ng-init="loadingFrom=false;">
+
+                <i class="fa fa-map-marker input-icon" ng-class="{'search-icon-loading': loadingFrom}"></i>
+                <label><?php echo $this->translate('Departure') ?></label>
+                <input type="text" placeholder="<?php echo $this->translate('Select a City') ?>"
+                       class="form-control"
+                       bind-model="searchFormData.start" suggest-city-box suggest-loading="loadingFrom" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group form-group-lg form-group-icon-left"
+                 ng-class="{'form-correct': (searchFormData.end!='')}"
+                 ng-init="loadingTo=false;">
+
+                <i class="fa fa-map-marker input-icon" ng-class="{'search-icon-loading': loadingTo}"></i>
+                <label><?php echo $this->translate('Arrival') ?></label>
+                <input type="text" placeholder="<?php echo $this->translate('Select a Destination') ?>"
+                       class="form-control"
+                       bind-model="searchFormData.end" suggest-city-box suggest-loading="loadingTo" dependant="searchFormData.start" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group form-group-lg form-group-icon-left"
+                 ng-class="{'form-correct': (searchFormData.date!='' && mainSearchForm.date.$dirty)}"
+                 ng-init="isOpened=false;">
+                <i ng-click="isOpened=!isOpened" class="fa fa-calendar input-icon input-icon-highlight"></i>
+                <label><?php echo $this->translate('Departing') ?></label>
+                <input type="text" class="form-control" placeholder="<?php echo $this->translate('Choose a date') ?>"
+                       ng-model="searchFormData.date" search-datepicker
+                       ng-required="true" name="date"/>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label>&nbsp;</label>
+            <button class="btn btn-primary btn-lg pull-left" type="submit"><?php echo $this->translate('Find My Bus') ?></button>
+            <div class="offer-holder" ng-init="clpsOffer=true" ng-class="{'off-collapsed': clpsOffer}">
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="searchFormData.offercode"
+                           placeholder="<?php echo $this->translate('Paste the Offer code here') ?>" ng-focus="!clpsOffer">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="clpsOffer=!clpsOffer" type="button">
+                            <u><i class="fa fa-gift"></i> <?php echo $this->translate('Offer code') ?></u>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

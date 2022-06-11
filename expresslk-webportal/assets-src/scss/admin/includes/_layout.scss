@@ -1,0 +1,288 @@
+//@extend-elements
+//original selectors
+//.loading-container .loading:before, .loading-container .loading:after
+%extend_1 {
+    bottom: 0;
+    content: " ";
+    left: 0;
+    min-height: 50px;
+    min-width: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+//original selectors
+//.common-error, .common-success
+%extend_2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1010;
+    text-align: center;
+    border-bottom: 1px solid $color_red_oxide_approx;
+}
+
+//original selectors
+//.common-error .common-error-text, .common-success .common-success-text
+%extend_3 {
+    text-align: center;
+    width: auto;
+    margin: auto;
+    padding: 10px;
+    line-height: 25px;
+}
+
+@media(min-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+}
+
+.bg-gray {
+    background-color: $color_gray_nurse_approx !important;
+}
+
+.dottodline {
+    border-bottom: 1px dotted $color_crimson_approx;
+}
+
+//======== preloaders =========
+.main-preloader {
+    bottom: 0;
+    content: " ";
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: $white $url_0 no-repeat center;
+    opacity: 0.9;
+    z-index: 1000;
+}
+
+.preloader-balls {
+    background: transparent $url_1 no-repeat center;
+    min-height: 32px;
+    min-width: 100px;
+}
+.page-preloader{
+    bottom: 0;
+    content: " ";
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: #18191B url('/img/preloader/page_loader.gif') no-repeat center;
+    z-index: 1000;
+}
+//======== end preloaders =========
+
+.header-text {
+    background-color: $color_bizarre_approx;
+    border-bottom: 1px solid $color_crimson_approx;
+    border-top: 1px solid $color_crimson_approx;
+    color: $color_crimson_approx;
+    padding: 10px;
+}
+
+.font-color {
+    color: $color_tapa_approx;
+    font-size: 32px;
+}
+
+
+.common-error, .common-success{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1010;
+    text-align: center;
+    @include box-shadow(0, 0, 9px, $c-grey-dark);
+    border:none;
+    padding:19px 15px;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+}
+.common-success{
+    background-color: #4CAF50;
+    color: $c-white;
+    font-weight:bold;
+}
+.common-error{
+    background-color: #DB4437;
+    color: $c-white;
+    font-weight:bold;
+}
+.common-error .common-error-text, .common-success .common-success-text{
+    text-align: center;
+    width: auto;
+    margin: auto;
+    padding: 10px;
+    line-height: 25px;
+}
+
+.payment-details {
+    margin-top: 100px;
+}
+
+[ng-cloak] {
+    display: none !important;
+}
+
+[data-ng-cloak] {
+    display: none !important;
+}
+
+[x-ng-cloak] {
+    display: none !important;
+}
+
+.ng-cloak {
+    display: none !important;
+}
+
+.x-ng-cloak {
+    display: none !important;
+}
+
+[ng\:cloak] {
+    display: none !important;
+}
+
+.input-group .input-medium {
+    min-width: 200px;
+    width: 40%;
+}
+
+.timepicker .btn-link {
+    padding: 0;
+}
+
+.datetime-picker .datepicker {
+    width: 83px;
+    margin: 22px 10px 0 0;
+    text-align: center;
+}
+
+.datepicker-td thead .btn-default {
+    border: none;
+}
+
+.datepicker-td tbody .btn-default {
+    border: 1px solid #f9f2f4;
+}
+
+/* angular bootstrap hack */
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+/* end angular bootstrap hack */
+
+.ng-table th.sortable {
+    cursor: pointer;
+    &.sort-desc {
+        background-color: $color_half_baked_25_approx;
+        //Instead of the line below you could use @includetext-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: 0 1px 1px $white_75;
+    }
+    &.sort-asc {
+        background-color: $color_half_baked_25_approx;
+        //Instead of the line below you could use @includetext-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: 0 1px 1px $white_75;
+    }
+}
+
+.selectize-dropdown .active {
+    background-color: $color_cararra_approx;
+}
+
+.main-footer hr {
+    margin: 19px 0;
+    border: 0;
+    border-top: 1px solid $color_mountain_mist_approx;
+    border-bottom: 1px solid $white;
+}
+
+.loading-container .loading {
+    &:before {
+        background-color: $white;
+        opacity: 0.5;
+        @extend %extend_1;
+    }
+    &:after {
+        @extend %extend_1;
+    }
+}
+
+.datepicker-td .dropdown-menu {
+    min-width: 268px;
+    padding: 5px;
+}
+
+.fullscreen-popup{
+    .modal-dialog {
+        width: 95%;
+        height: 95%;
+        padding: 0;
+        margin: 10px auto;
+    }
+
+    .modal-content {
+        height: 100%;
+    }
+    .modal-body{
+        height: 100%;
+        width: 100%;
+    }
+
+}
+
+.popup{
+    .close-icon{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 400;
+    }
+}
+
+//datepicker popup
+.datepicker-curton{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:5000;
+    width:100%;
+    height:100%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    resize: both;
+
+    .datepicker-popups{
+        resize: both;
+        overflow: auto;
+        max-width:480px;
+        width:100%;
+
+        table{
+            width:100%;
+        }
+    }
+}
+
+.angular-google-map-container {
+    height: 400px;
+}

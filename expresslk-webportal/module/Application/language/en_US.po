@@ -1,0 +1,4795 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ExpressWebPortal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-10 15:42+0530\n"
+"PO-Revision-Date: 2018-12-01 13:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: ExpressTeam\n"
+"Language: en-US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Loco-Source-Locale: ta_LK\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../..\n"
+"X-Poedit-SearchPath-1: ../../../config\n"
+"X-Loco-Parser: loco_parse_po"
+
+#: ../../App/Ticketing/src/App/Ticketing/Booking.php:56
+msgid "Booking for reference does not exist."
+msgstr ""
+
+#: ../../App/Ticketing/src/App/Ticketing/Controller/TicketboxController.php:157
+msgid "Booking is already cancelled"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:5
+msgid "Panadura Main Private Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:6
+msgid "Kandy Goodshed Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:7
+msgid "Tangalle Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:8
+msgid "Bastiyan Mw Bus Station - Expressway Terminal (Colombo BMTE)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:9
+msgid "Dickwella Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:10
+msgid "Kataragama Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:11
+msgid "Matara Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:12
+msgid "Kadawatha Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:13
+msgid "Diggona Junction (DGN-HNT) 1"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:14
+msgid "Honnanthara (DGN-HNT) 1"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:15
+msgid "Beliatta Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:16
+msgid "Walasgala Junction Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:17
+msgid "Talalla Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:18
+msgid "Dondra Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:19
+msgid "Hakmana Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:20
+msgid "Urubokka Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:21
+msgid "Deniyaya Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:22
+msgid "Embilipitiya Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:23
+msgid "Elpitiya Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:24
+msgid "Middeniya Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:25
+msgid "Akuressa Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:26
+msgid "Townhall Bus Stop - Near St. Bridget's Convent, Colombo"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:27
+msgid "Kirulapone Seibel Avenue Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:28
+msgid "University of Colombo Law Faculty Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:29
+msgid "Nugegoda Main Bus Stop (Near Pizzahut)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:30
+msgid "Maharagama Main Bus Stop (Near Matara Bath Kade)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:31
+msgid "Kottawa Bus Stop (Near Laugfs Supermarket)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:32
+msgid "Makumbura Bus Stop (In front of Mint Bakery)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:33
+msgid "Godagama Bus Stop (Near Nilwala Gate)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:34
+msgid "Ranna Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:35
+msgid "Hungama Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:36
+msgid "Nonagama Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:37
+msgid "Ambalantota Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:38
+msgid "Weerawila Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:39
+msgid "Debarawewa Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:40
+msgid "Tissamaharama Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:41
+msgid "Mahawela Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:42
+msgid "Hambantota Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:43
+msgid "Thihagoda Junction Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:44
+msgid "Yatiyana Bus Stop (Near Ratne Stores)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:45
+msgid "Kirinda Puhulwella Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:46
+msgid "Malimbada Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:47
+msgid "Telijjawila Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:48
+msgid "Paraduwa Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:49
+msgid "Dampella Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:50
+msgid "Mulatiyana Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:51
+msgid "Makandura Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:52
+msgid "Imaduwa Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:53
+msgid "Kamburupitiya Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:54
+msgid "Mawarala Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:55
+msgid "Pasgoda Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:56
+msgid "Pitabeddara Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:57
+msgid "Morawaka Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:58
+msgid "Kotapola Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:59
+msgid "Angunakolapelessa Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:60
+msgid "Wetiya Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:61
+msgid "Padalangala Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:62
+msgid "Kurundugahahetekma Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:63
+msgid "Pinnaduwa Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:64
+msgid "Dewata Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:65
+msgid "Galle Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:66
+msgid "Karapitiya Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:67
+msgid "Katunayake Bandaranayake International Airport (BIA)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:68
+msgid "Orugodawatta Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:69
+msgid " Sangaaramaya (DGN-HNT) 1"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:70
+msgid "Katunayake Free Trade Zone"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:71
+msgid "University of Colombo, College House Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:72
+msgid "Honnanthara (HNT-DGN) 11"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:73
+msgid " Sangaaramaya (HNT-DGN) 11"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:74
+msgid "Siddamulla Junction (HNT-DGN) 11"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:75
+msgid "Siddamulla Junction (DGN-HNT) 1"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:76
+msgid "Kaduwela Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:77
+msgid "Biyagama Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:78
+msgid "Sapugaskanda Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:79
+msgid "Kiribathgoda Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:80
+msgid "Mahara Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:81
+msgid "Walasmulla Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:82
+msgid "Maradana Bus Stop (Near Maradana Railway)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:83
+msgid "Borella Bus Stop (Near Borella Police Station)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:84
+msgid "Townhall Bus Stop - In-front Sri Lanka Tennis Association"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:85
+msgid "Townhall Bus Stop - In-front of ODEL"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:86
+msgid "Rajagiriya Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:87
+msgid "Battaramulla Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:88
+msgid "Thalawathugoda Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:89
+msgid "Pannipitiya Main Bus Stop (Opposite Pannipitiya Sampath Bank)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:90
+msgid "Thimbirigasyaya Bus Stop (In-front of Police Park)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:91
+msgid "Havelock Town Bus Stop (In-front of Henry Pedris Grounds)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:92
+msgid "Gansaba Junction Bus Stop (Opposite Cargills Foodcity)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:93
+msgid "Delkanda Junction Bus Stop (Opposite Highlevel Plaza)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:94
+msgid "Wijerama Junction Bus Stop (Opposite Wijerama fillings station)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:95
+msgid "Nawinna Junction Bus Stop (Near the Buddha Statue)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:96
+msgid "Navinna Arpico Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:97
+msgid "Matara Junction Bus Stop (Near Matara Bodhiya)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:98
+msgid "Kottawa Main Long Distance Bus Stop (Near Sampath Bank)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:99
+msgid "Maharagama Main Long Distance Bus Stop (Near Bank of Ceylon)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:100
+msgid "Pannipitiya Main Bus Stop (Near Pannipitiya Sampath Bank)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:101
+msgid "Wijerama Junction Bus Stop (Infront of People's Bank)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:102
+msgid "Delkanda Junction Bus Stop (Near the Bridge)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:103
+msgid "Gansaba Junction Bus Stop (Near Flag Gun Stores)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:104
+msgid "Nugegoda Main Bus Stop (Near CIB Fashion Center)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:105
+msgid "Kirulapone Main Bus Stop (Near Police Station)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:106
+msgid "Havelock Town Bus Stop (Near Havelock City)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:107
+msgid "Thimbirigasyaya Bus Stop (Near The Factory Outlet)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:108
+msgid "Thummulla Bus Stop (Near the Fillings Station)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:109
+msgid "Pelawatta Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:110
+msgid "Diggona Junction (DGN-HNT) 2"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:111
+msgid "Diggona Junction (DGN-HNT) 3"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:112
+msgid "Honnanthara (DGN-HNT) 2"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:113
+msgid "Honnanthara (DGN-HNT) 3"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:114
+msgid "Siddamulla Junction (DGN-HNT) 2"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:115
+msgid "Siddamulla Junction (DGN-HNT) 3"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:116
+msgid " Sangaaramaya (DGN-HNT) 2"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:117
+msgid " Sangaaramaya (DGN-HNT) 3 "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:118
+msgid "Siddamulla Junction (HNT-DGN) 22"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:119
+msgid "Siddamulla Junction (HNT-DGN) 33"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:120
+msgid " Sangaaramaya (HNT-DGN) 22"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:121
+msgid " Sangaaramaya (HNT-DGN) 33"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:122
+msgid "Honnanthara (HNT-DGN) 22"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:123
+msgid "Honnanthara (HNT-DGN) 33"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:124
+msgid "Diggona Junction (HNT-DGN) 11"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:125
+msgid "Diggona Junction (HNT-DGN) 22"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:126
+msgid "Diggona Junction (HNT-DGN) 33"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:127 
+#: ../../Application/language/translation-keys.php:94
+msgid "Yakkala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:128 
+#: ../../Application/language/translation-keys.php:95
+msgid "Nittambuwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:129 
+#: ../../Application/language/translation-keys.php:96
+msgid "Warakapola"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:130 
+#: ../../Application/language/translation-keys.php:97
+msgid "Kegalle"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:131 
+#: ../../Application/language/translation-keys.php:98
+msgid "Mawanella"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:132 
+#: ../../Application/language/translation-keys.php:99
+msgid "Peradeniya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:133 
+#: ../../Application/language/translation-keys.php:100
+msgid "Gampola"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:134 
+#: ../../Application/language/translation-keys.php:101
+msgid "Pussellawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:135 
+#: ../../Application/language/translation-keys.php:102
+msgid "Labukele"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:136
+msgid "Nuwaraeliya Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:137 
+#: ../../Application/language/translation-keys.php:104
+msgid "Hakgala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:138 
+#: ../../Application/language/translation-keys.php:105
+msgid "Welimada"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:139 
+#: ../../Application/language/translation-keys.php:106
+msgid "Jaffna"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:140
+msgid "Ramakrishna Misson, Wellawatta."
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:141
+msgid "Badulla Main Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:142
+msgid "Passara Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:143
+msgid "Kalmunai Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:144
+msgid "Akkaraipattu Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:145
+msgid "Trincomalee Main Private Bus Station"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:146
+msgid "Bastiyan Mw Bus Station - Terminal No 4 (Colombo BMT4)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:147
+msgid "Technical Junction (Near Commercial Bank Hulftsdrop Branch)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:148 
+#: ../../Application/language/translation-keys.php:113
+msgid "Homagama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:149 
+#: ../../Application/language/translation-keys.php:114
+msgid "Godagama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:150 
+#: ../../Application/language/translation-keys.php:115
+msgid "Meepe"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:151 
+#: ../../Application/language/translation-keys.php:116
+msgid "Kaluaggala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:152 
+#: ../../Application/language/translation-keys.php:117
+msgid "Avissawella"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:153 
+#: ../../Application/language/translation-keys.php:118
+msgid "Eheliyagoda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:154 
+#: ../../Application/language/translation-keys.php:119
+msgid "Kuruwita"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:155 
+#: ../../Application/language/translation-keys.php:120
+msgid "Ratnapura"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:156 
+#: ../../Application/language/translation-keys.php:121
+msgid "Pelmadulla"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:157 
+#: ../../Application/language/translation-keys.php:122
+msgid "Balangoda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:158 
+#: ../../Application/language/translation-keys.php:123
+msgid "Beragala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:159 
+#: ../../Application/language/translation-keys.php:124
+msgid "Haputale"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:160 
+#: ../../Application/language/translation-keys.php:125
+msgid "Bandarawela"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:161 
+#: ../../Application/language/translation-keys.php:126
+msgid "Kumbalwela"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:162 
+#: ../../Application/language/translation-keys.php:127
+msgid "Demodara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:163 
+#: ../../Application/language/translation-keys.php:128
+msgid "Hali-ela"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:164 
+#: ../../Application/language/translation-keys.php:129
+msgid "Aluthnuwara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:165 
+#: ../../Application/language/translation-keys.php:130
+msgid "Belihuloya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:166 
+#: ../../Application/language/translation-keys.php:131
+msgid "Pambahinna"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:167 
+#: ../../Application/language/translation-keys.php:132
+msgid "Haldummulla"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:168 
+#: ../../Application/language/translation-keys.php:133
+msgid "Bambalapitiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:169 
+#: ../../Application/language/translation-keys.php:134
+msgid "Kollupitiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:170 
+#: ../../Application/language/translation-keys.php:135
+msgid "Kelaniya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:171 
+#: ../../Application/language/translation-keys.php:136
+msgid "Kirillawala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:172 
+#: ../../Application/language/translation-keys.php:137
+msgid "Belummahara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:173 
+#: ../../Application/language/translation-keys.php:138
+msgid "Miriswatta"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:174 
+#: ../../Application/language/translation-keys.php:139
+msgid "Kalagedihena"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:175 
+#: ../../Application/language/translation-keys.php:140
+msgid "Thihariya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:176 
+#: ../../Application/language/translation-keys.php:141
+msgid "Pasyala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:177 
+#: ../../Application/language/translation-keys.php:142
+msgid "Weweldeniya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:178 
+#: ../../Application/language/translation-keys.php:143
+msgid "Danowita"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:179 
+#: ../../Application/language/translation-keys.php:144
+msgid "Ambepussa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:180 
+#: ../../Application/language/translation-keys.php:145
+msgid "Alawwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:181 
+#: ../../Application/language/translation-keys.php:146
+msgid "Polgahawela"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:182 
+#: ../../Application/language/translation-keys.php:147
+msgid "Pothuhera"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:183 
+#: ../../Application/language/translation-keys.php:148
+msgid "Kurunegala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:184 
+#: ../../Application/language/translation-keys.php:149
+msgid "Ibbagamuwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:185 
+#: ../../Application/language/translation-keys.php:150
+msgid "Gokarella"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:186 
+#: ../../Application/language/translation-keys.php:151
+msgid "Melsiripura"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:187 
+#: ../../Application/language/translation-keys.php:152
+msgid "Galewela"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:188 
+#: ../../Application/language/translation-keys.php:153
+msgid "Dambulla"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:189 
+#: ../../Application/language/translation-keys.php:154
+msgid "Sigiriya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:190 
+#: ../../Application/language/translation-keys.php:155
+msgid "Digampathana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:191 
+#: ../../Application/language/translation-keys.php:156
+msgid "Habarana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:192 
+#: ../../Application/language/translation-keys.php:157
+msgid "Galoya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:193 
+#: ../../Application/language/translation-keys.php:158
+msgid "Akbopura"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:194 
+#: ../../Application/language/translation-keys.php:159
+msgid "Kanthale"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:195 
+#: ../../Application/language/translation-keys.php:160
+msgid "Mullipothana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:196 
+#: ../../Application/language/translation-keys.php:161
+msgid "Thambalagamuwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:197 
+#: ../../Application/language/translation-keys.php:162
+msgid "Kappalthure"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:198 
+#: ../../Application/language/translation-keys.php:163
+msgid "Palampataru"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:199 
+#: ../../Application/language/translation-keys.php:164
+msgid "Kankesanturai"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:200 
+#: ../../Application/language/translation-keys.php:165
+msgid "Linganagar"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:201 
+#: ../../Application/language/translation-keys.php:166
+msgid "Peliyagoda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:202 
+#: ../../Application/language/translation-keys.php:167
+msgid "Polonaruwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:203 
+#: ../../Application/language/translation-busstop.php:438 
+#: ../../Application/language/translation-keys.php:168 
+#: ../../Application/language/translation-keys.php:386
+msgid "Valaichchenai"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:204 
+#: ../../Application/language/translation-keys.php:169
+msgid "Batticaloa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:205
+msgid "Mannar Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:206 
+#: ../../Application/language/translation-keys.php:171
+msgid "Oddamavadi"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:207 
+#: ../../Application/language/translation-keys.php:172
+msgid "Dehiwala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:208
+msgid "Wellawatte Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:209
+msgid "Fort Railway Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:210
+msgid "Galle Face Main Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:211 
+#: ../../Application/language/translation-keys.php:173
+msgid "Moratuwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:212 
+#: ../../Application/language/translation-keys.php:174
+msgid "Wadduwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:213 
+#: ../../Application/language/translation-keys.php:175
+msgid "Molligoda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:214 
+#: ../../Application/language/translation-keys.php:176
+msgid "Kaluthara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:215 
+#: ../../Application/language/translation-keys.php:177
+msgid "Maggona"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:216 
+#: ../../Application/language/translation-keys.php:178
+msgid "Beruwala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:217 
+#: ../../Application/language/translation-keys.php:179
+msgid "Aluthgama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:218 
+#: ../../Application/language/translation-keys.php:180
+msgid "Bentota"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:219 
+#: ../../Application/language/translation-keys.php:181
+msgid "Induruwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:220 
+#: ../../Application/language/translation-keys.php:182
+msgid "Kosgoda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:221 
+#: ../../Application/language/translation-keys.php:183
+msgid "Ahungalla"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:222 
+#: ../../Application/language/translation-keys.php:184
+msgid "Balapitiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:223 
+#: ../../Application/language/translation-keys.php:185
+msgid "Ambalangoda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:224 
+#: ../../Application/language/translation-keys.php:186
+msgid "Hikkaduwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:225 
+#: ../../Application/language/translation-keys.php:187
+msgid "Thiranagama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:226 
+#: ../../Application/language/translation-keys.php:188
+msgid "Dodanduwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:227 
+#: ../../Application/language/translation-keys.php:189
+msgid "Rathgama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:228 
+#: ../../Application/language/translation-keys.php:190
+msgid "Boossa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:229 
+#: ../../Application/language/translation-keys.php:191
+msgid "Ginthota"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:230 
+#: ../../Application/language/translation-keys.php:192
+msgid "Megalle"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:231 
+#: ../../Application/language/translation-keys.php:193
+msgid "Unawatuna"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:232 
+#: ../../Application/language/translation-keys.php:194
+msgid "Mihiripenna"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:233 
+#: ../../Application/language/translation-keys.php:195
+msgid "Habaraduwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:234 
+#: ../../Application/language/translation-keys.php:196
+msgid "Koggala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:235 
+#: ../../Application/language/translation-keys.php:197
+msgid "Ahangama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:236 
+#: ../../Application/language/translation-keys.php:198
+msgid "Midigama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:237 
+#: ../../Application/language/translation-keys.php:199
+msgid "Weligama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:238 
+#: ../../Application/language/translation-keys.php:200
+msgid "Mirissa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:239 
+#: ../../Application/language/translation-keys.php:201
+msgid "Kamburugamuwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:240 
+#: ../../Application/language/translation-keys.php:202
+msgid "Walgama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:241 
+#: ../../Application/language/translation-keys.php:203
+msgid "Polhena"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:242 
+#: ../../Application/language/translation-keys.php:204
+msgid "Pamburana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:243 
+#: ../../Application/language/translation-keys.php:205
+msgid "Katubedda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:244 
+#: ../../Application/language/translation-keys.php:206
+msgid "Rawatawatta"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:245 
+#: ../../Application/language/translation-keys.php:207
+msgid "Katukurunda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:246 
+#: ../../Application/language/translation-keys.php:208
+msgid "Payagala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:247 
+#: ../../Application/language/translation-keys.php:209
+msgid "Akurala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:248 
+#: ../../Application/language/translation-keys.php:210
+msgid "Wellamadama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:249 
+#: ../../Application/language/translation-keys.php:211
+msgid "Godauda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:250 
+#: ../../Application/language/translation-keys.php:212
+msgid "Gandara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:251 
+#: ../../Application/language/translation-keys.php:213
+msgid "Hunnadeniya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:252 
+#: ../../Application/language/translation-keys.php:214
+msgid "Kudawella"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:253 
+#: ../../Application/language/translation-keys.php:215
+msgid "Nelundeniya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:254 
+#: ../../Application/language/translation-keys.php:216
+msgid "Netolpitiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:255 
+#: ../../Application/language/translation-keys.php:217
+msgid "Dalugama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:256 
+#: ../../Application/language/translation-keys.php:218
+msgid "weediyawatta"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:257 
+#: ../../Application/language/translation-keys.php:219
+msgid "Bogamuwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:258 
+#: ../../Application/language/translation-keys.php:220
+msgid "Galigamuwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:259 
+#: ../../Application/language/translation-keys.php:221
+msgid "Ranwala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:260 
+#: ../../Application/language/translation-keys.php:222
+msgid "Uthuwankanda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:261 
+#: ../../Application/language/translation-keys.php:223
+msgid "Hingula"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:262 
+#: ../../Application/language/translation-keys.php:224
+msgid "Kadugannawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:263 
+#: ../../Application/language/translation-keys.php:225
+msgid "Yatinuwara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:264 
+#: ../../Application/language/translation-keys.php:226
+msgid "Pilimathalawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:265 
+#: ../../Application/language/translation-keys.php:227
+msgid "Gatambe"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:266 
+#: ../../Application/language/translation-keys.php:228
+msgid "Gonnoruwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:267 
+#: ../../Application/language/translation-keys.php:229
+msgid "Mahasenpura"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:268
+msgid "Bastiyan Mw Bus Station - Terminal No 2 (Colombo BMT2)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:269 
+#: ../../Application/language/translation-keys.php:230
+msgid "Wellampitiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:270 
+#: ../../Application/language/translation-keys.php:231
+msgid "Hanwella"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:271 
+#: ../../Application/language/translation-keys.php:232
+msgid "Kahawatta"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:272 
+#: ../../Application/language/translation-keys.php:233
+msgid "Madampe"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:273 
+#: ../../Application/language/translation-keys.php:234
+msgid "Godakawela"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:274 
+#: ../../Application/language/translation-keys.php:235
+msgid "Pallebedda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:275 
+#: ../../Application/language/translation-keys.php:236
+msgid "Udawalawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:276 
+#: ../../Application/language/translation-keys.php:237
+msgid "Thanamalwila"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:277 
+#: ../../Application/language/translation-keys.php:238
+msgid "Kuda Oya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:278 
+#: ../../Application/language/translation-keys.php:239
+msgid "Handapanagala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:279 
+#: ../../Application/language/translation-keys.php:240
+msgid "Wellawaya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:280 
+#: ../../Application/language/translation-keys.php:241
+msgid "Pelwatta"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:281 
+#: ../../Application/language/translation-keys.php:242
+msgid "Buttala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:282 
+#: ../../Application/language/translation-keys.php:243
+msgid "Monaragala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:283 
+#: ../../Application/language/translation-keys.php:244
+msgid "Siyambalanduwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:284 
+#: ../../Application/language/translation-keys.php:245
+msgid "Wadinagala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:285 
+#: ../../Application/language/translation-keys.php:246
+msgid "Hingurana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:286 
+#: ../../Application/language/translation-keys.php:247
+msgid "Ilukuchenai"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:287 
+#: ../../Application/language/translation-keys.php:248
+msgid "Pallekele"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:288 
+#: ../../Application/language/translation-keys.php:249
+msgid "Teldeniya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:289 
+#: ../../Application/language/translation-keys.php:250
+msgid "Medamahanuwara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:290 
+#: ../../Application/language/translation-keys.php:251
+msgid "Hunnasgiriya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:291 
+#: ../../Application/language/translation-keys.php:252
+msgid "Udadumbara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:292 
+#: ../../Application/language/translation-keys.php:253
+msgid "Themmitiyawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:293 
+#: ../../Application/language/translation-keys.php:254
+msgid "Hasalaka"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:294 
+#: ../../Application/language/translation-keys.php:255
+msgid "Mahiyanganaya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:295 
+#: ../../Application/language/translation-keys.php:256
+msgid "Bathalayaya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:296 
+#: ../../Application/language/translation-keys.php:257
+msgid "Girandurukotte"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:297 
+#: ../../Application/language/translation-keys.php:258
+msgid "Nawa Madagama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:298 
+#: ../../Application/language/translation-keys.php:259
+msgid "Dehiattakandiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:299 
+#: ../../Application/language/translation-keys.php:260
+msgid "Digana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:300 
+#: ../../Application/language/translation-keys.php:261
+msgid "Ampara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:301 
+#: ../../Application/language/translation-keys.php:262
+msgid "Lahugala "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:302 
+#: ../../Application/language/translation-keys.php:263
+msgid "Pottuvil"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:303 
+#: ../../Application/language/translation-keys.php:264
+msgid "Dambana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:304 
+#: ../../Application/language/translation-keys.php:265
+msgid "Padiyatalawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:305 
+#: ../../Application/language/translation-keys.php:266
+msgid "Mahaoya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:306 
+#: ../../Application/language/translation-keys.php:267
+msgid "Aranthalawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:307 
+#: ../../Application/language/translation-keys.php:268
+msgid "Gonagolla"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:308 
+#: ../../Application/language/translation-keys.php:269
+msgid "Uhana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:309 
+#: ../../Application/language/translation-keys.php:270
+msgid "Opanayake"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:310 
+#: ../../Application/language/translation-keys.php:271
+msgid "Parakaduwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:311 
+#: ../../Application/language/translation-keys.php:272
+msgid "Marangahawela "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:312 
+#: ../../Application/language/translation-keys.php:273
+msgid "Diyathalawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:313 
+#: ../../Application/language/translation-keys.php:274
+msgid "Ella "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:314 
+#: ../../Application/language/translation-keys.php:275
+msgid "Balleketuwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:315 
+#: ../../Application/language/translation-keys.php:276
+msgid "Namunukula"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:316 
+#: ../../Application/language/translation-keys.php:277
+msgid "Madulsima"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:317 
+#: ../../Application/language/translation-keys.php:278
+msgid "Telwatta "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:318 
+#: ../../Application/language/translation-keys.php:279
+msgid "Chilaw"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:319 
+#: ../../Application/language/translation-keys.php:280
+msgid "Puttalam"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:320 
+#: ../../Application/language/translation-keys.php:281
+msgid "Nochchiyagama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:321 
+#: ../../Application/language/translation-keys.php:282
+#, fuzzy
+msgid "Anuradhapura "
+msgstr "From CMB: 07.00 AM (A/C Intercity)"
+
+#: ../../Application/language/translation-busstop.php:322 
+#: ../../Application/language/translation-keys.php:283
+msgid "Medawachchiya "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:323 
+#: ../../Application/language/translation-keys.php:284
+msgid "Vavuniya "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:324 
+#: ../../Application/language/translation-keys.php:285
+msgid "Omanthai "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:325 
+#: ../../Application/language/translation-keys.php:286
+msgid "Puliyankulam "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:326 
+#: ../../Application/language/translation-keys.php:287
+msgid "Kanakarayankulam "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:327 
+#: ../../Application/language/translation-keys.php:288
+msgid "Mankulam"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:328 
+#: ../../Application/language/translation-keys.php:289
+msgid "Kilinochchi"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:329 
+#: ../../Application/language/translation-keys.php:290
+msgid "Parantan"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:330 
+#: ../../Application/language/translation-keys.php:291
+msgid "Elephant Pass"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:331 
+#: ../../Application/language/translation-keys.php:292
+msgid "Pallai "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:332 
+#: ../../Application/language/translation-keys.php:293
+msgid "Kodikamam "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:333 
+#: ../../Application/language/translation-keys.php:294
+msgid "Chavakachcheri"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:334 
+#: ../../Application/language/translation-keys.php:295
+msgid "Kaitadi"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:335 
+#: ../../Application/language/translation-keys.php:296
+msgid "Kebitigollewa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:336 
+#: ../../Application/language/translation-keys.php:297
+msgid "Buddama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:337 
+#: ../../Application/language/translation-keys.php:298
+msgid "Morakatiyara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:338 
+#: ../../Application/language/translation-keys.php:299
+msgid "Mullaitivu"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:339 
+#: ../../Application/language/translation-keys.php:300
+msgid "Padaviya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:340 
+#: ../../Application/language/translation-keys.php:301
+msgid "Welioya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:341 
+#: ../../Application/language/translation-keys.php:302
+msgid "Sampathnuwara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:342 
+#: ../../Application/language/translation-keys.php:303
+msgid "Panama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:343 
+#: ../../Application/language/translation-keys.php:304
+msgid "Arugam Bay"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:344 
+#: ../../Application/language/translation-keys.php:305
+msgid "Bandaragama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:345 
+#: ../../Application/language/translation-keys.php:306
+msgid "Gelanigama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:346 
+#: ../../Application/language/translation-keys.php:307
+msgid "Nupe"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:347 
+#: ../../Application/language/translation-keys.php:308
+msgid "Maligawatte "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:348 
+#: ../../Application/language/translation-keys.php:309
+msgid "Kaduruwela"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:349 
+#: ../../Application/language/translation-keys.php:310
+msgid "Eravur "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:350 
+#: ../../Application/language/translation-keys.php:311
+msgid "Dayagama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:351 
+#: ../../Application/language/translation-keys.php:312
+msgid "Panchikawatta"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:352
+msgid "Kettarama Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:353 
+#: ../../Application/language/translation-keys.php:313
+msgid "Kotikawaththa "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:354 
+#: ../../Application/language/translation-keys.php:314
+msgid "Angoda "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:355 
+#: ../../Application/language/translation-keys.php:315
+msgid "Ambathale "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:356 
+#: ../../Application/language/translation-keys.php:316
+msgid "Bomiriya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:357 
+#: ../../Application/language/translation-keys.php:317
+msgid "Theakkawatta"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:358 
+#: ../../Application/language/translation-keys.php:318
+msgid "Jalthara"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:359 
+#: ../../Application/language/translation-keys.php:319
+msgid "Embulgama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:360 
+#: ../../Application/language/translation-keys.php:320
+msgid "Artigala "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:361 
+#: ../../Application/language/translation-keys.php:321
+msgid "Kosgama "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:362 
+#: ../../Application/language/translation-keys.php:322
+msgid "Talduwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:363 
+#: ../../Application/language/translation-keys.php:323
+msgid "Dehiowita "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:364 
+#: ../../Application/language/translation-keys.php:324
+msgid "Karawanella"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:365 
+#: ../../Application/language/translation-keys.php:325
+msgid "Yatiyanthota"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:366 
+#: ../../Application/language/translation-keys.php:326
+msgid "Nawata"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:367 
+#: ../../Application/language/translation-keys.php:327
+msgid "Badullawala "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:368 
+#: ../../Application/language/translation-keys.php:328
+msgid "Thunkinda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:369 
+#: ../../Application/language/translation-keys.php:329
+msgid "Kitulgala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:370 
+#: ../../Application/language/translation-keys.php:330
+msgid "Ginigathhena"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:371 
+#: ../../Application/language/translation-keys.php:331
+msgid "Watawala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:372 
+#: ../../Application/language/translation-keys.php:332
+msgid "Hatton"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:373 
+#: ../../Application/language/translation-keys.php:333
+msgid "Talawakelle"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:374 
+#: ../../Application/language/translation-keys.php:334
+msgid "Wattala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:375 
+#: ../../Application/language/translation-keys.php:335
+msgid "Kandana"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:376 
+#: ../../Application/language/translation-keys.php:336
+msgid "Ja-Ela"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:377 
+#: ../../Application/language/translation-keys.php:337
+msgid "Seeduwa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:378
+msgid "Katunayake Airport Junction"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:379 
+#: ../../Application/language/translation-keys.php:338
+msgid "Negombo"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:380 
+#: ../../Application/language/translation-keys.php:339
+msgid "Mullikulam "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:381 
+#: ../../Application/language/translation-keys.php:340
+msgid "Silavathurai "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:382 
+#: ../../Application/language/translation-keys.php:341
+msgid "Kotahena "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:383 
+#: ../../Application/language/translation-keys.php:342
+msgid "Kokavil "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:384 
+#: ../../Application/language/translation-keys.php:343
+msgid "Iranamadu "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:385 
+#: ../../Application/language/translation-keys.php:344
+msgid "Iyakachchi "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:386 
+#: ../../Application/language/translation-keys.php:345
+msgid "Muhamalai"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:387 
+#: ../../Application/language/translation-keys.php:346
+msgid "Meesalai "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:388 
+#: ../../Application/language/translation-keys.php:347
+msgid "Navathkuli"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:389 
+#: ../../Application/language/translation-keys.php:348
+msgid "Kachcheri "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:390
+msgid "Matara Long-Distance Bus Stop (Opposite Post Office)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:391
+msgid "Murukandi Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:392 
+#: ../../Application/language/translation-keys.php:350
+msgid "Kokuvil "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:393 
+#: ../../Application/language/translation-keys.php:351
+msgid "Inuvil "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:394 
+#: ../../Application/language/translation-keys.php:352
+msgid "Kondavil"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:395 
+#: ../../Application/language/translation-keys.php:353
+msgid "Chunnakam"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:396 
+#: ../../Application/language/translation-keys.php:354
+msgid "Mallakam "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:397 
+#: ../../Application/language/translation-keys.php:355
+msgid "Tellippalai"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:398 
+#: ../../Application/language/translation-keys.php:356
+msgid "Maviddapuram"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:399
+msgid "Maharagama Wattegedara Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:400 
+#: ../../Application/language/translation-keys.php:357
+msgid "Mount Lavinia"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:401 
+#: ../../Application/language/translation-keys.php:358
+msgid "Rathmalana "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:402
+msgid "Technical Junction (Opposite Orient Finance)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:403
+msgid "Technical Junction (Opposite Cinecity)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:404
+msgid "Colombo Floating Market Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:405 
+#: ../../Application/language/translation-keys.php:359
+msgid "Kotagala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:406 
+#: ../../Application/language/translation-keys.php:360
+msgid "Medagama "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:407
+msgid "Bastiyan Mw Bus Station - Terminal No 1 (Colombo BMT1)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:408
+msgid "Bastiyan Mw Bus Station - Terminal No 3 (Colombo BMT3)"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:409 
+#: ../../Application/language/translation-keys.php:361
+msgid "Getaheththa "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:410 
+#: ../../Application/language/translation-keys.php:362
+msgid "Gurudeniya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:411 
+#: ../../Application/language/translation-keys.php:363
+msgid "Haragama"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:412 
+#: ../../Application/language/translation-keys.php:364
+msgid "Mailapitiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:413 
+#: ../../Application/language/translation-keys.php:365
+msgid "Rantambe"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:414 
+#: ../../Application/language/translation-keys.php:366
+msgid "Andaulpotha"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:415 
+#: ../../Application/language/translation-keys.php:367
+msgid "Uraniya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:416 
+#: ../../Application/language/translation-keys.php:368
+msgid "Rideemaliyadda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:417 
+#: ../../Application/language/translation-keys.php:369
+#, fuzzy
+msgid "Bibile"
+msgstr "Mobile Phone No"
+
+#: ../../Application/language/translation-busstop.php:418 
+#: ../../Application/language/translation-keys.php:370
+msgid "Pitakumbura"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:419 
+#: ../../Application/language/translation-keys.php:371
+msgid "Inginiyagala Polwatta"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:420 
+#: ../../Application/language/translation-keys.php:372
+msgid "Kandapola"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:421 
+#: ../../Application/language/translation-keys.php:373
+msgid "Ragala"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:422 
+#: ../../Application/language/translation-keys.php:374
+msgid "Udupussellawa"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:423 
+#: ../../Application/language/translation-keys.php:375
+msgid "Soysapura "
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:424
+msgid "Wellawatte Arpico Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:425
+msgid "Townhall Bus Stop - Opposite of ODEL"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:426 
+#: ../../Application/language/translation-keys.php:376
+msgid "Sammanthurai"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:427 
+#: ../../Application/language/translation-keys.php:377
+msgid "Nintavur"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:428 
+#: ../../Application/language/translation-keys.php:378
+msgid "Kundasale"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:429 
+#: ../../Application/language/translation-keys.php:379
+msgid "Karaitivu"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:430 
+#: ../../Application/language/translation-keys.php:380
+msgid "Kattankudy"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:431
+msgid "Bambalapitiya Railway Station Bus stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:432
+msgid "Kollupitiya Railway Station Bus Stop"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:433 
+#: ../../Application/language/translation-keys.php:381
+msgid "Minneriya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:434 
+#: ../../Application/language/translation-keys.php:382
+msgid "Girithale"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:435 
+#: ../../Application/language/translation-keys.php:383
+msgid "Manampitiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:436 
+#: ../../Application/language/translation-keys.php:384
+msgid "Sewanapitiya"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:437 
+#: ../../Application/language/translation-keys.php:385
+msgid "Welikanda"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:439 
+#: ../../Application/language/translation-keys.php:387
+msgid "Chenkalady"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:440 
+#: ../../Application/language/translation-keys.php:388
+msgid "Sainthamaruthu"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:441 
+#: ../../Application/language/translation-keys.php:389
+msgid "Kirankulam"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:442 
+#: ../../Application/language/translation-keys.php:390
+msgid "Cheddipalayam"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:443 
+#: ../../Application/language/translation-keys.php:391
+msgid "Kaluwanchikudy"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:444 
+#: ../../Application/language/translation-keys.php:392
+msgid "Koddaikkaller"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:445 
+#: ../../Application/language/translation-keys.php:393
+msgid "Periyakallar"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:446 
+#: ../../Application/language/translation-keys.php:394
+msgid "Periyaneelavanai"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:447 
+#: ../../Application/language/translation-keys.php:395
+msgid "Maruthamunai"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:448 
+#: ../../Application/language/translation-keys.php:396
+msgid "Pandiruppu"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:449 
+#: ../../Application/language/translation-keys.php:397
+msgid "Kallady"
+msgstr ""
+
+#: ../../Application/language/translation-busstop.php:450 
+#: ../../Application/language/translation-keys.php:398
+msgid "Weranketagoda"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:8
+msgid "Panadura"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:9
+msgid "Kandy"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:10
+msgid "Tangalle"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:11
+msgid "Colombo"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:12
+msgid "Dickwella"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:13
+msgid "Kataragama"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:14
+msgid "Matara"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:15
+msgid "Kadawatha"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:16
+msgid "Diggona"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:17
+msgid "Honnanthara"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:18
+msgid "Beliatta"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:19
+msgid "Walasgala"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:20
+msgid "Talalla"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:21
+msgid "Dondra"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:22
+msgid "Hakmana"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:23
+msgid "Urubokka"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:24
+msgid "Deniyaya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:25
+msgid "Embilipitiya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:26
+msgid "Elpitiya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:27
+msgid "Middeniya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:28
+msgid "Akuressa"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:29
+msgid "Town Hall"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:30
+msgid "Kirulapone"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:31
+msgid "Thummulla"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:32
+msgid "Nugegoda"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:33
+msgid "Maharagama"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:34
+msgid "Kottawa"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:35
+msgid "Makumbura"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:36
+msgid "Matara Godagama"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:37
+msgid "Ranna"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:38
+msgid "Hungama"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:39
+msgid "Nonagama"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:40
+msgid "Ambalantota"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:41
+msgid "Weerawila"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:42
+msgid "Debarawewa"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:43
+msgid "Tissamaharamaya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:44
+msgid "Mahawela"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:45
+msgid "Hambantota"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:46
+msgid "Thihagoda"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:47
+msgid "Yatiyana"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:48
+msgid "Kirinda Puhullwella"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:49
+msgid "Malimbada"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:50
+msgid "Telijjawila"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:51
+msgid "Paraduwa"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:52
+msgid "Dampella"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:53
+msgid "Mulatiyana"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:54
+msgid "Makandura"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:55
+msgid "Imaduwa"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:56
+msgid "Kamburupitiya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:57
+msgid "Mawarala"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:58
+msgid "Pasgoda"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:59
+msgid "Pitabeddara"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:60
+msgid "Morawaka"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:61
+msgid "Kotapola"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:62
+msgid "Angunakolapelessa"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:63
+msgid "Wetiya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:64
+msgid "Padalangala"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:65
+msgid "Kurundugahahetekma"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:66
+msgid "Pinnaduwa"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:67
+msgid "Dewata"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:68
+msgid "Galle"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:69
+msgid "Karapitiya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:70
+msgid "Orugodawatta"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:71
+msgid "Sangaaramaya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:72
+msgid "Katunayake"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:73
+msgid "Katunayake Bandaranayaka International Airport (BIA)"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:74
+msgid "Siddamulla"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:75
+msgid "Kaduwela"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:76
+msgid "Biyagama"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:77
+msgid "Sapugaskanda"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:78
+msgid "Kiribathgoda"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:79
+msgid "Mahara"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:80
+msgid "Walasmulla"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:81
+msgid "Maradana"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:82
+msgid "Borella"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:83
+msgid "Rajagiriya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:84
+msgid "Battaramulla"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:85
+msgid "Thalawathugoda"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:86
+msgid "Pannipitiya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:87
+msgid "Thimbirigasyaya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:88
+msgid "Havelock Town"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:89
+msgid "Gamsaba Junction"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:90
+msgid "Delkanda"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:91
+msgid "Wijerama"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:92
+msgid "Nawinna"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:93
+msgid "Pelawatta"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:103
+msgid "Nuwaraeliya"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:107
+msgid "Wellawatte"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:108
+msgid "Badulla"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:109
+msgid "Passara"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:110
+msgid "Kalmunai"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:111
+msgid "Akkaraipattu"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:112
+msgid "Trincomalee"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:170
+msgid "Mannar"
+msgstr ""
+
+#: ../../Application/language/translation-keys.php:349
+msgid "Murukandi "
+msgstr ""
+
+#: ../../../config/autoload/menu.global.php:8 
+#: ../../../config/autoload/menu.global.php:82
+msgid "Home"
+msgstr ""
+
+#: ../../../config/autoload/menu.global.php:15 
+#: ../../../config/autoload/menu.global.php:88
+msgid "Experience"
+msgstr ""
+
+#: ../../../config/autoload/menu.global.php:24 
+#: ../../../config/autoload/menu.global.php:96
+msgid "Katha Bus"
+msgstr ""
+
+#: ../../../config/autoload/menu.global.php:34 
+#: ../../../config/autoload/menu.global.php:105
+msgid "About"
+msgstr ""
+
+#: ../../../config/autoload/menu.global.php:43
+msgid "Terms and Conditions"
+msgstr ""
+
+#: ../../../config/autoload/menu.global.php:52 
+#: ../../Application/view/application/index/privacy.phtml:1
+msgid "Privacy Policy"
+msgstr ""
+
+#: ../../../config/autoload/menu.global.php:61 
+#: ../../Application/view/application/index/faq.phtml:1
+msgid "FAQ"
+msgstr ""
+
+#: ../../../config/autoload/menu.global.php:70 
+#: ../../../config/autoload/menu.global.php:113 
+#: ../../Application/view/application/index/contact.phtml:34
+msgid "Contact Us"
+msgstr ""
+
+#: ../../Application/view/application/index/experience.phtml:1
+msgid "Share Your Experience"
+msgstr ""
+
+#: ../../Application/view/application/index/experience.phtml:2
+msgid "Share Your Experience text"
+msgstr ""
+"We are a learning organisation. That means, we would like to hear your "
+"suggestions, improvements and experiences. Please feel free to reach us at "
+"our hotline 0772872877 or visit our headquarters at No: 275, Lotus Building, "
+"2nd floor, Nawala Road, Nawala, Sri Jayawardenapura Kotte. Customer "
+"happiness is our business!"
+
+#: ../../Application/view/application/index/privacy.phtml:2
+msgid "Privacy Policy text"
+msgstr ""
+"<br><p style=\"font-weight: bold; text-align: justify\" dir=\"ltr\">    "
+"EXPRESS 418 (Private) Limited (hereinafter referred to as “BusBooking.lk” "
+"“us” “we” or “our”) is committed to respecting your privacy and to complying "
+"with any applicable data protection and privacy laws. If you do submit "
+"personal information by signing up to login to the Dialog website services "
+"for example to order products, services etc., you can be assured that we "
+"will use your personal information only to support your continuing "
+"relationship with BusBooking.lk. We are providing this Privacy Policy "
+"Statement to help you understand how we collect, use and protect your "
+"information when you visit BusBooking.lk web and related value added "
+"services and when you generally use our products and services. We wish to "
+"help you make informed decisions, so please take a few moments to read the "
+"sections below and learn how we may use your personal information. You "
+"should read this notice in conjunction with the terms & conditions of use "
+"for BusBooking.lk web and related value added services and any separate "
+"terms & conditions issued with our product/service Contract.</p><br><p "
+"dir=\"ltr\">    Special Note:</p><p dir=\"ltr\" class=\"text-static\">    "
+"Our privacy policy is subject to change at any time without a prior notice. "
+"To make sure you are aware of any changes, please review this policy "
+"periodically. By using BusBooking.lk services you agree to be bound by the "
+"terms and conditions of this Privacy Policy. If you do not agree our privacy "
+"we are not in a position to provide you our services and we do apologize for "
+"that. By mere use of our services, you expressly consent to our use and "
+"disclosure of your personal information in accordance with this Privacy "
+"Policy. This Privacy Policy is incorporated into and subject to the <a "
+"href=\"http://depot-busbook.lk/terms\">Terms of Use</a>.</p><br><br><br><h4 "
+"class=\"red-text\" dir=\"ltr\">    Collection of Personal Information</h4><p "
+"dir=\"ltr\" class=\"text-static\">    When you use our Website, we store "
+"your browsing information. Our primary goal in doing so is to provide you a "
+"safe, efficient, smooth and customized experience. This allows us to provide "
+"services and features that most likely meet your needs, and to customize our "
+"Website to make your experience safer and easier. More importantly, while "
+"doing so we collect personal information from you that we consider necessary "
+"for achieving this purpose.</p><p dir=\"ltr\" class=\"text-static\">    In "
+"general, you can browse the Website without telling us who you are or "
+"revealing any personal information about yourself. Once you give us your "
+"personal information, you are not anonymous to us. Where possible, we "
+"indicate which fields are required and which fields are optional. You always "
+"have the option to not provide information by choosing not to use a "
+"particular service or feature on the Website. We may automatically track "
+"certain information about you based upon your behaviour on our Website. We "
+"use this information to do internal research on our users' demographics, "
+"interests, and behaviour to better understand, protect and serve our users. "
+"This information is compiled and analysed on an aggregated basis. This "
+"information may include the URL that you just came from (whether this URL is "
+"on our Website or not), which URL you next go to (whether this URL is on our "
+"Website or not), your computer browser information, and your IP address.</p>"
+"<br><p class=\"red-text\" dir=\"ltr\">    Cookies</p><p dir=\"ltr\" "
+"class=\"text-static\">    We use data collection devices such as \"cookies\" "
+"on certain pages of the Website to help analyse our web page flow, measure "
+"promotional effectiveness, and promote trust and safety. \"Cookies\" are "
+"small files placed on your hard drive that assist us in providing our "
+"services. We offer certain features that are only available through the use "
+"of a \"cookie\".</p><p dir=\"ltr\" class=\"text-static\">    Additionally, "
+"you may encounter \"cookies\" or other similar devices on certain pages of "
+"the Website that are placed by third parties. We do not control the use of "
+"cookies by third parties.</p><p dir=\"ltr\">    If you choose to buy on the "
+"Website, we collect information about your buying behaviour.</p><p "
+"dir=\"ltr\" class=\"text-static\">    If you choose to post reviews and tips "
+"about buses or post messages or leave feedback, we will collect that "
+"information you provide to us. We retain this information as necessary to "
+"resolve disputes, provide customer support and troubleshoot problems as "
+"permitted by law. If you send us personal correspondence, such as emails or "
+"letters, or if other users or third parties send us correspondence about "
+"your activities or postings on the Website, we may collect such information "
+"into a file specific to you.</p><br><p class=\"red-text\" dir=\"ltr\">    "
+"Personally Identifiable Information</p><p dir=\"ltr\" class=\"text-static\"> "
+"   We collect personally identifiable information (National identity card "
+"number, Email address, Name, Phone number.) from you when you set up a free "
+"account with us. We do use your contact information to send you offers based "
+"on your previous orders and your interests.</p><p dir=\"ltr\" class=\"text-"
+"static\">    In order to provide better services to our customers we use "
+"advance technologies through GPS tracking systems provided by third party "
+"service providers through which Customer's geographical location at the time "
+"of usage is traceable. We do not intentionally share such details with any "
+"other third party other than such service provider and the bus Operator. "
+"However, the geographical location of the bus is traceable to anyone who has "
+"reserved a ticket from BusBooking.lk for particular bus.</p><br><h4 "
+"class=\"red-text\" dir=\"ltr\">    Sharing of personal information</h4><p "
+"dir=\"ltr\" class=\"text-static\">    We will share your personal "
+"information with companies, organizations, individuals or any other third "
+"parties outside of BusBooking.lk if we have a good-faith belief that access, "
+"use, preservation or disclosure of the information is reasonably necessary "
+"to:</p><ol><li dir=\"ltr\"><p dir=\"ltr\">            meet any applicable "
+"law, regulation, legal process or enforceable governmental request.        "
+"</p></li><li dir=\"ltr\"><p dir=\"ltr\">            enforce applicable Terms "
+"of Service, including investigation of potential violations.        </p></li>"
+"<li dir=\"ltr\"><p dir=\"ltr\">            detect, prevent, or otherwise "
+"address fraud, security or technical issues.        </p></li><li dir=\"ltr\">"
+"<p dir=\"ltr\">            protect against harm to the rights, property or "
+"safety of BusBooking.lk, our users or the public as required or permitted by "
+"law.</p></li></ol><p dir=\"ltr\" class=\"text-static\">    We may share "
+"aggregated, non-personally identifiable information publicly and with our "
+"partners; like bus operators, agents or connected sites. For example, we may "
+"share information publicly to show trends about the general use of our "
+"services. We may also share consolidated information provided by like-minded "
+"users with bus operators without ever taking individual names, email ids or "
+"other contact details.</p><p dir=\"ltr\" class=\"text-static\">    If "
+"BusBooking.lk is involved in a merger, acquisition or asset sale, we will "
+"continue to ensure the confidentiality of any personal information and give "
+"affected users notice before personal information is transferred or becomes "
+"subject to a different privacy policy.</p><h4 class=\"red-text\" dir=\"ltr\">"
+"    Security Precautions</h4><p dir=\"ltr\" class=\"text-static\">    Our "
+"full reservation & booking system has stringent security measures in place "
+"to protect the loss, misuse, and alteration of the information under our "
+"control. Whenever you change or access your account information, we offer "
+"the use of a secure server. Once your information is in our possession we "
+"adhere to strict security guidelines, protecting it against unauthorized "
+"access.</p><h4 class=\"red-text\" dir=\"ltr\">    Google Analytics</h4><ol>"
+"<li dir=\"ltr\"><p dir=\"ltr\">            We have implemented and use "
+"Display Advertising through Remarketing with Google Analytics       </p></li>"
+"<li dir=\"ltr\"><p dir=\"ltr\">            You can opt-out of Google "
+"Analytics for Display Advertising and customize Google Display Network ads "
+"using the <a href=\"https://www.google.com/settings/u/0/ads/preferences/\">"
+"Ads Preferences Manager.</a>        </p></li><li dir=\"ltr\"><p dir=\"ltr\"> "
+"           Third-party vendors, including Google, show our ads on sites "
+"across the Internet.        </p></li><li dir=\"ltr\"><p dir=\"ltr\" "
+"class=\"text-static\">            We and third-party vendors, including "
+"Google, use first-party cookies (such as the Google Analytics cookie) and "
+"third-party cookies (such as the DoubleClick cookie) together to inform, "
+"optimize, and serve ads based on someone's past visits to our website. </p>"
+"</li></ol><h4 class=\"red-text\" dir=\"ltr\">    Use of Content</h4><p "
+"dir=\"ltr\" class=\"text-static\">    By using the Website and/or by "
+"providing your information, you consent to the collection and use of the "
+"information you disclose on the Website in accordance with this Privacy "
+"Policy, including but not limited to your consent for sharing your "
+"information as per this privacy policy. If we decide to change our privacy "
+"policy, we will post those changes on this page so that you are always aware "
+"of what information we collect, how we use it, and under what circumstances "
+"we disclose it. Please be aware that communications over the Internet, such "
+"as emails/webmails, are not secure unless they have been encrypted. Your "
+"communications may route through a number of countries before being "
+"delivered - this is the nature of the World Wide Web/Internet. We cannot "
+"accept responsibility for any unauthorized access or loss of personal "
+"information that is beyond our control.</p>"
+
+#: ../../Application/view/application/index/index.phtml:30 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:36 
+#: ../../Superline/view/superline/index/index.phtml:45
+msgid "Credit/Debit Cards"
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:31 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:37 
+#: ../../Superline/view/superline/index/index.phtml:46
+msgid "Dialog eZcash"
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:32 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:38 
+#: ../../Superline/view/superline/index/index.phtml:47
+msgid "Mobitel mCash"
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:33 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:39 
+#: ../../Superline/view/superline/index/index.phtml:48
+msgid "Etisalat eZcash"
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:34 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:40 
+#: ../../Superline/view/superline/index/index.phtml:49
+msgid "Hutch eZcash"
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:35 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:41 
+#: ../../Superline/view/superline/index/index.phtml:50
+msgid "PayPal"
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:36 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:42 
+#: ../../Superline/view/superline/index/index.phtml:51
+msgid "Unknown error occurred. Please refresh the web page."
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:37 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:43 
+#: ../../Superline/view/superline/index/index.phtml:52
+msgid "Error selecting payment option."
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:38 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:44 
+#: ../../Superline/view/superline/index/index.phtml:53
+msgid "Unknown error occurred. Please try again."
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:39 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:45 
+#: ../../Superline/view/superline/index/index.phtml:54
+msgid ""
+"From/To and Date fields are mandatory. Please select according to where your "
+"journey headed."
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:40 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:46 
+#: ../../Superline/view/superline/index/index.phtml:55
+msgid ""
+"Network error occurred. May be your connection is too slow. Please try again."
+msgstr ""
+
+#: ../../Application/view/application/index/index.phtml:41 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:47 
+#: ../../Superline/view/superline/index/index.phtml:56
+msgid "You are not allowed to book so many seats :-)"
+msgstr ""
+"You are not allowed to book this much seats via a single reservation. If you "
+"are travelling with a group more than 8 please contact our passenger service "
+"hotline for special discounts and service assistance."
+
+#: ../../Application/view/application/index/index.phtml:42 
+#: ../../Web/Surrexi/view/web/surrexi/index/index.phtml:48 
+#: ../../Superline/view/superline/index/index.phtml:57
+msgid "Please select at least one seat."
+msgstr "Please select your seat."
+
+#: ../../Application/view/application/index/aboutus.phtml:6
+msgid "About ExpressLK"
+msgstr "About (B)us"
+
+#: ../../Application/view/application/index/aboutus.phtml:7
+msgid "About Us Page body"
+msgstr ""
+"<p dir=\"ltr\" class=\"text-static\">    You are the reason why we are here. "
+"BusBooking.lk is always striving hard to provide you a better passenger "
+"experience with luxury bus booking online blended with cutting edge "
+"technology and Sri Lankan hospitality.</p><br><p dir=\"ltr\" class=\"text-"
+"static\">    BusBooking.lk is Sri Lanka’s first ever booking &amp; "
+"reservation services provider for public passenger transport sector with a "
+"fully automated multi-platform booking engine complete with bus schedule. "
+"Sri Lanka is a country that thrives on public transport. And we believe that "
+"our innovative solutions can create a positive impact on all Sri Lankan "
+"passengers and commuters, simply eliminating their non-value adding waiting-"
+"time which can be spend in a more productive and efficient way from now on."
+"</p><br><p class=\"text-static\">    We are a learning organisation. That "
+"means, we would like to hear your suggestions, improvements and experiences. "
+"Please feel free to reach us at our hotline 0115116117. Customer happiness "
+"is our business!</p>"
+
+#: ../../Application/view/application/index/terms.phtml:1
+msgid "Terms & Conditions"
+msgstr ""
+
+#: ../../Application/view/application/index/terms.phtml:2
+msgid "Terms & Conditions text"
+msgstr ""
+"<p dir=\"ltr\" class=\"text-static\">Our Services are regulated under terms "
+"and conditions set forth herein to provide a better passenger experience and "
+"to develop a well regulated and disciplined service with passenger transport "
+"Operators and transport Operators'  staff.</p><br><p class=\"red-text\" "
+"dir=\"ltr\">Binding Contract</p><p dir=\"ltr\" class=\"text-static\">The Use "
+"Terms & Conditions formulate a binding contract between the User and "
+"BusBooking.lk. By using BusBooking.lk  services, you agree to be bound by "
+"the terms and conditions shown below. If you do not agree our terms and "
+"conditions we are not in a position to provide you our services and we do "
+"apologize for that. Our ground rules are subject to change at any time "
+"without a prior notice. To make sure you are aware of any changes, please "
+"review this section periodically.</p><br><ol> <li dir=\"ltr\"><p dir=\"ltr\" "
+"class=\"text-static\">The Passenger should be present at the bus station, 15 "
+"minutes before the Estimated Time of Departure (ETD) of the reserved bus "
+"service.</p> </li> <li dir=\"ltr\"><p dir=\"ltr\" class=\"text-static\">"
+"BusBooking.lk is not liable for any damage or inconvenience arising out of "
+"any miscommunication, delays of the passenger or any misleading and or false "
+" information provided by the Passenger</p></li><li dir=\"ltr\"><p "
+"dir=\"ltr\" class=\"text-static\">BusBooking.lk  reserves rights to change "
+"the schedule and/or cancel, terminate, postpone, divert, reschedule or delay "
+"any bus/coach, anytime after your reservation without a prior notice. This "
+"may be due to safety or reasonably considered and justified circumstances "
+"beyond our control. Notwithstanding the circumstances BusBooking.lk shall "
+"not be liable for any damages or inconvenience caused to the Passenger.</p>"
+"</li>  <li dir=\"ltr\"> <p dir=\"ltr\" class=\"text-static\">BusBooking.lk "
+"shall not refund the payment in the form of cash under general circumstances "
+"after a booking cancellation. Nonetheless the passenger will be able to get "
+"the full refund as an eCash coupon, if he/she cancelled the booking 72hours "
+"prior to the Estimated Time of Departure (ETD).</p>\n"
+"   </li><li dir=\"ltr\"><p dir=\"ltr\" class=\"text-static\">The Passenger "
+"is required to furnish the Ticket (eTicket/mTicket)  orthe booking "
+"confirmation SMS to the Bus Conductor along with the National Identity "
+"Card/Driver's License/Passport to verify the identity of the prepaid "
+"Passenger. Additionally, the Passengers should agree to submit one of the "
+"personal identification document mentioned above for inspection by Bus "
+"Operator's designated staff or relevant authorities to verify the identity "
+"in the event of a security concern at any given time throughout the "
+"Passenger's engagement with the Services offered by the BusBooking.lk and "
+"bus Operators</p></li><li dir=\"ltr\"> <p dir=\"ltr\" class=\"text-static\">"
+"BusBooking.lk is not liable for any delays before and/or during the journey "
+"and for the road accidents at any point of time during the  Passenger's "
+"engagement with the Services offered by both BusBooking.lk and Bus "
+"Operator</p></li><li dir=\"ltr\"><p dir=\"ltr\" class=\"text-static\">"
+"eTickets reserved via BusBooking.lk are not transferable whatsoever. It is "
+"User's sole responsibility to provide accurate contact information of all "
+"intended Passengers per seat reserved. Users/Passengers agree that "
+"inaccurate Passenger details may lead in prohibiting the embarkation.</p>\n"
+"</li></ol><br><p class=\"red-text\" dir=\"ltr\">    Nature of Business</p><p "
+"dir=\"ltr\" class=\"text-static\">BusBooking.lk is an online value added "
+"services provider. It does not operate bus services of its own. In order to "
+"provide a comprehensive choice of bus operators, departure times and prices "
+"to Users/Passengers, it has tied up with many bus operators. We strictly "
+"advice to customers to choose bus operators they are aware of and whose "
+"service they are comfortable with.</p>\n"
+"<br><p dir=\"ltr\">    Our responsibilities include:</p><p dir=\"ltr\">    7."
+"1 Issuing a valid ticket (a ticket that will be accepted by the bus Operator)"
+" for our network of bus operators</p><p dir=\"ltr\">    7.2 Providing "
+"booking modification in the event of cancellations required by the User "
+"strictly restricted to prior notices reach to us via info@busbooking.lk 72 "
+"hours prior to the Estimated Time of Departure of the booked bus. In order "
+"to make the cancellation, Users are required to send the cancellation "
+"request only as a reply to the email sent by info@busbooking.lk for relevant "
+"reservation which include the eTicket number,Name, NIC/PP and email address "
+"logged with us at the time of concerned booking. Cancellations are not "
+"confirmed until busbooking.lk operation team respond to User's cancellation "
+"request and Users agree to follow up with busbooking.lk until such response "
+"by busbooking.lk via email</p><p dir=\"ltr\">    7.3 Providing customer "
+"support and information in case of any delays/inconvenience</p>\n"
+"<br><p dir=\"ltr\">    Our responsibilities do NOT include:</p><p "
+"dir=\"ltr\">    7.4 The bus operator’s bus not departing/reaching on time</p>"
+"<p dir=\"ltr\">    7.5 The bus operator’s staff being rude and/or their "
+"discipline or their conduct whatsoever</p><p dir=\"ltr\">    7.6 The bus "
+"operator’s bus seats, condition inside the bus etc. not being up to the "
+"User/Passenger’s expectation</p><p dir=\"ltr\">    7.7 The bus operator "
+"canceling the trip due to unavoidable reasons</p><p dir=\"ltr\">    7.8 The "
+"baggage of the User/Passenger getting lost/stolen/damaged or not being able "
+"to load to the bus</p><p dir=\"ltr\">    7.9 The bus operator changing a "
+"User/Passenger’s seat at the last minute to accommodate a separate "
+"passenger</p><p dir=\"ltr\" class=\"text-static\">    7.10 The "
+"User/Passenger waiting at the wrong boarding point. (User/Passenger agree to "
+"contact the bus operator to find out the exact boarding point in the event "
+"that the User/Passenger is not aware of the exact boarding point</p><p "
+"dir=\"ltr\" class=\"text-static\">    7.11 The bus operator changing the "
+"boarding point and/or using a pick-up vehicle at the boarding point to take "
+"User/Passenger to the bus departure point</p><p dir=\"ltr\" class=\"text-"
+"static\">    7.12 Any inconvenience caused by the act of other passengers "
+"regardless their source of ticket reservation.</p><br><p dir=\"ltr\" "
+"class=\"text-static\">    8. The arrival and departure times mentioned on "
+"the ticket are only tentative time schedules</p><br><p class=\"red-text\" "
+"dir=\"ltr\">    Cancellation Policy</p><p dir=\"ltr\" class=\"text-static\"> "
+"   10. The tickets booked through BusBooking.lk, are cancelable. Kindly note "
+"that the money is not transferred back to the passenger's credit/debit card. "
+"Instead the money will be refunded in the form of a eCash Coupon which can "
+"be used during your next journey. This coupon is valid up to 6 months from "
+"the date of cancellation. BusBuooking.lk shall not guarantee the same "
+"journey for same ticket price at any occasion during the period due to "
+"possible price fluctuations and the User/Passenger shall pay the price of "
+"the ticket for selected journey at the time where payable may be adjusted "
+"through the available eCash Coupon(s). An eCash coupon once used do not "
+"carry forward any balance. It is User's discretion to utilize the eCash "
+"coupon to obtain optimal value out of any usage. Requests for cancellations "
+"should be sent in the manner described in article 7.2 herein.</p><br><p "
+"dir=\"ltr\" class=\"text-static\">    11. In case a booking confirmation e-"
+"mail and sms gets delayed or fails because of technical reasons or as a "
+"result of incorrect e-mail ID/phone number provided by the user etc, a "
+"ticket will be considered 'booked' as long as the ticket shows up on the "
+"confirmation page of <a href=\"http://www.busbooking.lk/\">www.busbooking."
+"lk</a></p>\n"
+"<br><p dir=\"ltr\" class=\"text-static\">    12. BusBooking.lk will not be "
+"liable to you or to any other person for any direct, indirect, incidental, "
+"punitive or consequential loss, damage, cost or expense of any kind "
+"whatsoever and howsoever caused from out of the information derived by you "
+"through your usage of this Site. In no event shall BusBooking.lk be liable "
+"for any direct, indirect, punitive, incidental, special, or consequential "
+"damages arising out of information provided on the website in so far as such "
+"information is derived from other service providers.</p>\n"
+"<br><h6 class=\"red-text\" dir=\"ltr\">    Communication Policy</h6><p "
+"dir=\"ltr\" class=\"text-static\">    13. By accepting the terms and "
+"conditions the User/Passenger accepts that BusBooking.lk may send the alerts "
+"to the mobile phone number provided by the User while registering for the "
+"service or to any such number replaced and informed by the User. The "
+"User/Passenger acknowledges that the alerts will be received only if the "
+"mobile phone is on active mode and technically acceptable condition to "
+"receive the SMS timely manner.</p><p dir=\"ltr\" class=\"text-static\">    "
+"14. BusBooking.lk will make best efforts to provide the service and it shall "
+"be deemed that the customer shall have received the information sent from "
+"BusBooking.lk as an alert on the mobile phone number provided during the "
+"course of ticket booking and BusBooking.lk shall not be under any obligation "
+"to confirm the authenticity of the person(s) receiving the alert. The "
+"User/Passenger shall not have the right to hold BusBooking.lk liable for non-"
+"availability of the service in any manner whatsoever.</p><br><p dir=\"ltr\" "
+"class=\"text-static\">    15. The User/Passenger acknowledges that the SMS "
+"service provided by BusBooking.lk is an additional facility provided for the "
+"User/Passenger’s convenience and that it may be susceptible to error, "
+"omission and/ or inaccuracy. In the event the User/Passenger observes any "
+"error in the information provided in the alert, BusBooking.lk shall be "
+"immediately informed about the same by the User/Passenger and BusBooking.lk "
+"will make best possible efforts to rectify the error as early as possible. "
+"The User/Passenger  shall not hold BusBooking.lk liable for any loss, "
+"damages, claim, expense including legal cost that may be incurred/ suffered "
+"by the User/Passenger on account of the SMS facility.</p><br><p dir=\"ltr\" "
+"class=\"text-static\">    16. The User/Passenger acknowledges that the "
+"clarity, readability, accuracy, and promptness of providing the service "
+"depend on many factors including the infrastructure, connectivity of the "
+"Mobile Telecommunication Service Provider. BusBooking.lk shall not be "
+"responsible for any non-delivery, delayed delivery or distortion of the "
+"alert in any way whatsoever.</p>\n"
+"<br><p dir=\"ltr\" class=\"text-static\">    17. The User/Passenger agrees "
+"to indemnify and hold BusBooking.lk harmless from any damages, claims, "
+"demands, proceedings, loss, cost, charges and expenses whatsoever including "
+"legal charges and attorney fees which BusBooking.lk may at any time incur, "
+"sustain, suffer or be put to as a consequence of or arising out;</p><br><p "
+"dir=\"ltr\">    17.1 misuse, improper or fraudulent information provided by "
+"the customer</p><p dir=\"ltr\" class=\"text-static\">    17.2 the User  "
+"providing incorrect number or providing a number that belongs to that of an "
+"unrelated third party, and/or</p><p dir=\"ltr\" class=\"text-static\">    17."
+"3 he User/Passenger receiving any message relating to the reservation number,"
+" travel itinerary information, booking confirmation, modification to a "
+"ticket, cancellation of ticket, change in bus schedule, delay, and/or "
+"rescheduling from BusBooking.lk and/or any third party.</p><br><p "
+"dir=\"ltr\" class=\"text-static\">    18. By accepting the terms and "
+"conditions the User/Passenger acknowledges and agrees that BusBooking.lk may "
+"call the mobile phone number provided by the User while registering for the "
+"service or to any such number replaced and informed by the User/Passenger, "
+"for the purpose of collecting feedback from the User/Passenger regarding "
+"their travel, the bus facilities and/or services of the bus operator.</p><br>"
+"<p dir=\"ltr\" class=\"text-static\">    19. Grievances and claims related "
+"to the bus journey should be reported to BusBooking.lk support team within 3 "
+"days of your travel date.</p></div><div class=\"gap gap-small hidden-xs\">"
+"</div>"
+
+#: ../../Application/view/application/index/contact.phtml:44
+msgid "Contact Us body text"
+msgstr ""
+"Do you have any questions about your bus ticket reservations or schedules? "
+"Please do not hesitate to contact us at bus booking on our passenger "
+"services hotline for all your queries and we shall only be happy to help."
+
+#: ../../Application/view/application/index/contact.phtml:71 
+#: ../../Application/view/application/index/partial/part/booking.phtml:57 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:75
+msgid "Email"
+msgstr ""
+
+#: ../../Application/view/application/index/contact.phtml:74
+msgid "Phone Number"
+msgstr ""
+
+#: ../../Application/view/application/index/contact.phtml:77
+msgid "Address"
+msgstr ""
+
+#: ../../Application/view/application/index/contact.phtml:79
+msgid ""
+"Level 34, East Tower,<br />\n"
+"                            World Trade Centre,<br />\n"
+"                            Echelon Square, Colombo 01,<br />\n"
+"                            Sri Lanka"
+msgstr "_ "
+
+#: ../../Application/view/application/index/faq.phtml:2
+msgid "FAQ text"
+msgstr ""
+"<br><ol class=\"red-text\">    <li dir=\"ltr\">        <p dir=\"ltr\">       "
+"     BusBooking.lk? What is it?        </p>    </li></ol><p dir=\"ltr\" "
+"class=\"text-static\">    BusBooking.lk is Sri Lanka’s first ever booking "
+"&amp; reservation services provider for public passenger transport sector "
+"with a fully automated multi-platform booking engine.</p><br><ol class=\"red-"
+"text\" start=\"2\">    <li dir=\"ltr\">        <p dir=\"ltr\">            "
+"What can I do with this?        </p>    </li></ol><p dir=\"ltr\" "
+"class=\"text-static\">    With this service, passengers and commuters can "
+"inquire about bus fares Sri Lanka, locate bus routes and purchase their "
+"journey tickets and reserve seats in advance, without waiting in long "
+"passenger queues at bus stations. Additionally you don't have to waste long "
+"hours at bus stations not knowing the exact departure &amp; arrival time of "
+"the bus service. Simply, now you can now book any long distance bus in Sri "
+"Lanka, without any hassle.</p><br><ol class=\"red-text\" start=\"3\">    <li "
+"dir=\"ltr\">        <p dir=\"ltr\">            That means, I can purchase a "
+"ticket &amp; reserve a bus seat from home, right?        </p>    </li></ol>"
+"<p dir=\"ltr\" class=\"text-static\">    Absolutely Yes! The process is "
+"really simple and fully automated. You can now reserve a seat with your "
+"computer by visiting our website or even with your mobile phone.</p><br><ol "
+"class=\"red-text\" start=\"4\">    <li dir=\"ltr\">        <p dir=\"ltr\">   "
+"         How can I make a seat reservations with my computer?        </p>    "
+"</li></ol><p dir=\"ltr\" class=\"text-static\">    If you are using a "
+"computer, laptop or a tablet please log into our website,&nbsp;<a "
+"href=\"http://www.busbooking.lk\">www.busbooking.lk</a>&nbsp;and automated "
+"system will direct you in all three languages to make the reservation.</p>"
+"<br><ol class=\"red-text\" start=\"5\">    <li dir=\"ltr\">        <p "
+"dir=\"ltr\">            I don’t have time to login with a computer. Can I "
+"use my phone?        </p>    </li></ol><p dir=\"ltr\" class=\"text-static\"> "
+"   Yeah sure! Based on the type of your phone, you can either access our "
+"system with a smartphone app or telco app. If you are using a smartphone, "
+"please download our mobile app compatible with the phone operating system, "
+"which can be Android, iOS or Windows. Further if you are using a basic "
+"feature phone, you can access our booking engine even with SMS &amp; USSD "
+"services.</p><br><ol class=\"red-text\" start=\"6\">    <li dir=\"ltr\">     "
+"   <p dir=\"ltr\">            I’m not familiar with the computer or "
+"smartphone. What can I do?        </p>    </li></ol><p dir=\"ltr\" "
+"class=\"text-static\">    Not to worry. Feel free to call our hotline, "
+"0772872877. Our customer service executives will help you to resolve all "
+"your queries and assist you to reserve seat for a happy and enjoyable "
+"journey. Plus you can access this service all throughout the day, 365 days a "
+"year. Simply, everyday at anytime.</p><br><ol class=\"red-text\" start=\"7\">"
+"    <li dir=\"ltr\">        <p dir=\"ltr\">            Can I make the "
+"payment for a online seat reservation, using my credit card?        </p>    "
+"</li></ol><p dir=\"ltr\" class=\"text-static\">    Yes. We accept all three "
+"leading credit cards available in Sri Lanka, via our secured internet "
+"payment gateway. You can make the payments with your Visa, Master or Amex "
+"credit card irrespective of the bank issued.</p><br><ol class=\"red-text\" "
+"start=\"8\">    <li dir=\"ltr\">        <p dir=\"ltr\">            I don’t "
+"have a credit card. Can I use my bank ATM card?        </p>    </li></ol><p "
+"dir=\"ltr\" class=\"text-static\">    Yes you can! But before you use your "
+"ATM debit card or ATM shopping card, you should get the one time approval "
+"from the bank issued. Please call your bank on below mentioned numbers to "
+"get the additional details.</p><p dir=\"ltr\">    Bank of Ceylon - "
+"0112446790</p><p dir=\"ltr\">    National Savings Bank - 0112379379</p><p "
+"dir=\"ltr\">    Peoples Bank - 0112481481</p><p dir=\"ltr\">    Sampath Bank "
+"- 0112303050</p><p dir=\"ltr\">    Commercial Bank - 0115486000</p><p "
+"dir=\"ltr\">    Hatton National Bank - 0114523543</p><p dir=\"ltr\">    "
+"Seylan Bank - 0112008888</p><p dir=\"ltr\">    Nations Trust Bank - "
+"0114711411</p><p dir=\"ltr\">    HSBC Bank - 0114472200</p><br><ol "
+"class=\"red-text\" start=\"9\">    <li dir=\"ltr\">        <p dir=\"ltr\">   "
+"         Does BusBooking.lk accept mobile-cash payments?        </p>    </li>"
+"</ol><p dir=\"ltr\" class=\"text-static\">    Yes. BusBooking.lk is "
+"promoting cutting edge technology to make our customers life easier. So now "
+"you can use eZcash with your Dialog, Etisalat or Hutch connection and mCash "
+"with your Mobitel connection.</p><br><ol class=\"red-text\" start=\"10\">    "
+"<li dir=\"ltr\">        <p dir=\"ltr\">            Can I pay cash for a "
+"reservation?        </p>    </li></ol><p dir=\"ltr\" class=\"text-static\">  "
+"  Can! We believe that we should make available every possible option to our "
+"customers for a better reach. Please visit your nearest BusBooking.lk agent "
+"center to make the payment in cash.</p><br><ol class=\"red-text\" "
+"start=\"11\">    <li dir=\"ltr\">        <p dir=\"ltr\">            "
+"07X2872877? Is this a hotline number? :P        </p>    </li></ol><p "
+"dir=\"ltr\" class=\"text-static\">    Yes, we understand. At a glance it "
+"doesn’t look like a general hotline number which get registered in your mind "
+"easily. But we thought of simplifying the whole process. So now you don’t "
+"have to remember our number. Simply take your phone out and type “booking” "
+"on the number pad, our hotline number will appear on your mobile phone "
+"screen in no time. We are here to simplify the booking process and amplify "
+"the value to the end consumer.</p><br><ol class=\"red-text\" start=\"12\">   "
+" <li dir=\"ltr\">        <p dir=\"ltr\">            Can I reserve any bus "
+"with BusBooking.lk service?        </p>    </li></ol><p dir=\"ltr\" "
+"class=\"text-static\">    Yeah. you can reserve any interprovincial long "
+"distance travelling bus which can be either normal non A/C service, semi "
+"luxury non A/C service, luxury A/C service or super luxury A/C express "
+"service.</p><br><ol class=\"red-text\" start=\"13\">    <li dir=\"ltr\">     "
+"   <p dir=\"ltr\">            Will I get a better service from bus service "
+"staff, as a prepaid passenger?        </p>    </li></ol><p dir=\"ltr\" "
+"class=\"text-static\">    Definitely. We are operating with highly regulated "
+"and well disciplined bus transport service providers for a better customer "
+"experience. So we can promise that the bus transport service providers who "
+"are listed in our service will provide a far better customer service when "
+"compared to the rest. We always keep a close track on the punctuality, bus "
+"staff behavior and quality of the bus. Always feel free to contact our "
+"customer service executives via our hotline to log a complaint, if you are "
+"not satisfied with the service level provided at the bus or during the "
+"process.</p><br><ol class=\"red-text\" start=\"14\">    <li dir=\"ltr\">     "
+"   <p dir=\"ltr\">            Do I have to pay extra for the reservation and "
+"booking service?        </p>    </li></ol><p dir=\"ltr\" class=\"text-"
+"static\">    Yes. We are charging you an additional fee to cover-up our "
+"technical and related services cost. So you have to pay the bus fare plus a "
+"reservation charge, for a specific booking. But we believe that we can add "
+"more value than the additional cost by reducing your non-value adding time "
+"at long passenger queues and eliminating the waiting time. We do hope you "
+"can spend this wasted time with your loved ones, from now on. More time "
+"means more freedom.</p><br><ol class=\"red-text\" start=\"15\">    <li "
+"dir=\"ltr\">        <p dir=\"ltr\">            Can I cancel a specific "
+"booking?        </p>    </li></ol><p dir=\"ltr\" class=\"text-static\">    "
+"Yes, you can. But the cancellation should be 24 hour prior to the reserved "
+"journey. The process will be FREE of CHARGE and you will be issued an eCash "
+"coupon to your mobile which can be used only for the specific passenger who "
+"has cancelled the ticket. The passenger will be able to make a future "
+"cashless booking, providing the eCash coupon number and the national "
+"identity card number. Please feel free to contact our customer services "
+"executives via our hotline if you need additional information on this.</p>"
+"<br><ol class=\"red-text\" start=\"16\">    <li dir=\"ltr\">        <p "
+"dir=\"ltr\">            Can I get a cash refund for a cancellation?        "
+"</p>    </li></ol><p dir=\"ltr\" class=\"text-static\">    No. We do not "
+"refund cash for passengers under normal circumstances. But if the passenger "
+"is demanding a cash refund, we can refund the amount to his/her bank account "
+"after deducting transaction fees &amp; handling fee. Please feel free to "
+"contact our customer services executives via our hotline if you need "
+"additional information on this.</p>"
+
+#: ../../Application/view/application/index/partial/search-form.phtml:7 
+#: ../../Application/view/application/index/partial/part/search-result.phtml:8 
+#: ../../Admin/view/admin/bus-schedule/add.phtml:76 
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:16
+msgid "From"
+msgstr "Starting from"
+
+#: ../../Application/view/application/index/partial/search-form.phtml:11 
+#: ../../Application/view/application/index/partial/search-form.phtml:34 
+#: ../../Application/view/application/index/partial/part/search-result.phtml:12
+#:  
+#: ../../Application/view/application/index/partial/part/search-result.phtml:32
+#:  ../../Web/Surrexi/view/web/surrexi/index/partial/search-form.phtml:11 
+#: ../../Web/Surrexi/view/web/surrexi/index/partial/search-form.phtml:30 
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:18 
+#: ../../Superline/view/superline/index/partial/search-form.phtml:11 
+#: ../../Superline/view/superline/index/partial/search-form.phtml:30
+msgid "Loading.. Please wait"
+msgstr "Loading.. Please wait."
+
+#: ../../Application/view/application/index/partial/search-form.phtml:11 
+#: ../../Application/view/application/index/partial/part/search-result.phtml:12
+#:  ../../Web/Surrexi/view/web/surrexi/index/partial/search-form.phtml:11 
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:18 
+#: ../../Superline/view/superline/index/partial/search-form.phtml:11
+msgid "Select a City"
+msgstr "Type a City"
+
+#: ../../Application/view/application/index/partial/search-form.phtml:30 
+#: ../../Application/view/application/index/partial/part/search-result.phtml:28
+#:  ../../Admin/view/admin/bus-schedule/add.phtml:86 
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:33
+msgid "To"
+msgstr "Going to"
+
+#: ../../Application/view/application/index/partial/search-form.phtml:34 
+#: ../../Application/view/application/index/partial/part/search-result.phtml:32
+#:  ../../Web/Surrexi/view/web/surrexi/index/partial/search-form.phtml:30 
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:35 
+#: ../../Superline/view/superline/index/partial/search-form.phtml:30
+msgid "No available destinations"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/search-form.phtml:34 
+#: ../../Application/view/application/index/partial/part/search-result.phtml:32
+#:  ../../Web/Surrexi/view/web/surrexi/index/partial/search-form.phtml:30 
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:35 
+#: ../../Superline/view/superline/index/partial/search-form.phtml:30
+msgid "Select a Destination"
+msgstr "Type your destination"
+
+#: ../../Application/view/application/index/partial/search-form.phtml:52 
+#: ../../Application/view/application/index/partial/part/search-result.phtml:47
+#:  ../../Superline/view/superline/index/partial/search-form.phtml:42
+msgid "Departing"
+msgstr "Journey Date"
+
+#: ../../Application/view/application/index/partial/search-form.phtml:53 
+#: ../../Application/view/application/index/partial/part/search-result.phtml:48
+#:  ../../Web/Surrexi/view/web/surrexi/index/partial/search-form.phtml:43 
+#: ../../Superline/view/superline/index/partial/search-form.phtml:43
+msgid "Choose a date"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/search-form.phtml:66
+msgid "SEARCH FOR BUSES"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/ticket.phtml:20
+msgid "Express Ticket"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-body.phtml:6
+msgid "#1 Website to Reserve Your Bus Seat! 24x7"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-body.phtml:7
+msgid ""
+"Fully Fledged Booking & Reservation Services for Public Transport Services"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-body.phtml:8 
+#: ../../Superline/view/superline/index/partial/home_body.phtml:8
+msgid "Homepage: #1 Website text"
+msgstr ""
+"Want your public transportation and online bus ticket booking issues sorted? "
+"               We at Bus Booking will attend to all your online bus seat "
+"reservation, booking                requirements and make sure that you have "
+"a safe and a comfortable journey.                A unique platform of online "
+"bus booking Sri Lanka has to offer,                we have made it easy for "
+"you to reserve your seats to avoid hassle and inconveniences,                "
+"reach your destination with the comfort that you deserve. Happy Journey!"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:22
+msgid "From Anywhere"
+msgstr "From Anywhere - At Anytime"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:23
+msgid "From Anywhere text"
+msgstr ""
+"Reserve your seats from anywhere at anytime by simply log into internet with "
+"your favorite device."
+
+#: ../../Application/view/application/index/partial/home-body.phtml:34
+msgid "Reserve & Save"
+msgstr "Reserve Early - Save More"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:35
+msgid "Reserve & Save text"
+msgstr ""
+"Save your valuable time and money by making advanced booking via our website "
+"or mobile phone app."
+
+#: ../../Application/view/application/index/partial/home-body.phtml:46
+msgid "Passenger Support"
+msgstr "Passenger Assistance - Support"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:47
+msgid "Passenger Support text"
+msgstr ""
+"Experience next generation passenger service with our well experienced "
+"passenger services executives."
+
+#: ../../Application/view/application/index/partial/home-body.phtml:58
+msgid "100% Secure"
+msgstr "100% Secure & hassle-free"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:59
+msgid "100% Secure text"
+msgstr ""
+"Pay online securely via the internet payment gateways provided by leading "
+"financial institutions."
+
+#: ../../Application/view/application/index/partial/home-body.phtml:82
+msgid "Top Bus Routes & Bus Schedules"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-body.phtml:92
+#, fuzzy
+msgid "Colombo - Kataragama"
+msgstr "From CMB: 08:45 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:94
+msgid "From CMB: 06.00 AM (Super Luxury)"
+msgstr "From CMB: 06.30 AM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:95
+msgid "From KTG: 02.30 AM (Super Luxury)"
+msgstr "From KTG: 01.30 AM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:108
+msgid "Colombo - Badulla"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-body.phtml:110
+msgid "Colombo - Badulla onward"
+msgstr "From CMB: 11.00 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:111
+msgid "Colombo - Badulla return"
+msgstr "From BDL: 11.00 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:124
+#, fuzzy
+msgid "Colombo - Tangalle"
+msgstr "Wellawatta - Jaffna"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:126
+msgid "From CMB: 06.30 AM (Super Luxury)"
+msgstr "From CMB: 06.30 AM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:127
+msgid "From TGL: 05.00 AM (Super Luxury)"
+msgstr "From TGL: 04.00 AM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:140
+msgid "Colombo - Jaffna"
+msgstr "Wellawatta - Jaffna"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:142
+msgid "Colombo - Jaffna onward"
+msgstr "From WLW: 07.00 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:143
+msgid "Colombo - Jaffna return"
+msgstr "From JFN: 07.04 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:159
+#, fuzzy
+msgid "Colombo - Batticaloa"
+msgstr "Colombo - Trincomalee"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:161
+msgid "Colombo - Batticaloa onward"
+msgstr "From CMB: 08:30 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:162
+msgid "Colombo - Batticaloa return"
+msgstr "From BCL: 09.30 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:175
+msgid "Colombo - Matara"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-body.phtml:177
+msgid "Colombo - Matara onward"
+msgstr "From CMB: 06:30 AM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:178
+msgid "Colombo - Matara return"
+msgstr "From MTR: 04.35 AM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:191
+msgid "Colombo - Trinco"
+msgstr "Colombo - Trincomalee"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:193
+msgid "From CMB: 11.00 PM (Super Luxury)"
+msgstr "From CMB: 11.00 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:194
+msgid "From TCM: 11.00 PM (Super Luxury)"
+msgstr "From TCM: 10.00 PM (Super Luxury)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:207
+msgid "Colombo - Nuwaraeliya"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-body.phtml:209
+msgid "Colombo - Nuwaraeliya onward"
+msgstr "From CMB: 11.00 AM (A/C Intercity)"
+
+#: ../../Application/view/application/index/partial/home-body.phtml:210
+msgid "Colombo - Nuwaraeliya return"
+msgstr "From NWE: 10.00PM (A/C Intercity)"
+
+#: ../../Application/view/application/index/partial/home-top.phtml:7
+msgid "It's time to"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:9
+msgid "live"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:10
+msgid "have fun"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:11
+msgid "relax"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:12
+msgid "meet"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:13
+msgid "being lost"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:14
+msgid "run away"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:15
+msgid "go"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:16
+msgid "explore"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:17
+msgid "find new friends"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:18
+msgid "discover"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:19
+msgid "play"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/home-top.phtml:26
+msgid "Reserve bus seats across Sri Lanka"
+msgstr "Reserve seats in long distance buses across Sri Lanka"
+
+#: ../../Application/view/application/index/partial/success.phtml:1
+msgid "Your booking is successful!"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/success.phtml:2
+msgid "Thank you for your purchase."
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:67
+#, php-format
+msgid ""
+"Search results for your journey from %1$s to %2$s. Enjoy the convenience of "
+"getting your bus\n"
+"                tickets online. Reserve your seats through Sri Lanka's first "
+"and largest online bus booking and\n"
+"            reservation platform to proceed with the booking . <br />Happy "
+"journeys!"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:139
+msgid ""
+"<b class=\"\">Sorry!</b> <span class=\"text-muted\">We don't have available "
+"seats in the selected bus route. Please call our hotline to contact one of "
+"our passenger service executives. They will help you to get your destination "
+"with the next best alternative. Thank you for using BusBooking.lk passenger "
+"services!</span>)"
+msgstr ""
+"<b class=\"\">Sorry!</b> <span class=\"text-muted\">We don't have available "
+"seats in the selected bus route. Please call our hotline to contact one of "
+"our passenger service executives. They will help you to get your destination "
+"with the next best alternative. Thank you for using BusBooking.lk passenger "
+"services!</span>"
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:224
+msgid "Facilities"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:233
+msgid "/person"
+msgstr "/Person"
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:235
+#:  
+#: ../../Application/view/application/index/partial/part/search-result.phtml:236
+msgid "(Approx)"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:237
+msgid "Duration : "
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:248
+msgid "Route Number:"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:252
+msgid "Travel Class:"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:258
+msgid "Route Info"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:264
+msgid "View Seats"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:266
+msgid "Hide Seats"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:268
+#, php-format
+msgid "Please call our hotline number %s for urgent bookings."
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:269
+msgid "Online Bookings Expired!"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:272
+msgid "Booking Expired"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:323
+msgid "Available <br/>seat"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:327
+#, fuzzy
+msgid "Reserved <br/>seat"
+msgstr "Reserved seat"
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:331
+msgid "My <br/>seat"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:335
+msgid "Awaiting <br/>payment"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:344
+msgid ""
+"Please click on a seat icon to select it and click again to deselect it."
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:345
+#, fuzzy
+msgid "Once you complete your selection, press \"Book Now\""
+msgstr "When you select your seat/s, press \"Continue\" button."
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:350
+msgid "Seat<span ng-if=\"selected.seatNos.length>1\">s</span>"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:353
+msgid "Amount"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/search-result.phtml:360
+msgid "Book Now"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:9
+msgid ""
+"There are errors in the form! Please check if you have filled all the "
+"required fields."
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:12
+msgid "My Details <small>Mandatory</small>"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:14
+msgid "* Please enter either a Mobile number or a NIC"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:19 
+#: ../../Admin/view/admin/ticketbox/index.phtml:36 
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:62 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:66 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:30
+msgid "Name"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:25
+msgid "Your name is required"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:31 
+#: ../../Admin/view/admin/ticketbox/index.phtml:37
+msgid "Mobile"
+msgstr "Mobile Phone No"
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:37
+msgid "Your mobile number is required"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:38 
+#: ../../Application/view/application/index/partial/part/booking.phtml:121 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:92 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:170
+msgid "Phone number should match 07XXXXXXXX"
+msgstr "Phone number should match 07xxxxxxxx"
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:44
+msgid "NIC / Passport No"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:50
+msgid "Your NIC is required"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:51 
+#: ../../Application/view/application/index/partial/part/booking.phtml:135 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:61 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:166
+msgid "NIC should be in the format of 123456789V"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:61
+msgid "Email is required!"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:62
+msgid "Not a valid email"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:72
+msgid "Passenger Details <small>optional</small>"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:76
+msgid "* Please Select a seat"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:80
+msgid ""
+"<i class=\"fa fa-info-circle blue-text\"></i> <small>Why do we need "
+"passenger information? During an emergency we will be able to use these "
+"details to find and help you.</small>"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:96
+msgid "My seat"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:105 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:125
+msgid "Passenger Name"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:114 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:86 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:125
+msgid "Mobile No"
+msgstr "Mobile Phone No"
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:127 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:125
+msgid "NIC Number"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:147
+msgid "Getting in/out bus halt"
+msgstr "Getting in/out bus stops"
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:153
+msgid "Boarding bus stop:"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:162
+msgid "Dropoff bus stop:"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:176
+msgid ""
+"I agree to all the <a href=\"/terms\" target=\"_blank\">Terms and "
+"Conditions</a>"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:179
+msgid "You have to agree to the terms & conditions"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:185 
+#: ../../Admin/view/admin/ticketbox/index.phtml:43
+msgid "Payment Method"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:189 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:215
+msgid "Amount payable"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:189 
+#: ../../Application/view/application/index/partial/part/booking.phtml:240 
+#: ../../Application/view/application/index/partial/part/booking.phtml:245 
+#: ../../Application/view/application/index/partial/part/booking.phtml:250 
+#: ../../Application/view/application/index/partial/part/booking.phtml:255 
+#: ../../Application/view/application/index/partial/part/booking.phtml:260 
+#: ../../Application/view/application/index/partial/part/booking.phtml:266
+msgid "Rs."
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:207
+msgid "Bus Details"
+msgstr "Journey Summary"
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:228
+msgid "Duration"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:236
+#, php-format
+msgid "Payment (%1$s Passengers)"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:239
+msgid "Onward Fare"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:244
+msgid "Booking Charges"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:249 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:245
+msgid "Discounts"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:254 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:249
+msgid "Taxes"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:259
+msgid "Other Charges"
+msgstr ""
+
+#: ../../Application/view/application/index/partial/part/booking.phtml:266
+msgid "Total Payable"
+msgstr ""
+
+#: ../../Application/view/application/auth/login.phtml:8
+msgid "Login"
+msgstr ""
+
+#: ../../Application/view/application/auth/login.phtml:22
+msgid "Username or email"
+msgstr ""
+
+#: ../../Application/view/application/auth/login.phtml:28
+msgid "Password"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:58 
+#: ../../Web/Surrexi/view/layout/layout.phtml:44 
+#: ../../Superline/view/layout/layout.phtml:43
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a href=\"http:"
+"//browsehappy.com/\" target=\"_self\">upgrade your browser</a> to improve "
+"your experience."
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:89
+msgid "BusBooking.lk"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:94 
+#: ../../Superline/view/layout/layout.phtml:67
+msgid "Toggle navigation"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:109 
+#: ../../Superline/view/layout/layout.phtml:82
+msgid "Sign Out"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:195
+msgid "Ayubowan!"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:197
+msgid "Say Hello to us!"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:200
+msgid "8.00 A.M - 8.00 P.M. (Sri Lanka Time)"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:204
+msgid "Next generation passenger service <br>with Viber, Whatsapp & Skype"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:207
+msgid "Write to us!"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:209
+msgid "(We reply each and every mail)"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:213
+msgid "Operational Partners"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:233
+msgid "BBK Navigation"
+msgstr ""
+
+#: ../../Application/view/layout/layout.phtml:241
+msgid "Review us at Facebook"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:22 
+#: ../../Application/view/error/index.phtml:34 
+#: ../../Web/Surrexi/view/error/index.phtml:22 
+#: ../../Web/Surrexi/view/error/index.phtml:34 
+#: ../../Superline/view/error/index.phtml:22 
+#: ../../Superline/view/error/index.phtml:34
+msgid "Error"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:23 
+#: ../../Web/Surrexi/view/error/index.phtml:23 
+#: ../../Superline/view/error/index.phtml:23
+msgid "You don't have Permission to visit this page."
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:24 
+#: ../../Web/Surrexi/view/error/index.phtml:24 
+#: ../../Superline/view/error/index.phtml:24
+msgid ""
+"Did you come here accidently? Seems you dont have permission or authority to "
+"view this page."
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:26 
+#: ../../Web/Surrexi/view/error/index.phtml:26 
+#: ../../Superline/view/error/index.phtml:26
+msgid "Log out and log back in with permissive user?"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:35 
+#: ../../Web/Surrexi/view/error/index.phtml:35 
+#: ../../Superline/view/error/index.phtml:35
+msgid "An error occurred"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:38 
+#: ../../Web/Surrexi/view/error/index.phtml:38 
+#: ../../Superline/view/error/index.phtml:38
+msgid "to Homepage"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:54 
+#: ../../Application/view/error/404.phtml:75 
+#: ../../Web/Surrexi/view/error/index.phtml:54 
+#: ../../Web/Surrexi/view/error/404.phtml:75 
+#: ../../Superline/view/error/index.phtml:54 
+#: ../../Superline/view/error/404.phtml:75
+msgid "Additional information"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:57 
+#: ../../Application/view/error/index.phtml:81 
+#: ../../Application/view/error/404.phtml:78 
+#: ../../Application/view/error/404.phtml:102 
+#: ../../Web/Surrexi/view/error/index.phtml:57 
+#: ../../Web/Surrexi/view/error/index.phtml:81 
+#: ../../Web/Surrexi/view/error/404.phtml:78 
+#: ../../Web/Surrexi/view/error/404.phtml:102 
+#: ../../Superline/view/error/index.phtml:57 
+#: ../../Superline/view/error/index.phtml:81 
+#: ../../Superline/view/error/404.phtml:78 
+#: ../../Superline/view/error/404.phtml:102
+msgid "File"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:61 
+#: ../../Application/view/error/index.phtml:85 
+#: ../../Application/view/error/404.phtml:82 
+#: ../../Application/view/error/404.phtml:106 
+#: ../../Web/Surrexi/view/error/index.phtml:61 
+#: ../../Web/Surrexi/view/error/index.phtml:85 
+#: ../../Web/Surrexi/view/error/404.phtml:82 
+#: ../../Web/Surrexi/view/error/404.phtml:106 
+#: ../../Superline/view/error/index.phtml:61 
+#: ../../Superline/view/error/index.phtml:85 
+#: ../../Superline/view/error/404.phtml:82 
+#: ../../Superline/view/error/404.phtml:106
+msgid "Message"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:65 
+#: ../../Application/view/error/index.phtml:89 
+#: ../../Application/view/error/404.phtml:86 
+#: ../../Application/view/error/404.phtml:110 
+#: ../../Web/Surrexi/view/error/index.phtml:65 
+#: ../../Web/Surrexi/view/error/index.phtml:89 
+#: ../../Web/Surrexi/view/error/404.phtml:86 
+#: ../../Web/Surrexi/view/error/404.phtml:110 
+#: ../../Superline/view/error/index.phtml:65 
+#: ../../Superline/view/error/index.phtml:89 
+#: ../../Superline/view/error/404.phtml:86 
+#: ../../Superline/view/error/404.phtml:110
+msgid "Stack trace"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:75 
+#: ../../Application/view/error/404.phtml:96 
+#: ../../Web/Surrexi/view/error/index.phtml:75 
+#: ../../Web/Surrexi/view/error/404.phtml:96 
+#: ../../Superline/view/error/index.phtml:75 
+#: ../../Superline/view/error/404.phtml:96
+msgid "Previous exceptions"
+msgstr ""
+
+#: ../../Application/view/error/index.phtml:104 
+#: ../../Web/Surrexi/view/error/index.phtml:104 
+#: ../../Superline/view/error/index.phtml:104
+msgid "No Exception available"
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:19 
+#: ../../Web/Surrexi/view/error/404.phtml:19 
+#: ../../Superline/view/error/404.phtml:19
+msgid "Page is not found"
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:20 
+#: ../../Web/Surrexi/view/error/404.phtml:20 
+#: ../../Superline/view/error/404.phtml:20
+msgid "Did you spell the URL correctly? We don't have a page for that URL."
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:22 
+#: ../../Web/Surrexi/view/error/404.phtml:22 
+#: ../../Superline/view/error/404.phtml:22
+msgid "go Back"
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:33 
+#: ../../Web/Surrexi/view/error/404.phtml:33 
+#: ../../Superline/view/error/404.phtml:33
+msgid "The requested controller was unable to dispatch the request."
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:36 
+#: ../../Web/Surrexi/view/error/404.phtml:36 
+#: ../../Superline/view/error/404.phtml:36
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:39 
+#: ../../Web/Surrexi/view/error/404.phtml:39 
+#: ../../Superline/view/error/404.phtml:39
+msgid "The requested controller was not dispatchable."
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:42 
+#: ../../Web/Surrexi/view/error/404.phtml:42 
+#: ../../Superline/view/error/404.phtml:42
+msgid "The requested URL could not be matched by routing."
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:45 
+#: ../../Web/Surrexi/view/error/404.phtml:45 
+#: ../../Superline/view/error/404.phtml:45
+msgid "We cannot determine at this time why a 404 was generated."
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:57 
+#: ../../Web/Surrexi/view/error/404.phtml:57 
+#: ../../Superline/view/error/404.phtml:57
+msgid "Controller"
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:64 
+#: ../../Web/Surrexi/view/error/404.phtml:64 
+#: ../../Superline/view/error/404.phtml:64
+#, php-format
+msgid "resolves to %s"
+msgstr ""
+
+#: ../../Application/view/error/404.phtml:125 
+#: ../../Web/Surrexi/view/error/404.phtml:125 
+#: ../../Superline/view/error/404.phtml:125
+msgid "No Exceptions available"
+msgstr ""
+
+#: ../../Web/Surrexi/view/layout/layout.phtml:65
+msgid "Surrexi.lk"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:213 
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:33
+msgid "Back"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:214
+msgid "Delete"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:215
+msgid "Create"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:216
+msgid "Edit"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:217
+msgid "Export"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:218
+msgid "Add filter"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:219
+msgid "See all related {{ entityName }}"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:220
+msgid "List"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:221
+msgid "Show"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:222 
+#: ../../Admin/view/admin/bus-schedule/add.phtml:194
+msgid "Save"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:223
+msgid "{{ length }} Selected"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:224
+msgid "Are you sure?"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:225
+msgid "Yes"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:226
+msgid "No"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:227
+msgid "Filter values"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:228
+msgid "Close"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:229
+msgid "Clear"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:230
+msgid "Current"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:231
+msgid "Remove"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:232
+msgid "Add new {{ name }}"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:233
+msgid "Browse"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:234
+msgid "{{ progress }}% Complete"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:235
+msgid "Create new"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:236
+msgid "Submit"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:237
+msgid "Save changes"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:238
+msgid "Elements successfully deleted"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:239
+msgid "Element successfully deleted"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:240
+msgid "Oops, an error occurred (code: {{ status }})"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:241
+msgid "Invalid form"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:242
+msgid "Element successfully created"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:243
+msgid "Changes successfully saved"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:244
+msgid "Actions"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:245
+msgid ""
+"<strong>{{ begin }}</strong> - <strong>{{ end }}</strong> of <strong>{{ "
+"total }}</strong>"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:246
+msgid "No record found"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:247
+msgid "« Prev"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:248
+msgid "Next »"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:249
+#, fuzzy
+msgid "Detail"
+msgstr "Journey Summary"
+
+#: ../../Admin/view/admin/index/index.phtml:250
+msgid "State change error: {{ message }}"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:251
+msgid "Not Found"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:252
+msgid ""
+"The page you are looking for cannot be found. Take a break before trying "
+"again."
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:255
+msgid "Dashboard"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:256
+msgid "Operations"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:257 
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:3
+msgid "Ticket Box"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:258
+#, fuzzy
+msgid "Bookings"
+msgstr "Journey Summary"
+
+#: ../../Admin/view/admin/index/index.phtml:259
+msgid "Cancellations"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:260
+msgid "Busses"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:261
+msgid "People"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:262
+msgid "Conductors"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:263
+msgid "Drivers"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:264
+msgid "Common"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:265
+#, fuzzy
+msgid "Booking Agents"
+msgstr "Journey Summary"
+
+#: ../../Admin/view/admin/index/index.phtml:266
+msgid "Amenities"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:267
+msgid "Suppliers"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:268
+msgid "Accounts"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:269
+msgid "Contact Personnel"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:270
+msgid "Schedules"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:271
+msgid "Bus Schedules"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:272
+msgid "Create Schedule"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:273
+msgid "User Administration"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:274
+msgid "Users"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:275
+msgid "Permission Groups"
+msgstr ""
+
+#: ../../Admin/view/admin/index/index.phtml:276
+msgid "Reports"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:2
+msgid "Add a bus schedule"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:11 
+#: ../../Admin/view/admin/bus/locationview.phtml:13
+msgid "Bus"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:51
+msgid "Supplier"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:55
+msgid "Seating profile"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:57
+msgid "No restrictions"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:70
+msgid "Recurring date range"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:109
+msgid "Hide this Route"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:111 
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:77
+msgid "Route"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:116
+msgid "Start date/time"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:130
+msgid "End date/time"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:137
+msgid "* Do not change load factor if you don't know what you are doing."
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:146
+#, fuzzy
+msgid "Bus stops"
+msgstr "Journey Summary"
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:153
+msgid "Bus stop name"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:154
+msgid "Arrive at the stop"
+msgstr ""
+
+#: ../../Admin/view/admin/bus-schedule/add.phtml:155
+msgid "Depart from the stop"
+msgstr ""
+
+#: ../../Admin/view/admin/bus/locationview.phtml:5
+msgid "Bus Location"
+msgstr ""
+
+#: ../../Admin/view/admin/bus/locationview.phtml:6
+msgid "Live location of the bus"
+msgstr ""
+
+#: ../../Admin/view/admin/bus/locationview.phtml:15
+#, fuzzy
+msgid "Select a Bus"
+msgstr "Type a City"
+
+#: ../../Admin/view/admin/bus/locationview.phtml:61
+msgid "Load Location"
+msgstr ""
+
+#: ../../Admin/view/admin/bus/locationview.phtml:63 
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:17 
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:35
+msgid "Loading..."
+msgstr ""
+
+#: ../../Admin/view/admin/report/index.phtml:1
+msgid "Generate Report"
+msgstr ""
+
+#: ../../Admin/view/admin/report/index.phtml:6
+msgid "Report"
+msgstr ""
+
+#: ../../Admin/view/admin/report/index.phtml:17
+msgid "Parameters"
+msgstr ""
+
+#: ../../Admin/view/admin/report/index.phtml:81
+msgid "Generate"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:38 
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:63 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:55 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:31
+msgid "NIC"
+msgstr "NIC Number"
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:39 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:125
+msgid "Gender"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:40 
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:93 
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:99 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:48
+msgid "Remarks"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:41
+msgid "Entered Date"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:42
+msgid "Booking Status"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:44
+msgid "Booking Price"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:45
+msgid "Money To be collected"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:47
+msgid "More.."
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:48
+#, fuzzy
+msgid "Cancel Booking"
+msgstr "Journey Summary"
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:69
+msgid "Customer pay with Cash"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:75 
+#: ../../Admin/view/admin/ticketbox/index.phtml:93 
+#: ../../Admin/view/admin/ticketbox/index.phtml:110 
+#: ../../Admin/view/admin/ticketbox/index.phtml:129
+msgid "Send SMS to customer"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:77
+msgid "Book Now (Cash)"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:87
+msgid "Payment to be collected at bus"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:95
+msgid "Book Now (Pay At Bus)"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:103
+msgid "Book and pay later"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:104
+msgid "Payment needs to be added 1 hour before the bus leaves"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:112
+msgid "Book Now (Pay Later)"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:121
+msgid "eZCash Reference No."
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:131
+msgid "Book Now (eZ Cash Ref)"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:139
+msgid "Pay through eZcash"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:142
+msgid "Book Now (eZ Cash)"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:150
+msgid "Pay through mCash"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:153
+msgid "Book Now (mCash)"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:162
+msgid "Card Reference No."
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:167 
+#: ../../Admin/view/admin/ticketbox/index.phtml:200
+msgid "Book Now (Card)"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:176
+msgid "Agent Name"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:178
+msgid "No available agents"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:178
+#, fuzzy
+msgid "Select an Agent"
+msgstr "Type a City"
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:186
+msgid "Book Now (Agent)"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/index.phtml:195
+msgid "Transfer Reference"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:4
+msgid "Ticket Cancellation"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:5 
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:175
+msgid "Cancel and refund"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:12
+msgid "Booking reference..."
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:15
+msgid "Cancel ticket"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:25
+msgid "Please add the booking reference"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:30
+msgid "Booking"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:41 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:9
+#, fuzzy
+msgid "Booking Details"
+msgstr "Journey Summary"
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:44 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:12
+msgid "Status"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:45 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:13
+msgid "Booking time"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:46 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:14
+msgid "Booking done by"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:59 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:27
+msgid "Client"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:64 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:32
+msgid "Phone"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:74
+msgid "Bus Schedule"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:78
+#, fuzzy
+msgid "Departure time"
+msgstr "Journey Date"
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:79
+msgid "Getin/Getoff"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:80
+msgid "Booked seats"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:97
+msgid "Payments"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:113
+msgid "Cancellation"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:116
+msgid "Cancellation charge"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:120
+msgid "Amount to refund"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:127 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:56
+msgid "Cancellation cause"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:135 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:64
+#, fuzzy
+msgid "Please select a cancellation cause"
+msgstr "Please select your seat."
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:139 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:68
+msgid "Cancellation remarks"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:143
+msgid "Please add a remark on why the booking is cancelled"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:150
+msgid "Has a Refund?"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:154
+msgid "Refund mode"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:162
+#, fuzzy
+msgid "Please select a refund mode"
+msgstr "Please select your seat."
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:166
+msgid "Refund reference"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/cancellation.phtml:171
+msgid "Please add bank/cheque reference of the refund"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-result.phtml:7
+msgid "Service Provider"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-result.phtml:11
+msgid "Bus Number"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-result.phtml:16
+#, fuzzy
+msgid "Departure & Arrival"
+msgstr "Journey Date"
+
+#: ../../Admin/view/admin/ticketbox/partials/search-result.phtml:25
+msgid "Print Seat"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-result.phtml:38
+msgid "No Results!"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-result.phtml:38
+msgid "Can't find a bus on that date. Try again."
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:9
+msgid "On"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:9
+msgid "Search for a schedule"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:50
+msgid "Date"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/search-form.phtml:68
+#, fuzzy
+msgid "Select a Date"
+msgstr "Type a City"
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:4
+msgid "You have unsaved data. Are you sure?"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:48
+#, fuzzy
+msgid "Customer Details"
+msgstr "Journey Summary"
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:50
+msgid "Please enter either a Mobile number or a NIC"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:67
+#, fuzzy
+msgid "Customer Name"
+msgstr "Customer (Mandatory)"
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:81
+msgid "Wrong email format"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:113
+#, fuzzy
+msgid "Passenger Details"
+msgstr "Passenger Assistance - Support"
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:117
+#, fuzzy
+msgid "Please Select a seat"
+msgstr "Please select your seat."
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:125
+msgid "Seat"
+msgstr "Seat No"
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:143
+msgid "FirstName LastName"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:155
+msgid "M"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:158
+msgid "F"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:181
+msgid "Boarding and Dropoff Details"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:186
+msgid "Boarding bus stop"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:194
+msgid "Dropoff bus stop"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:204
+msgid "Payment"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:228
+msgid "Reservation Summary"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:237
+msgid "Fare"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:241
+msgid "Charges"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:253
+msgid "Other"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:257
+msgid "Total"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:266
+msgid "Available"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:267
+msgid "Not available"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:268
+msgid "Booked"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:269
+msgid "Pay at bus"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:270
+msgid "Tentative"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/bus-seats.phtml:285
+msgid "There are errors in form. Please fix them."
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:33
+#, fuzzy
+msgid "Seats"
+msgstr "Seat No"
+
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:52 
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:72
+msgid "Cancel booking"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:58
+msgid "Cancel : Requested by client"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:59
+msgid "Cancel : Data entry error"
+msgstr ""
+
+#: ../../Admin/view/admin/ticketbox/partials/cancel-widget.phtml:60
+msgid "Cancel : Other (Please specify)"
+msgstr ""
+
+#: ../../Superline/view/superline/index/partial/search-form.phtml:7
+#, fuzzy
+msgid "Departure"
+msgstr "Journey Date"
+
+#: ../../Superline/view/superline/index/partial/search-form.phtml:26
+msgid "Arrival"
+msgstr ""
+
+#: ../../Superline/view/superline/index/partial/search-form.phtml:56
+msgid "Find My Bus"
+msgstr ""
+
+#: ../../Superline/view/superline/index/partial/home_body.phtml:6
+msgid "Welcome to Superline online services!"
+msgstr ""
+
+#: ../../Superline/view/superline/index/partial/home_body.phtml:7
+msgid ""
+"Your online portal to reserve super luxury passenger transport services, "
+"across Sri Lanka."
+msgstr ""
+
+#: ../../Superline/view/superline/index/partial/home_body.phtml:14
+msgid "Available Bus Routes"
+msgstr ""
+
+#: ../../Superline/view/layout/layout.phtml:62
+msgid "Superline.lk"
+msgstr ""
+
+#: ../../Superline/view/layout/layout.phtml:119
+msgid "Superline Travels Private Ltd. "
+msgstr ""

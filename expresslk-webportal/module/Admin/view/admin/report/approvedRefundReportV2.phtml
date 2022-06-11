@@ -1,0 +1,82 @@
+<div ng-controller="reportController">
+    <div class="row list-header">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1><span>Approved Refunds Updated </span></h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal"  ng-submit="loadApprovedRefundV2Report();" ng-init="currentRpt='approvedRefundV2'" >
+            <div class="filter input-string">
+                <div class="col-sm-4" ng-init="fromDt=false">
+                    <input uib-datepicker-popup="yyyy-MM"
+                           ng-click="fromDt=!fromDt" readonly="readonly"
+						   datepicker-options="{minMode: 'month'}" datepicker-mode="'month'"
+                           is-open="fromDt" show-button-bar="false" class="form-control"
+                           placeholder="Select Month" ng-model="form.from" name="date"
+                           required="required" type="text">
+                </div>
+                
+                <div class="col-sm-4">
+                    <button class="btn btn-primary"
+                            ng-class="{'btn-block loading-stripe': loading}" ng-disabled="loading" type="submit">
+                        <span ng-hide="loading"><?php echo $this->translate('Generate') ?></span>
+                        <span ng-show="loading"><?php echo $this->translate('Loading...') ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="gap gap-small" ></div>
+    <div id="collection-rpt-data" ng-hide="!collection.length">
+        <div class="row list-view" align="center">
+			<h1><span> 
+				Selected Month : {{ form.from | date:'yyyy-MM '}}
+			</span></h1>
+			<div class="col-lg-12">
+                <table ng-init="invoice.total ={}" id="rpt-data-table" class="grid table table-condensed table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th> Booking Reference</th>
+                        <th> Refund Date</th>
+						<th> Booking Date</th>
+                        <th> Bus No</th>
+                        <th> Route</th>
+                        <th> Number Seats</th>
+                        <th> Fare</th>
+                        <th  align="right"> Sltb BookingFee</th>
+                        <th  align="right"> Express BookingFee</th>
+                        <th  align="right"> Transaction Total</th>
+                        <th  align="right"> Applicable Refund</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+					<tr ng-repeat="row in collection" ng-init="invoice=''">
+                        <td>{{row.bookingReference}}</td>
+						<td>{{row.refundDate | date:'yyyy-MM-dd @ h:mma'}}</td>
+                        <td>{{row.bookingDate | date:'yyyy-MM-dd @ h:mma'}}</td>
+						<td>{{row.busNo}}</td>
+                        <td>{{row.route}}</td>
+                        <td align="center">{{row.numberSeats }}</td>
+                        <td align="right"> {{row.fare}}</td>
+                        <td align="right"> {{row.sltbBookingFee}}</td>
+                        <td align="right"> {{row.expressBookingFee}}</td>
+                        <td align="right"> {{row.transactionTotal}}</td>
+                        <td align="right"> {{row.applicableRefund}}</td>
+                    </tr>
+					<tr style="font-weight:bold">
+						<td colspan="5" align="right">Total </td>
+						<td align="center" >{{totalSeats }}</td>
+						<td align="right" >{{totalFare | number:2  }}</td>
+						<td align="right" >{{totalSltbFee | number:2  }}</td>
+						<td align="right" >{{totalExpressFee | number:2  }}</td>
+						<td align="right" >{{totalTransaction | number:2  }}</td>
+						<td align="right" >{{totalApplicableRefund | number:2  }}</td>
+					</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

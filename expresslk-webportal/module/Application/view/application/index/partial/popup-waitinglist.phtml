@@ -1,0 +1,99 @@
+<div class="modal-header">
+    <h3 class="modal-title">Waiting list for {{scheduleName}}</h3>
+</div>
+<form name="waitinglistForm" ng-submit="waitinglistForm.$valid && submit()" role="form" class="form-horizontal"
+      novalidate>
+    <div class="modal-body">
+        <div ng-if="response.success===true"
+           class="green-bg box text-white">
+            <b><?php echo $this->translate('We got your details.') ?></b><br/>
+            <?php echo $this->translate('We will contact you if there are cancellations or we can arrange transportation for you! Stay Tuned.') ?>
+        </div>
+        <p ng-if="response.error===true"
+           class="red-bg box text-white"><?php echo $this->translate('Your details were note saved. Please try again.') ?></p>
+
+        <div ng-if="response.success!==true">
+            <h5 class="well well-sm"><?php echo $this->translate('Subscribe to the bus waiting list. You will be informed if we can get you a seat.') ?></h5>
+            <div class="form-group">
+                <label for="inputPassword3"
+                       class="col-sm-4 control-label"><?php echo $this->translate('Name') ?></label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="name"
+                           ng-model="data.name" ng-class="{'input-error': waitinglistForm.name.$error.required }"
+                           ng-required="true" placeholder="<?php echo $this->translate('Your Name') ?>">
+                    <div ng-show="waitinglistForm.$submitted || waitinglistForm.name.$touched">
+                        <p class="bg-danger text-danger error"
+                           ng-show="waitinglistForm.name.$error.required"><?php echo $this->translate('Your name is required') ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3"
+                       class="col-sm-4 control-label"><?php echo $this->translate('Email') ?></label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email"
+                           ng-model="data.email" ng-class="{'input-error': waitinglistForm.email.$error.required }"
+                           ng-required="true" placeholder="email@email.com">
+                    <div ng-show="waitinglistForm.$submitted || waitinglistForm.email.$touched">
+                        <p class="bg-danger text-danger error"
+                           ng-show="waitinglistForm.email.$error.required"><?php echo $this->translate('Your email is required') ?></p>
+                        <p class="bg-danger text-danger error"
+                           ng-show="waitinglistForm.email.$error.email"><?php echo $this->translate('Your email is invalid') ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3"
+                       class="col-sm-4 control-label"><?php echo $this->translate('Phone number') ?></label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="phonenumber"
+                           ng-model="data.phonenumber"
+                           ng-class="{'input-error': waitinglistForm.phonenumber.$error.required }"
+                           ng-required="true" ng-pattern="/^07[0-9]{8}$/" placeholder="07XXXXXXXX">
+                    <div ng-show="waitinglistForm.$submitted || waitinglistForm.phonenumber.$touched">
+                        <p class="bg-danger text-danger error"
+                           ng-show="waitinglistForm.phonenumber.$error.required"><?php echo $this->translate('Your phone number is required') ?></p>
+                        <p class="bg-danger text-danger error"
+                           ng-show="waitinglistForm.phonenumber.$error.pattern"><?php echo $this->translate('Phone number should be a local mobile number. Ex: 07XXXXXXXX') ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3"
+                       class="col-sm-4 control-label"><?php echo $this->translate('NIC/Passport number') ?></label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="nic"
+                           ng-model="data.nic" ng-class="{'input-error': waitinglistForm.nic.$error.required }"
+                           ng-required="true" placeholder="<?php echo $this->translate('NIC or Passport number') ?>">
+                    <div ng-show="waitinglistForm.$submitted || waitinglistForm.nic.$touched">
+                        <p class="bg-danger text-danger error"
+                           ng-show="waitinglistForm.nic.$error.required"><?php echo $this->translate('Your NIC/Passport is required') ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3"
+                       class="col-sm-4 control-label"><?php echo $this->translate('No of seats') ?></label>
+                <div class="col-sm-8">
+                    <input type="number" value="1" class="form-control" name="seats"
+                           ng-model="data.seats" ng-class="{'input-error': waitinglistForm.seats.$error.required }"
+                           ng-required="true">
+                    <div ng-show="waitinglistForm.$submitted || waitinglistForm.seats.$touched">
+                        <p class="bg-danger text-danger error"
+                           ng-show="waitinglistForm.seats.$error.required"><?php echo $this->translate('Please add the number of seats you need') ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="response.loading" class="text-right">
+            <div class="preloader-balls"></div>
+        </div>
+        <div ng-if="!response.loading">
+            <button ng-if="response.success!==true" class="btn btn-primary" type="submit"><?php echo $this->translate('Subscribe') ?></button>
+            <button class="btn btn-default" type="button"
+                    ng-click="close()"><?php echo $this->translate('Close') ?></button>
+        </div>
+    </div>
+</form>

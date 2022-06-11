@@ -1,0 +1,44 @@
+
+<div ng-hide="currentScreen!='search' || !currentScreen">
+    <?php
+    echo $this->partial('application/index/partial/home-body');
+    ?>
+</div>
+
+<script type="text/ng-template" id="booking.html">
+
+</script>
+
+<script type="text/ng-template" id="success.html">
+     <?php echo $this->partial('application/index/partial/success'); ?>
+</script>
+
+<div ui-view ng-cloak class="ng-cloak container" ng-hide="currentScreen=='search'"></div>
+
+
+<script>
+    //    Pre load data
+    angular.module('expressFront')
+        .constant('INJECTED_CITY_LIST',
+        <?php echo json_encode($this->allCities) ?>
+    );
+
+    //preload translations
+    angular.module('expressFront')
+        .value('TRANSLATIONS',
+        {
+            'Credit/Debit Cards': '<?php echo $this->translate('Credit/Debit Cards') ?>',
+            'Dialog eZcash': '<?php echo $this->translate('Dialog eZcash') ?>',
+            'Mobitel mCash': '<?php echo $this->translate('Mobitel mCash') ?>',
+            'Etisalat eZcash': '<?php echo $this->translate('Etisalat eZcash') ?>',
+            'Hutch eZcash': '<?php echo $this->translate('Hutch eZcash') ?>',
+            'PayPal': '<?php echo $this->translate('PayPal') ?>',
+            'Unknown error occurred. Please refresh the web page.': '<?php echo $this->translate('Unknown error occurred. Please refresh the web page.') ?>',
+            'Error selecting payment option.': '<?php echo $this->translate('Error selecting payment option.') ?>',
+            'Unknown error occurred. Please try again.': '<?php echo $this->translate('Unknown error occurred. Please try again.') ?>',
+            'FromToMandatory': '<?php echo $this->translate('From/To and Date fields are mandatory. Please select according to where your journey headed.') ?>',
+            'NetworkError': '<?php echo $this->translate('Network error occurred. May be your connection is too slow. Please try again.') ?>',
+            'TooManySeatsSelected': '<?php echo $this->translate('Maximum of 8 seats can be booked in one reservation. You may complete this reservation with 8 seats and start another reservation for additional seats.') ?>',
+            'Please select at least one seat.': '<?php echo $this->translate('Please select at least one seat.') ?>'
+        });
+</script>

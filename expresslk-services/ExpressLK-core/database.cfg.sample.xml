@@ -1,0 +1,22 @@
+<!-- ======== DO NOT EDIT ========= -->
+<!-- This is only a sample file. Create a file named database.cfg.xml at 
+	the root directory, copy the below content and update the properties to correct 
+	values -->
+<!-- ======== DO NOT EDIT ========= -->
+
+
+
+
+<!-- Database connection settings -->
+
+<!-- 
+<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<property name="connection.url">jdbc:mysql://localhost:3306/expresslk_qa?useUnicode=true&amp;characterEncoding=UTF-8</property>
+<property name="connection.username">root</property>
+<property name="connection.password">root</property>
+
+<property name="hibernate.connection.CharSet">utf8</property>
+<property name="hibernate.connection.characterEncoding">utf8</property>
+<property name="hibernate.connection.useUnicode">true</property>
+
+ -->

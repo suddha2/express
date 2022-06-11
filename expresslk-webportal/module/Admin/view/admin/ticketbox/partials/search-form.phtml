@@ -1,0 +1,78 @@
+<div class="" ng-init="searchMainDatePick=false">
+    <div class="page-header">
+        <h1><?php echo $this->translate('Ticket Box') ?></h1>
+    </div>
+    <uib-accordion>
+        <uib-accordion-group panel-class="panel-primary" is-open="formTitleIsOpen">
+            <uib-accordion-heading>
+                {{!formTitleIsOpen? (searchFormData.start.name +' => '+ searchFormData.end.name
+                + ' - <?php echo $this->translate('On') ?> : ' + searchFormData.date) : '<?php echo $this->translate('Search for a schedule') ?>'}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': formTitleIsOpen, 'glyphicon-chevron-right': !formTitleIsOpen}"></i>
+            </uib-accordion-heading>
+
+            <form class="tb-form" ng-submit="submitSearch()" method="post">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="focusedInput" class="control-label"><?php echo $this->translate('From') ?>: </label>
+                            <ui-select ui-select-focus-input ng-change="submitSearch()" class="input-group full-width" ng-model="searchFormData.start" theme="bootstrap" ng-disabled="disabled">
+                                <ui-select-match placeholder="{{ departuresLoading ? '<?php echo $this->translate('Loading.. Please wait') ?>' : '<?php echo $this->translate('Select a City') ?>' }}">
+                                    {{$select.selected.name}}
+                                    <small ng-show="$select.selected.nameSi">{{$select.selected.nameSi}}</small>
+                                    <small ng-show="$select.selected.nameTa"> | {{$select.selected.nameTa}}</small>
+                                </ui-select-match>
+                                <ui-select-choices repeat="city in cityList | propsFilter: {name: $select.search, code: $select.search} | limitTo: 10">
+                                    <div class="" ng-bind-html="city.name | highlight: $select.search"></div>
+                                    <small ng-show="city.nameSi">{{city.nameSi}}</small>
+                                    <small ng-show="city.nameTa"> | {{city.nameTa}}</small>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="focusedInput" class="control-label"><?php echo $this->translate('To') ?>: </label>
+                            <ui-select ui-select-focus-input ng-change="submitSearch()" class="input-group full-width" ng-model="searchFormData.end" theme="bootstrap" ng-disabled="disabled">
+                                <ui-select-match placeholder="{{destinationPlaceHolder=='loading' ? '<?php echo $this->translate('Loading...') ?>' : (destinationPlaceHolder=='empty' ? '<?php echo $this->translate('No available destinations') ?>' : '<?php echo $this->translate('Select a Destination') ?>')}}">
+                                    {{$select.selected.name}}
+                                    <small ng-show="$select.selected.nameSi">{{$select.selected.nameSi}}</small>
+                                    <small ng-show="$select.selected.nameTa"> | {{$select.selected.nameTa}}</small>
+                                </ui-select-match>
+                                <ui-select-choices repeat="city in destinations | propsFilter: {name: $select.search, code: $select.search} | limitTo: 10">
+                                    <div class="" ng-bind-html="city.name | highlight: $select.search"></div>
+                                    <small ng-show="city.nameSi">{{city.nameSi}}</small>
+                                    <small ng-show="city.nameTa"> | {{city.nameTa}}</small>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group tb-search-date">
+                            <label for="focusedInput" class="control-label"><?php echo $this->translate('Date') ?>: </label>
+                            <p class="input-group full-width">
+                                <span ng-click="openCal()" class="form-control">
+                                    {{searchFormData.date | date:'yyyy-MM-dd'}}
+                                </span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" ng-click="openCal()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </uib-accordion-group>
+    </uib-accordion>
+
+    <div class="datepicker-curton" ng-show="opened" ng-click="openCal()">
+        <div class="datepicker-popups" ng-click="$event.stopPropagation();">
+            <h2 class="text-center" ng-click="openCal()"><?php echo $this->translate('Select a Date') ?></h2>
+            <uib-datepicker
+                ng-model="searchFormData.date"
+                min-date="minDate"
+                max-date="maxDate"
+                ng-change="openCal();submitSearch();"
+                show-weeks="true" class="well well-sm"></uib-datepicker>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,9 @@
+
+<ul>
+    <?php
+    foreach ($this->cityList as $city) {
+        echo '<li><a href="'. $city['link'] .'">Buses From '. $city['from'] .' To '. $city['to'] .'</a> </li>';
+    }
+
+    ?>
+</ul>

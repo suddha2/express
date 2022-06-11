@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1><?php echo $this->translate('Profile') ?>
+                <small><?php echo $this->translate('Admin\'s personal space') ?></small>
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 text-center">
+        <span class="fa-stack fa-5x">
+          <i class="fa fa-circle-o fa-stack-2x grey-text"></i>
+          <i class="fa fa-stack-1x fa-user pink-text"></i>
+        </span>
+        <div class=""><?php echo $this->identity()->username ?></div>
+    </div>
+    <div class="col-md-9">
+        <div class="list-group">
+            <a class="list-group-item" ui-sref="me-collection"><?php echo $this->translate('Booking collection') ?></a>
+        </div>
+    </div>
+</div>

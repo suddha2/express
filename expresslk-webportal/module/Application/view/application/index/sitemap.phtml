@@ -1,0 +1,45 @@
+<?php
+if($this->type == 'sitemap'){
+    //show the sitemap index file
+?><?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc><?php echo $this->serverUrl()?>/sitemap_main.xml</loc>
+    </sitemap>
+    <?php
+    foreach ($this->citySiteMpas as $cityMap) {
+        echo '<sitemap>
+                <loc>'. $this->serverUrl() .'/'. $cityMap .'.xml</loc>
+            </sitemap>';
+    }
+
+    ?>
+
+    <sitemap>
+        <loc><?php echo $this->serverUrl()?>/blog/sitemap_index.xml</loc>
+    </sitemap>
+</sitemapindex>
+<?php
+}elseif($this->type == 'sitemap_main'){
+    //show main sitemap
+    $this->navigation('navigation')
+        ->sitemap()
+        ->setFormatOutput(true);
+
+    // print sitemap
+    echo $this->navigation()->sitemap();
+}elseif(in_array($this->type, $this->citySiteMpas)){
+    ?><?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <?php
+
+    foreach ($this->citylist as $cities) {
+        echo '<url>
+                    <loc>'. $this->serverUrl() . $cities['link'] .'</loc>
+                </url>';
+    }
+
+    ?>
+</urlset>
+<?php
+}

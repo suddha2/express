@@ -1,0 +1,100 @@
+<h5 class="header-text bold-text">Add User</h5>
+<?php
+$form = $this->form;
+$form->setAttribute('action', '');
+$form->prepare();
+
+echo $this->form()->openTag($form);
+foreach ($form as $element)
+{
+    /**
+     * @var $element \Zend\Form\Element
+     */
+
+    if ($element->getAttribute('type') == 'hidden')
+    {
+        echo $this->formHidden($element);
+    }
+    elseif ($element->getAttribute('type') == 'submit')
+    {
+        echo $this->formSubmit($element);
+    }
+    elseif ($element->getAttribute('type') == 'fieldset')
+    {
+        echo $this->formCollection($element);
+    }
+    else
+    {
+        //set custom class
+        $customClass = $element->getAttribute('type') == 'radio' ? 'radio' :
+            $element->getAttribute('type') == 'checkbox' ? 'checkbox' : '';
+
+        echo '<div class="form-group">';
+        echo '<div class="' . $customClass . '">';
+        echo $this->formRow($element);
+        echo '</div>';
+        echo '</div>';
+    }
+}
+
+echo $this->form()->closeTag();
+?>
+
+<!--<form ng-submit="save()">-->
+<!--    <h5 class="header-text bold-text">Add User</h5>-->
+<!--    <fieldset>-->
+<!--        <table>-->
+<!--            <tr>-->
+<!--                <td><label>First Name: </label></td>-->
+<!--                <td style="padding-right:10px;"><input ng-model="form.first_name" ng-required="true" type="text"/></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><label>Last Name: </label></td>-->
+<!--                <td style="padding-right:10px;"><input ng-model="form.last_name" ng-required="true" type="text"/></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><label>Email: </label></td>-->
+<!--                <td style="padding-right:10px;"><input ng-model="form.email" ng-required="true" type="text"/></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><label>Password: </label></td>-->
+<!--                <td style="padding-right:10px;"><input ng-model="form.password" ng-required="true" type="password"/></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><label>Mobile Number: </label></td>-->
+<!--                <td style="padding-right:10px;"><input ng-model="form.mobile_number" ng-required="true" type="text"/></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><label>User Type: </label></td>-->
+<!--                <td style="padding-right:10px;">-->
+<!--                    <select ng-model="form.user_type" ng-required="true">-->
+<!--                        <option value="" selected>-- select --</option>-->
+<!--                        --><?php
+//
+//                        ?>
+<!--                    </select>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><label>Date of birth: </label></td>-->
+<!--                <td style="padding-right:10px;">-->
+<!--                    <p class="input-group">-->
+<!--                        <input type="text" class="form-control" ng-click="open($event)" datepicker-popup="yyyy-MM-dd" ng-model="form.date_of_birth" is-open="opened" ng-required="true" close-text="Close" />-->
+<!--                            <span class="input-group-btn">-->
+<!--                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+<!--                            </span>-->
+<!--                    </p>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><label>Gender: </label></td>-->
+<!--                <td style="padding-right:10px;"><input ng-model="form.gender" ng-required="true" type="text"/></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td></td>-->
+<!--                <td><button class="btn btn-primary-custom">Save</button> </td>-->
+<!--            </tr>-->
+<!---->
+<!--        </table>-->
+<!--    </fieldset>-->
+<!--</form>-->

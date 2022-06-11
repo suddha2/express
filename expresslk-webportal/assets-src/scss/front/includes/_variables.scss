@@ -1,0 +1,91 @@
+/*==========================
+COLORS
+==========================*/
+$c-black		: #000000 !default;
+$c-white		: #FFFFFF !default;
+$c-grey-dark	: #2b2b2b !default;
+$c-grey			: #C0C0C0 !default;
+$c-grey-mid		: #F8F8F7 !default;
+$c-grey-light	: #FCFCFC !default;
+$c-green        : #669900 !default;
+$c-green-dark   : #577457 !default;
+$c-blue         : #3f51b5 !default;
+$c-red          : #FF0000 !default;
+$c-red-light    : #D80000 !default;
+$c-purple       : #ef9a9a !default;
+$c-yellow       : #f0ad4e !default;
+$c-body         : #737373 !default;
+
+$c-primary      : $c-red !default;
+$c-primary-light: $c-red-light !default;
+$c-secondary    : $c-purple !default;
+
+/*==========================
+FONTS
+==========================*/
+$font-base      : 'Open Sans', Tahoma, Arial, helvetica, sans-serif !default;
+$font-highlight : 'Roboto', arial, helvetica, sans-serif !default;
+$font-helvetica : "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+$f-base-sm	: 16px;
+$f-base-md	: 14px;
+$f-base-lg	: 12px;
+
+/*==========================
+DIMENSIONS
+==========================*/
+$d-max-width    : 55rem;
+$d-line-height  : 1.4em;
+$d-gap          : 1rem;
+
+/*==========================
+MEDIA QUERIES
+==========================*/
+$bp-mobile      : 'only screen and (min-width: 480px)'; //xs
+$bp-mobile-max  : 'only screen and (max-width: 479px)';
+$bp-tablet      : 'only screen and (min-width: 768px)'; //sm
+$bp-tablet-max  : 'only screen and (max-width: 767px)';
+$bp-desktop     : 'only screen and (min-width: 992px)'; //md
+$bp-desktop-max : 'only screen and (max-width: 991px)'; //md
+$bp-large       : 'only screen and (min-width: 1200px)'; //lg
+
+/*==========================
+SIZES
+==========================*/
+$menu-width : 18em;
+
+/*==========================
+UTILITY FUNCTIONS
+==========================*/
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $color;
+        -moz-box-shadow:inset $top $left $blur $color;
+        box-shadow:inset $top $left $blur $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin rounded($radius: 0.5em) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin gradient($from, $to) {
+    background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background: -moz-linear-gradient(top,  $from, $to);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}

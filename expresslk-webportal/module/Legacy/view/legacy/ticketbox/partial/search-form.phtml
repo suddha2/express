@@ -1,0 +1,92 @@
+<?php
+$isProviderRegistered = $this->provider? $this->provider->getPhoneNumber():false;
+?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1><?php echo $this->translate('Ticket Box') ?>
+                        <?php
+                        if($isProviderRegistered!==false) {
+                            echo '<small class="black-text">#: '. $isProviderRegistered .'</small>';
+                        }
+                        ?>
+                    </h1>
+                </div>
+                <div class="panel-body">
+                    <?php
+                    if($isProviderRegistered!==false) {
+                        ?>
+                        <form id="tb-search-scehdule" class="tb-form" method="get">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="focusedInput"
+                                               class="control-label"><?php echo $this->translate('From') ?>: </label>
+                                        <select class="form-control city-dropdown" name="from">
+                                            <?php
+                                            foreach ($this->allCities as $city) {
+                                                $selected = $city->id == $this->searchForm['from'] ? 'selected="selected"' : '';
+                                                echo '<option ' . $selected . ' value="' . $city->id . '">' . $city->name . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="focusedInput"
+                                               class="control-label"><?php echo $this->translate('To') ?>: </label>
+                                        <select class="form-control city-dropdown" name="to">
+                                            <?php
+                                            foreach ($this->allCities as $city) {
+                                                $selected = $city->id == $this->searchForm['to'] ? 'selected="selected"' : '';
+                                                echo '<option ' . $selected . ' value="' . $city->id . '">' . $city->name . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="form-group tb-search-date">
+                                        <label for="focusedInput"
+                                               class="control-label"><?php echo $this->translate('Date') ?>: </label>
+                                        <p class="input-group full-width">
+                                            <input type="text" name="date" class="form-control attach-dp"
+                                                   value="<?php echo $this->searchForm['date'] ?>" readonly="readonly">
+                                            <span class="input-group-btn">
+                                    <button id="trigger-search-dp" type="button" class="btn btn-default"><i
+                                            class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="form-group text-center">
+                                        <label class="control-label">&nbsp;</label>
+                                        <div class="">
+                                            <button id="btn-search-schedules" type="submit" name="submit"
+                                                    class="btn btn-primary">Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <?php
+                    }else {
+                        ?>
+                        <div class="alert alert-danger">Your session timed out or there's no phone number registered to continue booking.
+                            Please close the browser.</div>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

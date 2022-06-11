@@ -1,0 +1,89 @@
+<script type="text/javascript">
+    window.SearchConfig = {
+        sessionId: <?php echo json_encode($this->sessionId) ?>
+    };
+</script>
+
+<?php
+if(!empty($this->errors)){
+    ?>
+    <div class="gap gap-small"></div>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <strong>Error!</strong>
+        <ul>
+        <?php
+        foreach ($this->errors as $error){
+            echo "<li>$error</li>";
+        }
+        ?>
+        </ul>
+    </div>
+<?php
+}
+?>
+
+<?php echo $this->partial('partial/search-form.phtml', array(
+    'allCities' => $this->allCities,
+    'searchForm' => $this->searchForm,
+    'provider'=> $this->provider
+)); ?>
+
+<?php
+if(isset($this->results)){
+    echo $this->partial('partial/search-result.phtml', array(
+        'results' => $this->results
+    ));
+}
+
+?>
+<div class="gap"></div>
+<div id="seatLayoutPlaceholder"></div>
+
+<script type="html/template" id="seatLayout">
+    <?php
+    echo $this->partial('partial/seat-layout.phtml', array('provider'=> $this->provider));
+    ?>
+</script>
+
+<script type="html/template" id="seatLayout-passengerRow">
+    <tr id="slPassengerRow-{{seatNumber}}">
+        <td>
+            <div class="btn-group">
+                <label class="btn btn-default">
+                    {{seatNumber}}
+                </label>
+                <input type="hidden" name="passenger[{{seatNumber}}][seatNo]" value="{{seatNumber}}">
+            </div>
+        </td>
+        <td>
+            <input placeholder="123456789V" type="text" name="passenger[{{seatNumber}}][nic]" size="10" class="form-control">
+        </td>
+        <td>
+            <input placeholder="<?php echo $this->translate('FirstName LastName') ?>"
+                   type="text" name="passenger[{{seatNumber}}][name]" class="form-control" >
+        </td>
+        <td>
+            <input placeholder="07XXXXXXXX" type="text" name="passenger[{{seatNumber}}][mobileNo]"
+                   class="form-control" size="10">
+        </td>
+        <td>
+            <div class="btn-group mb10">
+                <label class="btn btn-default">
+                    <i class="fa fa-male blue-text"></i>
+                    <input type="radio" name="passenger[{{seatNumber}}][gender]" value="Male"> <?php echo $this->translate('M') ?>
+                </label>
+                <label class="btn btn-default">
+                    <i class="fa fa-female pink-text"></i>
+                    <input type="radio" name="passenger[{{seatNumber}}][gender]" value="Female"><?php echo $this->translate('F') ?>
+                </label>
+            </div>
+        </td>
+    </tr>
+</script>
+
+<div id="booking-success-curtain" style="display: none;">
+    <div class="curtain-message">
+        <h4><i class="glyphicon glyphicon-ok-circle"></i> Booking saved succesfully.  </h4>
+        <span>Close the browser</span>
+    </div>
+</div>

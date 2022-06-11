@@ -1,0 +1,125 @@
+<?php
+$public = getcwd() . '/public';
+$ticketBg = $public . '/img/template/expressLK_eTicket_web.gif';
+
+//change template if superline
+switch (\Application\Domain::getDomain()){
+    case \Application\Domain::NAME_SUPERLINE:
+        $ticketBg = $public . '/img/domains/superline.lk/expressLK_eTicket_superline.gif';
+        break;
+	case \Application\Domain::NAME_SLTB:
+        $ticketBg = $public . '/img/domains/sltb.lk/expressLK_eTicket_sltb.gif';
+        break;
+    case \Application\Domain::NAME_SURREXI:
+        $ticketBg = $public . '/img/domains/surrexi.lk/expressLK_eTicket_surrexi.gif';
+        break;
+}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title><?php echo $this->translate('Express Ticket') ?></title>
+
+    <style type="text/css">
+        /*////// RESET STYLES //////*/
+        body, #bodyTable, #bodyCell {
+            font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            color: #333333;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        img, a img {
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        .container{
+            /*margin: 0 auto;*/
+            width: 700px;
+            float: left;
+            position: relative;
+        }
+        .bg{
+            position: absolute; top: 0; left: 0; width: 100%;
+        }
+        .data{
+            position:absolute;
+            top: 72px;
+            left: 50px;
+            z-index: 10;
+            font-size: 10px;
+        }
+        .data td{
+            padding: 6px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body style="">
+    <div class="container">
+        <img class="bg" src="<?php echo $ticketBg ?>" alt=""/>
+
+        <table class="data" align="center" id="ticketinfo" style="" width="100%">
+            <tr>
+                <td width="70">&nbsp;</td>
+                <td width="20"></td>
+                <td width="10">&nbsp;</td>
+                <td width="50"></td>
+                <td width="50">&nbsp;</td>
+                <td><h4><?php echo $this->beThereAt ?></h4><span>&nbsp;</span></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->busNumber ?></h4><span><?php echo $this->travels ?></span></td>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->departCity ?></h4></td>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->boardingLocation ?></h4></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->seatNumber ?></h4><span><?php echo $this->seatType ?></span></td>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->departureTime ?></h4></td>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->bookingNo ?></h4><span>&nbsp;</span></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->date ?></h4></td>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->arrivalCity ?></h4></td>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->sequenceNo ?></h4><span><?php echo $this->busType ?></span></td>
+            </tr>
+			<tr>
+                <td>&nbsp;</td>
+                <td><h4>Verfication Code</h4></td>
+                <td>&nbsp;</td>
+                <td><h4><?php echo $this->vCode ?></h4></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

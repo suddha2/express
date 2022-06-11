@@ -1,0 +1,20 @@
+<?php
+
+
+namespace App\Ticketing\Model;
+
+
+class Message {
+
+    const ERROR_WHILE_PROCESSING    = 'ERROR_WHILE_PROCESSING';
+    const ERROR_SENDING_EMAIL_FAILED = 'ERROR_SENDING_EMAIL_FAILED';
+    const ERROR_USER_NOACCOUNT      = 'ERROR_NOACCOUNT';
+    const ERROR_SESSION_TIMEOUT     = 'ERROR_LOGGEDOUT'; //user session logged out
+
+    const ERROR_SIGNUP_ACCOUNT_EXISTS = 'ERROR_SIGNUP_ACCOUNT_EXISTS';
+    const ERROR_RESET_NO_ACCOUNT = 'ERROR_RESET_NO_ACCOUNT';
+
+    //change password
+    const ERROR_CHANGEPWD_FAILED = 'ERROR_CHANGEPWD_FAILED';
+    
+}

@@ -1,0 +1,822 @@
+.main-logo{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: url("/img/BusBooking-logo-svg.svg");
+    background-size: contain;
+}
+
+.check-icon{
+    font-size: 43px;
+    color: $c-grey;
+    text-align: center;
+    cursor: pointer;
+    .fa{
+        line-height: 38px;
+    }
+    .fa-check-square-o{
+        display: none;
+    }
+    .fa-square-o{
+        display: inline-block;
+        &:hover{
+            color: $c-grey;
+        }
+    }
+    &.active{
+        color: $c-green;
+        .fa-check-square-o{
+            display: inline-block;
+        }
+        .fa-square-o{
+            display: none;
+        }
+    }
+}
+
+.icon-list {
+    list-style: none;
+    padding: 0;
+}
+.icon-list .fa {
+    margin-right: 7px;
+}
+.icon-list-inline {
+    margin-bottom: 0;
+}
+.icon-list-inline > li {
+    display: inline-block;
+    margin-right: 3px;
+}
+.icon-list-inline > li:last-child {
+    margin-right: 0;
+}
+.icon-list-inline .fa {
+    margin-right: 0;
+}
+.icon-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.icon-group > li {
+    float: left;
+    margin-right: 5px;
+}
+.icon-group > li:last-child {
+    margin-right: 0;
+}
+.box-icon,
+[class^="box-icon-"],
+[class*=" box-icon-"] {
+    z-index: 2;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    background: $c-primary;
+    color: #fff;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+}
+.box-icon:hover,
+[class^="box-icon-"]:hover,
+[class*=" box-icon-"]:hover {
+    background: $c-primary-light;
+    color: #fff;
+}
+.box-icon:before,
+[class^="box-icon-"]:before,
+[class*=" box-icon-"]:before {
+    display: inline-block;
+}
+.box-icon-inline {
+    display: inline-block;
+}
+.box-icon-md {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 21px;
+}
+.box-icon-big {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 28px;
+}
+.box-icon-large {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 42px;
+}
+.box-icon-huge {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 56px;
+}
+.box-icon-black {
+    background: #333;
+}
+.box-icon-black:hover {
+    background: #000;
+}
+.box-icon-gray {
+    background: #808080;
+}
+.box-icon-gray:hover {
+    background: $c-grey-dark;
+}
+.box-icon-white {
+    background: #fff;
+    color: $c-primary;
+}
+.box-icon-white:hover {
+    color: $c-primary;
+    background: #e6e6e6;
+}
+.box-icon-info {
+    background: #2f96b4;
+}
+.box-icon-info:hover {
+    background: #267890;
+}
+.box-icon-success {
+    background: #51a351;
+}
+.box-icon-success:hover {
+    background: #418241;
+}
+.box-icon-warning {
+    background: #f89406;
+}
+.box-icon-warning:hover {
+    background: #c67605;
+}
+.box-icon-danger {
+    background: #bd362f;
+}
+.box-icon-danger:hover {
+    background: #972b26;
+}
+.box-icon-inverse {
+    background: #127cdc;
+}
+.box-icon-inverse:hover {
+    background: #0e63b0;
+}
+.box-icon-to-normal:hover {
+    background: $c-primary;
+}
+.box-icon-to-black:hover {
+    background: #333;
+}
+.box-icon-to-gray:hover {
+    background: #808080;
+}
+.box-icon-to-white:hover {
+    background: #fff;
+    color: $c-primary;
+}
+.box-icon-to-info:hover {
+    background: #2f96b4;
+}
+.box-icon-to-success:hover {
+    background: #51a351;
+}
+.box-icon-to-warning:hover {
+    background: #f89406;
+}
+.box-icon-to-danger:hover {
+    background: #bd362f;
+}
+.box-icon-to-inverse:hover {
+    background: #127cdc;
+}
+.box-icon-border,
+[class^="box-icon-border"],
+[class*=" box-icon-border"] {
+    background: none;
+    border: 1px solid $c-primary;
+    color: $c-primary;
+}
+.box-icon-border:hover,
+[class^="box-icon-border"]:hover,
+[class*=" box-icon-border"]:hover {
+    background: $c-primary;
+    color: #fff !important;
+}
+.box-icon-border.box-icon-black,
+[class^="box-icon-border"].box-icon-black,
+[class*=" box-icon-border"].box-icon-black,
+.box-icon-border.box-icon-to-black:hover,
+[class^="box-icon-border"].box-icon-to-black:hover,
+[class*=" box-icon-border"].box-icon-to-black:hover {
+    border-color: #333;
+    color: #333;
+}
+.box-icon-border.box-icon-black:hover,
+[class^="box-icon-border"].box-icon-black:hover,
+[class*=" box-icon-border"].box-icon-black:hover,
+.box-icon-border.box-icon-to-black:hover:hover,
+[class^="box-icon-border"].box-icon-to-black:hover:hover,
+[class*=" box-icon-border"].box-icon-to-black:hover:hover {
+    background: #333;
+}
+.box-icon-border.box-icon-gray,
+[class^="box-icon-border"].box-icon-gray,
+[class*=" box-icon-border"].box-icon-gray,
+.box-icon-border.box-icon-to-gray:hover,
+[class^="box-icon-border"].box-icon-to-gray:hover,
+[class*=" box-icon-border"].box-icon-to-gray:hover {
+    border-color: #808080;
+    color: #808080;
+}
+.box-icon-border.box-icon-gray:hover,
+[class^="box-icon-border"].box-icon-gray:hover,
+[class*=" box-icon-border"].box-icon-gray:hover,
+.box-icon-border.box-icon-to-gray:hover:hover,
+[class^="box-icon-border"].box-icon-to-gray:hover:hover,
+[class*=" box-icon-border"].box-icon-to-gray:hover:hover {
+    background: #808080;
+}
+.box-icon-border.box-icon-white,
+[class^="box-icon-border"].box-icon-white,
+[class*=" box-icon-border"].box-icon-white,
+.box-icon-border.box-icon-to-white:hover,
+[class^="box-icon-border"].box-icon-to-white:hover,
+[class*=" box-icon-border"].box-icon-to-white:hover {
+    border-color: #fff;
+    color: #fff;
+}
+.box-icon-border.box-icon-white:hover,
+[class^="box-icon-border"].box-icon-white:hover,
+[class*=" box-icon-border"].box-icon-white:hover,
+.box-icon-border.box-icon-to-white:hover:hover,
+[class^="box-icon-border"].box-icon-to-white:hover:hover,
+[class*=" box-icon-border"].box-icon-to-white:hover:hover {
+    color: $c-primary !important;
+    background: #fff;
+}
+.box-icon-border.box-icon-info,
+[class^="box-icon-border"].box-icon-info,
+[class*=" box-icon-border"].box-icon-info,
+.box-icon-border.box-icon-to-info:hover,
+[class^="box-icon-border"].box-icon-to-info:hover,
+[class*=" box-icon-border"].box-icon-to-info:hover {
+    border-color: #2f96b4;
+    color: #2f96b4;
+}
+.box-icon-border.box-icon-info:hover,
+[class^="box-icon-border"].box-icon-info:hover,
+[class*=" box-icon-border"].box-icon-info:hover,
+.box-icon-border.box-icon-to-info:hover:hover,
+[class^="box-icon-border"].box-icon-to-info:hover:hover,
+[class*=" box-icon-border"].box-icon-to-info:hover:hover {
+    background: #2f96b4;
+}
+.box-icon-border.box-icon-success,
+[class^="box-icon-border"].box-icon-success,
+[class*=" box-icon-border"].box-icon-success,
+.box-icon-border.box-icon-to-success:hover,
+[class^="box-icon-border"].box-icon-to-success:hover,
+[class*=" box-icon-border"].box-icon-to-success:hover {
+    border-color: #51a351;
+    color: #51a351;
+}
+.box-icon-border.box-icon-success:hover,
+[class^="box-icon-border"].box-icon-success:hover,
+[class*=" box-icon-border"].box-icon-success:hover,
+.box-icon-border.box-icon-to-success:hover:hover,
+[class^="box-icon-border"].box-icon-to-success:hover:hover,
+[class*=" box-icon-border"].box-icon-to-success:hover:hover {
+    background: #51a351;
+}
+.box-icon-border.box-icon-warning,
+[class^="box-icon-border"].box-icon-warning,
+[class*=" box-icon-border"].box-icon-warning,
+.box-icon-border.box-icon-to-warning:hover,
+[class^="box-icon-border"].box-icon-to-warning:hover,
+[class*=" box-icon-border"].box-icon-to-warning:hover {
+    border-color: #f89406;
+    color: #f89406;
+}
+.box-icon-border.box-icon-warning:hover,
+[class^="box-icon-border"].box-icon-warning:hover,
+[class*=" box-icon-border"].box-icon-warning:hover,
+.box-icon-border.box-icon-to-warning:hover:hover,
+[class^="box-icon-border"].box-icon-to-warning:hover:hover,
+[class*=" box-icon-border"].box-icon-to-warning:hover:hover {
+    background: #f89406;
+}
+.box-icon-border.box-icon-danger,
+[class^="box-icon-border"].box-icon-danger,
+[class*=" box-icon-border"].box-icon-danger,
+.box-icon-border.box-icon-to-danger:hover,
+[class^="box-icon-border"].box-icon-to-danger:hover,
+[class*=" box-icon-border"].box-icon-to-danger:hover {
+    border-color: #bd362f;
+    color: #bd362f;
+}
+.box-icon-border.box-icon-danger:hover,
+[class^="box-icon-border"].box-icon-danger:hover,
+[class*=" box-icon-border"].box-icon-danger:hover,
+.box-icon-border.box-icon-to-danger:hover:hover,
+[class^="box-icon-border"].box-icon-to-danger:hover:hover,
+[class*=" box-icon-border"].box-icon-to-danger:hover:hover {
+    background: #bd362f;
+}
+.box-icon-border.box-icon-inverse,
+[class^="box-icon-border"].box-icon-inverse,
+[class*=" box-icon-border"].box-icon-inverse,
+.box-icon-border.box-icon-to-inverse:hover,
+[class^="box-icon-border"].box-icon-to-inverse:hover,
+[class*=" box-icon-border"].box-icon-to-inverse:hover {
+    border-color: #127cdc;
+    color: #127cdc;
+}
+.box-icon-border.box-icon-inverse:hover,
+[class^="box-icon-border"].box-icon-inverse:hover,
+[class*=" box-icon-border"].box-icon-inverse:hover,
+.box-icon-border.box-icon-to-inverse:hover:hover,
+[class^="box-icon-border"].box-icon-to-inverse:hover:hover,
+[class*=" box-icon-border"].box-icon-to-inverse:hover:hover {
+    background: #127cdc;
+}
+.box-icon-border.box-icon-to-normal:hover,
+[class^="box-icon-border"].box-icon-to-normal:hover,
+[class*=" box-icon-border"].box-icon-to-normal:hover {
+    border-color: $c-primary;
+    background: $c-primary;
+}
+.box-icon-border-dashed {
+    border-style: dashed;
+}
+.box-icon-left {
+    float: left;
+    margin-right: 15px;
+}
+.box-icon-right {
+    float: right;
+    margin-left: 15px;
+}
+.box-icon-center {
+    margin: 0 auto;
+}
+.animate-icon,
+[class^="animate-icon"],
+[class*=" animate-icon"] {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.animate-icon:before,
+[class^="animate-icon"]:before,
+[class*=" animate-icon"]:before {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.animate-icon:hover:before,
+[class^="animate-icon"]:hover:before,
+[class*=" animate-icon"]:hover:before {
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    animation-duration: 1s;
+}
+.animate-icon:after,
+[class^="animate-icon"]:after,
+[class*=" animate-icon"]:after {
+    z-index: -1;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+    width: 100%;
+    height: 100%;
+    content: '';
+    left: 0;
+    top: 0;
+}
+.animate-icon:hover:after,
+[class^="animate-icon"]:hover:after,
+[class*=" animate-icon"]:hover:after {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+}
+.animate-icon-flash:hover:before {
+    -webkit-animation-name: flash;
+    -moz-animation-name: flash;
+    -o-animation-name: flash;
+    -ms-animation-name: flash;
+    animation-name: flash;
+}
+.animate-icon-shake:hover:before {
+    -webkit-animation-name: shake;
+    -moz-animation-name: shake;
+    -o-animation-name: shake;
+    -ms-animation-name: shake;
+    animation-name: shake;
+}
+.animate-icon-bounce:hover:before {
+    -webkit-animation-name: bounce;
+    -moz-animation-name: bounce;
+    -o-animation-name: bounce;
+    -ms-animation-name: bounce;
+    animation-name: bounce;
+}
+.animate-icon-tada:hover:before {
+    -webkit-animation-name: tada;
+    -moz-animation-name: tada;
+    -o-animation-name: tada;
+    -ms-animation-name: tada;
+    animation-name: tada;
+}
+.animate-icon-swing:hover:before {
+    -webkit-animation-name: swing;
+    -moz-animation-name: swing;
+    -o-animation-name: swing;
+    -ms-animation-name: swing;
+    animation-name: swing;
+}
+.animate-icon-wobble:hover:before {
+    -webkit-animation-name: wobble;
+    -moz-animation-name: wobble;
+    -o-animation-name: wobble;
+    -ms-animation-name: wobble;
+    animation-name: wobble;
+}
+.animate-icon-pulse:hover:before {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -o-animation-name: pulse;
+    -ms-animation-name: pulse;
+    animation-name: pulse;
+}
+.animate-icon-left-to-right,
+.animate-icon-right-to-left,
+.animate-icon-bottom-to-top,
+.animate-icon-top-to-bottom {
+    overflow: hidden;
+}
+.animate-icon-left-to-right:hover:before {
+    -webkit-animation: left-to-right 0.3s forwards;
+    -moz-animation: left-to-right 0.3s forwards;
+    -o-animation: left-to-right 0.3s forwards;
+    -ms-animation: left-to-right 0.3s forwards;
+    animation: left-to-right 0.3s forwards;
+}
+.animate-icon-right-to-left:hover:before {
+    -webkit-animation: right-to-left 0.3s forwards;
+    -moz-animation: right-to-left 0.3s forwards;
+    -o-animation: right-to-left 0.3s forwards;
+    -ms-animation: right-to-left 0.3s forwards;
+    animation: right-to-left 0.3s forwards;
+}
+.animate-icon-bottom-to-top:hover:before {
+    -webkit-animation: bottom-to-top 0.3s forwards;
+    -moz-animation: bottom-to-top 0.3s forwards;
+    -o-animation: bottom-to-top 0.3s forwards;
+    -ms-animation: bottom-to-top 0.3s forwards;
+    animation: bottom-to-top 0.3s forwards;
+}
+.animate-icon-top-to-bottom:hover:before {
+    -webkit-animation: top-to-bottom 0.3s forwards;
+    -moz-animation: top-to-bottom 0.3s forwards;
+    -o-animation: top-to-bottom 0.3s forwards;
+    -ms-animation: top-to-bottom 0.3s forwards;
+    animation: top-to-bottom 0.3s forwards;
+}
+.animate-icon-border-rise:after,
+.animate-icon-border-rise-alt:after {
+    -webkit-box-shadow: 0 0 0 2px $c-primary;
+    box-shadow: 0 0 0 2px $c-primary;
+}
+.animate-icon-border-rise.box-icon-black:after,
+.animate-icon-border-rise-alt.box-icon-black:after,
+.animate-icon-border-rise.box-icon-to-black:hover:after,
+.animate-icon-border-rise-alt.box-icon-to-black:hover:after {
+    -webkit-box-shadow: 0 0 0 2px #333;
+    box-shadow: 0 0 0 2px #333;
+}
+.animate-icon-border-rise.box-icon-gray:after,
+.animate-icon-border-rise-alt.box-icon-gray:after,
+.animate-icon-border-rise.box-icon-to-gray:hover:after,
+.animate-icon-border-rise-alt.box-icon-to-gray:hover:after {
+    -webkit-box-shadow: 0 0 0 2px #808080;
+    box-shadow: 0 0 0 2px #808080;
+}
+.animate-icon-border-rise.box-icon-info:after,
+.animate-icon-border-rise-alt.box-icon-info:after,
+.animate-icon-border-rise.box-icon-to-info:hover:after,
+.animate-icon-border-rise-alt.box-icon-to-info:hover:after {
+    -webkit-box-shadow: 0 0 0 2px #2f96b4;
+    box-shadow: 0 0 0 2px #2f96b4;
+}
+.animate-icon-border-rise.box-icon-success:after,
+.animate-icon-border-rise-alt.box-icon-success:after,
+.animate-icon-border-rise.box-icon-to-success:hover:after,
+.animate-icon-border-rise-alt.box-icon-to-success:hover:after {
+    -webkit-box-shadow: 0 0 0 2px #51a351;
+    box-shadow: 0 0 0 2px #51a351;
+}
+.animate-icon-border-rise.box-icon-warning:after,
+.animate-icon-border-rise-alt.box-icon-warning:after,
+.animate-icon-border-rise.box-icon-to-warning:hover:after,
+.animate-icon-border-rise-alt.box-icon-to-warning:hover:after {
+    -webkit-box-shadow: 0 0 0 2px #f89406;
+    box-shadow: 0 0 0 2px #f89406;
+}
+.animate-icon-border-rise.box-icon-danger:after,
+.animate-icon-border-rise-alt.box-icon-danger:after,
+.animate-icon-border-rise.box-icon-to-danger:hover:after,
+.animate-icon-border-rise-alt.box-icon-to-danger:hover:after {
+    -webkit-box-shadow: 0 0 0 2px #bd362f;
+    box-shadow: 0 0 0 2px #bd362f;
+}
+.animate-icon-border-rise.box-icon-inverse:after,
+.animate-icon-border-rise-alt.box-icon-inverse:after,
+.animate-icon-border-rise.box-icon-to-inverse:hover:after,
+.animate-icon-border-rise-alt.box-icon-to-inverse:hover:after {
+    -webkit-box-shadow: 0 0 0 2px #127cdc;
+    box-shadow: 0 0 0 2px #127cdc;
+}
+.animate-icon-border-rise.box-icon-to-normal:after:hover,
+.animate-icon-border-rise-alt.box-icon-to-normal:after:hover {
+    -webkit-box-shadow: 0 0 0 2px $c-primary;
+    box-shadow: 0 0 0 2px $c-primary;
+}
+.animate-icon-border-rise.round:after,
+.animate-icon-border-rise-alt.round:after {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.animate-icon-border-rise:after {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.animate-icon-border-rise:hover:after {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.animate-icon-border-rise-alt:after {
+    -webkit-transform: scale(1.6);
+    -moz-transform: scale(1.6);
+    -o-transform: scale(1.6);
+    -ms-transform: scale(1.6);
+    transform: scale(1.6);
+}
+.animate-icon-border-rise-alt:hover:after {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.animate-icon-border-fadeout {
+    color: #fff;
+    background: none;
+    border: 2px solid $c-primary;
+}
+.animate-icon-border-fadeout:after {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    background: $c-primary;
+}
+.animate-icon-border-fadeout:hover {
+    color: $c-primary;
+    background: none;
+}
+.animate-icon-border-fadeout:hover:after {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+}
+.animate-icon-border-fadeout.box-icon-black,
+.animate-icon-border-fadeout.box-icon-to-black:hover {
+    border-color: #333;
+}
+.animate-icon-border-fadeout.box-icon-black:after,
+.animate-icon-border-fadeout.box-icon-to-black:hover:after {
+    background: #333;
+}
+.animate-icon-border-fadeout.box-icon-black:hover,
+.animate-icon-border-fadeout.box-icon-to-black:hover:hover {
+    color: #333;
+}
+.animate-icon-border-fadeout.box-icon-gray,
+.animate-icon-border-fadeout.box-icon-to-gray:hover {
+    border-color: #808080;
+}
+.animate-icon-border-fadeout.box-icon-gray:after,
+.animate-icon-border-fadeout.box-icon-to-gray:hover:after {
+    background: #808080;
+}
+.animate-icon-border-fadeout.box-icon-gray:hover,
+.animate-icon-border-fadeout.box-icon-to-gray:hover:hover {
+    color: #808080;
+}
+.animate-icon-border-fadeout.box-icon-info,
+.animate-icon-border-fadeout.box-icon-to-info:hover {
+    border-color: #2f96b4;
+}
+.animate-icon-border-fadeout.box-icon-info:after,
+.animate-icon-border-fadeout.box-icon-to-info:hover:after {
+    background: #2f96b4;
+}
+.animate-icon-border-fadeout.box-icon-info:hover,
+.animate-icon-border-fadeout.box-icon-to-info:hover:hover {
+    color: #2f96b4;
+}
+.animate-icon-border-fadeout.box-icon-success,
+.animate-icon-border-fadeout.box-icon-to-success:hover {
+    border-color: #51a351;
+}
+.animate-icon-border-fadeout.box-icon-success:after,
+.animate-icon-border-fadeout.box-icon-to-success:hover:after {
+    background: #51a351;
+}
+.animate-icon-border-fadeout.box-icon-success:hover,
+.animate-icon-border-fadeout.box-icon-to-success:hover:hover {
+    color: #51a351;
+}
+.animate-icon-border-fadeout.box-icon-warning,
+.animate-icon-border-fadeout.box-icon-to-warning:hover {
+    border-color: #f89406;
+}
+.animate-icon-border-fadeout.box-icon-warning:after,
+.animate-icon-border-fadeout.box-icon-to-warning:hover:after {
+    background: #f89406;
+}
+.animate-icon-border-fadeout.box-icon-warning:hover,
+.animate-icon-border-fadeout.box-icon-to-warning:hover:hover {
+    color: #f89406;
+}
+.animate-icon-border-fadeout.box-icon-danger,
+.animate-icon-border-fadeout.box-icon-to-danger:hover {
+    border-color: #bd362f;
+}
+.animate-icon-border-fadeout.box-icon-danger:after,
+.animate-icon-border-fadeout.box-icon-to-danger:hover:after {
+    background: #bd362f;
+}
+.animate-icon-border-fadeout.box-icon-danger:hover,
+.animate-icon-border-fadeout.box-icon-to-danger:hover:hover {
+    color: #bd362f;
+}
+.animate-icon-border-fadeout.box-icon-inverse,
+.animate-icon-border-fadeout.box-icon-to-inverse:hover {
+    border-color: #127cdc;
+}
+.animate-icon-border-fadeout.box-icon-inverse:after,
+.animate-icon-border-fadeout.box-icon-to-inverse:hover:after {
+    background: #127cdc;
+}
+.animate-icon-border-fadeout.box-icon-inverse:hover,
+.animate-icon-border-fadeout.box-icon-to-inverse:hover:hover {
+    color: #127cdc;
+}
+.animate-icon-border-fadeout.box-icon-to-normal {
+    border-color: $c-primary;
+}
+.animate-icon-border-fadeout.box-icon-to-normal:after {
+    background: $c-primary;
+}
+.animate-icon-border-fadeout.box-icon-to-normal:hover {
+    color: $c-primary;
+}
+.animate-icon-border-fadeout.round:after {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.animate-icon-border-fadein {
+    color: $c-primary;
+    background: none;
+    border: 2px solid $c-primary;
+}
+.animate-icon-border-fadein:after {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+}
+.animate-icon-border-fadein:hover {
+    color: #fff !important;
+}
+.animate-icon-border-fadein:hover:after {
+    background: $c-primary;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+.animate-icon-border-fadein.box-icon-black,
+.animate-icon-border-fadein.box-icon-to-black:hover {
+    color: #333;
+    border-color: #333;
+}
+.animate-icon-border-fadein.box-icon-black:hover:after,
+.animate-icon-border-fadein.box-icon-to-black:hover:hover:after {
+    background: #333;
+}
+.animate-icon-border-fadein.box-icon-gray,
+.animate-icon-border-fadein.box-icon-to-gray:hover {
+    color: #808080;
+    border-color: #808080;
+}
+.animate-icon-border-fadein.box-icon-gray:hover:after,
+.animate-icon-border-fadein.box-icon-to-gray:hover:hover:after {
+    background: #808080;
+}
+.animate-icon-border-fadein.box-icon-info,
+.animate-icon-border-fadein.box-icon-to-info:hover {
+    color: #2f96b4;
+    border-color: #2f96b4;
+}
+.animate-icon-border-fadein.box-icon-info:hover:after,
+.animate-icon-border-fadein.box-icon-to-info:hover:hover:after {
+    background: #2f96b4;
+}
+.animate-icon-border-fadein.box-icon-success,
+.animate-icon-border-fadein.box-icon-to-success:hover {
+    color: #51a351;
+    border-color: #51a351;
+}
+.animate-icon-border-fadein.box-icon-success:hover:after,
+.animate-icon-border-fadein.box-icon-to-success:hover:hover:after {
+    background: #51a351;
+}
+.animate-icon-border-fadein.box-icon-warning,
+.animate-icon-border-fadein.box-icon-to-warning:hover {
+    color: #f89406;
+    border-color: #f89406;
+}
+.animate-icon-border-fadein.box-icon-warning:hover:after,
+.animate-icon-border-fadein.box-icon-to-warning:hover:hover:after {
+    background: #f89406;
+}
+.animate-icon-border-fadein.box-icon-danger,
+.animate-icon-border-fadein.box-icon-to-danger:hover {
+    color: #bd362f;
+    border-color: #bd362f;
+}
+.animate-icon-border-fadein.box-icon-danger:hover:after,
+.animate-icon-border-fadein.box-icon-to-danger:hover:hover:after {
+    background: #bd362f;
+}
+.animate-icon-border-fadein.box-icon-inverse,
+.animate-icon-border-fadein.box-icon-to-inverse:hover {
+    color: #127cdc;
+    border-color: #127cdc;
+}
+.animate-icon-border-fadein.box-icon-inverse:hover:after,
+.animate-icon-border-fadein.box-icon-to-inverse:hover:hover:after {
+    background: #127cdc;
+}
+.animate-icon-border-fadein.box-icon-to-normal:hover {
+    color: $c-primary;
+    border-color: $c-primary;
+}
+.animate-icon-border-fadein.box-icon-to-normal:hover:hover:after {
+    background: $c-primary;
+}
+.animate-icon-border-fadein.round:after {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
